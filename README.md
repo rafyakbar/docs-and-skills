@@ -1,154 +1,98 @@
-# 📚 Dev Docs Hub
+# Docs & Skills
 
-> AI-ready documentation hub built from crawled official docs.
+> AI-ready documentation crawler and multi-agent skill repository for Laravel/PHP frameworks.
 
-Dev Docs Hub is a structured repository that crawls official documentation websites and converts them into clean, organized Markdown files.
+Docs & Skills combines two things: a **documentation crawler** that converts official docs into clean Markdown for AI consumption, and a **multi-agent skill hub** that maintains synchronized AI agent instructions across OpenCode, Claude Code, and .agents environments.
 
-The result is a documentation dataset that is stable, versioned, and optimized for AI consumption.
+## Is This Project For You?
 
----
+✅ AI coding assistants that need local documentation context
 
-## 🎯 Purpose
+✅ Developers using OpenCode, Claude Code, or .agents
 
-Dev Docs Hub is designed to:
+✅ Teams maintaining skills across multiple AI agents
 
-* 🌐 Crawl official documentation websites
-* 📄 Store each page as raw HTML
-* 🧩 Convert HTML into individual Markdown files
-* 📘 Generate a single combined Markdown file
-* 🔢 Preserve order using numeric prefixes like `0001_`, `0002_`, etc.
+❌ Projects without AI coding assistant tooling
 
-This makes the documentation:
+## What This Project Can Do
 
-* Easy to index
-* Easy to embed
-* Easy to chunk
-* Stable across time
-* Fully controllable
+- Crawl official documentation websites and convert HTML to structured Markdown
+- Maintain version-locked, AI-ready documentation datasets (Livewire v4, FluxUI v2, Filament v5, Alpine.js v3)
+- Synchronize AI agent skills across 4 directories with hash verification
+- Provide reusable skill templates for README, migration, and notebook development
 
----
-
-## 🧠 Why This Project Exists
-
-Modern AI assistants rely heavily on up to date documentation. However:
-
-* Websites change
-* Content updates without notice
-* External retrieval systems may fail
-* Version specific docs are hard to freeze
-
-Dev Docs Hub solves this by producing **local, structured, AI-ready documentation datasets**.
-
-Instead of depending entirely on external systems, you own the documentation snapshot.
-
----
-
-## 📂 Project Structure
+## Directory Structure
 
 ```
-dev-docs-hub/
-├── fluxui-v2.ipynb
-├── livewire-v4.ipynb
-├── PROMPTEN.md
-├── PROMPTID.md
-└── docs/
-    ├── fluxui-v2/
-    │   ├── htmls/
-    │   ├── markdowns/
-    │   │   ├── 0001_Installation.md
-    │   │   ├── ...
-    │   │   └── 0052_Tooltip.md
-    │   └── fluxui-v2.md
-    ├── livewire-4x/
-    │   ├── htmls/
-    │   ├── markdowns/
-    │   │   ├── 0001_Quickstart.md
-    │   │   ├── ...
-    │   │   └── 0080_Contribution Guide.md
-    │   └── livewire-4x.md
-    └── on the way...
+docs-and-skills/
+├── skills/                     # Source of truth for AI agent skills
+│   ├── jupyter-notebook-development/
+│   ├── laravel-migration-development/
+│   ├── readme-development/
+│   ├── skill-development/
+│   └── skill-sync/
+├── .agents/skills/             # Mirror for .agents
+├── .opencode/skills/           # Mirror for OpenCode
+├── .claude/skills/             # Mirror for Claude Code
+├── docs/                       # Crawled documentation datasets
+│   └── <topic>_v<version>/     # e.g., livewire-4x, fluxui-v2
+│       ├── references.md       # Index/overview file
+│       └── references/         # Detailed reference files
+│           ├── 001_<subject>.md
+│           ├── 002_<subject>.md
+│           └── ...
+├── *.ipynb                     # Jupyter crawler notebooks
+├── PROMPTEN.md                 # English crawling prompt template
+└── PROMPTID.md                 # Indonesian crawling prompt template
 ```
 
-### 📁 Folder Explanation
+## Documentation Pipeline
 
-* 📂 `htmls/`
-  Raw HTML files downloaded directly from the official documentation.
+Each Jupyter notebook follows a 4-step crawl-and-convert pipeline:
 
-* 📂 `markdowns/`
-  Individual Markdown files per documentation page.
+> [!NOTE]
+> HTML files are gitignored. Only the final Markdown output is committed.
 
-* 📘 `[project-name].md`
-  A fully combined Markdown file containing all documentation sections.
+| Step | Description |
+|------|-------------|
+| **1. Fetch** | Download the start page |
+| **2. Extract** | Collect all sidebar links |
+| **3. Crawl** | Download each page as numbered HTML (`0001_Name.html`) |
+| **4. Convert** | Strip images, convert to Markdown, save as numbered reference files |
 
----
+### Supported Frameworks
 
-## ⚙️ Crawling Pipeline
+| Framework | Version | Status |
+|-----------|---------|--------|
+| Livewire | 4.x | ✅ Complete |
+| FluxUI | 2.x | ✅ Complete |
+| Filament | 5.x | ✅ Complete |
+| Alpine.js | 3.x | ✅ Complete |
 
-Each notebook follows a strict and reproducible structure:
+## Skill Architecture
 
-### 1️⃣ Configuration
-
-Defines project name, base URL, start URL, and output directories.
-
-### 2️⃣ Fetch Start Page
-
-Downloads the initial documentation page.
-
-### 3️⃣ Extract Sidebar Links
-
-Collects all documentation links from the sidebar menu.
-
-### 4️⃣ Crawl Each Page
-
-Downloads each documentation page and saves it as a numbered HTML file.
-
-### 5️⃣ Convert HTML to Markdown
-
-* Extracts the main documentation content
-* Removes image-related tags (`img`, `svg`, `picture`, `source`)
-* Converts cleaned HTML to Markdown
-* Saves individual Markdown files
-* Generates a single combined Markdown file
-
----
-
-## 🚀 Use Cases
-
-### 🤖 AI Coding Assistant Knowledge Base
-
-Point your AI assistant to:
+Skills are synchronized across 4 directories to ensure consistent behavior:
 
 ```
-docs/[project]/markdowns
+skills/               ← Source of truth (edit here)
+.agents/skills/       ← Mirror
+.opencode/skills/     ← Mirror
+.claude/skills/       ← Mirror
 ```
 
-Now the assistant can read the full documentation locally and consistently.
+> [!TIP]
+> Use `skill-sync` to crosscheck and sync all skills. Use `skill-development` to create new skills.
 
----
+## Use Cases
 
-### 🔎 RAG and Embedding Pipelines
+### AI Knowledge Base
 
-* Split per file
-* Split per heading
-* Generate embeddings
-* Store in vector database
+Point your AI assistant to `docs/<topic>_v<version>/references.md` for local, version-locked documentation.
 
-Perfect for retrieval augmented generation systems.
+### RAG Pipeline
 
----
+Split Markdown files per heading, generate embeddings, and store in a vector database for retrieval-augmented generation.
 
-### 🧪 Fine Tuning Dataset
+### Multi-Agent Skill Management
 
-Use the combined Markdown file as:
-
-* Training corpus
-* Domain specific dataset
-* Structured knowledge base
-
----
-
-## 🌱 Future Plans
-
-* Support more frameworks
-* CLI version of crawler
-* AI-based crawler
+Define skills once in `skills/`, sync to all agent folders, and ensure consistent behavior across OpenCode, Claude Code, and .agents.
