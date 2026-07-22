@@ -1,0 +1,872 @@
+[
+  {
+    "title": "What is Filament?",
+    "slug": "what-is-filament",
+    "url": "https://filamentphp.com/docs/5.x/introduction/overview",
+    "idx": 1
+  },
+  {
+    "title": "Installation",
+    "slug": "installation",
+    "url": "https://filamentphp.com/docs/5.x/introduction/installation",
+    "idx": 2
+  },
+  {
+    "title": "AI-assisted development",
+    "slug": "ai-assisted-development",
+    "url": "https://filamentphp.com/docs/5.x/introduction/ai",
+    "idx": 3
+  },
+  {
+    "title": "Optimizing local development",
+    "slug": "optimizing-local-development",
+    "url": "https://filamentphp.com/docs/5.x/introduction/optimizing-local-development",
+    "idx": 4
+  },
+  {
+    "title": "Help",
+    "slug": "help",
+    "url": "https://filamentphp.com/docs/5.x/introduction/help",
+    "idx": 5
+  },
+  {
+    "title": "Version support policy",
+    "slug": "version-support-policy",
+    "url": "https://filamentphp.com/docs/5.x/introduction/version-support-policy",
+    "idx": 6
+  },
+  {
+    "title": "Contributing",
+    "slug": "contributing",
+    "url": "https://filamentphp.com/docs/5.x/introduction/contributing",
+    "idx": 7
+  },
+  {
+    "title": "Getting started",
+    "slug": "getting-started",
+    "url": "https://filamentphp.com/docs/5.x/getting-started",
+    "idx": 8
+  },
+  {
+    "title": "Overview",
+    "slug": "overview",
+    "url": "https://filamentphp.com/docs/5.x/resources/overview",
+    "idx": 9
+  },
+  {
+    "title": "Listing records",
+    "slug": "listing-records",
+    "url": "https://filamentphp.com/docs/5.x/resources/listing-records",
+    "idx": 10
+  },
+  {
+    "title": "Creating records",
+    "slug": "creating-records",
+    "url": "https://filamentphp.com/docs/5.x/resources/creating-records",
+    "idx": 11
+  },
+  {
+    "title": "Editing records",
+    "slug": "editing-records",
+    "url": "https://filamentphp.com/docs/5.x/resources/editing-records",
+    "idx": 12
+  },
+  {
+    "title": "Viewing records",
+    "slug": "viewing-records",
+    "url": "https://filamentphp.com/docs/5.x/resources/viewing-records",
+    "idx": 13
+  },
+  {
+    "title": "Deleting records",
+    "slug": "deleting-records",
+    "url": "https://filamentphp.com/docs/5.x/resources/deleting-records",
+    "idx": 14
+  },
+  {
+    "title": "Managing relationships",
+    "slug": "managing-relationships",
+    "url": "https://filamentphp.com/docs/5.x/resources/managing-relationships",
+    "idx": 15
+  },
+  {
+    "title": "Nested resources",
+    "slug": "nested-resources",
+    "url": "https://filamentphp.com/docs/5.x/resources/nesting",
+    "idx": 16
+  },
+  {
+    "title": "Singular resources",
+    "slug": "singular-resources",
+    "url": "https://filamentphp.com/docs/5.x/resources/singular",
+    "idx": 17
+  },
+  {
+    "title": "Global search",
+    "slug": "global-search",
+    "url": "https://filamentphp.com/docs/5.x/resources/global-search",
+    "idx": 18
+  },
+  {
+    "title": "Using widgets on resource pages",
+    "slug": "using-widgets-on-resource-pages",
+    "url": "https://filamentphp.com/docs/5.x/resources/widgets",
+    "idx": 19
+  },
+  {
+    "title": "Custom resource pages",
+    "slug": "custom-resource-pages",
+    "url": "https://filamentphp.com/docs/5.x/resources/custom-pages",
+    "idx": 20
+  },
+  {
+    "title": "Code quality tips",
+    "slug": "code-quality-tips",
+    "url": "https://filamentphp.com/docs/5.x/resources/code-quality-tips",
+    "idx": 21
+  },
+  {
+    "title": "Overview",
+    "slug": "overview",
+    "url": "https://filamentphp.com/docs/5.x/tables/overview",
+    "idx": 22
+  },
+  {
+    "title": "Actions",
+    "slug": "actions",
+    "url": "https://filamentphp.com/docs/5.x/tables/actions",
+    "idx": 23
+  },
+  {
+    "title": "Layout",
+    "slug": "layout",
+    "url": "https://filamentphp.com/docs/5.x/tables/layout",
+    "idx": 24
+  },
+  {
+    "title": "Summaries",
+    "slug": "summaries",
+    "url": "https://filamentphp.com/docs/5.x/tables/summaries",
+    "idx": 25
+  },
+  {
+    "title": "Grouping rows",
+    "slug": "grouping-rows",
+    "url": "https://filamentphp.com/docs/5.x/tables/grouping",
+    "idx": 26
+  },
+  {
+    "title": "Empty state",
+    "slug": "empty-state",
+    "url": "https://filamentphp.com/docs/5.x/tables/empty-state",
+    "idx": 27
+  },
+  {
+    "title": "Custom data",
+    "slug": "custom-data",
+    "url": "https://filamentphp.com/docs/5.x/tables/custom-data",
+    "idx": 28
+  },
+  {
+    "title": "Overview",
+    "slug": "overview",
+    "url": "https://filamentphp.com/docs/5.x/schemas/overview",
+    "idx": 29
+  },
+  {
+    "title": "Layouts",
+    "slug": "layouts",
+    "url": "https://filamentphp.com/docs/5.x/schemas/layouts",
+    "idx": 30
+  },
+  {
+    "title": "Sections",
+    "slug": "sections",
+    "url": "https://filamentphp.com/docs/5.x/schemas/sections",
+    "idx": 31
+  },
+  {
+    "title": "Tabs",
+    "slug": "tabs",
+    "url": "https://filamentphp.com/docs/5.x/schemas/tabs",
+    "idx": 32
+  },
+  {
+    "title": "Wizards",
+    "slug": "wizards",
+    "url": "https://filamentphp.com/docs/5.x/schemas/wizards",
+    "idx": 33
+  },
+  {
+    "title": "Callouts",
+    "slug": "callouts",
+    "url": "https://filamentphp.com/docs/5.x/schemas/callouts",
+    "idx": 34
+  },
+  {
+    "title": "Empty states",
+    "slug": "empty-states",
+    "url": "https://filamentphp.com/docs/5.x/schemas/empty-states",
+    "idx": 35
+  },
+  {
+    "title": "Prime components",
+    "slug": "prime-components",
+    "url": "https://filamentphp.com/docs/5.x/schemas/primes",
+    "idx": 36
+  },
+  {
+    "title": "Custom components",
+    "slug": "custom-components",
+    "url": "https://filamentphp.com/docs/5.x/schemas/custom-components",
+    "idx": 37
+  },
+  {
+    "title": "Overview",
+    "slug": "overview",
+    "url": "https://filamentphp.com/docs/5.x/forms/overview",
+    "idx": 38
+  },
+  {
+    "title": "Text input",
+    "slug": "text-input",
+    "url": "https://filamentphp.com/docs/5.x/forms/text-input",
+    "idx": 39
+  },
+  {
+    "title": "Select",
+    "slug": "select",
+    "url": "https://filamentphp.com/docs/5.x/forms/select",
+    "idx": 40
+  },
+  {
+    "title": "Checkbox",
+    "slug": "checkbox",
+    "url": "https://filamentphp.com/docs/5.x/forms/checkbox",
+    "idx": 41
+  },
+  {
+    "title": "Toggle",
+    "slug": "toggle",
+    "url": "https://filamentphp.com/docs/5.x/forms/toggle",
+    "idx": 42
+  },
+  {
+    "title": "Checkbox list",
+    "slug": "checkbox-list",
+    "url": "https://filamentphp.com/docs/5.x/forms/checkbox-list",
+    "idx": 43
+  },
+  {
+    "title": "Radio",
+    "slug": "radio",
+    "url": "https://filamentphp.com/docs/5.x/forms/radio",
+    "idx": 44
+  },
+  {
+    "title": "Date-time picker",
+    "slug": "date-time-picker",
+    "url": "https://filamentphp.com/docs/5.x/forms/date-time-picker",
+    "idx": 45
+  },
+  {
+    "title": "File upload",
+    "slug": "file-upload",
+    "url": "https://filamentphp.com/docs/5.x/forms/file-upload",
+    "idx": 46
+  },
+  {
+    "title": "Rich editor",
+    "slug": "rich-editor",
+    "url": "https://filamentphp.com/docs/5.x/forms/rich-editor",
+    "idx": 47
+  },
+  {
+    "title": "Markdown editor",
+    "slug": "markdown-editor",
+    "url": "https://filamentphp.com/docs/5.x/forms/markdown-editor",
+    "idx": 48
+  },
+  {
+    "title": "Repeater",
+    "slug": "repeater",
+    "url": "https://filamentphp.com/docs/5.x/forms/repeater",
+    "idx": 49
+  },
+  {
+    "title": "Builder",
+    "slug": "builder",
+    "url": "https://filamentphp.com/docs/5.x/forms/builder",
+    "idx": 50
+  },
+  {
+    "title": "Tags input",
+    "slug": "tags-input",
+    "url": "https://filamentphp.com/docs/5.x/forms/tags-input",
+    "idx": 51
+  },
+  {
+    "title": "Textarea",
+    "slug": "textarea",
+    "url": "https://filamentphp.com/docs/5.x/forms/textarea",
+    "idx": 52
+  },
+  {
+    "title": "Key-value",
+    "slug": "key-value",
+    "url": "https://filamentphp.com/docs/5.x/forms/key-value",
+    "idx": 53
+  },
+  {
+    "title": "Color picker",
+    "slug": "color-picker",
+    "url": "https://filamentphp.com/docs/5.x/forms/color-picker",
+    "idx": 54
+  },
+  {
+    "title": "Toggle buttons",
+    "slug": "toggle-buttons",
+    "url": "https://filamentphp.com/docs/5.x/forms/toggle-buttons",
+    "idx": 55
+  },
+  {
+    "title": "Slider",
+    "slug": "slider",
+    "url": "https://filamentphp.com/docs/5.x/forms/slider",
+    "idx": 56
+  },
+  {
+    "title": "Code editor",
+    "slug": "code-editor",
+    "url": "https://filamentphp.com/docs/5.x/forms/code-editor",
+    "idx": 57
+  },
+  {
+    "title": "Hidden",
+    "slug": "hidden",
+    "url": "https://filamentphp.com/docs/5.x/forms/hidden",
+    "idx": 58
+  },
+  {
+    "title": "Custom fields",
+    "slug": "custom-fields",
+    "url": "https://filamentphp.com/docs/5.x/forms/custom-fields",
+    "idx": 59
+  },
+  {
+    "title": "Validation",
+    "slug": "validation",
+    "url": "https://filamentphp.com/docs/5.x/forms/validation",
+    "idx": 60
+  },
+  {
+    "title": "Overview",
+    "slug": "overview",
+    "url": "https://filamentphp.com/docs/5.x/infolists/overview",
+    "idx": 61
+  },
+  {
+    "title": "Text entry",
+    "slug": "text-entry",
+    "url": "https://filamentphp.com/docs/5.x/infolists/text-entry",
+    "idx": 62
+  },
+  {
+    "title": "Icon entry",
+    "slug": "icon-entry",
+    "url": "https://filamentphp.com/docs/5.x/infolists/icon-entry",
+    "idx": 63
+  },
+  {
+    "title": "Image entry",
+    "slug": "image-entry",
+    "url": "https://filamentphp.com/docs/5.x/infolists/image-entry",
+    "idx": 64
+  },
+  {
+    "title": "Color entry",
+    "slug": "color-entry",
+    "url": "https://filamentphp.com/docs/5.x/infolists/color-entry",
+    "idx": 65
+  },
+  {
+    "title": "Code entry",
+    "slug": "code-entry",
+    "url": "https://filamentphp.com/docs/5.x/infolists/code-entry",
+    "idx": 66
+  },
+  {
+    "title": "Key-value entry",
+    "slug": "key-value-entry",
+    "url": "https://filamentphp.com/docs/5.x/infolists/key-value-entry",
+    "idx": 67
+  },
+  {
+    "title": "Repeatable entry",
+    "slug": "repeatable-entry",
+    "url": "https://filamentphp.com/docs/5.x/infolists/repeatable-entry",
+    "idx": 68
+  },
+  {
+    "title": "Custom entries",
+    "slug": "custom-entries",
+    "url": "https://filamentphp.com/docs/5.x/infolists/custom-entries",
+    "idx": 69
+  },
+  {
+    "title": "Overview",
+    "slug": "overview",
+    "url": "https://filamentphp.com/docs/5.x/actions/overview",
+    "idx": 70
+  },
+  {
+    "title": "Modals",
+    "slug": "modals",
+    "url": "https://filamentphp.com/docs/5.x/actions/modals",
+    "idx": 71
+  },
+  {
+    "title": "Grouping actions",
+    "slug": "grouping-actions",
+    "url": "https://filamentphp.com/docs/5.x/actions/grouping-actions",
+    "idx": 72
+  },
+  {
+    "title": "Create action",
+    "slug": "create-action",
+    "url": "https://filamentphp.com/docs/5.x/actions/create",
+    "idx": 73
+  },
+  {
+    "title": "Edit action",
+    "slug": "edit-action",
+    "url": "https://filamentphp.com/docs/5.x/actions/edit",
+    "idx": 74
+  },
+  {
+    "title": "View action",
+    "slug": "view-action",
+    "url": "https://filamentphp.com/docs/5.x/actions/view",
+    "idx": 75
+  },
+  {
+    "title": "Delete action",
+    "slug": "delete-action",
+    "url": "https://filamentphp.com/docs/5.x/actions/delete",
+    "idx": 76
+  },
+  {
+    "title": "Replicate action",
+    "slug": "replicate-action",
+    "url": "https://filamentphp.com/docs/5.x/actions/replicate",
+    "idx": 77
+  },
+  {
+    "title": "Force-delete action",
+    "slug": "force-delete-action",
+    "url": "https://filamentphp.com/docs/5.x/actions/force-delete",
+    "idx": 78
+  },
+  {
+    "title": "Restore action",
+    "slug": "restore-action",
+    "url": "https://filamentphp.com/docs/5.x/actions/restore",
+    "idx": 79
+  },
+  {
+    "title": "Import action",
+    "slug": "import-action",
+    "url": "https://filamentphp.com/docs/5.x/actions/import",
+    "idx": 80
+  },
+  {
+    "title": "Export action",
+    "slug": "export-action",
+    "url": "https://filamentphp.com/docs/5.x/actions/export",
+    "idx": 81
+  },
+  {
+    "title": "Overview",
+    "slug": "overview",
+    "url": "https://filamentphp.com/docs/5.x/notifications/overview",
+    "idx": 82
+  },
+  {
+    "title": "Database notifications",
+    "slug": "database-notifications",
+    "url": "https://filamentphp.com/docs/5.x/notifications/database-notifications",
+    "idx": 83
+  },
+  {
+    "title": "Broadcast notifications",
+    "slug": "broadcast-notifications",
+    "url": "https://filamentphp.com/docs/5.x/notifications/broadcast-notifications",
+    "idx": 84
+  },
+  {
+    "title": "Overview",
+    "slug": "overview",
+    "url": "https://filamentphp.com/docs/5.x/widgets/overview",
+    "idx": 85
+  },
+  {
+    "title": "Stats overview widgets",
+    "slug": "stats-overview-widgets",
+    "url": "https://filamentphp.com/docs/5.x/widgets/stats-overview",
+    "idx": 86
+  },
+  {
+    "title": "Chart widgets",
+    "slug": "chart-widgets",
+    "url": "https://filamentphp.com/docs/5.x/widgets/charts",
+    "idx": 87
+  },
+  {
+    "title": "Panel configuration",
+    "slug": "panel-configuration",
+    "url": "https://filamentphp.com/docs/5.x/panel-configuration",
+    "idx": 88
+  },
+  {
+    "title": "Overview",
+    "slug": "overview",
+    "url": "https://filamentphp.com/docs/5.x/navigation/overview",
+    "idx": 89
+  },
+  {
+    "title": "Custom pages",
+    "slug": "custom-pages",
+    "url": "https://filamentphp.com/docs/5.x/navigation/custom-pages",
+    "idx": 90
+  },
+  {
+    "title": "User menu",
+    "slug": "user-menu",
+    "url": "https://filamentphp.com/docs/5.x/navigation/user-menu",
+    "idx": 91
+  },
+  {
+    "title": "Clusters",
+    "slug": "clusters",
+    "url": "https://filamentphp.com/docs/5.x/navigation/clusters",
+    "idx": 92
+  },
+  {
+    "title": "Overview",
+    "slug": "overview",
+    "url": "https://filamentphp.com/docs/5.x/users/overview",
+    "idx": 93
+  },
+  {
+    "title": "Multi-factor authentication",
+    "slug": "multi-factor-authentication",
+    "url": "https://filamentphp.com/docs/5.x/users/multi-factor-authentication",
+    "idx": 94
+  },
+  {
+    "title": "Multi-tenancy",
+    "slug": "multi-tenancy",
+    "url": "https://filamentphp.com/docs/5.x/users/tenancy",
+    "idx": 95
+  },
+  {
+    "title": "Overview",
+    "slug": "overview",
+    "url": "https://filamentphp.com/docs/5.x/styling/overview",
+    "idx": 96
+  },
+  {
+    "title": "CSS hooks",
+    "slug": "css-hooks",
+    "url": "https://filamentphp.com/docs/5.x/styling/css-hooks",
+    "idx": 97
+  },
+  {
+    "title": "Colors",
+    "slug": "colors",
+    "url": "https://filamentphp.com/docs/5.x/styling/colors",
+    "idx": 98
+  },
+  {
+    "title": "Icons",
+    "slug": "icons",
+    "url": "https://filamentphp.com/docs/5.x/styling/icons",
+    "idx": 99
+  },
+  {
+    "title": "Render hooks",
+    "slug": "render-hooks",
+    "url": "https://filamentphp.com/docs/5.x/advanced/render-hooks",
+    "idx": 100
+  },
+  {
+    "title": "Registering assets",
+    "slug": "registering-assets",
+    "url": "https://filamentphp.com/docs/5.x/advanced/assets",
+    "idx": 101
+  },
+  {
+    "title": "Enum tricks",
+    "slug": "enum-tricks",
+    "url": "https://filamentphp.com/docs/5.x/advanced/enums",
+    "idx": 102
+  },
+  {
+    "title": "File generation",
+    "slug": "file-generation",
+    "url": "https://filamentphp.com/docs/5.x/advanced/file-generation",
+    "idx": 103
+  },
+  {
+    "title": "Modular architecture (DDD)",
+    "slug": "modular-architecture-(ddd)",
+    "url": "https://filamentphp.com/docs/5.x/advanced/modular-architecture",
+    "idx": 104
+  },
+  {
+    "title": "Security",
+    "slug": "security",
+    "url": "https://filamentphp.com/docs/5.x/advanced/security",
+    "idx": 105
+  },
+  {
+    "title": "Overview",
+    "slug": "overview",
+    "url": "https://filamentphp.com/docs/5.x/testing/overview",
+    "idx": 106
+  },
+  {
+    "title": "Testing resources",
+    "slug": "testing-resources",
+    "url": "https://filamentphp.com/docs/5.x/testing/testing-resources",
+    "idx": 107
+  },
+  {
+    "title": "Testing tables",
+    "slug": "testing-tables",
+    "url": "https://filamentphp.com/docs/5.x/testing/testing-tables",
+    "idx": 108
+  },
+  {
+    "title": "Testing schemas",
+    "slug": "testing-schemas",
+    "url": "https://filamentphp.com/docs/5.x/testing/testing-schemas",
+    "idx": 109
+  },
+  {
+    "title": "Testing actions",
+    "slug": "testing-actions",
+    "url": "https://filamentphp.com/docs/5.x/testing/testing-actions",
+    "idx": 110
+  },
+  {
+    "title": "Testing notifications",
+    "slug": "testing-notifications",
+    "url": "https://filamentphp.com/docs/5.x/testing/testing-notifications",
+    "idx": 111
+  },
+  {
+    "title": "Getting started",
+    "slug": "getting-started",
+    "url": "https://filamentphp.com/docs/5.x/plugins/getting-started",
+    "idx": 112
+  },
+  {
+    "title": "Plugin development",
+    "slug": "plugin-development",
+    "url": "https://filamentphp.com/docs/5.x/plugins/panel-plugins",
+    "idx": 113
+  },
+  {
+    "title": "Build a panel plugin",
+    "slug": "build-a-panel-plugin",
+    "url": "https://filamentphp.com/docs/5.x/plugins/building-a-panel-plugin",
+    "idx": 114
+  },
+  {
+    "title": "Build a standalone plugin",
+    "slug": "build-a-standalone-plugin",
+    "url": "https://filamentphp.com/docs/5.x/plugins/building-a-standalone-plugin",
+    "idx": 115
+  },
+  {
+    "title": "Configurable resources and pages",
+    "slug": "configurable-resources-and-pages",
+    "url": "https://filamentphp.com/docs/5.x/plugins/configurable-resources-and-pages",
+    "idx": 116
+  },
+  {
+    "title": "Overview",
+    "slug": "overview",
+    "url": "https://filamentphp.com/docs/5.x/components/overview",
+    "idx": 117
+  },
+  {
+    "title": "Rendering an action in a Livewire component",
+    "slug": "rendering-an-action-in-a-livewire-component",
+    "url": "https://filamentphp.com/docs/5.x/components/action",
+    "idx": 118
+  },
+  {
+    "title": "Rendering a form in a Blade view",
+    "slug": "rendering-a-form-in-a-blade-view",
+    "url": "https://filamentphp.com/docs/5.x/components/form",
+    "idx": 119
+  },
+  {
+    "title": "Rendering an infolist in a Blade view",
+    "slug": "rendering-an-infolist-in-a-blade-view",
+    "url": "https://filamentphp.com/docs/5.x/components/infolist",
+    "idx": 120
+  },
+  {
+    "title": "Rendering notifications outside of a panel",
+    "slug": "rendering-notifications-outside-of-a-panel",
+    "url": "https://filamentphp.com/docs/5.x/components/notifications",
+    "idx": 121
+  },
+  {
+    "title": "Rendering a schema in a Blade view",
+    "slug": "rendering-a-schema-in-a-blade-view",
+    "url": "https://filamentphp.com/docs/5.x/components/schema",
+    "idx": 122
+  },
+  {
+    "title": "Rendering a table in a Blade view",
+    "slug": "rendering-a-table-in-a-blade-view",
+    "url": "https://filamentphp.com/docs/5.x/components/table",
+    "idx": 123
+  },
+  {
+    "title": "Rendering a widget in a Blade view",
+    "slug": "rendering-a-widget-in-a-blade-view",
+    "url": "https://filamentphp.com/docs/5.x/components/widget",
+    "idx": 124
+  },
+  {
+    "title": "Avatar Blade component",
+    "slug": "avatar-blade-component",
+    "url": "https://filamentphp.com/docs/5.x/components/avatar",
+    "idx": 125
+  },
+  {
+    "title": "Badge Blade component",
+    "slug": "badge-blade-component",
+    "url": "https://filamentphp.com/docs/5.x/components/badge",
+    "idx": 126
+  },
+  {
+    "title": "Breadcrumbs Blade component",
+    "slug": "breadcrumbs-blade-component",
+    "url": "https://filamentphp.com/docs/5.x/components/breadcrumbs",
+    "idx": 127
+  },
+  {
+    "title": "Button Blade component",
+    "slug": "button-blade-component",
+    "url": "https://filamentphp.com/docs/5.x/components/button",
+    "idx": 128
+  },
+  {
+    "title": "Callout Blade component",
+    "slug": "callout-blade-component",
+    "url": "https://filamentphp.com/docs/5.x/components/callout",
+    "idx": 129
+  },
+  {
+    "title": "Checkbox Blade component",
+    "slug": "checkbox-blade-component",
+    "url": "https://filamentphp.com/docs/5.x/components/checkbox",
+    "idx": 130
+  },
+  {
+    "title": "Dropdown Blade component",
+    "slug": "dropdown-blade-component",
+    "url": "https://filamentphp.com/docs/5.x/components/dropdown",
+    "idx": 131
+  },
+  {
+    "title": "Empty State Blade component",
+    "slug": "empty-state-blade-component",
+    "url": "https://filamentphp.com/docs/5.x/components/empty-state",
+    "idx": 132
+  },
+  {
+    "title": "Fieldset Blade component",
+    "slug": "fieldset-blade-component",
+    "url": "https://filamentphp.com/docs/5.x/components/fieldset",
+    "idx": 133
+  },
+  {
+    "title": "Icon button Blade component",
+    "slug": "icon-button-blade-component",
+    "url": "https://filamentphp.com/docs/5.x/components/icon-button",
+    "idx": 134
+  },
+  {
+    "title": "Input wrapper Blade component",
+    "slug": "input-wrapper-blade-component",
+    "url": "https://filamentphp.com/docs/5.x/components/input-wrapper",
+    "idx": 135
+  },
+  {
+    "title": "Input Blade component",
+    "slug": "input-blade-component",
+    "url": "https://filamentphp.com/docs/5.x/components/input",
+    "idx": 136
+  },
+  {
+    "title": "Link Blade component",
+    "slug": "link-blade-component",
+    "url": "https://filamentphp.com/docs/5.x/components/link",
+    "idx": 137
+  },
+  {
+    "title": "Loading indicator Blade component",
+    "slug": "loading-indicator-blade-component",
+    "url": "https://filamentphp.com/docs/5.x/components/loading-indicator",
+    "idx": 138
+  },
+  {
+    "title": "Modal Blade component",
+    "slug": "modal-blade-component",
+    "url": "https://filamentphp.com/docs/5.x/components/modal",
+    "idx": 139
+  },
+  {
+    "title": "Pagination Blade component",
+    "slug": "pagination-blade-component",
+    "url": "https://filamentphp.com/docs/5.x/components/pagination",
+    "idx": 140
+  },
+  {
+    "title": "Section Blade component",
+    "slug": "section-blade-component",
+    "url": "https://filamentphp.com/docs/5.x/components/section",
+    "idx": 141
+  },
+  {
+    "title": "Select Blade component",
+    "slug": "select-blade-component",
+    "url": "https://filamentphp.com/docs/5.x/components/select",
+    "idx": 142
+  },
+  {
+    "title": "Tabs Blade component",
+    "slug": "tabs-blade-component",
+    "url": "https://filamentphp.com/docs/5.x/components/tabs",
+    "idx": 143
+  },
+  {
+    "title": "Deploying to production",
+    "slug": "deploying-to-production",
+    "url": "https://filamentphp.com/docs/5.x/deployment",
+    "idx": 144
+  },
+  {
+    "title": "Upgrade guide",
+    "slug": "upgrade-guide",
+    "url": "https://filamentphp.com/docs/5.x/upgrade-guide",
+    "idx": 145
+  }
+]
