@@ -1,0 +1,608 @@
+[
+  {
+    "title": "Release Notes",
+    "slug": "release-notes",
+    "url": "https://laravel.com/docs/13.x/releases",
+    "idx": 1
+  },
+  {
+    "title": "Upgrade Guide",
+    "slug": "upgrade-guide",
+    "url": "https://laravel.com/docs/13.x/upgrade",
+    "idx": 2
+  },
+  {
+    "title": "Contribution Guide",
+    "slug": "contribution-guide",
+    "url": "https://laravel.com/docs/13.x/contributions",
+    "idx": 3
+  },
+  {
+    "title": "Installation",
+    "slug": "installation",
+    "url": "https://laravel.com/docs/13.x/installation",
+    "idx": 4
+  },
+  {
+    "title": "Configuration",
+    "slug": "configuration",
+    "url": "https://laravel.com/docs/13.x/configuration",
+    "idx": 5
+  },
+  {
+    "title": "Agentic Development",
+    "slug": "agentic-development",
+    "url": "https://laravel.com/docs/13.x/ai",
+    "idx": 6
+  },
+  {
+    "title": "Directory Structure",
+    "slug": "directory-structure",
+    "url": "https://laravel.com/docs/13.x/structure",
+    "idx": 7
+  },
+  {
+    "title": "Frontend",
+    "slug": "frontend",
+    "url": "https://laravel.com/docs/13.x/frontend",
+    "idx": 8
+  },
+  {
+    "title": "Starter Kits",
+    "slug": "starter-kits",
+    "url": "https://laravel.com/docs/13.x/starter-kits",
+    "idx": 9
+  },
+  {
+    "title": "Deployment",
+    "slug": "deployment",
+    "url": "https://laravel.com/docs/13.x/deployment",
+    "idx": 10
+  },
+  {
+    "title": "Request Lifecycle",
+    "slug": "request-lifecycle",
+    "url": "https://laravel.com/docs/13.x/lifecycle",
+    "idx": 11
+  },
+  {
+    "title": "Service Container",
+    "slug": "service-container",
+    "url": "https://laravel.com/docs/13.x/container",
+    "idx": 12
+  },
+  {
+    "title": "Service Providers",
+    "slug": "service-providers",
+    "url": "https://laravel.com/docs/13.x/providers",
+    "idx": 13
+  },
+  {
+    "title": "Facades",
+    "slug": "facades",
+    "url": "https://laravel.com/docs/13.x/facades",
+    "idx": 14
+  },
+  {
+    "title": "Routing",
+    "slug": "routing",
+    "url": "https://laravel.com/docs/13.x/routing",
+    "idx": 15
+  },
+  {
+    "title": "Middleware",
+    "slug": "middleware",
+    "url": "https://laravel.com/docs/13.x/middleware",
+    "idx": 16
+  },
+  {
+    "title": "CSRF Protection",
+    "slug": "csrf-protection",
+    "url": "https://laravel.com/docs/13.x/csrf",
+    "idx": 17
+  },
+  {
+    "title": "Controllers",
+    "slug": "controllers",
+    "url": "https://laravel.com/docs/13.x/controllers",
+    "idx": 18
+  },
+  {
+    "title": "Requests",
+    "slug": "requests",
+    "url": "https://laravel.com/docs/13.x/requests",
+    "idx": 19
+  },
+  {
+    "title": "Responses",
+    "slug": "responses",
+    "url": "https://laravel.com/docs/13.x/responses",
+    "idx": 20
+  },
+  {
+    "title": "Views",
+    "slug": "views",
+    "url": "https://laravel.com/docs/13.x/views",
+    "idx": 21
+  },
+  {
+    "title": "Blade Templates",
+    "slug": "blade-templates",
+    "url": "https://laravel.com/docs/13.x/blade",
+    "idx": 22
+  },
+  {
+    "title": "Asset Bundling",
+    "slug": "asset-bundling",
+    "url": "https://laravel.com/docs/13.x/vite",
+    "idx": 23
+  },
+  {
+    "title": "URL Generation",
+    "slug": "url-generation",
+    "url": "https://laravel.com/docs/13.x/urls",
+    "idx": 24
+  },
+  {
+    "title": "Session",
+    "slug": "session",
+    "url": "https://laravel.com/docs/13.x/session",
+    "idx": 25
+  },
+  {
+    "title": "Validation",
+    "slug": "validation",
+    "url": "https://laravel.com/docs/13.x/validation",
+    "idx": 26
+  },
+  {
+    "title": "Error Handling",
+    "slug": "error-handling",
+    "url": "https://laravel.com/docs/13.x/errors",
+    "idx": 27
+  },
+  {
+    "title": "Logging",
+    "slug": "logging",
+    "url": "https://laravel.com/docs/13.x/logging",
+    "idx": 28
+  },
+  {
+    "title": "Artisan Console",
+    "slug": "artisan-console",
+    "url": "https://laravel.com/docs/13.x/artisan",
+    "idx": 29
+  },
+  {
+    "title": "Broadcasting",
+    "slug": "broadcasting",
+    "url": "https://laravel.com/docs/13.x/broadcasting",
+    "idx": 30
+  },
+  {
+    "title": "Cache",
+    "slug": "cache",
+    "url": "https://laravel.com/docs/13.x/cache",
+    "idx": 31
+  },
+  {
+    "title": "Collections",
+    "slug": "collections",
+    "url": "https://laravel.com/docs/13.x/collections",
+    "idx": 32
+  },
+  {
+    "title": "Concurrency",
+    "slug": "concurrency",
+    "url": "https://laravel.com/docs/13.x/concurrency",
+    "idx": 33
+  },
+  {
+    "title": "Context",
+    "slug": "context",
+    "url": "https://laravel.com/docs/13.x/context",
+    "idx": 34
+  },
+  {
+    "title": "Contracts",
+    "slug": "contracts",
+    "url": "https://laravel.com/docs/13.x/contracts",
+    "idx": 35
+  },
+  {
+    "title": "Events",
+    "slug": "events",
+    "url": "https://laravel.com/docs/13.x/events",
+    "idx": 36
+  },
+  {
+    "title": "File Storage",
+    "slug": "file-storage",
+    "url": "https://laravel.com/docs/13.x/filesystem",
+    "idx": 37
+  },
+  {
+    "title": "Helpers",
+    "slug": "helpers",
+    "url": "https://laravel.com/docs/13.x/helpers",
+    "idx": 38
+  },
+  {
+    "title": "HTTP Client",
+    "slug": "http-client",
+    "url": "https://laravel.com/docs/13.x/http-client",
+    "idx": 39
+  },
+  {
+    "title": "Images",
+    "slug": "images",
+    "url": "https://laravel.com/docs/13.x/images",
+    "idx": 40
+  },
+  {
+    "title": "Localization",
+    "slug": "localization",
+    "url": "https://laravel.com/docs/13.x/localization",
+    "idx": 41
+  },
+  {
+    "title": "Mail",
+    "slug": "mail",
+    "url": "https://laravel.com/docs/13.x/mail",
+    "idx": 42
+  },
+  {
+    "title": "Notifications",
+    "slug": "notifications",
+    "url": "https://laravel.com/docs/13.x/notifications",
+    "idx": 43
+  },
+  {
+    "title": "Package Development",
+    "slug": "package-development",
+    "url": "https://laravel.com/docs/13.x/packages",
+    "idx": 44
+  },
+  {
+    "title": "Processes",
+    "slug": "processes",
+    "url": "https://laravel.com/docs/13.x/processes",
+    "idx": 45
+  },
+  {
+    "title": "Queues",
+    "slug": "queues",
+    "url": "https://laravel.com/docs/13.x/queues",
+    "idx": 46
+  },
+  {
+    "title": "Rate Limiting",
+    "slug": "rate-limiting",
+    "url": "https://laravel.com/docs/13.x/rate-limiting",
+    "idx": 47
+  },
+  {
+    "title": "Search",
+    "slug": "search",
+    "url": "https://laravel.com/docs/13.x/search",
+    "idx": 48
+  },
+  {
+    "title": "Strings",
+    "slug": "strings",
+    "url": "https://laravel.com/docs/13.x/strings",
+    "idx": 49
+  },
+  {
+    "title": "Task Scheduling",
+    "slug": "task-scheduling",
+    "url": "https://laravel.com/docs/13.x/scheduling",
+    "idx": 50
+  },
+  {
+    "title": "Authentication",
+    "slug": "authentication",
+    "url": "https://laravel.com/docs/13.x/authentication",
+    "idx": 51
+  },
+  {
+    "title": "Authorization",
+    "slug": "authorization",
+    "url": "https://laravel.com/docs/13.x/authorization",
+    "idx": 52
+  },
+  {
+    "title": "Email Verification",
+    "slug": "email-verification",
+    "url": "https://laravel.com/docs/13.x/verification",
+    "idx": 53
+  },
+  {
+    "title": "Encryption",
+    "slug": "encryption",
+    "url": "https://laravel.com/docs/13.x/encryption",
+    "idx": 54
+  },
+  {
+    "title": "Hashing",
+    "slug": "hashing",
+    "url": "https://laravel.com/docs/13.x/hashing",
+    "idx": 55
+  },
+  {
+    "title": "Password Reset",
+    "slug": "password-reset",
+    "url": "https://laravel.com/docs/13.x/passwords",
+    "idx": 56
+  },
+  {
+    "title": "Getting Started",
+    "slug": "getting-started",
+    "url": "https://laravel.com/docs/13.x/database",
+    "idx": 57
+  },
+  {
+    "title": "Query Builder",
+    "slug": "query-builder",
+    "url": "https://laravel.com/docs/13.x/queries",
+    "idx": 58
+  },
+  {
+    "title": "Pagination",
+    "slug": "pagination",
+    "url": "https://laravel.com/docs/13.x/pagination",
+    "idx": 59
+  },
+  {
+    "title": "Migrations",
+    "slug": "migrations",
+    "url": "https://laravel.com/docs/13.x/migrations",
+    "idx": 60
+  },
+  {
+    "title": "Seeding",
+    "slug": "seeding",
+    "url": "https://laravel.com/docs/13.x/seeding",
+    "idx": 61
+  },
+  {
+    "title": "Redis",
+    "slug": "redis",
+    "url": "https://laravel.com/docs/13.x/redis",
+    "idx": 62
+  },
+  {
+    "title": "MongoDB",
+    "slug": "mongodb",
+    "url": "https://laravel.com/docs/13.x/mongodb",
+    "idx": 63
+  },
+  {
+    "title": "Getting Started",
+    "slug": "getting-started",
+    "url": "https://laravel.com/docs/13.x/eloquent",
+    "idx": 64
+  },
+  {
+    "title": "Relationships",
+    "slug": "relationships",
+    "url": "https://laravel.com/docs/13.x/eloquent-relationships",
+    "idx": 65
+  },
+  {
+    "title": "Collections",
+    "slug": "collections",
+    "url": "https://laravel.com/docs/13.x/eloquent-collections",
+    "idx": 66
+  },
+  {
+    "title": "Mutators / Casts",
+    "slug": "mutators-casts",
+    "url": "https://laravel.com/docs/13.x/eloquent-mutators",
+    "idx": 67
+  },
+  {
+    "title": "API Resources",
+    "slug": "api-resources",
+    "url": "https://laravel.com/docs/13.x/eloquent-resources",
+    "idx": 68
+  },
+  {
+    "title": "Serialization",
+    "slug": "serialization",
+    "url": "https://laravel.com/docs/13.x/eloquent-serialization",
+    "idx": 69
+  },
+  {
+    "title": "Factories",
+    "slug": "factories",
+    "url": "https://laravel.com/docs/13.x/eloquent-factories",
+    "idx": 70
+  },
+  {
+    "title": "AI SDK",
+    "slug": "ai-sdk",
+    "url": "https://laravel.com/docs/13.x/ai-sdk",
+    "idx": 71
+  },
+  {
+    "title": "MCP",
+    "slug": "mcp",
+    "url": "https://laravel.com/docs/13.x/mcp",
+    "idx": 72
+  },
+  {
+    "title": "Boost",
+    "slug": "boost",
+    "url": "https://laravel.com/docs/13.x/boost",
+    "idx": 73
+  },
+  {
+    "title": "Getting Started",
+    "slug": "getting-started",
+    "url": "https://laravel.com/docs/13.x/testing",
+    "idx": 74
+  },
+  {
+    "title": "HTTP Tests",
+    "slug": "http-tests",
+    "url": "https://laravel.com/docs/13.x/http-tests",
+    "idx": 75
+  },
+  {
+    "title": "Console Tests",
+    "slug": "console-tests",
+    "url": "https://laravel.com/docs/13.x/console-tests",
+    "idx": 76
+  },
+  {
+    "title": "Browser Tests",
+    "slug": "browser-tests",
+    "url": "https://laravel.com/docs/13.x/dusk",
+    "idx": 77
+  },
+  {
+    "title": "Database",
+    "slug": "database",
+    "url": "https://laravel.com/docs/13.x/database-testing",
+    "idx": 78
+  },
+  {
+    "title": "Mocking",
+    "slug": "mocking",
+    "url": "https://laravel.com/docs/13.x/mocking",
+    "idx": 79
+  },
+  {
+    "title": "Cashier (Stripe)",
+    "slug": "cashier-(stripe)",
+    "url": "https://laravel.com/docs/13.x/billing",
+    "idx": 80
+  },
+  {
+    "title": "Cashier (Paddle)",
+    "slug": "cashier-(paddle)",
+    "url": "https://laravel.com/docs/13.x/cashier-paddle",
+    "idx": 81
+  },
+  {
+    "title": "Envoy",
+    "slug": "envoy",
+    "url": "https://laravel.com/docs/13.x/envoy",
+    "idx": 82
+  },
+  {
+    "title": "Fortify",
+    "slug": "fortify",
+    "url": "https://laravel.com/docs/13.x/fortify",
+    "idx": 83
+  },
+  {
+    "title": "Folio",
+    "slug": "folio",
+    "url": "https://laravel.com/docs/13.x/folio",
+    "idx": 84
+  },
+  {
+    "title": "Homestead",
+    "slug": "homestead",
+    "url": "https://laravel.com/docs/13.x/homestead",
+    "idx": 85
+  },
+  {
+    "title": "Horizon",
+    "slug": "horizon",
+    "url": "https://laravel.com/docs/13.x/horizon",
+    "idx": 86
+  },
+  {
+    "title": "Mix",
+    "slug": "mix",
+    "url": "https://laravel.com/docs/13.x/mix",
+    "idx": 87
+  },
+  {
+    "title": "Octane",
+    "slug": "octane",
+    "url": "https://laravel.com/docs/13.x/octane",
+    "idx": 88
+  },
+  {
+    "title": "Passport",
+    "slug": "passport",
+    "url": "https://laravel.com/docs/13.x/passport",
+    "idx": 89
+  },
+  {
+    "title": "Pennant",
+    "slug": "pennant",
+    "url": "https://laravel.com/docs/13.x/pennant",
+    "idx": 90
+  },
+  {
+    "title": "Pint",
+    "slug": "pint",
+    "url": "https://laravel.com/docs/13.x/pint",
+    "idx": 91
+  },
+  {
+    "title": "Precognition",
+    "slug": "precognition",
+    "url": "https://laravel.com/docs/13.x/precognition",
+    "idx": 92
+  },
+  {
+    "title": "Prompts",
+    "slug": "prompts",
+    "url": "https://laravel.com/docs/13.x/prompts",
+    "idx": 93
+  },
+  {
+    "title": "Pulse",
+    "slug": "pulse",
+    "url": "https://laravel.com/docs/13.x/pulse",
+    "idx": 94
+  },
+  {
+    "title": "Reverb",
+    "slug": "reverb",
+    "url": "https://laravel.com/docs/13.x/reverb",
+    "idx": 95
+  },
+  {
+    "title": "Sail",
+    "slug": "sail",
+    "url": "https://laravel.com/docs/13.x/sail",
+    "idx": 96
+  },
+  {
+    "title": "Sanctum",
+    "slug": "sanctum",
+    "url": "https://laravel.com/docs/13.x/sanctum",
+    "idx": 97
+  },
+  {
+    "title": "Scout",
+    "slug": "scout",
+    "url": "https://laravel.com/docs/13.x/scout",
+    "idx": 98
+  },
+  {
+    "title": "Socialite",
+    "slug": "socialite",
+    "url": "https://laravel.com/docs/13.x/socialite",
+    "idx": 99
+  },
+  {
+    "title": "Telescope",
+    "slug": "telescope",
+    "url": "https://laravel.com/docs/13.x/telescope",
+    "idx": 100
+  },
+  {
+    "title": "Valet",
+    "slug": "valet",
+    "url": "https://laravel.com/docs/13.x/valet",
+    "idx": 101
+  }
+]
