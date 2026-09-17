@@ -1,0 +1,152 @@
+[
+  {
+    "title": "Installation",
+    "slug": "installation",
+    "url": "https://diagrams.mingrammer.com/docs/getting-started/installation",
+    "idx": 1
+  },
+  {
+    "title": "Examples",
+    "slug": "examples",
+    "url": "https://diagrams.mingrammer.com/docs/getting-started/examples",
+    "idx": 2
+  },
+  {
+    "title": "Diagrams",
+    "slug": "diagrams",
+    "url": "https://diagrams.mingrammer.com/docs/guides/diagram",
+    "idx": 3
+  },
+  {
+    "title": "Nodes",
+    "slug": "nodes",
+    "url": "https://diagrams.mingrammer.com/docs/guides/node",
+    "idx": 4
+  },
+  {
+    "title": "Clusters",
+    "slug": "clusters",
+    "url": "https://diagrams.mingrammer.com/docs/guides/cluster",
+    "idx": 5
+  },
+  {
+    "title": "Edges",
+    "slug": "edges",
+    "url": "https://diagrams.mingrammer.com/docs/guides/edge",
+    "idx": 6
+  },
+  {
+    "title": "OnPrem",
+    "slug": "onprem",
+    "url": "https://diagrams.mingrammer.com/docs/nodes/onprem",
+    "idx": 7
+  },
+  {
+    "title": "AWS",
+    "slug": "aws",
+    "url": "https://diagrams.mingrammer.com/docs/nodes/aws",
+    "idx": 8
+  },
+  {
+    "title": "Azure",
+    "slug": "azure",
+    "url": "https://diagrams.mingrammer.com/docs/nodes/azure",
+    "idx": 9
+  },
+  {
+    "title": "GCP",
+    "slug": "gcp",
+    "url": "https://diagrams.mingrammer.com/docs/nodes/gcp",
+    "idx": 10
+  },
+  {
+    "title": "IBM",
+    "slug": "ibm",
+    "url": "https://diagrams.mingrammer.com/docs/nodes/ibm",
+    "idx": 11
+  },
+  {
+    "title": "K8S",
+    "slug": "k8s",
+    "url": "https://diagrams.mingrammer.com/docs/nodes/k8s",
+    "idx": 12
+  },
+  {
+    "title": "AlibabaCloud",
+    "slug": "alibabacloud",
+    "url": "https://diagrams.mingrammer.com/docs/nodes/alibabacloud",
+    "idx": 13
+  },
+  {
+    "title": "OCI",
+    "slug": "oci",
+    "url": "https://diagrams.mingrammer.com/docs/nodes/oci",
+    "idx": 14
+  },
+  {
+    "title": "OpenStack",
+    "slug": "openstack",
+    "url": "https://diagrams.mingrammer.com/docs/nodes/openstack",
+    "idx": 15
+  },
+  {
+    "title": "Firebase",
+    "slug": "firebase",
+    "url": "https://diagrams.mingrammer.com/docs/nodes/firebase",
+    "idx": 16
+  },
+  {
+    "title": "DigitalOcean",
+    "slug": "digitalocean",
+    "url": "https://diagrams.mingrammer.com/docs/nodes/digitalocean",
+    "idx": 17
+  },
+  {
+    "title": "Elastic",
+    "slug": "elastic",
+    "url": "https://diagrams.mingrammer.com/docs/nodes/elastic",
+    "idx": 18
+  },
+  {
+    "title": "Outscale",
+    "slug": "outscale",
+    "url": "https://diagrams.mingrammer.com/docs/nodes/outscale",
+    "idx": 19
+  },
+  {
+    "title": "Generic",
+    "slug": "generic",
+    "url": "https://diagrams.mingrammer.com/docs/nodes/generic",
+    "idx": 20
+  },
+  {
+    "title": "Programming",
+    "slug": "programming",
+    "url": "https://diagrams.mingrammer.com/docs/nodes/programming",
+    "idx": 21
+  },
+  {
+    "title": "Saas",
+    "slug": "saas",
+    "url": "https://diagrams.mingrammer.com/docs/nodes/saas",
+    "idx": 22
+  },
+  {
+    "title": "C4",
+    "slug": "c4",
+    "url": "https://diagrams.mingrammer.com/docs/nodes/c4",
+    "idx": 23
+  },
+  {
+    "title": "Custom",
+    "slug": "custom",
+    "url": "https://diagrams.mingrammer.com/docs/nodes/custom",
+    "idx": 24
+  },
+  {
+    "title": "GIS",
+    "slug": "gis",
+    "url": "https://diagrams.mingrammer.com/docs/nodes/gis",
+    "idx": 25
+  }
+]
