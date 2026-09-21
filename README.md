@@ -30,6 +30,7 @@ docs-and-skills/
 │   ├── ar-paper-citation-numbering/
 │   ├── ar-paper-draft/
 │   ├── ar-paper-outline/
+│   ├── ar-paper-rebuttal-audit/
 │   ├── ar-paper-reference-compiler/
 │   ├── ar-paper-reviewer/
 │   ├── ar-paper-revision/
