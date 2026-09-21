@@ -32,6 +32,7 @@ docs-and-skills/
 │   ├── ar-paper-outline/
 │   ├── ar-paper-reference-compiler/
 │   ├── ar-paper-reviewer/
+│   ├── ar-paper-revision/
 │   ├── ar-paper-revision-coach/
 │   ├── ar-paper-sentence-citation/
 │   ├── documentation-crawler-development/
