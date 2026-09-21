@@ -26,6 +26,7 @@ Docs & Skills combines two things: a **documentation crawler** that converts off
 ```
 docs-and-skills/
 ├── skills/                     # Source of truth for AI agent skills
+│   ├── ar-citation-numbering/
 │   ├── ar-paper-abstract/
 │   ├── ar-paper-draft/
 │   ├── ar-paper-outline/
