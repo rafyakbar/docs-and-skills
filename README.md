@@ -29,6 +29,7 @@ docs-and-skills/
 │   ├── ar-paper-abstract/
 │   ├── ar-paper-citation-numbering/
 │   ├── ar-paper-draft/
+│   ├── ar-paper-latex-converter/
 │   ├── ar-paper-outline/
 │   ├── ar-paper-rebuttal-audit/
 │   ├── ar-paper-reference-compiler/
