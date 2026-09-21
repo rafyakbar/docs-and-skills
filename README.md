@@ -30,6 +30,7 @@ docs-and-skills/
 │   ├── ar-paper-abstract/
 │   ├── ar-paper-draft/
 │   ├── ar-paper-outline/
+│   ├── ar-paper-reviewer/
 │   ├── ar-reference-compiler/
 │   ├── ar-sentence-citation/
 │   ├── documentation-crawler-development/
