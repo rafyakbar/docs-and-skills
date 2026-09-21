@@ -66,7 +66,7 @@ Surat keputusan editorial memuat komponen kanonikal:
 
 ## 3. Struktur Standar `08_revision_roadmap.md`
 
-Dokumen *Revision Roadmap* adalah peta kerja terstruktur yang dirancang agar dapat dibaca langsung oleh skill lanjutan (`ar-revision-coach` dan `ar-paper-revision`).
+Dokumen *Revision Roadmap* adalah peta kerja terstruktur yang dirancang agar dapat dibaca langsung oleh skill lanjutan (`ar-paper-revision-coach` dan `ar-paper-revision`).
 
 ### Format Matriks 8 Kolom:
 

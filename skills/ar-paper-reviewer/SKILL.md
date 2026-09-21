@@ -1,6 +1,6 @@
 ---
 name: ar-paper-reviewer
-description: "Aktifkan ketika pengguna meminta untuk melakukan simulasi peer review independen (mock review) terhadap naskah paper akademik (paper/*.md) sebelum diserahkan ke dosen pembimbing atau portal jurnal. Melibatkan 5 peran evaluator independen (Editor-in-Chief, Methodology Reviewer, Domain Expert, Cross-Perspective Analyst, Devil's Advocate) berdasarkan Kontrak Sprint Schema 13 untuk mengevaluasi 6 dimensi akseptasi (D1-D6), mendeteksi cacat fatal (data leakage, p-hacking, overclaim), serta menghasilkan Surat Keputusan Editorial (07_editorial_decision.md) dan Rencana Aksi Revisi (08_revision_roadmap.md). Kata kunci pemicu: review paper, peer review, mock review, simulasi review, audit naskah, cek kelayakan submit, telaah paper, devil's advocate review, ars-reviewer. JANGAN aktifkan untuk menulis draf naskah (gunakan ar-paper-draft), membuat outline (gunakan ar-paper-outline), mencari sitasi (gunakan ar-sentence-citation), kompilasi daftar pustaka (gunakan ar-reference-compiler), penomoran sitasi teks (gunakan ar-citation-numbering), atau membuat abstrak (gunakan ar-paper-abstract)."
+description: "Aktifkan ketika pengguna meminta untuk melakukan simulasi peer review independen (mock review) terhadap naskah paper akademik (paper/*.md) sebelum diserahkan ke dosen pembimbing atau portal jurnal. Melibatkan 5 peran evaluator independen (Editor-in-Chief, Methodology Reviewer, Domain Expert, Cross-Perspective Analyst, Devil's Advocate) berdasarkan Kontrak Sprint Schema 13 untuk mengevaluasi 6 dimensi akseptasi (D1-D6), mendeteksi cacat fatal (data leakage, p-hacking, overclaim), serta menghasilkan Surat Keputusan Editorial (07_editorial_decision.md) dan Rencana Aksi Revisi (08_revision_roadmap.md). Kata kunci pemicu: review paper, peer review, mock review, simulasi review, audit naskah, cek kelayakan submit, telaah paper, devil's advocate review, ars-reviewer. JANGAN aktifkan untuk menulis draf naskah (gunakan ar-paper-draft), membuat outline (gunakan ar-paper-outline), mencari sitasi (gunakan ar-paper-sentence-citation), kompilasi daftar pustaka (gunakan ar-paper-reference-compiler), penomoran sitasi teks (gunakan ar-paper-citation-numbering), atau membuat abstrak (gunakan ar-paper-abstract)."
 license: MIT
 metadata:
   author: project
@@ -23,9 +23,9 @@ Keterampilan simulasi panel peer review akademik independen berstandar internasi
 ### Kapan TIDAK Mengaktifkan:
 - Menulis draf bab naskah dari outline $\rightarrow$ Gunakan **`ar-paper-draft`**.
 - Merancang struktur bab dan alokasi kata $\rightarrow$ Gunakan **`ar-paper-outline`**.
-- Mencari sitasi dan menyusun pemetaan kalimat $\rightarrow$ Gunakan **`ar-sentence-citation`**.
-- Mengompilasi naskah daftar pustaka akhir `06_references.md` $\rightarrow$ Gunakan **`ar-reference-compiler`**.
-- Menginjeksi penomoran sitasi braket `[[N]]` ke dalam bab naskah $\rightarrow$ Gunakan **`ar-citation-numbering`**.
+- Mencari sitasi dan menyusun pemetaan kalimat $\rightarrow$ Gunakan **`ar-paper-sentence-citation`**.
+- Mengompilasi naskah daftar pustaka akhir `06_references.md` $\rightarrow$ Gunakan **`ar-paper-reference-compiler`**.
+- Menginjeksi penomoran sitasi braket `[[N]]` ke dalam bab naskah $\rightarrow$ Gunakan **`ar-paper-citation-numbering`**.
 - Menyusun abstrak dwibahasa dan kata kunci $\rightarrow$ Gunakan **`ar-paper-abstract`**.
 
 ---
