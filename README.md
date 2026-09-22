@@ -55,6 +55,7 @@ docs-and-skills/
 │           ├── 002_<subject>.md
 │           └── ...
 ├── *.ipynb                     # Jupyter crawler notebooks
+├── ARPAPER.md                  # Academic paper skills sequence & lifecycle guide
 ├── PROMPTEN.md                 # English crawling prompt template
 └── PROMPTID.md                 # Indonesian crawling prompt template
 ```
