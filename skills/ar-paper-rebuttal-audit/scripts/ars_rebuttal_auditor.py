@@ -4,10 +4,10 @@
 Normative source: ARS academic-paper `rebuttal-audit` mode.
 Evaluates an author's existing rebuttal / response-to-reviewers draft against
 the original reviewer comments across 4 dimensions:
-  1. Zero-Orphan Coverage (every comment accounted for, no dropped concerns)
-  2. Tone & Academic Diplomacy (anti-defensive, anti-sycophancy, non-hostile)
-  3. Evidence Grounding & Locators (section, page, table, figure, block IDs)
-  4. Disagreement & Limitation Justification (scientifically sound rationale)
+  1. D1 Tone & Academic Diplomacy (anti-defensive, anti-sycophancy, non-hostile) [25%]
+  2. D2 Completeness / Zero-Orphan Coverage (every comment accounted for, no dropped concerns) [35%]
+  3. D3 Verifiability & Block Mapping (section, page, table, figure, block IDs) [20%]
+  4. D4 Coherence & Claim Preservation (scientifically sound rationale, claim preservation) [20%]
 
 IRON RULE — integrity boundary (no false certification):
   This is an advisory QA auditor. It does NOT generate a new response,
@@ -34,12 +34,15 @@ from _rebuttal_constants import (
     BLOCK_ID_LOCATOR_RE,
     COMBATIVE_PATTERNS,
     COMMENT_DELIMITER_RE,
+    DIMENSION_SPECS,
     DOC_HEADER_SKIP_RE,
     EVASIVE_PATTERNS,
     PAGE_LINE_LOCATOR_RE,
+    READINESS_VERDICTS,
     RESPONSE_DELIMITER_RE,
     REVIEWER_HEADER_RE,
     SYCOPHANTIC_PATTERNS,
+    VERDICT_BADGES,
 )
 
 
@@ -152,6 +155,58 @@ def parse_reviewer_comments(text: str) -> list[ReviewerComment]:
     return comments
 
 
+def clean_author_response(text: str) -> str:
+    """Clean out reviewer comment quotes, headers, status tags, and blockquotes,
+    leaving purely the author's own response text for accurate word count and audit."""
+    # 1. If explicit response marker exists, extract text following it
+    resp_match = re.search(
+        r"(?:#{1,5}\s*)?(?:\*\*)?(?:Author(?:'s)?\s*Response|Response)(?:\*\*)?\s*[:\-–]?\s*(?:\*\*)?\s*",
+        text,
+        re.IGNORECASE,
+    )
+    if resp_match:
+        body = text[resp_match.end():].strip()
+        cleaned_lines = []
+        for line in body.splitlines():
+            s = line.strip()
+            if re.match(r"^(?:\*\*)?Status(?:\*\*)?\s*[:\-–]?", s, re.IGNORECASE):
+                continue
+            cleaned_lines.append(line)
+        res = "\n".join(cleaned_lines).strip()
+        if res:
+            return res
+
+    # 2. Line-by-line filtering if no explicit response marker
+    lines = []
+    in_quote_block = False
+    for line in text.splitlines():
+        s = line.strip()
+        if not s:
+            continue
+        if s.startswith("#"):
+            continue
+        if s.startswith(">"):
+            continue
+        if re.match(r"^(?:\*\*)?Status(?:\*\*)?\s*[:\-–]?", s, re.IGNORECASE):
+            continue
+        if re.match(
+            r"^(?:\*\*)?(?:Reviewer(?:\s*Comment)?|Comment|Point|Issue|Question|Q)(?:\*\*)?\s*[:\-–]?",
+            s,
+            re.IGNORECASE,
+        ):
+            if s.count('"') % 2 == 1 or s.count('“') != s.count('”'):
+                in_quote_block = True
+            continue
+        if in_quote_block:
+            if '"' in s or '”' in s:
+                in_quote_block = False
+            continue
+        lines.append(line)
+
+    res = "\n".join(lines).strip()
+    return res if res else text.strip()
+
+
 def parse_rebuttal_draft(text: str) -> list[ResponseEntry]:
     """Parse author's response letter into discrete response entries."""
     sections = re.split(r"\n(?=#{1,4}\s+(?:REV|Comment|Point|Item|R\d+|Response\s+to\s+Reviewer|[0-9]+[.)]))", text)
@@ -161,6 +216,12 @@ def parse_rebuttal_draft(text: str) -> list[ResponseEntry]:
     for sec in sections:
         sec_str = sec.strip()
         if not sec_str or len(sec_str.split()) < 5:
+            continue
+
+        # Skip document-level header (e.g. "# Response to Reviewers — Round 1")
+        if re.match(r"^(?:#{1,3}\s*)?(?:Point-by-Point\s+)?Response\s+to\s+Reviewers\b", sec_str, re.IGNORECASE) and not re.search(
+            r"\b(REV-\d+|C\d+|R\d+[-_]?[A-Za-z0-9]+|Comment\s*\d+)\b", sec_str, re.IGNORECASE
+        ):
             continue
 
         first_line = sec_str.splitlines()[0]
@@ -186,16 +247,19 @@ def parse_rebuttal_draft(text: str) -> list[ResponseEntry]:
         author_resp = sec_str
         changes_made = ""
         if "Changes Made" in sec_str or "Changes:" in sec_str:
-            parts = re.split(r"(?:Changes\s*Made|Changes)\s*[:\-–]?", sec_str, flags=re.IGNORECASE)
+            parts = re.split(r"(?:\*\*)?\s*(?:Changes\s*Made|Changes)(?:\*\*)?\s*[:\-–]?\s*(?:\*\*)?\s*", sec_str, flags=re.IGNORECASE)
             author_resp = parts[0]
             changes_made = parts[1] if len(parts) > 1 else ""
+
+        # Clean author response so word count and tone audit accurately target pure author response
+        pure_author_resp = clean_author_response(author_resp)
 
         entries.append(
             ResponseEntry(
                 entry_id=entry_id,
                 matched_comment_id=entry_id,
                 raw_text=sec_str,
-                author_response=author_resp.strip(),
+                author_response=pure_author_resp,
                 changes_made=changes_made.strip(),
                 status=status,
                 locators=locators,
@@ -316,8 +380,9 @@ def audit_rebuttal(
             resp_snippet = matched_resp.author_response[:120].replace("\n", " ") + "..."
             locators = matched_resp.locators
 
-            # Audit tone
-            tone_flags = audit_tone(matched_resp.raw_text, comm.comment_id)
+            # Audit tone on author's actual words
+            author_text = f"{matched_resp.author_response}\n{matched_resp.changes_made}".strip()
+            tone_flags = audit_tone(author_text, comm.comment_id)
             item_flags.extend(tone_flags)
 
             # Audit locators (Dimension 3)
@@ -335,7 +400,8 @@ def audit_rebuttal(
 
             # Audit disagreement / limitation (Dimension 4)
             if matched_resp.status in ("REVIEWER_DISAGREE", "DELIBERATE_LIMITATION", "UNRESOLVABLE"):
-                if len(matched_resp.author_response.split()) < 30:
+                word_count = len(matched_resp.author_response.split())
+                if word_count < 30:
                     item_flags.append(
                         RiskFlag(
                             category="unjustified_refusal",
@@ -349,10 +415,21 @@ def audit_rebuttal(
 
             # Evaluate coverage status
             has_high_flag = any(f.severity == "HIGH" for f in item_flags)
-            if has_high_flag and any(f.category == "unjustified_refusal" for f in item_flags):
-                coverage_status = "UNRESOLVED_DISAGREE"
+            has_unjustified = any(f.category == "unjustified_refusal" for f in item_flags)
+            has_combative = any(f.category == "combative" for f in item_flags)
+            has_evasive = any(f.category == "evasive" for f in item_flags)
+            word_count = len(matched_resp.author_response.split())
+
+            if has_high_flag and has_unjustified:
+                coverage_status = "UNRESOLVED_DISAGREEMENT"
                 partially_count += 1
-            elif len(matched_resp.author_response.split()) < 20 or any(f.category == "evasive" for f in item_flags):
+            elif has_combative:
+                coverage_status = "UNRESOLVED_TONE_CONFLICT"
+                partially_count += 1
+            elif has_high_flag:
+                coverage_status = "PARTIALLY_ADDRESSED"
+                partially_count += 1
+            elif word_count < 20 or has_evasive:
                 coverage_status = "PARTIALLY_ADDRESSED"
                 partially_count += 1
             else:
@@ -379,27 +456,95 @@ def audit_rebuttal(
     med_risk_count = sum(1 for f in all_flags if f.severity == "MEDIUM")
     low_risk_count = sum(1 for f in all_flags if f.severity == "LOW")
 
-    if missing_count == 0 and high_risk_count == 0 and coverage_ratio >= 0.90:
-        verdict = "PASSED_READINESS"
-        verdict_badge = "SIAP SUBMIT (HIGH READINESS)"
-    elif missing_count > 0 or high_risk_count > 0:
-        verdict = "ACTION_REQUIRED"
-        verdict_badge = "PERLU PERBAIKAN KRITIS (ACTION REQUIRED)"
+    # 4 Dimension Scores (0-100 scale)
+    # D1: Tone & Academic Diplomacy (Weight: 0.25)
+    combative_count = sum(1 for f in all_flags if f.category == "combative")
+    evasive_count = sum(1 for f in all_flags if f.category == "evasive")
+    sycophantic_count = sum(1 for f in all_flags if f.category == "sycophantic")
+    s_d1 = max(0.0, 100.0 - (combative_count * 30.0 + evasive_count * 15.0 + sycophantic_count * 5.0))
+
+    # D2: Completeness / Zero-Orphan Coverage (Weight: 0.35)
+    if total_comments == 0:
+        s_d2 = 100.0
     else:
-        verdict = "ADVISORY_POLISHING"
-        verdict_badge = "PERBAIKAN MINOR (ADVISORY POLISHING)"
+        raw_d2 = ((addressed_count + 0.5 * partially_count) / total_comments) * 100.0
+        s_d2 = max(0.0, min(100.0, raw_d2 - (25.0 * missing_count)))
+
+    # D3: Verifiability & Block Mapping (Weight: 0.20)
+    non_missing_count = total_comments - missing_count
+    if non_missing_count <= 0:
+        s_d3 = 0.0
+        locator_ratio = 0.0
+    else:
+        grounded_count = sum(
+            1 for it in item_results
+            if it.locators_found or (it.coverage_status != "MISSING" and "acknowledg" in it.response_snippet.lower())
+        )
+        locator_ratio = grounded_count / non_missing_count
+        s_d3 = round(locator_ratio * 100.0, 1)
+
+    # D4: Coherence & Claim Preservation (Weight: 0.20)
+    unjustified_count = sum(1 for f in all_flags if f.category == "unjustified_refusal")
+    future_work_escape_count = sum(1 for f in all_flags if f.category == "unsupported_future_work_escape")
+    s_d4 = max(0.0, min(100.0, 100.0 - (unjustified_count * 40.0 + future_work_escape_count * 20.0)))
+
+    # Composite Score: (D1 * 0.25) + (D2 * 0.35) + (D3 * 0.20) + (D4 * 0.20)
+    composite_score = round(
+        (s_d1 * 0.25) + (s_d2 * 0.35) + (s_d3 * 0.20) + (s_d4 * 0.20),
+        1,
+    )
+
+    # 4-Tier Verdict Assignment:
+    # 1. PASSED_READINESS: Skor >= 80, 0 High Risk, 100% Coverage, Locators >= 80%
+    if (
+        composite_score >= 80.0
+        and high_risk_count == 0
+        and missing_count == 0
+        and coverage_ratio >= 1.0
+        and locator_ratio >= 0.80
+    ):
+        verdict = "PASSED_READINESS"
+        verdict_badge = VERDICT_BADGES["PASSED_READINESS"]
+
+    # 2. CONDITIONAL_REVISION: Skor 65–79, 0 High Risk, 100% Coverage
+    elif (
+        composite_score >= 65.0
+        and high_risk_count == 0
+        and missing_count == 0
+        and coverage_ratio >= 1.0
+    ):
+        verdict = "CONDITIONAL_REVISION"
+        verdict_badge = VERDICT_BADGES["CONDITIONAL_REVISION"]
+
+    # 4. REJECTED_UNPREPARED: Skor < 50, atau banyak bendera nada agresif/combative
+    elif composite_score < 50.0 or combative_count >= 2 or (combative_count > 0 and composite_score < 65.0):
+        verdict = "REJECTED_UNPREPARED"
+        verdict_badge = VERDICT_BADGES["REJECTED_UNPREPARED"]
+
+    # 3. REVISE_AND_RESUBMIT: Skor 50–64, atau ada item belum terjawab/penolakan tak berdasar
+    else:
+        verdict = "REVISE_AND_RESUBMIT"
+        verdict_badge = VERDICT_BADGES["REVISE_AND_RESUBMIT"]
 
     return {
         "report_format_version": AUDIT_REPORT_FORMAT_VERSION,
         "mode": "rebuttal-audit",
+        "composite_score": composite_score,
         "verdict": verdict,
         "verdict_badge": verdict_badge,
+        "dimension_scores": {
+            "D1_tone_and_diplomacy": round(s_d1, 1),
+            "D2_zero_orphan_coverage": round(s_d2, 1),
+            "D3_verifiability_and_locators": round(s_d3, 1),
+            "D4_coherence_and_claim_preservation": round(s_d4, 1),
+        },
         "counters": {
             "total_comments": total_comments,
             "addressed_count": addressed_count,
             "partially_count": partially_count,
             "missing_count": missing_count,
             "coverage_ratio": round(coverage_ratio, 4),
+            "locator_ratio": round(locator_ratio, 4),
             "high_risk_flags": high_risk_count,
             "medium_risk_flags": med_risk_count,
             "low_risk_flags": low_risk_count,
@@ -413,13 +558,24 @@ def generate_markdown_report(audit_data: dict) -> str:
     """Render audit data into comprehensive, readable GitHub-style Markdown."""
     c = audit_data["counters"]
     badge = audit_data["verdict_badge"]
+    score = audit_data["composite_score"]
+    dims = audit_data["dimension_scores"]
 
     out = []
     out.append("# Laporan Audit Penjaminan Mutu Surat Tanggapan Reviewer (Rebuttal QA Report)")
     out.append("")
+    out.append(f"**Skor Kesiapan:** `{score:.1f}/100`  ")
     out.append(f"**Status Evaluasi:** `{badge}`  ")
     out.append(f"**Rasio Cakupan Komentar (*Coverage Ratio*):** `{c['coverage_ratio'] * 100:.1f}%` ({c['addressed_count']}/{c['total_comments']} komentar terjawab tuntas)  ")
+    out.append(f"**Rasio Lokator Naskah (*Locator Grounding*):** `{c['locator_ratio'] * 100:.1f}%`  ")
     out.append(f"**Indikator Risiko (*Risk Flags*):** `{c['high_risk_flags']} Tinggi (High)` · `{c['medium_risk_flags']} Sedang (Medium)` · `{c['low_risk_flags']} Rendah (Low)`")
+    out.append("")
+    out.append("### Skor 4 Dimensi Kualitas:")
+    out.append(f"- **D1 Tone & Academic Diplomacy:** `{dims['D1_tone_and_diplomacy']:.1f}/100` (Bobot: 25%)")
+    out.append(f"- **D2 Completeness / Zero-Orphan Coverage:** `{dims['D2_zero_orphan_coverage']:.1f}/100` (Bobot: 35%)")
+    out.append(f"- **D3 Verifiability & Block Mapping:** `{dims['D3_verifiability_and_locators']:.1f}/100` (Bobot: 20%)")
+    out.append(f"- **D4 Coherence & Claim Preservation:** `{dims['D4_coherence_and_claim_preservation']:.1f}/100` (Bobot: 20%)")
+    out.append(f"- **Skor Komposit Akhir:** `{score:.1f}/100`")
     out.append("")
     out.append("> [!NOTE]")
     out.append("> Laporan ini bersifat penasihat independen (*advisory QA*). Sesuai aturan integritas repositori (*Iron Rule*), audit ini tidak mengubah naskah surat secara otomatis dan tidak menerbitkan status sertifikasi pengajuan formal.")
@@ -442,6 +598,8 @@ def generate_markdown_report(audit_data: dict) -> str:
             status_str = "⚠️ Sebagian"
         elif status == "MISSING":
             status_str = "❌ Terlewat"
+        elif status == "UNRESOLVED_TONE_CONFLICT":
+            status_str = "⚠️ Nada Defensif"
         else:
             status_str = "🔍 Penolakan"
 
@@ -481,7 +639,7 @@ def generate_markdown_report(audit_data: dict) -> str:
     if c["missing_count"] > 0:
         out.append(f"1. **Segera Selesaikan {c['missing_count']} Komentar Terlewat**: Reviewer jurnal sangat peka terhadap poin yang diabaikan. Lengkapi tanggapan untuk butir yang berstatus `MISSING`.")
     if c["high_risk_flags"] > 0:
-        out.append("2. **Netralkan Nada Defensif**: Kalimat yang teridentifikasi konfrontatif wajib disesuaikan dengan pola *Acknowledge $\to$ Validate $\to$ Evidence $\to$ Clarify*.")
+        out.append(r"2. **Netralkan Nada Defensif**: Kalimat yang teridentifikasi konfrontatif wajib disesuaikan dengan pola *Acknowledge $\to$ Validate $\to$ Evidence $\to$ Clarify*.")
     if c["medium_risk_flags"] > 0:
         out.append("3. **Lengkapi Bukti Locator Naskah**: Pastikan setiap pernyataan perbaikan merujuk ke nomor bab, sub-bab, nomor halaman, atau nomor blok jangkar naskah (`B0042`).")
     out.append("4. **Konsultasikan Penolakan dengan Dosen Pembimbing**: Pastikan butir yang berstatus `REVIEWER_DISAGREE` atau `DELIBERATE_LIMITATION` telah disetujui oleh dosen sebelum diunggah.")
@@ -538,12 +696,14 @@ def main(argv: list[str] | None = None) -> int:
 
     c = audit_data["counters"]
     print(
-        f"rebuttal-audit ok: {c['addressed_count']}/{c['total_comments']} comments addressed "
+        f"rebuttal-audit [{audit_data['verdict']}]: Skor {audit_data['composite_score']}/100 | "
+        f"{c['addressed_count']}/{c['total_comments']} comments addressed "
         f"({c['coverage_ratio']*100:.1f}%), {c['high_risk_flags']} high risk flags -> report {out_path}"
     )
 
-    return 0 if audit_data["verdict"] != "ACTION_REQUIRED" else 1
+    return 0 if audit_data["verdict"] in ("PASSED_READINESS", "CONDITIONAL_REVISION") else 1
 
 
 if __name__ == "__main__":
     raise SystemExit(main())
+

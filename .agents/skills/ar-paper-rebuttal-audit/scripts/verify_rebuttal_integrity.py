@@ -49,11 +49,15 @@ def verify_audit_data(audit_data: dict) -> tuple[bool, list[str]]:
     items = audit_data.get("item_results", [])
     total_addressed = c.get("addressed_count", 0)
     if total_addressed > 0:
-        with_locators = sum(1 for it in items if it.get("locators_found") and it.get("coverage_status") == "ADDRESSED")
+        with_locators = sum(
+            1 for it in items
+            if (it.get("locators_found") or "acknowledg" in it.get("response_snippet", "").lower())
+            and it.get("coverage_status") == "ADDRESSED"
+        )
         ratio = with_locators / total_addressed
-        if ratio < 0.70:
+        if ratio < 0.80:
             failures.append(
-                f"Evidence Grounding Weakness: Only {ratio*100:.1f}% of addressed items specify manuscript locators (target: >= 70%)."
+                f"Evidence Grounding Weakness: Only {ratio*100:.1f}% of addressed items specify manuscript locators (target: >= 80%)."
             )
 
     return len(failures) == 0, failures

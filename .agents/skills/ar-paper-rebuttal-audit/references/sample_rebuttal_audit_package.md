@@ -65,9 +65,18 @@ Diterbitkan secara otomatis oleh `ars_rebuttal_auditor.py`:
 ```markdown
 # Laporan Audit Penjaminan Mutu Surat Tanggapan Reviewer (Rebuttal QA Report)
 
-**Status Evaluasi:** `PERLU PERBAIKAN KRITIS (ACTION REQUIRED)`  
+**Skor Kesiapan:** `43.2/100`  
+**Status Evaluasi:** `DITOLAK / BELUM SIAP (REJECTED UNPREPARED)`  
 **Rasio Cakupan Komentar (*Coverage Ratio*):** `20.0%` (1/5 komentar terjawab tuntas)  
-**Indikator Risiko (*Risk Flags*):** `3 Tinggi (High)` · `1 Sedang (Medium)` · `0 Rendah (Low)`
+**Rasio Lokator Naskah (*Locator Grounding*):** `25.0%`  
+**Indikator Risiko (*Risk Flags*):** `3 Tinggi (High)` · `3 Sedang (Medium)` · `0 Rendah (Low)`
+
+### Skor 4 Dimensi Kualitas:
+- **D1 Tone & Academic Diplomacy:** `70.0/100` (Bobot: 25%)
+- **D2 Completeness / Zero-Orphan Coverage:** `25.0/100` (Bobot: 35%)
+- **D3 Verifiability & Block Mapping:** `25.0/100` (Bobot: 20%)
+- **D4 Coherence & Claim Preservation:** `60.0/100` (Bobot: 20%)
+- **Skor Komposit Akhir:** `43.2/100`
 
 > [!NOTE]
 > Laporan ini bersifat penasihat independen (*advisory QA*). Sesuai aturan integritas repositori (*Iron Rule*), audit ini tidak mengubah naskah surat secara otomatis dan tidak menerbitkan status sertifikasi pengajuan formal.
@@ -78,48 +87,60 @@ Diterbitkan secara otomatis oleh `ars_rebuttal_auditor.py`:
 
 | ID | Reviewer | Komentar Asli (Cuplikan) | Status Cakupan | Locator Naskah | Risiko |
 |:---|:---|:---|:---:|:---:|:---:|
-| `R1-1` | Reviewer 1 | The sample size justification in Section 3 is inadequate... | ✅ Lengkap | Section 3.1, p. 6, B0034 | Aman |
-| `R1-2` | Reviewer 1 | The transition between the problem description and... | ⚠️ Sebagian | *(Nihil)* | 1 isu |
-| `R1-3` | Reviewer 1 | The authors should report the 95% confidence intervals... | ❌ Terlewat | *(Nihil)* | 1 isu |
-| `R2-1` | Reviewer 2 | The paper claims to achieve state-of-the-art fairness... | 🔍 Penolakan | *(Nihil)* | 2 isu |
-| `R2-2` | Reviewer 2 | Please explain why the authors chose not to evaluate on... | ⚠️ Sebagian | *(Nihil)* | 1 isu |
+| `R1-1` | Reviewer 1 | Comment 1 (R1-1): The sample size justification in Section 3 is inadequate. A statistical power a... | ✅ Lengkap | Section 3.1, p. 6, lines 112, B0034 | Aman |
+| `R1-2` | Reviewer 1 | Comment 2 (R1-2): The transition between the problem description and the proposed attention archi... | ⚠️ Sebagian | *(Nihil)* | 1 isu |
+| `R1-3` | Reviewer 1 | Comment 3 (R1-3): The authors should report the 95% confidence intervals for all AUROC metrics in... | ❌ Terlewat | *(Nihil)* | 1 isu |
+| `R2-1` | Reviewer 2 | Comment 4 (R2-1): The paper claims to achieve state-of-the-art fairness across all demographic gr... | ⚠️ Nada Defensif | *(Nihil)* | 2 isu |
+| `R2-2` | Reviewer 2 | Comment 5 (R2-2): Please explain why the authors chose not to evaluate on the FairFace public ben... | 🔍 Penolakan | *(Nihil)* | 2 isu |
 
 ---
 
 ## 2. Temuan Peringatan Kritis & Nada Bahasa (*Tone & Risk Flags*)
 
-### #1. [HIGH] MISSING_COMMENT pada Butir `R1-3`
-> [!CAUTION]
-> **Kutipan Teks:** *"The authors should report the 95% confidence intervals for all AUROC metrics in Table 3..."*  
-> **Analisis Masalah:** Zero-Orphan Violation: Komentar reviewer ini diabaikan dan tidak dijawab sama sekali dalam surat tanggapan.  
-> **Saran Perbaikan:** Tambahkan butir tanggapan khusus yang merujuk komentar ini secara eksplisit dan lampirkan tabel CI 95%.
-
-### #2. [HIGH] COMBATIVE pada Butir `R2-1`
-> [!CAUTION]
-> **Kutipan Teks:** *"The reviewer completely misunderstood our point"* dan *"Anyone in fairness AI knows that"*  
-> **Analisis Masalah:** Nada defensif atau agresif dapat memicu reaksi negatif dari reviewer dan editor.  
-> **Saran Perbaikan:** Ganti dengan pengakuan objektif berdiplomasi, misalnya: 'We appreciate this critical observation and acknowledge that our original framing of SOTA fairness required more nuance.'
-
-### #3. [HIGH] UNJUSTIFIED_REFUSAL pada Butir `R2-2`
-> [!CAUTION]
-> **Kutipan Teks:** *"We did not use FairFace because it was beyond the scope of our research."*  
-> **Analisis Masalah:** Penolakan atau batasan disampaikan terlalu singkat tanpa bukti data atau kutipan literatur pendukung.  
-> **Saran Perbaikan:** Jelaskan kendala empiris/lisensi data, atau sebutkan batasan domain akuisisi sensor, dan tambahkan pengakuan di bab Limitations paper.
-
-### #4. [MEDIUM] UNGROUNDED pada Butir `R1-2`
+### #1. [MEDIUM] UNGROUNDED pada Butir `R1-2`
 > [!WARNING]
-> **Kutipan Teks:** *"We have revised the text to make the research gap much clearer..."*  
+> **Kutipan Teks:** *"We have revised the text to make the research gap much clearer as requested."*  
 > **Analisis Masalah:** Klaim revisi tidak menyertakan locator naskah (Section, Page, Tabel, atau Block ID BNNNN).  
-> **Saran Perbaikan:** Tambahkan rujukan lokasi presisi: misalnya 'See revised manuscript Section 1, paragraph 3 (Block B0018)'.
+> **Saran Perbaikan:** Tambahkan rujukan lokasi presisi: misalnya 'See revised manuscript Section 3.2, paragraph 2 (Block B0042)'.
+
+### #2. [HIGH] MISSING_COMMENT pada Butir `R1-3`
+> [!CAUTION]
+> **Kutipan Teks:** *"Comment 3 (R1-3): The authors should report the 95% confidence intervals for all AUROC metrics in..."*  
+> **Analisis Masalah:** Zero-Orphan Violation: Komentar reviewer ini diabaikan dan tidak dijawab sama sekali dalam surat tanggapan.  
+> **Saran Perbaikan:** Tambahkan butir tanggapan khusus yang merujuk komentar ini secara eksplisit.
+
+### #3. [HIGH] COMBATIVE pada Butir `R2-1`
+> [!CAUTION]
+> **Kutipan Teks:** *"The reviewer completely misunderstood"*  
+> **Analisis Masalah:** Nada defensif atau agresif dapat memicu reaksi negatif dari reviewer dan editor.  
+> **Saran Perbaikan:** Ganti dengan pengakuan objektif berdiplomasi, misalnya: 'We appreciate this thoughtful critique and have clarified our theoretical boundary in Section X.'
+
+### #4. [MEDIUM] UNGROUNDED pada Butir `R2-1`
+> [!WARNING]
+> **Kutipan Teks:** *"The reviewer completely misunderstood our point. We never claimed zero disparity"*  
+> **Analisis Masalah:** Klaim revisi tidak menyertakan locator naskah (Section, Page, Tabel, atau Block ID BNNNN).  
+> **Saran Perbaikan:** Tambahkan rujukan lokasi presisi: misalnya 'See revised manuscript Section 3.2, paragraph 2 (Block B0042)'.
+
+### #5. [MEDIUM] UNGROUNDED pada Butir `R2-2`
+> [!WARNING]
+> **Kutipan Teks:** *"We did not use FairFace because it was beyond the scope of our research. Evaluat"*  
+> **Analisis Masalah:** Klaim revisi tidak menyertakan locator naskah (Section, Page, Tabel, atau Block ID BNNNN).  
+> **Saran Perbaikan:** Tambahkan rujukan lokasi presisi: misalnya 'See revised manuscript Section 3.2, paragraph 2 (Block B0042)'.
+
+### #6. [HIGH] UNJUSTIFIED_REFUSAL pada Butir `R2-2`
+> [!CAUTION]
+> **Kutipan Teks:** *"We did not use FairFace because it was beyond the scope of our research. Evaluat"*  
+> **Analisis Masalah:** Penolakan atau batasan disampaikan terlalu singkat tanpa bukti data atau kutipan literatur pendukung.  
+> **Saran Perbaikan:** Jelaskan kendala empiris, batas etik IRB, atau kutip literatur metodologi yang memvalidasi keputusan tersebut.
 
 ---
 
 ## 3. Rekomendasi Tindakan Pra-Bimbingan Dosen (*Actionable Advice*)
 
-1. **Segera Selesaikan 1 Komentar Terlewat**: Tambahkan respons untuk butir `R1-3` dengan menyertakan interval kepercayaan 95%.
-2. **Netralkan Nada Defensif**: Ubah tanggapan `R2-1` menggunakan pola AVEC (*Acknowledge $\to$ Validate $\to$ Evidence $\to$ Clarify*).
-3. **Lengkapi Bukti Locator Naskah**: Cantumkan rujukan halaman dan blok pada butir `R1-2`.
-4. **Perkuat Dasar Batasan Riset**: Perbaiki justifikasi penolakan `R2-2` dengan alasan ilmiah yang sah.
+1. **Segera Selesaikan 1 Komentar Terlewat**: Reviewer jurnal sangat peka terhadap poin yang diabaikan. Lengkapi tanggapan untuk butir yang berstatus `MISSING`.
+2. **Netralkan Nada Defensif**: Kalimat yang teridentifikasi konfrontatif wajib disesuaikan dengan pola *Acknowledge $\to$ Validate $\to$ Evidence $\to$ Clarify*.
+3. **Lengkapi Bukti Locator Naskah**: Pastikan setiap pernyataan perbaikan merujuk ke nomor bab, sub-bab, nomor halaman, atau nomor blok jangkar naskah (`B0042`).
+4. **Konsultasikan Penolakan dengan Dosen Pembimbing**: Pastikan butir yang berstatus `REVIEWER_DISAGREE` atau `DELIBERATE_LIMITATION` telah disetujui oleh dosen sebelum diunggah.
 ```
 
 ---
@@ -162,4 +183,4 @@ Setelah menerima laporan audit, penulis menyempurnakan surat tanggapan:
 **Changes Made:** Added FairFace literature citation in Section 2 and detailed scope boundary in Section 5.4, p. 18, lines 340–355 (Block B0155).
 ```
 
-Jika draf `response_draft_v2.md` diaudit ulang menggunakan skrip, hasilnya akan meraih status **`PASSED_READINESS` (100% Coverage, 0 Risk Flags, 100% Locator Grounded)** dan siap ditandatangani oleh dosen pembimbing!
+Jika draf `response_draft_v2.md` diaudit ulang menggunakan skrip, hasilnya akan meraih status **`PASSED_READINESS` (Skor Kesiapan 100.0/100, 100% Coverage, 0 Risk Flags, 100% Locator Grounded)** dan siap ditandatangani oleh dosen pembimbing!

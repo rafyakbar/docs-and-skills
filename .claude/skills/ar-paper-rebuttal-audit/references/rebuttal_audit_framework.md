@@ -49,78 +49,91 @@ Audit surat tanggapan **hanya dapat diaktifkan jika pengguna menyediakan KEDUA d
 
 ---
 
-## 3. Empat Dimensi Penilaian Kualitas (*Four Audit Dimensions*)
+## 3. Empat Dimensi Penilaian Kualitas & Formula Skor Komposit
 
 ```
 +─────────────────────────────────────────────────────────────────────────+
-| DIMENSI 1: Audit Cakupan Komentar (Zero-Orphan Coverage)                |
-|  - Memverifikasi 100% komentar terjawab (ADDRESSED / MISSING)           |
-|  - Mendeteksi pertanyaan majemuk (compound asks) yang terlewat          |
-+─────────────────────────────────────────────────────────────────────────+
-                                    │
-                                    ▼
-+─────────────────────────────────────────────────────────────────────────+
-| DIMENSI 2: Audit Nada & Etika Diplomasi (Tone & Academic Posture)       |
+| DIMENSI 1 (D1): Nada & Etika Diplomasi (Tone & Academic Diplomacy)      |
+|  - Bobot: 25%                                                           |
 |  - Mendeteksi nada defensif, bermusuhan, atau meremehkan reviewer       |
 |  - Menyaring sanjungan palsu berlebihan (inauthentic sycophancy)        |
 +─────────────────────────────────────────────────────────────────────────+
                                     │
                                     ▼
 +─────────────────────────────────────────────────────────────────────────+
-| DIMENSI 3: Audit Bukti Naskah & Lokator Presisi (Evidence Grounding)    |
-|  - Memeriksa keabsahan rujukan (Section, Page, Tabel, Block ID BNNNN)   |
-|  - Mencegah klaim kosong tanpa bukti perubahan nyata                    |
+| DIMENSI 2 (D2): Kelengkapan Komentar (Completeness / Zero-Orphan)       |
+|  - Bobot: 35%                                                           |
+|  - Memverifikasi 100% komentar terjawab (ADDRESSED / MISSING)           |
+|  - Mendeteksi butir terlupakan atau sub-pertanyaan yang diabaikan       |
 +─────────────────────────────────────────────────────────────────────────+
                                     │
                                     ▼
 +─────────────────────────────────────────────────────────────────────────+
-| DIMENSI 4: Audit Ketidaksepakatan & Batasan (Justified Disagreements)   |
+| DIMENSI 3 (D3): Keterverifikasian & Pemetaan Blok (Verifiability)       |
+|  - Bobot: 20%                                                           |
+|  - Memeriksa keabsahan rujukan (Section, Page, Tabel, Block ID BNNNN)   |
+|  - Ambang batas keterpenuhan lokator naskah >= 80%                      |
++─────────────────────────────────────────────────────────────────────────+
+                                    │
+                                    ▼
++─────────────────────────────────────────────────────────────────────────+
+| DIMENSI 4 (D4): Koherensi & Preservasi Klaim (Claim Preservation)       |
+|  - Bobot: 20%                                                           |
 |  - Menguji dasar ilmiah penolakan (DELIBERATE_LIMITATION / DISAGREE)    |
 |  - Memastikan ada argumen literatur, kendala etik IRB, atau data riil  |
 +─────────────────────────────────────────────────────────────────────────+
 ```
 
-### Dimensi 1: Audit Cakupan Komentar (*Zero-Orphan Coverage*)
-- **Tujuan**: Memastikan tidak ada satu pun komentar atau sub-pertanyaan reviewer yang "hilang" atau diabaikan secara sengaja.
-- **Kategori Status**:
-  - `ADDRESSED`: Komentar dijawab tuntas dengan penjelasan memadai.
-  - `PARTIALLY_ADDRESSED`: Komentar dijawab sebagian (misal: reviewer meminta A dan B, namun penulis hanya menjawab A).
-  - `MISSING`: Komentar tidak dijawab sama sekali (pelanggaran *Zero-Orphan*).
-- **Rasio Cakupan**:
-  $$\text{Coverage Ratio} = \frac{\text{Jumlah Komentar ADDRESSED}}{\text{Total Komentar Teridentifikasi}}$$
-  Target kelulusan: **100%**.
+### Formula Skor Komposit Tertimbang (0–100):
+$$\text{Composite Score} = (S_{D1} \times 0.25) + (S_{D2} \times 0.35) + (S_{D3} \times 0.20) + (S_{D4} \times 0.20)$$
 
-### Dimensi 2: Audit Nada & Etika Diplomasi (*Tone & Academic Posture*)
+---
+
+### Dimensi 1: Nada & Etika Diplomasi (*D1 Tone & Academic Diplomacy*) — Bobot 25%
 - **Tujuan**: Menjaga objektivitas, kerendahan hati ilmiah (*scientific humility*), dan mencegah gesekan emosional dengan reviewer.
 - **Deteksi Pola Bahasa Negatif**:
-  1. *Defensif / Agresif*: "Reviewer salah paham", "Kritik ini tidak masuk akal".
-  2. *Meremehkan / Menggurui*: "Sebagaimana telah diketahui semua pakar", "Sangat jelas bahwa...".
-  3. *Ambiguitas / Menghindar*: "Sudah kami perbaiki" (tanpa rincian apa yang diubah).
-  4. *Pujian Berlebihan*: "Kami sangat takjub dengan kebijaksanaan reviewer yang agung".
+  1. *Defensif / Agresif (`combative`)*: "Reviewer salah paham", "Kritik ini keliru". Butir dengan flag ini diklasifikasikan sebagai `UNRESOLVED_TONE_CONFLICT`.
+  2. *Meremehkan / Menggurui (`condescending`)*: "Sebagaimana telah diketahui semua pakar", "Sangat jelas bahwa...".
+  3. *Ambiguitas / Menghindar (`evasive`)*: "Sudah kami perbaiki" (tanpa rincian apa yang diubah).
+  4. *Pujian Berlebihan (`sycophantic`)*: "Kami sangat takjub dengan kebijaksanaan reviewer yang agung".
 
-### Dimensi 3: Audit Bukti Naskah & Lokator Presisi (*Evidence Grounding*)
+### Dimensi 2: Kelengkapan Komentar (*D2 Completeness / Zero-Orphan Coverage*) — Bobot 35%
+- **Tujuan**: Memastikan tidak ada satu pun komentar atau sub-pertanyaan reviewer yang "hilang" atau diabaikan secara sengaja (*Zero-Orphan Rule*).
+- **Kategori Status**:
+  - `ADDRESSED`: Komentar dijawab tuntas dengan penjelasan memadai dan tindakan konkret.
+  - `PARTIALLY_ADDRESSED`: Komentar dijawab sebagian (misal: reviewer meminta A dan B, namun penulis hanya menjawab A; atau jawaban terlalu singkat `< 20` kata).
+  - `UNRESOLVED_TONE_CONFLICT`: Komentar dijawab namun menggunakan nada agresif/defensif yang belum dinetralkan.
+  - `UNRESOLVED_DISAGREEMENT`: Komentar ditolak tanpa dasar justifikasi ilmiah yang sah.
+  - `MISSING`: Komentar tidak dijawab sama sekali (pelanggaran fatal *Zero-Orphan*).
+- **Rasio Cakupan**:
+  $$\text{Coverage Ratio} = \frac{\text{Jumlah Komentar ADDRESSED}}{\text{Total Komentar Teridentifikasi}}$$
+  Target kelulusan: **100%** (*0 Missing Items*).
+
+### Dimensi 3: Keterverifikasian & Pemetaan Blok (*D3 Verifiability & Block Mapping*) — Bobot 20%
 - **Tujuan**: Memverifikasi bahwa setiap klaim perubahan pada surat tanggapan memiliki jangkar fisik yang dapat diverifikasi pada draf naskah.
 - **Kategori Lokator yang Sah**:
   - Lokator Bab/Sub-bab: `Section 3.2`, `Sub-section 4.1`.
   - Lokator Halaman/Baris: `Page 14, lines 12–25`, `pp. 18–19`.
   - Lokator Tabel/Gambar: `Table 4a`, `Figure 3`.
-  - **Lokator ID Blok Mekanis**: `<!--block:BNNNN-->` (misal `B0042`, `B0043` dari laporan `apply-report.json`).
-- Respon yang menyatakan *"we have revised the text"* tanpa lokator akan ditandai dengan bendera risiko `UNGROUNDED_CLAIM`.
+  - **Lokator ID Blok Mekanis**: `<!--block:BNNNN-->` (misal `B0042`, `B0043` dari laporan sidecar `apply-report.json`).
+- Respon yang menyatakan *"we have revised the text"* tanpa lokator akan ditandai dengan bendera risiko `UNGROUNDED` (kecuali butir yang sifatnya *acknowledgment only*). Target ambang minimal: **$\ge 80\%$**.
 
-### Dimensi 4: Audit Ketidaksepakatan & Batasan Riset (*Justified Disagreements*)
-- **Tujuan**: Memastikan bahwa penolakan terhadap usulan reviewer dilakukan secara ilmiah dan beretika tinggi.
+### Dimensi 4: Koherensi & Preservasi Klaim (*D4 Coherence & Claim Preservation*) — Bobot 20%
+- **Tujuan**: Memastikan bahwa penolakan atau penetapan batasan riset (*DELIBERATE_LIMITATION* / *REVIEWER_DISAGREE*) dilakukan secara ilmiah, transparan, dan tidak merusak integritas klaim naskah.
 - Tiga dasar penolakan yang sah:
-  1. *Kendala Empiris & Etik*: Terkendala protokol persetujuan etik rumah sakit (IRB) atau keterbatasan fisik sensor scanner.
-  2. *Konsensus Teoretis*: Bertentangan dengan hukum fisika/metodologi mapan, didukung kutipan literatur otoritatif.
-  3. *Batasan Ruang Lingkup*: Masalah telah diakui secara transparan pada sub-bab *Limitations*.
-- Penolakan tanpa alasan konkret ditandai sebagai `UNJUSTIFIED_REFUSAL` (risiko tinggi).
+  1. *Kendala Empiris & Etik*: Terkendala protokol persetujuan etik rumah sakit (IRB) atau batas akuisisi sensor scanner.
+  2. *Konsensus Teoretis*: Bertentangan dengan hukum metodologi mapan, didukung kutipan literatur otoritatif.
+  3. *Batasan Ruang Lingkup*: Masalah diakui secara transparan pada sub-bab *Limitations* di naskah revisi.
+- Penolakan tanpa alasan konkret (`len < 30` kata tanpa bukti/sitasi) ditandai sebagai `UNJUSTIFIED_REFUSAL` (risiko tinggi).
 
 ---
 
-## 4. Matriks Vonis Kesiapan Pengajuan (*Readiness Verdicts*)
+## 4. Matriks Vonis Kesiapan Pengajuan (*4-Tier Readiness Verdicts*)
 
 | Vonis | Syarat Kelayakan | Rekomendasi Tindakan |
 |---|---|---|
-| **`PASSED_READINESS`** (Siap Submit) | Coverage = 100%, 0 bendera High Risk, Locator Grounding $\ge 80\%$. | Surat tanggapan matang, santun, dan presisi. Siap diserahkan ke dosen pembimbing untuk *sign-off*. |
-| **`ADVISORY_POLISHING`** (Perbaikan Minor) | Coverage = 100%, 0 bendera High Risk, beberapa kelemahan locator atau nada minor. | Perbaiki kutipan nomor halaman/baris dan haluskan kalimat sebelum diserahkan ke dosen. |
-| **`ACTION_REQUIRED`** (Perlu Revisi Kritis) | Terdapat komentar `MISSING` atau terdeteksi bendera High Risk (defensif/penolakan tanpa dasar). | **Dilarang disubmit!** Lengkapi butir yang terlewat dan ubah kalimat konfrontatif menjadi diplomatis. |
+| **`PASSED_READINESS`** (Siap Submit) | Skor $\ge 80$, 0 bendera High Risk, Coverage = 100%, Locator Grounding $\ge 80\%$. | Surat tanggapan matang, santun, dan presisi. Siap diserahkan ke dosen pembimbing untuk *sign-off* dan diajukan ke portal jurnal. |
+| **`CONDITIONAL_REVISION`** (Revisi Kondisional) | Skor 65–79, 0 bendera High Risk, Coverage = 100%. | Lengkapi kutipan nomor halaman/baris/blok naskah dan poles gaya bahasa minor sebelum diserahkan ke pembimbing. |
+| **`REVISE_AND_RESUBMIT`** (Revisi Ulang Total) | Skor 50–64, atau terdapat butir `MISSING`, atau penolakan tanpa dasar (`UNJUSTIFIED_REFUSAL`). | **Dilarang disubmit!** Tuntaskan butir yang terlewat dan perkuat justifikasi ilmiah untuk setiap penolakan. |
+| **`REJECTED_UNPREPARED`** (Ditolak / Belum Siap) | Skor $< 50$, atau banyak bendera nada agresif/defensif (`combative`). | **Draf belum siap secara akademis.** Lakukan penulisan ulang komprehensif dengan bimbingan dosen. |
+

@@ -151,6 +151,30 @@ COVERAGE_STATUSES = {
     "PARTIALLY_ADDRESSED": "Hanya sebagian aspek komentar yang dijawab; ada poin/permintaan yang terlewat.",
     "MISSING": "Komentar tidak dijawab sama sekali dalam draf surat tanggapan (zero-orphan violation).",
     "UNRESOLVED_DISAGREEMENT": "Penulis menolak permintaan reviewer tanpa disertai dasar ilmiah/empiris yang memadai.",
+    "UNRESOLVED_TONE_CONFLICT": "Respon bernada defensif, agresif (combative), atau bermusuhan yang belum dinetralkan secara profesional.",
+}
+
+# 4-Tier Verdict Taxonomy (ARS Rebuttal Audit Spec)
+READINESS_VERDICTS = {
+    "PASSED_READINESS": "Skor >= 80, 0 High Risk, 100% Coverage, Locators >= 80%. Siap diajukan ke pembimbing/portal jurnal.",
+    "CONDITIONAL_REVISION": "Skor 65–79, 0 High Risk, 100% Coverage. Perlu revisi minor sebelum pengajuan.",
+    "REVISE_AND_RESUBMIT": "Skor 50–64, atau ada item belum terjawab/penolakan tak berdasar. Perlu perbaikan substansial.",
+    "REJECTED_UNPREPARED": "Skor < 50, atau banyak bendera nada agresif/combative. Belum siap untuk diajukan.",
+}
+
+VERDICT_BADGES = {
+    "PASSED_READINESS": "SIAP SUBMIT (PASSED READINESS)",
+    "CONDITIONAL_REVISION": "REVISI KONDISIONAL (CONDITIONAL REVISION)",
+    "REVISE_AND_RESUBMIT": "REVISI ULANG TOTAL (REVISE AND RESUBMIT)",
+    "REJECTED_UNPREPARED": "DITOLAK / BELUM SIAP (REJECTED UNPREPARED)",
+}
+
+# 4 Dimensions specifications and weights
+DIMENSION_SPECS = {
+    "D1": {"name": "Tone & Academic Diplomacy", "weight": 0.25},
+    "D2": {"name": "Completeness / Zero-Orphan Coverage", "weight": 0.35},
+    "D3": {"name": "Verifiability & Block Mapping", "weight": 0.20},
+    "D4": {"name": "Coherence & Claim Preservation", "weight": 0.20},
 }
 
 RISK_SEVERITY = {
@@ -165,3 +189,4 @@ DISAGREEMENT_VALIDITY = {
     "SOUND_SCOPE_LIMIT": "Penolakan didasarkan pada batasan ruang lingkup riset yang telah dinyatakan transparan di Limitations.",
     "UNJUSTIFIED_REFUSAL": "Penolakan sepihak tanpa bukti angka, sitasi, atau penjelasan rasional yang memadai.",
 }
+
