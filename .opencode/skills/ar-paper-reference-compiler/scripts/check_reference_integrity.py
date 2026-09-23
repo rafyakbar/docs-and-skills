@@ -18,6 +18,14 @@ import sys
 from pathlib import Path
 from typing import Any
 
+# Ensure UTF-8 output on Windows console
+if hasattr(sys.stdout, "reconfigure"):
+    try:
+        sys.stdout.reconfigure(encoding="utf-8")
+    except Exception:
+        pass
+
+
 
 def check_integrity(
     mapping_file: str | Path = "paper/references.txt",
@@ -85,28 +93,58 @@ def check_integrity(
     # 3. Check compiled output file
     if out_p.exists():
         out_content = out_p.read_text(encoding="utf-8", errors="replace")
-        # Count entries matching: [N] ... or 1. ...
-        numbered_entries = re.findall(r"(?:^|\n)\s*\[(\d+)\]\s+", out_content)
+        
+        # Universal metric: anchor tags <a id="refN"></a> generated across all citation styles
         anchor_entries = re.findall(r'<a\s+id=["\']ref(\d+)["\']\s*></a>', out_content)
+        
+        # Fallback regex matching combined entry formats: [N], N., or <a id="refN">
+        fallback_entries = re.findall(
+            r'(?:(?:^|\n)\s*\[(\d+)\]\s+|(?:^|\n)\s*(\d+)\.\s+|<a\s+id=["\']ref(\d+)["\']\s*>)',
+            out_content,
+        )
+        fallback_ids = [g1 or g2 or g3 for g1, g2, g3 in fallback_entries]
 
-        report["stats"]["compiled_entries_in_output"] = len(numbered_entries)
+        # Use anchor tags as primary universal metric, with combined fallback regex if anchors missing
+        if anchor_entries:
+            compiled_count = len(anchor_entries)
+        elif fallback_ids:
+            compiled_count = len(dict.fromkeys(fallback_ids))
+        else:
+            compiled_count = 0
 
-        if len(numbered_entries) != len(unique_mapped_basenames):
+        report["stats"]["compiled_entries_in_output"] = compiled_count
+
+        if compiled_count != len(unique_mapped_basenames):
             report["errors"].append(
-                f"Count mismatch: {len(numbered_entries)} compiled entries vs {len(unique_mapped_basenames)} mapped references"
+                f"Count mismatch: {compiled_count} compiled entries vs {len(unique_mapped_basenames)} mapped references"
             )
 
-        # Anchor check
-        missing_anchors = set(numbered_entries) - set(anchor_entries)
-        if missing_anchors:
-            report["warnings"].append(
-                f"Missing HTML anchor tags for entries: {', '.join(sorted(missing_anchors, key=int))}"
-            )
+        # Anchor check: detect numbered entries missing anchors
+        numbered_matches = re.findall(r'(?:^|\n)\s*(?:\[(\d+)\]|(\d+)\.)\s+', out_content)
+        numbered_entries = [g1 or g2 for g1, g2 in numbered_matches]
+        if numbered_entries:
+            missing_anchors = set(numbered_entries) - set(anchor_entries)
+            if missing_anchors:
+                report["warnings"].append(
+                    f"Missing HTML anchor tags for entries: {', '.join(sorted(missing_anchors, key=int))}"
+                )
+        elif not anchor_entries and compiled_count > 0:
+            report["warnings"].append("Missing HTML anchor tags (<a id=\"refN\"></a>) in compiled references output.")
+
+        # Sequential anchor check
+        if anchor_entries:
+            expected_anchors = {str(i) for i in range(1, len(anchor_entries) + 1)}
+            missing_seq = expected_anchors - set(anchor_entries)
+            if missing_seq:
+                report["warnings"].append(
+                    f"Non-contiguous or missing anchor IDs in sequence: {', '.join(sorted(missing_seq, key=int))}"
+                )
 
         # DOI syntax check
-        invalid_dois = re.findall(r"doi:\s*([^,\s\n]+)\.", out_content)
+        invalid_dois = re.findall(r"doi:\s*([^,\s\n]+)", out_content)
         for d in invalid_dois:
-            if not d.startswith("10."):
+            clean_d = d.strip(".[]()")
+            if not clean_d.startswith("10.") and not clean_d.startswith("http"):
                 report["warnings"].append(f"Suspicious DOI format in output: '{d}'")
     else:
         report["warnings"].append(f"Compiled references output file not found: {out_p}")
@@ -121,13 +159,21 @@ def check_integrity(
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Audit triangular reference integrity.")
-    parser.add_argument("-m", "--mapping", default="paper/references.txt", help="Path to references.txt")
+    parser.add_argument(
+        "positional_mapping",
+        nargs="?",
+        default=None,
+        metavar="mapping_file",
+        help="Path to references.txt mapping file (positional fallback, default: paper/references.txt)",
+    )
+    parser.add_argument("-m", "--mapping", default=None, help="Path to references.txt (default: paper/references.txt)")
     parser.add_argument("-d", "--ref-dir", default="paper/references", help="Path to references/ directory")
     parser.add_argument("-o", "--output", default="paper/06_references.md", help="Path to compiled 06_references.md")
     parser.add_argument("--json", action="store_true", help="Output audit report as JSON")
 
     args = parser.parse_args()
-    report = check_integrity(args.mapping, args.ref_dir, args.output)
+    mapping_file = args.mapping or args.positional_mapping or "paper/references.txt"
+    report = check_integrity(mapping_file, args.ref_dir, args.output)
 
     if args.json:
         print(json.dumps(report, indent=2))

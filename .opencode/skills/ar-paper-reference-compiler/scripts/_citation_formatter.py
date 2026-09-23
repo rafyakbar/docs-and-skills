@@ -26,7 +26,10 @@ _PROTECTED_ACRONYMS = {
     "ROC", "AUC", "BERT", "LLM", "LLMs", "GAN", "GANs", "ICCV", "CVPR",
     "ECCV", "IEEE", "ACM", "NLM", "GDPR", "COVID", "COVID-19", "MRI",
     "CT", "CT-Scan", "DNA", "RNA", "USA", "UK", "EU", "DemogPairs",
-    "B-PETs", "RF", "GNB", "LR", "NLP", "ML", "DL"
+    "B-PETs", "RF", "GNB", "LR", "NLP", "ML", "DL",
+    "ArcFace", "ResNet", "ResNets", "AlphaFold", "ChatGPT", "ImageNet",
+    "FaceNet", "StyleGAN", "OpenAI", "LoRA", "BioBERT", "SciBERT", "PubMed",
+    "NIST", "FRVT"
 }
 
 _MONTH_ABBRS = {
@@ -46,7 +49,12 @@ _MONTH_ABBRS = {
 
 
 def format_sentence_case(title: str) -> str:
-    """Transform title into Sentence case while protecting computing acronyms."""
+    """Transform title into Sentence case while protecting computing acronyms.
+
+    Ensures titles starting with quotation marks, parentheses, or brackets have
+    their first alphabetical character capitalized while preserving CamelCase
+    and protected computing acronyms.
+    """
     if not title:
         return ""
     title = title.strip().rstrip(".")
@@ -58,18 +66,46 @@ def format_sentence_case(title: str) -> str:
     capitalize_next = True
 
     for i, w in enumerate(words):
-        # Strip punctuation for acronym lookup
-        clean_word = re.sub(r"^[(\"']+", "", w)
-        clean_word = re.sub(r"[\"'),:;!?]+$", "", clean_word)
+        # Extract leading punctuation, core word, and trailing punctuation
+        m_lead = re.match(r"^[(\"'\u201c\u2018\u00ab\[\{]+", w)
+        lead = m_lead.group(0) if m_lead else ""
 
-        if clean_word in _PROTECTED_ACRONYMS:
-            result.append(w)
-        elif capitalize_next or i == 0:
-            result.append(w[0].upper() + w[1:].lower() if len(w) > 1 else w.upper())
+        m_trail = re.search(r"[\"'),:;!?\u201d\u2019\u00bb\]\}]+$", w)
+        trail = m_trail.group(0) if m_trail else ""
+
+        if trail:
+            core = w[len(lead) : len(w) - len(trail)]
         else:
-            result.append(w.lower())
+            core = w[len(lead) :]
 
-        capitalize_next = w.endswith(":") or w.endswith("?") or w.endswith("!")
+        if not core:
+            result.append(w)
+            continue
+
+        clean_core = re.sub(r"[^a-zA-Z0-9_-]", "", core)
+
+        if clean_core in _PROTECTED_ACRONYMS or core in _PROTECTED_ACRONYMS:
+            formatted_core = core
+        elif any(c.isupper() for c in core[1:]) and not core.isupper():
+            # Mixed/CamelCase like ArcFace, ResNet, DemogPairs
+            if capitalize_next or i == 0:
+                formatted_core = core[0].upper() + core[1:]
+            else:
+                formatted_core = core
+        elif capitalize_next or i == 0:
+            formatted_core = core[0].upper() + core[1:].lower() if len(core) > 1 else core.upper()
+        else:
+            formatted_core = core.lower()
+
+        result.append(lead + formatted_core + trail)
+        capitalize_next = (
+            w.endswith(":")
+            or w.endswith("?")
+            or w.endswith("!")
+            or trail.endswith(":")
+            or trail.endswith("?")
+            or trail.endswith("!")
+        )
 
     return " ".join(result)
 
@@ -141,7 +177,12 @@ def format_ieee(ref: dict[str, Any], index: int) -> str:
     if authors:
         parts.append(f"{authors},")
     if title:
-        parts.append(f'"{title},"')
+        clean_title = title.strip()
+        if clean_title.endswith(("?", "!")):
+            parts.append(f'"{clean_title}"')
+        else:
+            clean_title = clean_title.rstrip(".,;:")
+            parts.append(f'"{clean_title},"')
 
     if entry_type == "conference":
         if container:
@@ -251,7 +292,12 @@ def format_apa7(ref: dict[str, Any], index: int) -> str:
         parts.append(f"({year}).")
 
     if title:
-        parts.append(f"{title}.")
+        clean_title = title.strip()
+        if clean_title.endswith(("?", "!")):
+            parts.append(clean_title)
+        else:
+            clean_title = clean_title.rstrip(".,;:")
+            parts.append(f"{clean_title}.")
 
     container_part = []
     if container:
@@ -324,7 +370,12 @@ def format_harvard(ref: dict[str, Any], index: int) -> str:
         parts.append(f"{year}.")
 
     if title:
-        parts.append(f"'{title}',")
+        clean_title = title.strip()
+        if clean_title.endswith(("?", "!")):
+            parts.append(f"'{clean_title}',")
+        else:
+            clean_title = clean_title.rstrip(".,;:")
+            parts.append(f"'{clean_title}',")
 
     if container:
         parts.append(f"*{container}*,")
@@ -388,12 +439,18 @@ def format_acm(ref: dict[str, Any], index: int) -> str:
 
     parts = []
     if authors:
-        parts.append(f"{authors}. {year}.")
+        author_str = authors if authors.endswith(".") else f"{authors}."
+        parts.append(f"{author_str} {year}.")
     else:
         parts.append(f"{year}.")
 
     if title:
-        parts.append(f'"{title}."')
+        clean_title = title.strip()
+        if clean_title.endswith(("?", "!")):
+            parts.append(f'"{clean_title}"')
+        else:
+            clean_title = clean_title.rstrip(".,;:")
+            parts.append(f'"{clean_title}."')
 
     if container:
         parts.append(f"*{container}*")
@@ -444,20 +501,41 @@ def format_vancouver(ref: dict[str, Any], index: int) -> str:
 
     parts = []
     if authors:
-        parts.append(f"{authors}.")
+        author_str = authors if authors.endswith(".") else f"{authors}."
+        parts.append(author_str)
     if title:
-        parts.append(f"{title}.")
+        clean_title = title.strip()
+        if clean_title.endswith(("?", "!")):
+            parts.append(clean_title)
+        else:
+            clean_title = clean_title.rstrip(".,;:")
+            parts.append(f"{clean_title}.")
     if container:
         parts.append(f"{container}.")
 
-    date_vol = f"{year};" if year else ""
+    vol_issue = ""
     if vol and issue:
-        date_vol += f"{vol}({issue}):"
+        vol_issue = f"{vol}({issue})"
     elif vol:
-        date_vol += f"{vol}:"
+        vol_issue = f"{vol}"
 
-    if pages:
-        date_vol += f"{pages}."
+    art_no = ref.get("article_number")
+    if vol_issue:
+        prefix = f"{year};{vol_issue}" if year else vol_issue
+        if pages:
+            date_vol = f"{prefix}:{pages}."
+        elif art_no:
+            date_vol = f"{prefix}:{art_no}."
+        else:
+            date_vol = f"{prefix}."
+    elif pages:
+        date_vol = f"{year}:{pages}." if year else f"{pages}."
+    elif art_no:
+        date_vol = f"{year}:{art_no}." if year else f"{art_no}."
+    elif year:
+        date_vol = f"{year}."
+    else:
+        date_vol = ""
 
     if date_vol:
         parts.append(date_vol)

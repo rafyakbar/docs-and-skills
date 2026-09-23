@@ -65,8 +65,9 @@ def extract_unique_references_from_mapping(mapping_path: Path) -> list[str]:
         raw_path = m.group(1).strip()
         # Normalize slashes
         norm_path = raw_path.replace("\\", "/")
-        if norm_path not in seen:
-            seen.add(norm_path)
+        norm_key = Path(norm_path).name.replace("–", "-").replace("—", "-").lower()
+        if norm_key not in seen:
+            seen.add(norm_key)
             unique_refs.append(norm_path)
 
     return unique_refs
@@ -100,14 +101,13 @@ def resolve_file_path(ref_path_str: str, base_dir: Path, ref_dir_override: Path 
     if cand_local.exists():
         return cand_local
 
-    # 4. Fuzzy dash matching (en-dash vs hyphen)
-    # Replace en-dash with hyphen and vice versa in filename search
-    target_clean = filename.replace("–", "-").replace("—", "-")
+    # 4. Fuzzy dash matching (en-dash vs hyphen) and case-insensitive filename search
+    target_clean = filename.replace("–", "-").replace("—", "-").lower()
     search_dirs = [ref_dir_override, base_dir / "paper" / "references", base_dir / "references"]
     for d in search_dirs:
         if d and d.exists():
             for f in d.iterdir():
-                if f.is_file() and f.name.replace("–", "-").replace("—", "-") == target_clean:
+                if f.is_file() and f.name.replace("–", "-").replace("—", "-").lower() == target_clean:
                     return f
 
     return candidate
@@ -201,9 +201,17 @@ def main() -> int:
         description="Compile paper/references.txt and .bib/.ris files into paper/06_references.md."
     )
     parser.add_argument(
-        "mapping_file",
+        "positional_mapping",
         nargs="?",
-        default="paper/references.txt",
+        default=None,
+        metavar="mapping_file",
+        help="Path to references.txt mapping file (positional fallback, default: paper/references.txt)",
+    )
+    parser.add_argument(
+        "-m",
+        "--mapping",
+        dest="mapping",
+        default=None,
         help="Path to references.txt mapping file (default: paper/references.txt)",
     )
     parser.add_argument(
@@ -241,13 +249,14 @@ def main() -> int:
 
     args = parser.parse_args()
 
-    mapping_p = Path(args.mapping_file)
+    mapping_file = args.mapping or args.positional_mapping or "paper/references.txt"
+    mapping_p = Path(mapping_file)
     if not mapping_p.exists():
-        print(f"Error: Mapping file '{args.mapping_file}' not found.", file=sys.stderr)
+        print(f"Error: Mapping file '{mapping_file}' not found.", file=sys.stderr)
         return 2
 
     res = compile_references(
-        mapping_file=args.mapping_file,
+        mapping_file=mapping_file,
         output_file=args.output,
         style=args.style,
         ref_dir=args.ref_dir,
