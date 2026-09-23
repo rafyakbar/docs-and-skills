@@ -74,7 +74,7 @@ python scripts/ars_latex_converter.py \
 ### 3.1. `paper_latex/sections/00_abstract.tex`
 ```latex
 \begin{abstract}
-Intersectional facial demographic analysis poses significant challenges for conventional deep learning architectures due to subtle biometric and expressive variations across demographic cohorts. This study proposes a Tri-Domain Vision Transformer feature fusion framework integrating face biometric, expression, and age representations into a unified latent vector. Evaluated on the DemogPairs benchmark dataset across six intersectional subgroups, the proposed framework achieves an overall classification accuracy of 93.70% and a macro F1-score of 0.935, reducing False Positive Disparities compared to conventional single-domain baselines.
+Intersectional facial demographic analysis poses significant challenges for conventional deep learning architectures due to subtle biometric and expressive variations across demographic cohorts. This study proposes a Tri-Domain Vision Transformer feature fusion framework integrating face biometric, expression, and age representations into a unified latent vector. Evaluated on the DemogPairs benchmark dataset across six intersectional subgroups, the proposed framework achieves an overall classification accuracy of 93.70\% and a macro F1-score of 0.935, reducing False Positive Disparities compared to conventional single-domain baselines.
 \end{abstract}
 
 \begin{keywords}
@@ -106,7 +106,7 @@ The proposed pipeline is outlined in Figure~\ref{fig:1}. As detailed in Section 
 
 \begin{table}[htbp]
 \caption{Hyperparameter Search Space for Random Forest Classifier.}
-\label{tab:III}
+\label{tab:3}
 \centering
 \begin{tabular}{llc}
 \toprule
@@ -120,7 +120,7 @@ Number of Trees & 100, 200 & 2 \\
 \end{tabular}
 \end{table}
 
-The Random Forest model aggregates predictions across decision trees optimized via 5-Fold Stratified Cross-Validation as summarized in Table~\ref{tab:III}. Formally, the decision tree ensemble prediction is obtained by:
+The Random Forest model aggregates predictions across decision trees optimized via 5-Fold Stratified Cross-Validation as summarized in Table~\ref{tab:3}. Formally, the decision tree ensemble prediction is obtained by:
 
 \begin{equation}
 \hat{y} = \operatorname{argmax}_{c} \sum_{b=1}^{B} I(T_b(\mathbf{x}) = c)

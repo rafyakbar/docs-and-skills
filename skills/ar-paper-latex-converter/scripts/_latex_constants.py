@@ -230,6 +230,31 @@ SPRINGER_SN_TEMPLATE = r"""\documentclass[sn-mathphys,Numbered]{sn-jnl}
 \end{document}
 """
 
+MD_FENCED_CODE_RE = re.compile(r"^```[a-zA-Z0-9_-]*\r?\n([\s\S]*?)\r?\n```\s*$", re.MULTILINE)
+MD_INLINE_CODE_RE = re.compile(r"`([^`\n]+)`")
+
+ACM_SIGCONF_TEMPLATE = r"""\documentclass[sigconf]{acmart}
+\usepackage{booktabs}
+\usepackage{graphicx}
+
+\graphicspath{{images/}}
+
+\begin{document}
+
+\input{sections/00_title.tex}
+
+\input{sections/00_abstract.tex}
+
+\maketitle
+
+%(SECTION_INPUTS)
+
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{references}
+
+\end{document}
+"""
+
 GENERIC_ARTICLE_TEMPLATE = r"""\documentclass[12pt, a4paper]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -254,9 +279,9 @@ GENERIC_ARTICLE_TEMPLATE = r"""\documentclass[12pt, a4paper]{article}
 
 \input{sections/00_title.tex}
 
-\input{sections/00_abstract.tex}
-
 \maketitle
+
+\input{sections/00_abstract.tex}
 
 %(SECTION_INPUTS)
 
@@ -269,5 +294,7 @@ TEMPLATES = {
     "ieeeaccess": IEEE_ACCESS_TEMPLATE,
     "ieeetran": IEEE_TRAN_TEMPLATE,
     "springer": SPRINGER_SN_TEMPLATE,
+    "acm": ACM_SIGCONF_TEMPLATE,
     "article": GENERIC_ARTICLE_TEMPLATE,
 }
+
