@@ -107,7 +107,8 @@ SECTION_MAPPING_KEYWORDS = {
 
 # Pola regex untuk mendeteksi label reviewer
 REVIEWER_HEADER_PATTERN = re.compile(
-    r"^(?:#+\s*)?(?:Reviewer\s*#?([0-9]+)|(?:Reviewer|R)\s*([0-9]+)|(Editor-in-Chief|Editor|EIC)|(Devil['’]s\s*Advocate|DA))(?:\s*[:\-\(\[])?",
+    r"^(?:#+\s*)?(?:comments?\s+(?:from\s+)?|remarks?\s+(?:from\s+)?)?"
+    r"(?:Reviewer\s*#?([0-9]+)|(?:Reviewer|R)\s*([0-9]+)|(Editor-in-Chief|\bEditor\b|\bEIC\b)|(Devil['’]?s\s*Advocate|\bDA\b))(?:\s*[:\-\(\[])?",
     re.IGNORECASE | re.MULTILINE
 )
 

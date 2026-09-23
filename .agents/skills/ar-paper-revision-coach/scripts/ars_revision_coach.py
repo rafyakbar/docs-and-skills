@@ -82,14 +82,16 @@ class ParsedComment:
 
 def detect_reviewer_id(header_line: str) -> str:
     line = header_line.strip()
-    if re.search(r"editor|eic", line, re.IGNORECASE):
+    if re.search(r"\beditorial\s+(?:decision|letter|board|policy)\b", line, re.IGNORECASE):
+        return "Unknown"
+    if re.search(r"\b(?:editor-in-chief|editor|eic)\b", line, re.IGNORECASE):
         return "EIC"
-    if re.search(r"devil['’]?s\s*advocate|da\b", line, re.IGNORECASE):
+    if re.search(r"devil['’]?s\s*advocate|\bda\b", line, re.IGNORECASE):
         return "DA"
     m = re.search(r"(?:reviewer|r)\s*#?\s*([0-9]+)", line, re.IGNORECASE)
     if m:
         return f"R{m.group(1)}"
-    return "R1"
+    return "Unknown"
 
 
 def map_section_from_text(text: str) -> str:
@@ -102,14 +104,50 @@ def map_section_from_text(text: str) -> str:
 
 def classify_severity(text: str, reviewer_id: str) -> str:
     text_lower = text.lower()
-    if any(k in text_lower for k in ["praise", "good job", "appreciate", "well written", "menarik", "sangat baik", "kekuatan"]):
-        return "Positive"
-    if any(k in text_lower for k in ["typo", "grammar", "spelling", "formatting", "tata bahasa", "ejaan"]):
+
+    # 1. Evaluasi Major (dan Critical/Fatal/DA/EIC) TERLEBIH DAHULU
+    # Devil's Advocate dan Editor-in-Chief berorientasi pada isu krusial penentu akseptasi
+    if reviewer_id in ("DA", "EIC"):
+        return "Major"
+
+    major_keywords = [
+        "fatal", "critical", "leakage", "flaw", "cannot be accepted",
+        "fundamental", "unsupported", "invalid", "overclaim", "reject",
+        "severe", "failure", "unreliable", "major concern", "major issue"
+    ]
+    if any(k in text_lower for k in major_keywords):
+        return "Major"
+
+    # 2. Evaluasi Editorial
+    editorial_keywords = [
+        "typo", "grammar", "spelling", "formatting", "format", "tata bahasa",
+        "ejaan", "caption", "punctuation", "persamaan", "equation formatting"
+    ]
+    if any(k in text_lower for k in editorial_keywords):
         return "Editorial"
-    if any(k in text_lower for k in ["fatal", "critical", "leakage", "flaw", "cannot be accepted", "fundamental", "unsupported", "invalid", "overclaim"]):
-        return "Major"
-    if reviewer_id == "DA":
-        return "Major"
+
+    # 3. Evaluasi Positive (HANYA jika tidak memuat sanggahan/kritik kontradiktif)
+    positive_keywords = [
+        "praise", "good job", "appreciate", "well written", "menarik",
+        "sangat baik", "kekuatan", "impressive", "commendable", "clear visualization",
+        "convincing", "well structured", "excellent"
+    ]
+    contradiction_words = [
+        "but", "however", "flaw", "error", "lack", "issue", "yet",
+        "although", "nevertheless", "namun", "tetapi", "kelemahan", "kekurangan", "lemah"
+    ]
+
+    has_positive = any(k in text_lower for k in positive_keywords)
+    if has_positive:
+        # Periksa apakah ada kata-kata sanggahan/kritik kontradiktif (polite buffering)
+        has_contradiction = any(
+            re.search(r"\b" + re.escape(cw) + r"\b", text_lower)
+            for cw in contradiction_words
+        )
+        if not has_contradiction:
+            return "Positive"
+
+    # 4. Default: Minor
     return "Minor"
 
 
@@ -162,34 +200,75 @@ def extract_commitments(raw_text: str, severity: str) -> List[Dict[str, str]]:
     return commitments
 
 
+METADATA_HEADER_PATTERNS = [
+    re.compile(r"^(?:#+\s*)?(?:editorial\s+decision(?:\s+letter)?|decision\s+letter|peer\s+review(?:\s+report)?|review\s+evaluation)\b.*", re.IGNORECASE),
+    re.compile(r"^(?:manuscript\s*(?:id|number|no|#)?|title|authors?|date|journal|decision)\s*:\s*.*", re.IGNORECASE),
+    re.compile(r"^(?:dear\s+(?:authors?|author|dr\.|prof\.)|thank\s+you\s+for\s+submitting|the\s+peer-review\s+panel|the\s+decision\s+is\s*:|we\s+have\s+completed|please\s+find\s+below|on\s+behalf\s+of)\b.*", re.IGNORECASE),
+]
+
+REVIEWER_SECTION_RE = re.compile(
+    r"^(?:#+\s*)?(?:comments?\s+(?:from\s+)?|remarks?\s+(?:from\s+)?)?"
+    r"(?:Reviewer\s*#?\s*([0-9]+)|(?:Reviewer|R)\s*([0-9]+)|(?:Editor-in-Chief|\bEditor\b|\bEIC\b)|(?:Devil['’]?s\s*Advocate|\bDA\b))\b.*$",
+    re.IGNORECASE
+)
+
+COMMENT_ITEM_PATTERN = re.compile(
+    r"^(?:(?:\*|\-|\d+[\.\)]|(?:Q|Point|Item)\s*\d+[\.:]?)\s+|###?\s+(?:Comment\s+)?([A-Za-z0-9\-]+)[:\.]?\s*|(?:Comment\s+[A-Za-z0-9\-]+[:\.]\s*))",
+    re.IGNORECASE
+)
+
+
+def is_metadata_line(line: str) -> bool:
+    return any(p.match(line) for p in METADATA_HEADER_PATTERNS)
+
+
 def parse_review_text(content: str) -> List[ParsedComment]:
     # Jika input dibungkus dalam blok ```markdown, ekstrak blok tersebut
-    m_block = re.search(r"```markdown\s*\n(#+ Editorial Decision.*?)\n```", content, re.DOTALL | re.IGNORECASE)
-    if m_block:
+    m_block = re.search(r"```(?:markdown)?\s*\n(.*?)\n```", content, re.DOTALL | re.IGNORECASE)
+    if m_block and re.search(r"reviewer|editor|eic|decision", m_block.group(1), re.IGNORECASE):
         content = m_block.group(1)
 
     lines = content.splitlines()
-    current_reviewer = "Reviewer 1"
+    current_reviewer: Optional[str] = None
     comments: List[ParsedComment] = []
     buffer: List[str] = []
-    item_counter = 1
+    reviewer_counters: Dict[str, int] = {}
 
-    def flush_comment(buf: List[str], rev: str, count: int):
+    def flush_comment(buf: List[str], rev: str):
         if not buf:
             return
         raw = "\n".join(buf).strip()
-        if len(raw) < 15:
+        if not raw or len(raw) < 5:
             return
         rev_id = detect_reviewer_id(rev)
+        count = reviewer_counters.get(rev_id, 0) + 1
+        reviewer_counters[rev_id] = count
         cid = f"{rev_id}-{count}"
         sev = classify_severity(raw, rev_id)
         sec = map_section_from_text(raw)
-        prio = "P1" if (sev == "Major" or rev_id == "EIC") else ("P3" if sev == "Editorial" else "P2")
+        
+        if sev == "Positive":
+            prio = "P3"
+            action = "Apresiasi masukan positif di surat tanggapan (Response Letter) tanpa modifikasi naskah."
+        elif sev == "Major" or rev_id in ("EIC", "DA"):
+            prio = "P1"
+            action = "Lakukan revisi substantif/metodologis wajib pada naskah."
+        elif sev == "Editorial":
+            prio = "P3"
+            action = "Lakukan perbaikan editorial/tipografi pada naskah."
+        else:
+            prio = "P2"
+            action = "Klarifikasi dan lengkapi bagian terkait sesuai masukan reviewer."
+
         comms = extract_commitments(raw, sev)
 
         # Ringkasan baris pertama
         first_line = raw.split("\n")[0].strip()
-        first_line = re.sub(r"^(?:[\*\-\d\.\)]+|###?\s*Comment\s*[\w\-]+:?)\s*", "", first_line)
+        first_line = re.sub(
+            r"^(?:[\*\-\d\.\)]+|###?\s*Comment\s*[\w\-]+:?|(?:Q|Point|Item)\s*\d+[\.:]?)\s*",
+            "",
+            first_line
+        )
         summary = clean_single_line(first_line)[:140]
 
         comments.append(ParsedComment(
@@ -200,33 +279,56 @@ def parse_review_text(content: str) -> List[ParsedComment]:
             severity=sev,
             section=sec,
             priority=prio,
-            action="Klarifikasi dan lengkapi bagian terkait sesuai masukan.",
+            action=action,
             commitments=comms,
         ))
 
     for line in lines:
         stripped = line.strip()
-        # Cek apakah pergantian reviewer
-        if re.match(r"^(?:#+\s*)?(?:Reviewer\s*#?[0-9]+|Editor-in-Chief|Editor|EIC|Devil['’]?s\s*Advocate|DA\b)", stripped, re.IGNORECASE):
-            flush_comment(buffer, current_reviewer, item_counter)
-            buffer = []
+
+        # Lewati baris kosong jika buffer kosong
+        if not stripped:
+            if buffer:
+                buffer.append("")
+            continue
+
+        # Saring header editorial metadata sebelum seksi reviewer pertama
+        if current_reviewer is None and is_metadata_line(stripped):
+            continue
+
+        # Cek apakah pergantian seksi reviewer
+        if REVIEWER_SECTION_RE.match(stripped) and not is_metadata_line(stripped):
+            if buffer and current_reviewer is not None:
+                flush_comment(buffer, current_reviewer)
+                buffer = []
             current_reviewer = stripped
-            item_counter = 1
             continue
 
-        # Cek apakah pergantian item komentar
-        if re.match(r"^(?:(?:\*|\-|\d+[\.\)])\s+|###?\s+(?:Comment\s+)?([A-Za-z0-9\-]+)[:\.]?\s*)", stripped) and len(buffer) > 2:
-            flush_comment(buffer, current_reviewer, item_counter)
+        # Cek apakah butir item komentar baru (meskipun hanya 1-2 baris)
+        if COMMENT_ITEM_PATTERN.match(stripped):
+            if buffer:
+                flush_comment(buffer, current_reviewer or "Unknown")
+                buffer = []
+            elif current_reviewer is None:
+                current_reviewer = "Unknown"
             buffer = [stripped]
-            item_counter += 1
             continue
 
-        if stripped:
+        # Jika belum masuk ke seksi reviewer apa pun, periksa apakah baris adalah teks surat pembuka
+        if current_reviewer is None:
+            if is_metadata_line(stripped):
+                continue
+            if any(w in stripped.lower() for w in ["dear author", "peer-review", "decision is", "manuscript id", "submission"]):
+                continue
+            # Jika ada teks bebas yang tidak berupa metadata, asumsikan reviewer Unknown
+            current_reviewer = "Unknown"
             buffer.append(stripped)
-        elif buffer:
-            buffer.append("")
+        else:
+            buffer.append(stripped)
 
-    flush_comment(buffer, current_reviewer, item_counter)
+    if buffer and current_reviewer is not None:
+        flush_comment(buffer, current_reviewer)
+
     return comments
 
 
@@ -253,9 +355,9 @@ def generate_revision_roadmap_md(
     edit_c = sum(1 for c in comments if c.severity == "Editorial")
     pos_c = sum(1 for c in comments if c.severity == "Positive")
 
-    p1_items = [c for c in comments if c.priority == "P1"]
-    p2_items = [c for c in comments if c.priority == "P2"]
-    p3_items = [c for c in comments if c.priority == "P3"]
+    p1_items = [c for c in comments if c.priority == "P1" and c.severity != "Positive"]
+    p2_items = [c for c in comments if c.priority == "P2" and c.severity != "Positive"]
+    p3_items = [c for c in comments if c.priority == "P3" and c.severity != "Positive"]
     pos_items = [c for c in comments if c.severity == "Positive"]
 
     lines = [
@@ -382,8 +484,9 @@ def generate_revision_tracking_md(
     ]
 
     for c in comments:
+        loc = "Response Letter" if c.severity == "Positive" else "TBD"
         lines.append(
-            f"| `{c.concern_id}` | {c.reviewer_id} | `{c.severity}` | `{c.section}` | {c.summary} | {c.action} | `TBD` | `RESOLVED` | - |"
+            f"| `{c.concern_id}` | {c.reviewer_id} | `{c.severity}` | `{c.section}` | {c.summary} | {c.action} | `{loc}` | `RESOLVED` | - |"
         )
 
     lines.extend([

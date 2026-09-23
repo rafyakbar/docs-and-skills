@@ -43,8 +43,8 @@ Devil's Advocate:
 
 ## 1. Ikhtisar Editorial & Beban Kerja (Overview)
 - **Keputusan Editorial**: `Major Revision`
-- **Total Komentar Diurai**: 8 butir
-- **Distribusi Kategori**: 3 Major | 3 Minor | 1 Editorial | 1 Positive
+- **Total Komentar Diurai**: 9 butir
+- **Distribusi Kategori**: 3 Major | 4 Minor | 1 Editorial | 1 Positive
 - **Estimasi Beban Revisi**: `Moderate` (3-5 Major, 5-10 Minor: 1-2 minggu pengerjaan)
 
 ---
