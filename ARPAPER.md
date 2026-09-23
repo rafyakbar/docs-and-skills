@@ -57,19 +57,19 @@ flowchart TD
 
 ## 2. Tabel Ringkasan Urutan Eksekusi
 
-| Urutan | Nama Skill | Fase ARS | Masukan Utama (*Input*) | Keluaran Utama (*Output*) | Peran Kunci |
-|:---:|:---|:---:|:---|:---|:---|
-| **1** | [**`ar-paper-outline`**](file:///D:/Code/docs-and-skills/skills/ar-paper-outline/SKILL.md) | Fase 11 | Ide riset, RQ, temuan eksperimen | `paper_outline.md` | Kerangka per paragraf, target kata, boundary klaim |
-| **2** | [**`ar-paper-draft`**](file:///D:/Code/docs-and-skills/skills/ar-paper-draft/SKILL.md) | Fase 12 | `paper_outline.md` | `01_introduction.md` s/d `05_conclusion.md` | Penulisan draf modular 1 bab per waktu (CARS/CER) |
-| **3** | [**`ar-paper-sentence-citation`**](file:///D:/Code/docs-and-skills/skills/ar-paper-sentence-citation/SKILL.md) | Fase 13 | Draf bab naskah `paper/*.md` | `paper/references.txt` & `paper/references/*.bib` | Pencarian literatur per kalimat, verifikasi DOI/S2 |
-| **4** | [**`ar-paper-reference-compiler`**](file:///D:/Code/docs-and-skills/skills/ar-paper-reference-compiler/SKILL.md) | Fase 14 | `references.txt` & `references/*.bib` | `paper/06_references.md` | Kompilasi daftar pustaka akhir ber-anchor interaktif |
-| **5** | [**`ar-paper-citation-numbering`**](file:///D:/Code/docs-and-skills/skills/ar-paper-citation-numbering/SKILL.md) | Fase 15 | Draf bab, `references.txt`, `06_references.md` | Draf bab ber-sitasi `[[N]](06_references.md#refN)` | Injeksi nomor sitasi braket teks presisi tanda baca |
-| **6** | [**`ar-paper-abstract`**](file:///D:/Code/docs-and-skills/skills/ar-paper-abstract/SKILL.md) | Fase 17 | Draf bab lengkap `01` s/d `05` | `00_abstract.md` & `acronyms.txt` | Abstrak 5 komponen, registrasi akronim, kata kunci |
-| **7** | [**`ar-paper-reviewer`**](file:///D:/Code/docs-and-skills/skills/ar-paper-reviewer/SKILL.md) | Fase 18 | Naskah lengkap `paper/*.md` | `07_editorial_decision.md` | Simulasi mock peer review 5 panelis (Schema 13) |
-| **8** | [**`ar-paper-revision-coach`**](file:///D:/Code/docs-and-skills/skills/ar-paper-revision-coach/SKILL.md) | Fase 19-21 | Komentar review mentah / Keputusan editor | `08_revision_roadmap.md` & rangka rebuttal | Parsing ulasan, commitment ledger, talking points |
-| **9** | [**`ar-paper-revision`**](file:///D:/Code/docs-and-skills/skills/ar-paper-revision/SKILL.md) | Fase 22 | Draf bab, roadmap, `revision_patch.json` | Naskah terevisi presisi blok & `<draft>.apply-report.json` | Eksekusi patch diff fail-closed Spec #390 |
-| **10** | [**`ar-paper-rebuttal-audit`**](file:///D:/Code/docs-and-skills/skills/ar-paper-rebuttal-audit/SKILL.md) | Fase 23 | Komentar review & draf surat tanggapan | `11_rebuttal_audit_report.md` | Audit QA zero-orphan, diplomasi nada AVEC, bukti lokator |
-| **11** | [**`ar-paper-latex-converter`**](file:///D:/Code/docs-and-skills/skills/ar-paper-latex-converter/SKILL.md) | Fase 16 | Folder naskah final `paper/` & aset gambar | Paket LaTeX `paper_latex/` (`access.tex` / `main.tex`) | Konversi ke LaTeX modular siap submit (IEEE/ACM/Springer) |
+| Urutan | Nama Skill | Masukan Utama (*Input*) | Keluaran Utama (*Output*) | Peran Kunci |
+|:---:|:---|:---|:---|:---|
+| **1** | [**`ar-paper-outline`**](file:///D:/Code/docs-and-skills/skills/ar-paper-outline/SKILL.md) | Ide riset, RQ, temuan eksperimen | `paper_outline.md` | Kerangka per paragraf, target kata, boundary klaim |
+| **2** | [**`ar-paper-draft`**](file:///D:/Code/docs-and-skills/skills/ar-paper-draft/SKILL.md) | `paper_outline.md` | `01_introduction.md` s/d `05_conclusion.md` | Penulisan draf modular 1 bab per waktu (CARS/CER) |
+| **3** | [**`ar-paper-sentence-citation`**](file:///D:/Code/docs-and-skills/skills/ar-paper-sentence-citation/SKILL.md) | Draf bab naskah `paper/*.md` | `paper/references.txt` & `paper/references/*.bib` | Pencarian literatur per kalimat, verifikasi DOI/S2 |
+| **4** | [**`ar-paper-reference-compiler`**](file:///D:/Code/docs-and-skills/skills/ar-paper-reference-compiler/SKILL.md) | `references.txt` & `references/*.bib` | `paper/06_references.md` | Kompilasi daftar pustaka akhir ber-anchor interaktif |
+| **5** | [**`ar-paper-citation-numbering`**](file:///D:/Code/docs-and-skills/skills/ar-paper-citation-numbering/SKILL.md) | Draf bab, `references.txt`, `06_references.md` | Draf bab ber-sitasi `[[N]](06_references.md#refN)` | Injeksi nomor sitasi braket teks presisi tanda baca |
+| **6** | [**`ar-paper-abstract`**](file:///D:/Code/docs-and-skills/skills/ar-paper-abstract/SKILL.md) | Draf bab lengkap `01` s/d `05` | `00_abstract.md` & `acronyms.txt` | Abstrak 5 komponen, registrasi akronim, kata kunci |
+| **7** | [**`ar-paper-reviewer`**](file:///D:/Code/docs-and-skills/skills/ar-paper-reviewer/SKILL.md) | Naskah lengkap `paper/*.md` | `07_editorial_decision.md` | Simulasi mock peer review 5 panelis (Schema 13) |
+| **8** | [**`ar-paper-revision-coach`**](file:///D:/Code/docs-and-skills/skills/ar-paper-revision-coach/SKILL.md) | Komentar review mentah / Keputusan editor | `08_revision_roadmap.md` & rangka rebuttal | Parsing ulasan, commitment ledger, talking points |
+| **9** | [**`ar-paper-revision`**](file:///D:/Code/docs-and-skills/skills/ar-paper-revision/SKILL.md) | Draf bab, roadmap, `revision_patch.json` | Naskah terevisi presisi blok & `<draft>.apply-report.json` | Eksekusi patch diff fail-closed (Spec #390) |
+| **10** | [**`ar-paper-rebuttal-audit`**](file:///D:/Code/docs-and-skills/skills/ar-paper-rebuttal-audit/SKILL.md) | Komentar review & draf surat tanggapan | `11_rebuttal_audit_report.md` | Audit QA zero-orphan, diplomasi nada AVEC, bukti lokator |
+| **11** | [**`ar-paper-latex-converter`**](file:///D:/Code/docs-and-skills/skills/ar-paper-latex-converter/SKILL.md) | Folder naskah final `paper/` & aset gambar | Paket LaTeX `paper_latex/` (`access.tex` / `main.tex`) | Konversi ke LaTeX modular siap submit (IEEE/ACM/Springer) |
 
 ---
 
@@ -169,7 +169,7 @@ flowchart TD
 ---
 
 ### Langkah 9: Eksekusi Revisi Naskah Presisi Blok (`ar-paper-revision`)
-- **Fungsi**: Menerapkan perbaikan naskah secara deterministik tanpa menulis ulang seluruh dokumen (ARS Spec #390/#424).
+- **Fungsi**: Menerapkan perbaikan naskah secara deterministik tanpa menulis ulang seluruh dokumen (Mode Patch/Diff Presisi Blok).
 - **Aktivitas Utama**:
   - **Fase 1 (Anchorize)**: Menempelkan stempel `<!--block:BNNNN-->` pada draf naskah via `ars_anchorize_draft.py` dan menerbitkan manifest blok.
   - **Fase 2 (Patch Creation)**: Menyusun instruksi modifikasi terstruktur `revision_patch.json` (`replace_block`, `insert_after`, `delete_block`).
