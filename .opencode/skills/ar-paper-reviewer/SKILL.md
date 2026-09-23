@@ -108,8 +108,11 @@ Membaca berkas ulasan, mengevaluasi aturan Schema 13, dan menghasilkan berkas ke
 # Memproses berkas ulasan dan menghasilkan 07_editorial_decision.md & 08_revision_roadmap.md di paper/
 python skills/ar-paper-reviewer/scripts/ars_peer_reviewer.py --input reviews/ --output-dir paper/
 
-# Menjalankan evaluasi ringkas dan menampilkan hasil format JSON
+# Menjalankan evaluasi ringkas dan menampilkan hasil format JSON (tanpa efek samping tulis disk)
 python skills/ar-paper-reviewer/scripts/ars_peer_reviewer.py --input reviews/sample_report.md --json
+
+# Menjalankan simulasi evaluasi (dry-run) tanpa menulis berkas luaran ke disk
+python skills/ar-paper-reviewer/scripts/ars_peer_reviewer.py --input reviews/ --dry-run
 ```
 
 ### B. Audit Kepatuhan & Integritas Ulasan (`verify_reviewer_integrity.py`)

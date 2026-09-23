@@ -98,7 +98,7 @@ Berkas ini memuat contoh nyata laporan ulasan dari kelima penilai independen bes
 
 ## 0. Baris Audit Sintesis Kanonikal (Pinned Audit Grammar)
 ```text
-dimension_verdicts: [D1=BLOCK, D2=WARN, D3=BLOCK, D4=PASS, D5=PASS, D6=WARN]
+dimension_verdicts: [D1=BLOCK, D2=WARN, D3=BLOCK, D4=PASS, D5=PASS, D6=PASS]
 fired_conditions: [F2]
 da_critical_adjudications: [C1=VALIDATED]
 editorial_decision=major_revision
@@ -127,7 +127,7 @@ editorial_decision=major_revision
 | **D3** | argumentative_coherence | `mandatory` | da, methodology | `da` | **🚫 BLOCK** |
 | **D4** | cross_disciplinary_relevance | `high` | perspective | `perspective` | **✅ PASS** |
 | **D5** | writing_and_structure | `normal` | eic | `eic` | **✅ PASS** |
-| **D6** | venue_fit_and_contribution | `mandatory` | eic | `eic` | **⚠️ WARN** |
+| **D6** | venue_fit_and_contribution | `mandatory` | eic | `eic` | **✅ PASS** |
 
 > **Kondisi Aturan Terpicu**: `F2` (any mandatory dimension scores 'block') $\rightarrow$ `editorial_decision=major_revision`.
 

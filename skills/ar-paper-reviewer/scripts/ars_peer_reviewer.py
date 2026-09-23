@@ -62,9 +62,9 @@ except ImportError:
 
 
 class PeerReviewSynthesizer:
-    def __init__(self, input_path: Path, output_dir: Path, override_decision: Optional[str] = None):
+    def __init__(self, input_path: Path, output_dir: Optional[Path] = None, override_decision: Optional[str] = None):
         self.input_path = input_path
-        self.output_dir = output_dir
+        self.output_dir = output_dir if output_dir is not None else Path("paper")
         self.override_decision = override_decision.upper() if override_decision else None
 
         self.reports: Dict[str, Dict[str, Any]] = {}
@@ -75,6 +75,7 @@ class PeerReviewSynthesizer:
         self.mechanical_decision: str = "ACCEPT"
         self.decision: str = "ACCEPT"
         self.da_critical_blocked: bool = False
+        self.da_critical_marker: Optional[str] = None
         self.da_adjudications: List[Dict[str, str]] = []
 
     def load_inputs(self) -> None:
@@ -289,8 +290,14 @@ class PeerReviewSynthesizer:
         unresolved_da = [a for a in self.da_adjudications if a["status"] in ("VALIDATED", "UNRESOLVED")]
         if unresolved_da and self.mechanical_decision == "ACCEPT":
             self.da_critical_blocked = True
-            # Jangan ubah mechanical action secara sepihak, tetapi tandai status eskalasi tertahan
-            self.decision = "MINOR_REVISION"
+            unres_cnt = len(unresolved_da)
+            self.da_critical_marker = f"[DA-CRITICAL-VS-ACCEPT: {unres_cnt} validated/unresolved]"
+            # Sesuai aturan baku Schema 13 di hulu (Rule: Never Auto-Downgrade Mechanical Action),
+            # aksi mekanis tidak boleh diturunkan secara sepihak menjadi MINOR_REVISION.
+            # Keputusan mekanis ACCEPT tetap dipertahankan, namun status pembekuan ditandai penanda eskalasi.
+            self.decision = self.mechanical_decision
+        else:
+            self.da_critical_marker = None
 
         if self.override_decision and self.override_decision in DECISIONS:
             self.decision = self.override_decision
@@ -300,7 +307,10 @@ class PeerReviewSynthesizer:
         lines = []
         lines.append("# Surat Keputusan Editorial (Editorial Decision Letter)")
         lines.append("")
-        lines.append(f"**Status Keputusan**: **{self.decision.replace('_', ' ')}**  ")
+        if self.da_critical_blocked and self.da_critical_marker:
+            lines.append(f"**Status Keputusan**: **{self.decision.replace('_', ' ')}** {self.da_critical_marker}  ")
+        else:
+            lines.append(f"**Status Keputusan**: **{self.decision.replace('_', ' ')}**  ")
         lines.append(f"**Tanggal Evaluasi**: 2026-09-21  ")
         lines.append(f"**Panel Evaluator**: 5 Penilai Independen (EIC + 3 Peer Reviewers + Devil's Advocate)  ")
         lines.append(f"**Protokol Evaluasi**: Kontrak Sprint Schema 13 (Sprint Contract Protocol v2)  ")
@@ -321,7 +331,12 @@ class PeerReviewSynthesizer:
         else:
             lines.append("da_critical_adjudications: [none]")
         lines.append(f"editorial_decision={self.decision.lower()}")
+        if self.da_critical_blocked and self.da_critical_marker:
+            lines.append(self.da_critical_marker)
         lines.append("```")
+        if self.da_critical_blocked and self.da_critical_marker:
+            lines.append("")
+            lines.append(self.da_critical_marker)
         lines.append("")
         lines.append("---")
         lines.append("")
@@ -358,9 +373,8 @@ class PeerReviewSynthesizer:
         if self.fired_condition:
             lines.append(f"> **Kondisi Aturan Terpicu**: `{self.fired_condition['id']}` ({self.fired_condition['expression']}) $\\rightarrow$ `{self.fired_condition['action']}`.")
 
-        if self.da_critical_blocked:
-            unres_cnt = len([a for a in self.da_adjudications if a["status"] in ("VALIDATED", "UNRESOLVED")])
-            lines.append(f"> ⚠️ **[DA-CRITICAL-VS-ACCEPT: {unres_cnt} validated/unresolved]**: Terdapat temuan CRITICAL dari Devil's Advocate yang belum diselesaikan secara tuntas. Keputusan `ACCEPT` ditangguhkan menjadi `MINOR REVISION` hingga bukti sanggahan terverifikasi.")
+        if self.da_critical_blocked and self.da_critical_marker:
+            lines.append(f"> ⚠️ **{self.da_critical_marker}**: Terdapat temuan CRITICAL dari Devil's Advocate yang belum diselesaikan secara tuntas. Finalisasi keputusan `ACCEPT` dibekukan hingga bukti sanggahan terverifikasi.")
 
         lines.append("")
         lines.append("---")
@@ -400,7 +414,10 @@ class PeerReviewSynthesizer:
         lines.append("## 5. Instruksi Revisi & Batas Waktu")
         lines.append("")
         if self.decision == "ACCEPT":
-            lines.append("Naskah Anda dinyatakan **DITERIMA (ACCEPT)**. Penulis dapat melanjutkan ke tahap persiapan naskah akhir dan konversi format publikasi.")
+            if self.da_critical_blocked and self.da_critical_marker:
+                lines.append(f"Naskah Anda secara mekanis memenuhi kriteria **DITERIMA (ACCEPT)**, namun status finalisasinya dibekukan sementara `{self.da_critical_marker}` karena terdapat temuan kritis Devil's Advocate yang belum diselesaikan. Penulis wajib menyajikan bukti sanggahan atau membatasi klaim sentral sebelum naskah dapat diproses ke tahap akhir.")
+            else:
+                lines.append("Naskah Anda dinyatakan **DITERIMA (ACCEPT)**. Penulis dapat melanjutkan ke tahap persiapan naskah akhir dan konversi format publikasi.")
         elif self.decision == "MINOR_REVISION":
             lines.append("Naskah Anda membutuhkan **REVISI MINOR (MINOR REVISION)**. Penulis diminta melengkapi perbaikan minor dan tanggapan formal dalam rentang waktu **2–3 minggu**.")
         elif self.decision == "MAJOR_REVISION":
@@ -491,13 +508,18 @@ def main() -> int:
     )
     parser.add_argument(
         "-o", "--output-dir",
-        default="paper",
-        help="Direktori target penyimpanan luaran (default: paper/).",
+        default=None,
+        help="Direktori target penyimpanan luaran (default: paper/ saat penulisan aktif).",
     )
     parser.add_argument(
         "--override-decision",
         choices=["ACCEPT", "MINOR_REVISION", "MAJOR_REVISION", "REJECT"],
         help="Paksa keputusan editorial tertentu (override).",
+    )
+    parser.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="Jalankan evaluasi tanpa menulis berkas luaran ke disk.",
     )
     parser.add_argument(
         "--json",
@@ -507,7 +529,19 @@ def main() -> int:
 
     args = parser.parse_args()
     input_path = Path(args.input)
-    output_dir = Path(args.output_dir)
+
+    # Efek samping penulisan disk dicegah saat:
+    # 1. Flag --dry-run diaktifkan, ATAU
+    # 2. Flag --json dipanggil tanpa secara eksplisit menentukan --output-dir (-o)
+    should_write = True
+    if args.dry_run:
+        should_write = False
+    elif args.json and args.output_dir is None:
+        should_write = False
+
+    output_dir = Path(args.output_dir) if args.output_dir else Path("paper")
+    dec_file = None
+    road_file = None
 
     try:
         synthesizer = PeerReviewSynthesizer(
@@ -518,7 +552,9 @@ def main() -> int:
         synthesizer.load_inputs()
         synthesizer.parse_reports()
         synthesizer.evaluate_sprint_contract()
-        dec_file, road_file = synthesizer.write_outputs()
+
+        if should_write:
+            dec_file, road_file = synthesizer.write_outputs()
 
         if args.json:
             result = {
@@ -527,10 +563,12 @@ def main() -> int:
                 "dimension_status": synthesizer.dimension_status,
                 "fired_condition": synthesizer.fired_condition,
                 "da_critical_blocked": synthesizer.da_critical_blocked,
+                "da_critical_marker": synthesizer.da_critical_marker,
+                "escalation_marker": synthesizer.da_critical_marker,
                 "da_adjudications": synthesizer.da_adjudications,
                 "total_findings": len(synthesizer.findings),
-                "decision_file": str(dec_file),
-                "roadmap_file": str(road_file),
+                "decision_file": str(dec_file) if dec_file else None,
+                "roadmap_file": str(road_file) if road_file else None,
             }
             print(json.dumps(result, indent=2, ensure_ascii=False))
         else:
@@ -541,10 +579,13 @@ def main() -> int:
             print(f"Total Temuan Isu     : {len(synthesizer.findings)} temuan")
             if synthesizer.fired_condition:
                 print(f"Kondisi Schema 13    : {synthesizer.fired_condition['id']} - {synthesizer.fired_condition['expression']}")
-            if synthesizer.da_critical_blocked:
-                print("DA CRITICAL Status   : [DA-CRITICAL-VS-ACCEPT: Blocked by Devil's Advocate]")
-            print(f"Berkas Keputusan     : {dec_file}")
-            print(f"Berkas Rencana Aksi  : {road_file}")
+            if synthesizer.da_critical_blocked and synthesizer.da_critical_marker:
+                print(f"DA CRITICAL Status   : {synthesizer.da_critical_marker}")
+            if dec_file and road_file:
+                print(f"Berkas Keputusan     : {dec_file}")
+                print(f"Berkas Rencana Aksi  : {road_file}")
+            else:
+                print("Mode Penulisan       : DRY-RUN (Tidak ada berkas yang ditulis ke disk)")
             print("=================================================================")
 
         return 0
