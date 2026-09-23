@@ -1,6 +1,6 @@
 # Panduan Integritas Referensi Bebas Yatim (Zero-Orphan Integrity Guide)
 
-Dokumen ini menjelaskan protokol audit kepatuhan tanpa referensi yatim (*Zero-Orphan Protocol*) dan pemeriksaan integritas nomor sitasi antara teks bab draf dan naskah daftar pustaka `paper/06_references.md`.
+Dokumen ini menjelaskan protokol audit kepatuhan tanpa referensi yatim (*Zero-Orphan Protocol*), pengecualian sitasi naratif, proteksi blok kode, dan pemeriksaan integritas nomor sitasi antara teks bab draf dan naskah daftar pustaka `paper/06_references.md`.
 
 ---
 
@@ -29,7 +29,7 @@ Dalam publikasi ilmiah bereputasi internasional, ketidakcocokan antara teks nask
 - **Dilarang keras:** Mengutip nomor rujukan fiktif atau nomor yang belum didefinisikan pada daftar pustaka.
 
 ### B. Arah 2: Ketiadaan Referensi Yatim di Daftar Pustaka (*Zero Reference List Orphans*)
-- Setiap entri `[N]` yang terdaftar pada `06_references.md` harus disitir minimal satu kali pada salah satu berkas bab draf (`01_introduction.md` s.d. `05_conclusion.md`).
+- Setiap entri `[N]` yang terdaftar pada `06_references.md` harus disitir minimal satu kali pada salah satu berkas bab draf (`01_introduction.md` s.d. `05_conclusion.md` atau `07_biographies.md`).
 - **Dilarang keras:** Memasukkan literatur ke dalam daftar pustaka hanya sebagai pelengkap atau pemanis naskah (*phantom bibliography*) tanpa pernah merujuknya di dalam narasi.
 
 ---
@@ -48,19 +48,46 @@ Gaya IEEE mewajibkan penomoran referensi mengikuti kronologi pertama kali rujuka
 
 ---
 
-## 3. Matriks Integritas Segitiga
+## 3. Pengecualian Bebas False-Positive untuk Sitasi Naratif
 
-Pemeriksaan konsistensi dilakukan melintasi 3 pilar:
+Dalam penulisan akademik gaya IEEE, rujukan sering kali disebutkan secara naratif langsung setelah nama penulis:
+```markdown
+Menurut Vaswani et al. [[1]](06_references.md#ref1), arsitektur transformer ...
+```
 
-| Entitas | Peran | Pemeriksaan Validasi |
-|---|---|---|
-| `paper/references.txt` | Pemetaan Sumber | Setiap baris klaim harus memetakan ke berkas fisik yang ada di `paper/references/`. |
-| `paper/06_references.md` | Naskah Daftar Pustaka | Urutan `[1]` s.d. `[N]` wajib sama persis dengan urutan kemunculan pertama pada `references.txt`. |
-| `paper/*.md` (Bab Naskah) | Draf Narasi | Setiap nomor sitasi `[[N]]` harus mengarah ke entri yang sesuai dan diletakkan sebelum tanda baca. |
+Pada deteksi tanda baca konvensional, tanda titik pada singkatan `et al.` dapat secara keliru dideteksi sebagai tanda baca penutup kalimat. Auditor integritas menggunakan *negative lookbehind* cerdas:
+```python
+RE_PUNCT_AFTER_PERIOD = re.compile(
+    r"(?<!\bet al)(?<!\bi\.e)(?<!\be\.g)\.\s*\[\[\d+\]\]",
+    re.IGNORECASE
+)
+```
+Dengan mekanisme ini, singkatan sah seperti `et al.`, `i.e.`, dan `e.g.` tidak akan memicu kesalahan tanda baca palsu (*false positive*), sementara kesalahan penempatan nyata seperti `kalimat selesai. [[1]]` tetap terdeteksi 100% akurat.
 
 ---
 
-## 4. Eksekusi Audit Otomatis dengan Skrip
+## 4. Cakupan Audit & Penyaringan Bab Kanonikal
+
+Auditor secara ketat menyaring berkas yang diperiksa hanya pada bab-bab naskah ilmiah resmi:
+- **Bab yang Diaudit:**
+  - `01_introduction.md`
+  - `02_related-works.md`
+  - `03_materials-and-methods_*.md`
+  - `04_results-and-discussion_*.md`
+  - `05_conclusion.md`
+  - `07_biographies.md`
+- **Berkas yang Dikecualikan dari Audit Bab:**
+  - `00_abstract.md` (Abstrak naskah mandiri)
+  - `06_references.md` (Daftar pustaka target tautan)
+  - `07_editorial_decision.md` (Artefak luaran peer review)
+  - `08_revision_roadmap.md` (Rencana aksi revisi reviewer)
+  - `ref_part_*.md` (Fragmen kompilasi bibliografi)
+
+Selain itu, seluruh blok kode berpagar (```` ``` ```` atau `~~~`) di dalam naskah dilewati (*bypassed*) agar instruksi kode atau komentar di dalamnya tidak mengganggu audit sitasi teks.
+
+---
+
+## 5. Eksekusi Audit Otomatis dengan Skrip
 
 Untuk memvalidasi kepatuhan naskah secara komprehensif:
 

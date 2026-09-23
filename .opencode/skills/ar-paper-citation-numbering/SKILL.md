@@ -1,6 +1,6 @@
 ---
 name: ar-paper-citation-numbering
-description: "Aktifkan ketika pengguna meminta untuk menyuntikkan (inject), menomori, memperbarui, atau menyinkronkan nomor sitasi braket interaktif [[N]](06_references.md#refN) ke dalam draf naskah bab (paper/*.md) berdasarkan berkas pemetaan paper/references.txt dan daftar pustaka paper/06_references.md. Mendukung penempatan tanda baca presisi sebelum titik/koma (IEEE style), multi-sitasi terpisah, sitasi naratif, pencegahan duplikasi (idempotensi), dan audit zero-orphan. Kata kunci pemicu: inject citation, nomori sitasi, citation numbering, in-text citation, sinkronkan sitasi naskah, hubungkan sitasi, bracket citations, pasang nomor referensi. JANGAN aktifkan untuk membuat outline (gunakan ar-paper-outline), menulis draf bab baru (gunakan ar-paper-draft), mencari sitasi kalimat (gunakan ar-paper-sentence-citation), atau mengompilasi naskah 06_references.md (gunakan ar-paper-reference-compiler)."
+description: "Aktifkan ketika pengguna meminta untuk menyuntikkan (inject), menomori, memperbarui, atau menyinkronkan nomor sitasi braket interaktif [[N]](06_references.md#refN) ke dalam draf naskah bab (paper/*.md) berdasarkan berkas pemetaan paper/references.txt dan daftar pustaka paper/06_references.md. Mendukung penempatan tanda baca presisi sebelum titik/koma (IEEE style), multi-sitasi terpisah, sitasi naratif, pencegahan duplikasi (idempotensi), proteksi fenced code blocks, normalisasi Windows path, dan audit zero-orphan. Kata kunci pemicu: inject citation, nomori sitasi, citation numbering, in-text citation, sinkronkan sitasi naskah, hubungkan sitasi, bracket citations, pasang nomor referensi. JANGAN aktifkan untuk membuat outline (gunakan ar-paper-outline), menulis draf bab baru (gunakan ar-paper-draft), mencari sitasi kalimat (gunakan ar-paper-sentence-citation), atau mengompilasi naskah 06_references.md (gunakan ar-paper-reference-compiler)."
 license: MIT
 metadata:
   author: Rafy
@@ -34,7 +34,7 @@ Skill ini menjalankan proses **penomoran deterministik, penyuntikan tautan brake
 
 ## Ruang Lingkup (Scope)
 
-- **Dalam Lingkup:** Ekstraksi nomor rujukan dari urutan kemunculan pertama pada `paper/references.txt`, pencocokan kalimat klaim 3-lapis (*Exact, Normalized, Fuzzy*), penyuntikan tautan braket interaktif `[[N]](06_references.md#refN)` sebelum tanda baca terminal (`.`, `,`, `;`, atau `|`), penanganan multi-sitasi terpisah, sitasi naratif, sitasi tabel, jaminan sifat idempoten (anti duplikasi), dan verifikasi kepatuhan *zero-orphan*.
+- **Dalam Lingkup:** Ekstraksi nomor rujukan dari urutan kemunculan pertama pada `paper/references.txt`, normalisasi Windows path otomatis (`\` ke `/`), proteksi blok kode berpagar (*fenced code blocks* ```` ``` ```` dan `~~~`), validasi silang aktif dengan `paper/06_references.md`, pemotongan tanda baca penutup klaim (*rstrip*), pencocokan kalimat klaim 3-lapis (*Exact, Normalized, Fuzzy*), penyuntikan tautan braket interaktif `[[N]](06_references.md#refN)` sebelum tanda baca terminal (`.`, `,`, `;`, atau `|`), penanganan multi-sitasi terpisah, sitasi naratif (bebas false-positive pada `et al.`), sitasi tabel, jaminan sifat idempoten (anti duplikasi), dan verifikasi kepatuhan *zero-orphan* pada bab naskah resmi (`01_` s.d. `05_` dan `07_biographies`).
 - **Luar Lingkup:** Menulis teks draf baru dari nol, mengunduh file `.bib` baru, mengubah isi entri referensi pada `06_references.md`, atau mengarang nomor sitasi fiktif.
 
 ---
@@ -55,7 +55,7 @@ Struktur alur berkas yang terlibat pada Step 4:
 
 ```text
 paper/
-├── references.txt                # INPUT 1: Master mapping klaim -> file rujukan
+├── references.txt                # INPUT 1: Master mapping klaim -> file rujukan (kompatibel path Windows & Unix)
 ├── 06_references.md              # INPUT 2: Naskah daftar pustaka ber-anchor <a id="refN"></a>
 ├── 01_introduction.md            # TARGET INJEKSI: Draf bab naskah modular
 ├── 02_related-works.md
@@ -77,32 +77,40 @@ Pengenalan otomatis atribut demografis wajah memegang peranan penting dalam berb
 
 ## Protokol Eksekusi Penomoran Sitasi
 
-### 1. Registrasi Urutan Kemunculan Pertama (IEEE Monotonic Order)
+### 1. Registrasi Urutan Kemunculan Pertama (IEEE Monotonic Order) & Normalisasi Path
 - Ekstrak seluruh rujukan unik dari `paper/references.txt` berdasarkan urutan pertama kali muncul pada naskah.
+- Normalisasikan semua separator direktori Windows (`\`) menjadi forward slash (`/`) di awal pembacaan untuk kompatibilitas lintas platform yang sempurna.
 - Petakan setiap berkas referensi ke indeks integer $N = 1, 2, 3, \dots, K$.
-- Verifikasi keselarasan nomor $N$ dengan entri `[N]` pada `paper/06_references.md`.
+- Verifikasi silang keselarasan nomor $N$ dengan definisi tag jangkar `<a id="refN"></a>\n[N]` pada `paper/06_references.md` secara otomatis.
 
-### 2. Pencocokan Kalimat Klaim Multi-Lapis (Sentence Matching Engine)
+### 2. Proteksi Fenced Code Blocks (Masking Isolasi)
+- Sebelum pemrosesan paragraf, seluruh blok kode Markdown (baik diawali ```` ``` ```` maupun `~~~`) dimasking menjadi token penampung (`<<<CODE_BLOCK_N>>>`).
+- Menjamin komentar kode, string program, atau tanda kurung dalam kode tidak tersentuh oleh penyuntikan sitasi atau pembersihan *strip*.
+- Blok kode dipulihkan persis sama tanpa kehilangan karakter atau spasi indentasi setelah injeksi selesai.
+
+### 3. Pencocokan Kalimat Klaim Multi-Lapis & Pemotongan Tanda Baca Akhir
+- Potong tanda baca terminal klaim (*rstrip* `.,;:|`) dari teks rujukan di `references.txt` agar kurung siku sitasi IEEE selalu disuntikkan **SEBELUM** tanda baca terminal di paragraf.
 - **Lapis 1 (Exact Match):** Cari substring teks klaim persis di dalam paragraf.
-- **Lapis 2 (Normalized Match):** Hilangkan perbedaan variasi kutip (`“`, `”`, `'`), en-dash/em-dash, spasi ganda, dan titik akhir klaim.
+- **Lapis 2 (Normalized Match):** Hilangkan perbedaan variasi kutip (`“`, `”`, `'`), en-dash/em-dash, spasi ganda, dan tanda baca penutup klaim.
 - **Lapis 3 (Fuzzy Match):** Bila ada revisi redaksional minor pada draf, gunakan algoritma `difflib.SequenceMatcher` dengan batas ambang kemiripan $\ge 0.85$.
 
-### 3. Konstruksi Tautan Braket Interaktif
+### 4. Konstruksi Tautan Braket Interaktif
 - Ambil nomor referensi pendukung klaim, lakukan deduplikasi, dan urutkan secara menaik (*ascending order*).
 - Bangun string tautan:
   - Sitasi Tunggal: `[[1]](06_references.md#ref1)`
   - Multi-Sitasi Terpisah: `[[1]](06_references.md#ref1), [[2]](06_references.md#ref2)`
 - Tautan diskrit dipertahankan agar setiap nomor dapat diklik secara interaktif langsung menuju jangkar `<a id="refN"></a>` pada daftar pustaka.
 
-### 4. Penempatan Tanda Baca Sadar Konteks (Punctuation Placement)
+### 5. Penempatan Tanda Baca Sadar Konteks (Punctuation Placement)
 - Nomor sitasi diletakkan persis di ujung kata terakhir klaim, dipisahkan satu spasi, dan menempel **SEBELUM** tanda baca penutup kalimat:
   - Sebelum titik: `... personalisasi layanan interaktif [[1]](06_references.md#ref1), [[2]](06_references.md#ref2).`
   - Sebelum koma: `... dipelajari secara simultan [[6]](06_references.md#ref6), sedangkan ...`
   - Sebelum pembatas tabel: `| MD-ViT [[20]](06_references.md#ref20) | 89.07% |`
   - Sitasi Naratif: `Menurut Sunitha et al. [[13]](06_references.md#ref13), pendekatan CNN ...`
 
-### 5. Jaminan Idempotensi & Keamanan Tulis Atomik
+### 6. Jaminan Idempotensi, Perbaikan Mandiri & Keamanan Tulis Atomik
 - **Anti Dobel Injeksi:** Periksa apakah kalimat sudah memuat tautan sitasi yang sama. Jika sudah ada, lewati (*skip*).
+- **Perbaikan Mandiri (*Self-Healing*):** Jika berkas draf sebelumnya memuat sitasi yang keliru ditempatkan setelah tanda baca titik (`klaim. [[1]]`), mesin secara otomatis mereposisi sitasi ke sebelum tanda baca (`klaim [[1]].`).
 - **Atomic Write:** Penulisan berkas menggunakan temporary file dan `os.replace` tingkat kernel untuk mencegah file draf korup bila proses terputus.
 
 ---
@@ -117,6 +125,8 @@ Pengenalan otomatis atribut demografis wajah memegang peranan penting dalam berb
 | Urutkan nomor multi-sitasi secara menaik: `[[11]], [[12]], [[13]]` | Menulis nomor multi-sitasi secara acak: `[[13]], [[11]]` |
 | Gunakan nomor yang sama secara konsisten saat merujuk sumber yang sama | Membuat nomor baru untuk sumber yang sudah pernah disitir |
 | Pertahankan integritas kalimat asli tanpa mengubah substansi kata | Mengubah susunan kalimat klaim saat menyisipkan sitasi |
+| Biarkan skrip menormalisasi path Windows (`\`) secara otomatis | Mengedit format path `references.txt` secara manual hanya karena masalah backslash Windows |
+| Lindungi blok kode dengan fenced code block (```` ``` ```` / `~~~`) | Menyuntikkan sitasi ke dalam baris instruksi atau komentar kode program |
 | Jalankan audit integritas dua arah (*zero-orphan*) setelah penomoran | Membiarkan adanya sitasi di teks yang tidak ada di daftar pustaka |
 
 ---
@@ -142,7 +152,7 @@ Skill ini dilengkapi dengan modul dan skrip CLI berbasis pustaka standar Python 
 
 2. **Audit Integritas Sitasi Naskah Bab (Zero-Orphan Audit)**:
    ```bash
-   # Audit kepatuhan sitasi seluruh bab terhadap 06_references.md:
+   # Audit kepatuhan sitasi seluruh bab resmi terhadap 06_references.md:
    python scripts/verify_citation_integrity.py -d paper -r paper/06_references.md
 
    # Luaran audit dalam format terstruktur JSON:
@@ -157,5 +167,5 @@ Untuk protokol teknis, aturan tanda baca mendalam, dan penanganan kasus khusus, 
 
 - `references/citation_numbering_workflow.md`: Siklus operasional 6 tahap penomoran sitasi teks, integrasi pipeline naskah, dan penanganan galat.
 - `references/ieee_in_text_guidelines.md`: Pedoman resmi penulisan sitasi IEEE, aturan spasi, multi-sitasi, sitasi naratif, dan sitasi dalam sel tabel.
-- `references/matching_and_idempotency_rules.md`: Spesifikasi mesin pencocokan 3 lapis (*Exact, Normalized, Fuzzy*), aturan idempotensi, dan protokol atomic write.
-- `references/zero_orphan_integrity_guide.md`: Protokol audit dua arah bebas yatim (*Zero-Orphan*), urutan kemunculan pertama monotonik IEEE, dan kriteria lolos audit.
+- `references/matching_and_idempotency_rules.md`: Spesifikasi mesin pencocokan 3 lapis (*Exact, Normalized, Fuzzy*), normalisasi path Windows, proteksi blok kode, aturan idempotensi, dan protokol atomic write.
+- `references/zero_orphan_integrity_guide.md`: Protokol audit dua arah bebas yatim (*Zero-Orphan*), urutan kemunculan pertama monotonik IEEE, pengecualian sitasi naratif `et al.`, dan penyaringan berkas bab naskah resmi.

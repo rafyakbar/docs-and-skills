@@ -12,9 +12,14 @@ Fungsi Pemeriksaan:
    - Tidak ada entri di 06_references.md yang tidak pernah disitir di seluruh naskah bab (Zero-Orphan Reference).
 3. Urutan Kemunculan Pertama (IEEE Monotonic Order of First Appearance):
    - Referensi baru harus muncul secara berurutan [1], [2], [3], ... tanpa melompat.
-4. Kepatuhan Tanda Baca:
+4. Kepatuhan Tanda Baca & Sitasi Naratif:
    - Memastikan sitasi diletakkan sebelum tanda baca terminal (. , ;), bukan setelah tanda baca.
-5. Luaran Terstruktur: Mendukung format konsol manusiawi dan JSON (--json).
+   - Pengecualian bebas false-positive untuk singkatan sah sitasi naratif (et al., i.e., e.g.).
+5. Proteksi Blok Kode Berpagar (Fenced Code Blocks):
+   - Menghiraukan isi blok kode Markdown (``` / ~~~) agar tidak menimbulkan deteksi palsu.
+6. Penyaringan Bab Kanonikal:
+   - Hanya mengaudit bab resmi (01_ s.d. 05_ serta 07_biographies), mengabaikan berkas review (07_editorial_decision, 08_revision_roadmap).
+7. Luaran Terstruktur: Mendukung format konsol manusiawi dan JSON (--json).
 """
 
 from __future__ import annotations
@@ -34,35 +39,53 @@ if hasattr(sys.stdout, "reconfigure"):
         pass
 
 RE_CITATION_LINK = re.compile(r"\[\[(\d+)\]\]\((?:06_references\.md)?#ref(\d+)\)")
-RE_ANCHOR_DEF = re.compile(r'<a\s+id=["\']ref(\d+)["\']>\s*</a>\s*\n\s*\[(\d+)\]', re.IGNORECASE)
-RE_PUNCT_AFTER_PERIOD = re.compile(r"\.\s*\[\[\d+\]\]")
-RE_PUNCT_AFTER_COMMA = re.compile(r"(?<!\))\s*,\s*\[\[\d+\]\]")
+RE_ANCHOR_DEF = re.compile(r'<a\s+id=["\']ref(\d+)["\']>\s*</a>\s*\[(\d+)\]', re.IGNORECASE)
+RE_PUNCT_AFTER_PERIOD = re.compile(r"(?<!\bet al)(?<!\bi\.e)(?<!\be\.g)\.\s*\[\[\d+\]\]", re.IGNORECASE)
+RE_PUNCT_AFTER_COMMA = re.compile(r"(?<!\))(?<!\])\s*,\s*\[\[\d+\]\]")
+RE_FENCE_START = re.compile(r"^ {0,3}(`{3,}|~{3,})")
 
 
 def get_canonical_file_order(draft_dir: Path) -> List[Path]:
-    """Mengembalikan daftar berkas bab markdown dalam urutan baca naskah IEEE kanonikal."""
+    """
+    Mengembalikan daftar berkas bab markdown dalam urutan baca naskah IEEE kanonikal.
+    Hanya menyertakan bab naskah resmi (01_ s.d. 05_ serta 07_biographies)
+    dan mengabaikan berkas non-bab/review seperti 00_abstract, 06_references, 07_editorial_decision,
+    08_revision_roadmap, serta ref_part_*.
+    """
     if not draft_dir.exists():
         return []
 
-    # Ambil seluruh berkas *.md di direktori
     all_files = list(draft_dir.glob("*.md"))
-
-    # Saring berkas yang bukan bab isi (00_abstract, 06_references, 07_biographies, ref_part_*, dll.)
     content_files = []
+
     for f in all_files:
         name = f.name.lower()
-        if name.startswith("00_") or name.startswith("06_") or name.startswith("07_") or name.startswith("ref_part"):
+        # Saring keluar berkas non-bab dan artefak review/pipeline
+        if (
+            name.startswith("00_")
+            or name.startswith("06_")
+            or name.startswith("08_")
+            or name.startswith("09_")
+            or name.startswith("ref_part")
+            or "editorial_decision" in name
+            or "revision_roadmap" in name
+        ):
             continue
-        content_files.append(f)
 
-    # Urutkan secara alfabetis (01_..., 02_..., 03_..., 04_..., 05_...)
+        # Hanya sertakan bab naskah resmi 01_ s.d. 05_ serta 07_biographies
+        if any(name.startswith(p) for p in ("01_", "02_", "03_", "04_", "05_")):
+            content_files.append(f)
+        elif name.startswith("07_") and "biograph" in name:
+            content_files.append(f)
+
+    # Urutkan secara alfabetis kanonikal (01_..., 02_..., 03_..., 04_..., 05_...)
     return sorted(content_files, key=lambda p: p.name)
 
 
 def parse_reference_anchors(refs_md_path: Path) -> Dict[int, int]:
     """
     Ekstrak seluruh definisi jangkar pada 06_references.md:
-    Returns: { ref_number: anchor_number }
+    Returns: { bracket_num: anchor_number }
     """
     if not refs_md_path.exists():
         return {}
@@ -85,7 +108,6 @@ def audit_citations(
     """Melakukan audit menyeluruh terhadap seluruh sitasi di naskah bab."""
     anchors = parse_reference_anchors(refs_md_path)
     defined_ref_nums = set(anchors.keys())
-    max_defined_ref = max(defined_ref_nums) if defined_ref_nums else 0
 
     canonical_files = get_canonical_file_order(draft_dir)
 
@@ -99,8 +121,34 @@ def audit_citations(
 
     for fpath in canonical_files:
         lines = fpath.read_text(encoding="utf-8").splitlines()
+        in_code_block = False
+        fence_char = ""
+        fence_len = 0
+
         for line_no, line in enumerate(lines, start=1):
-            # Cek penempatan salah (setelah titik/koma)
+            # Proteksi fenced code block: deteksi pembuka dan penutup blok kode
+            m_fence = RE_FENCE_START.match(line)
+            if m_fence:
+                fence = m_fence.group(1)
+                char = fence[0]
+                length = len(fence)
+                if not in_code_block:
+                    in_code_block = True
+                    fence_char = char
+                    fence_len = length
+                    continue
+                else:
+                    if char == fence_char and length >= fence_len:
+                        in_code_block = False
+                        fence_char = ""
+                        fence_len = 0
+                        continue
+
+            # Abaikan seluruh baris yang berada di dalam blok kode
+            if in_code_block:
+                continue
+
+            # Cek penempatan salah (setelah titik/koma selain singkatan sah)
             if RE_PUNCT_AFTER_PERIOD.search(line) or RE_PUNCT_AFTER_COMMA.search(line):
                 punctuation_faults.append({
                     "file": str(fpath.name),
@@ -207,7 +255,7 @@ def main() -> int:
         print(json.dumps(report, indent=2, ensure_ascii=False))
         return 0 if report["status"] == "PASS" else 1
 
-    print(f"=== LAPORAN AUDIT INTEGRITAS SITASI TEKS (Step 4) ===")
+    print("=== LAPORAN AUDIT INTEGRITAS SITASI TEKS (Step 4) ===")
     print(f"Status Audit             : {report['status']}")
     print(f"Berkas Bab Diaudit       : {report['total_files_audited']}")
     print(f"Total Tautan Sitasi Teks : {report['total_citations_found']}")

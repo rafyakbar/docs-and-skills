@@ -1,6 +1,6 @@
 # Logika Pencocokan Kalimat & Aturan Idempotensi (Matching & Idempotency Rules)
 
-Dokumen ini mendokumentasikan spesifikasi teknis mesin pencocokan teks kalimat (*Sentence Matching Engine*), penanganan toleransi redaksional, penulisan atomik, dan jaminan sifat idempoten pada modul penomoran sitasi.
+Dokumen ini mendokumentasikan spesifikasi teknis mesin pencocokan teks kalimat (*Sentence Matching Engine*), penanganan toleransi redaksional, proteksi blok kode, normalisasi lintas platform, penulisan atomik, dan jaminan sifat idempoten pada modul penomoran sitasi.
 
 ---
 
@@ -32,7 +32,8 @@ Klaim yang dicatat dalam `paper/references.txt` terkadang mengalami perbaikan re
 ```
 
 ### Lapis 1: Exact Substring Matching
-- Klaim dicari secara persis menggunakan `claim_text in paragraph`.
+- Klaim dicari secara persis menggunakan `claim_clean in paragraph` di mana `claim_clean = claim_text.rstrip(".,;:|").strip()`.
+- Pemotongan tanda baca penutup klaim (*trailing punctuation stripping*) menjamin posisi kurung siku sitasi disuntikkan **SEBELUM** tanda baca terminal paragraf (`.`, `,`, `;`, `:`, `|`).
 - Bila ditemukan, indeks karakter awal dan akhir klaim dihitung untuk mendeteksi tanda baca berikutnya.
 - Kecepatan: $O(1)$ amortized (paling cepat dan akurat untuk 95% naskah).
 
@@ -57,20 +58,53 @@ Mengatasi variasi ortografis dan encoding teks:
 
 ---
 
-## 2. Aturan Idempotensi (Idempotency Guarantees)
+## 2. Normalisasi Jalur Windows (Windows Path Normalization)
+
+Pada lingkungan sistem operasi Windows, generator pemetaan atau sistem operasi menghasilkan jalur berkas dengan tanda *backslash* (`\`):
+```text
+paper\01_introduction.md: paragraf 1:
+- "Teks klaim":
+  - paper\references\2021_author.bib
+```
+
+Mesin penomoran melakukan normalisasi string di awal pemrosesan:
+```python
+norm_line = raw_line.replace("\\", "/")
+```
+Langkah ini menjamin bahwa pengenalan header seksi (`norm_line.startswith("paper/")`) dan berkas rujukan (`"paper/references/" in norm_line`) bekerja 100% konsisten melintasi Linux, macOS, dan Windows.
+
+---
+
+## 3. Proteksi Blok Kode Berpagar (Fenced Code Block Protection)
+
+Naskah ilmiah di bidang ilmu komputer sering kali memuat blok kode program (menggunakan ``` atau ~~~). Teks di dalam blok kode, termasuk baris komentar atau string literal, tidak boleh dimodifikasi atau disuntik sitasi.
+
+### Mekanisme Masking Dua Fase
+1. **Fase Ekstraksi & Masking:**
+   Setiap blok kode berpagar diidentifikasi secara utuh dan digantikan oleh penampung deterministik `<<<CODE_BLOCK_N>>>`. Seluruh baris di dalam blok kode diisolasi.
+2. **Fase Injeksi:**
+   Proses pemecahan paragraf (`\n\n`) hanya mengevaluasi teks naratif di luar penampung kode. Paragraf yang merupakan blok kode dilewati sepenuhnya.
+3. **Fase Pemulihan (Restoration):**
+   Setelah proses injeksi atau pembersihan (*strip*) selesai, seluruh penampung `<<<CODE_BLOCK_N>>>` dikembalikan ke bentuk teks kode aslinya byte-demi-byte tanpa mengubah spasi atau baris kosong di dalam kode.
+
+---
+
+## 4. Aturan Idempotensi & Perbaikan Mandiri (Idempotency & Self-Healing)
 
 Idempotensi adalah sifat di mana eksekusi berulang terhadap operasi yang sama tidak akan mengubah hasil di luar eksekusi pertama ($f(f(x)) = f(x)$).
 
 ### A. Pencegahan Dobel Injeksi (Anti Double-Injection)
 Sebelum menyisipkan tautan braket, mesin memeriksa apakah di posisi target sudah terpasang sitasi:
 ```python
-# Pola regex pendeteksi sitasi eksisting:
 RE_EXISTING = re.compile(r"\[\[(\d+)\]\]\(06_references\.md#ref\d+\)")
 ```
 - Jika kalimat sudah memiliki `[[N]](06_references.md#refN)` dengan nomor yang sama, proses **melewatkan (skip)** kalimat tersebut tanpa modifikasi.
 - Berkas draf tidak akan mengalami perubahan tanggal modifikasi (*modification time*) jika seluruh sitasi sudah terpasang sempurna.
 
-### B. Mode Pembersihan & Penomoran Ulang (`--strip`)
+### B. Perbaikan Mandiri Sitasi Salah Letak (Self-Healing Legacy Corrections)
+Bila naskah sebelumnya pernah disuntik sitasi dengan format yang keliru (misal: diletakkan setelah tanda titik seperti `klaim. [[1]]`), mesin secara otomatis mendeteksi kluster sitasi setelah tanda baca dan mereposisinya ke sebelum tanda titik (`klaim [[1]].`).
+
+### C. Mode Pembersihan & Penomoran Ulang (`--strip`)
 Bila susunan referensi diubah secara masif atau pengguna ingin mereset naskah bab ke bentuk murni:
 - Parameter `--strip` memindai seluruh naskah dan menghapus semua blok `[[N]](06_references.md#refN)` secara aman.
 - Tanda baca kalimat dan kerapian spasi dikembalikan ke keadaan semula:
@@ -81,7 +115,7 @@ Bila susunan referensi diubah secara masif atau pengguna ingin mereset naskah ba
 
 ---
 
-## 3. Protokol Penulisan Berkas Atomik (Atomic Write Protocol)
+## 5. Protokol Penulisan Berkas Atomik (Atomic Write Protocol)
 
 Untuk mencegah berkas draf naskah korup atau hilang bila daya komputer mati atau proses terinterupsi saat operasi tulis berlangsung, implementasi menggunakan teknik **Atomic Write** berbasis sistem operasi:
 
