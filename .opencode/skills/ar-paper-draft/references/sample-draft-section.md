@@ -1,10 +1,10 @@
-# Sample Draft Section (Illustrative Reference Exemplar)
+# Contoh Draf Seksi (Sampel Acuan Ilustratif)
 
 > [!IMPORTANT]
-> **Purely Illustrative Reference Exemplar — Unnumbered Prose**
-> The following markdown file demonstrates how a single modular section file (e.g., `01_introduction.md`) is drafted from an approved paragraph blueprint during **Step 1 (Drafting)**.
-> Notice that **no citation numbers (e.g., `[1]`, `[[1]]`, `[[1]](06_references.md#ref1)`) are present**. In this step, the prose is written as clean, precise academic assertions where each sentence carrying an empirical or theoretical claim is clearly bounded, making it ready for sentence-level citation mapping in Step 2 (`references.txt`) and subsequent numbering in Step 4.
-> This example is purely illustrative and does not prescribe specific domain content or a predetermined venue.
+> **Sampel Acuan Murni Ilustratif — Prosa Ilmiah Tanpa Nomor Sitasi**
+> Berkas Markdown berikut mendemonstrasikan bagaimana suatu berkas seksi modular tunggal (misalnya `01_introduction.md`) disusun dari cetak biru paragraf yang telah disetujui selama **Langkah 1 (Penulisan Draf / Drafting)**.
+> Perhatikan bahwa **tidak ada nomor sitasi (misalnya `[1]`, `[[1]]`, `[[1]](06_references.md#ref1)`) yang dimunculkan dalam teks**. Pada langkah ini, prosa ditulis sebagai pernyataan ilmiah yang bersih dan presisi, di mana setiap kalimat yang memuat klaim empiris atau teoretis dibatasi dengan jelas, sehingga siap untuk pemetaan sitasi tingkat kalimat pada Langkah 2 (`references.txt`) dan penyuntikan nomor sitasi pada Langkah 4.
+> Contoh ini murni bersifat ilustratif dan tidak menentukan konten domain khusus maupun target jurnal publikasi tertentu.
 
 ---
 

@@ -1,17 +1,17 @@
-# Single-Section Drafting Workflow & File Architecture
+# Alur Kerja Penulisan Draf Seksi Tunggal & Arsitektur Berkas
 
-This reference outlines the step-by-step procedure for translating a paragraph-by-paragraph outline into modular Markdown files, drafting **one section or sub-section at a time**, and strictly deferring citation numbering to downstream pipeline steps.
+Dokumen referensi ini menguraikan prosedur langkah demi langkah untuk menerjemahkan cetak biru (*outline*) per paragraf menjadi berkas Markdown modular, dengan menulis **satu seksi atau subseksi dalam satu waktu**, serta secara tegas menunda penomoran sitasi ke tahapan alur kerja berikutnya.
 
 ---
 
-## 1. Single Section Drafting Discipline
+## 1. Disiplin Penulisan Seksi Tunggal (Single-Section Drafting Discipline)
 
-Do not draft multiple sections or the entire paper in a single turn. Drafting one modular section at a time guarantees:
-- **Maximum Analytical Focus**: Allows thorough adherence to each paragraph's objective and evidence requirements.
-- **Iterative Human-AI Review**: Enables the user to inspect, revise, and approve each section before moving forward.
-- **Token Efficiency & Quality Control**: Avoids context truncation, rushing, or shallow prose.
+Jangan menulis draf beberapa seksi sekaligus atau menghasilkan seluruh naskah paper dalam satu kali interaksi. Menyusun satu seksi modular dalam satu waktu menjamin:
+- **Fokus Analitis Maksimal**: Memungkinkan kepatuhan mendalam terhadap tujuan setiap paragraf dan kebutuhan bukti empiris yang dipersyaratkan.
+- **Tinjauan Iteratif Manusia-AI**: Memberi ruang bagi pengguna untuk memeriksa, merevisi, dan menyetujui setiap seksi sebelum melanjutkan ke bab berikutnya.
+- **Efisiensi Token & Kendali Mutu**: Mencegah pemotongan konteks (*context truncation*), ketergesa-gesaan luaran, atau kedangkalan kualitas prosa ilmiah.
 
-### Canonical File Architecture
+### Arsitektur Berkas Baku (Canonical File Architecture)
 ```text
 paper/
 ├── 01_introduction.md
@@ -28,104 +28,104 @@ paper/
 ├── 04_results-and-discussion_d-error-pattern-assessment.md
 ├── 04_results-and-discussion_e-comparison-with-prior-studies.md
 ├── 05_conclusion.md
-├── acronyms.txt            (centralized registry of technical abbreviations)
-├── images/                 (diagrams, figures, and plots)
-└── references/             (BibTeX, RIS, or NBIB bibliographic records)
+├── acronyms.txt            (registri terpusat akronim & singkatan teknis)
+├── images/                 (diagram skematis, bagan, dan plot visual)
+└── references/             (rekaman bibliografi format BibTeX, RIS, atau NBIB)
 ```
 
 ---
 
-## 2. The 5-Stage Writing Cycle (Per Single Section)
+## 2. Siklus Penulisan 5 Tahap (Per Seksi Tunggal)
 
-When the user specifies a section to write (e.g., *"Draft 01_introduction.md"* or *"Draft methods sub-section on dataset"*), execute this cycle:
+Ketika pengguna menentukan seksi yang akan ditulis (misalnya: *"Tulis 01_introduction.md"* atau *"Tulis subseksi metodologi bagian dataset"*), jalankan siklus 5 tahap berikut:
 
 ```
-┌──────────────────────────────────────────────┐
-│ Stage 1: Ingest Specific Section Blueprint   │
-│ • Read target word count & objectives        │
-│ • Identify assigned claims & constraints     │
-└──────────────────────┬───────────────────────┘
-                       ▼
-┌──────────────────────────────────────────────┐
-│ Stage 2: Draft Clean Scholarly Sentences     │
-│ • Formulate topic sentences & CER arguments  │
-│ • Ensure distinct, verifiable assertions     │
-│ • Do NOT insert citation numbers ([1], [[1]])│
-└──────────────────────┬───────────────────────┘
-                       ▼
-┌──────────────────────────────────────────────┐
-│ Stage 3: Section Transitions & Linking       │
-│ • Connect paragraphs with logical bridges    │
-│ • Add relative links to other section files  │
-└──────────────────────┬───────────────────────┘
-                       ▼
-┌──────────────────────────────────────────────┐
-│ Stage 4: Writing Quality & Anti-Slop Audit   │
-│ • Sweep for banned AI buzzwords              │
-│ • Enforce punctuation limits (em dashes ≤ 2) │
-│ • Check burstiness (sentence length rhythm)  │
-└──────────────────────┬───────────────────────┘
-                       ▼
-┌──────────────────────────────────────────────┐
-│ Stage 5: Emit the Single File & Await Review │
-│ • Save to designated modular markdown path   │
-│ • Verify word count against outline target   │
-│ • Await user inspection before next section  │
-└──────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────┐
+│ Tahap 1: Serap Cetak Biru Seksi Spesifik                │
+│ • Baca target jumlah kata & sasaran paragraf            │
+│ • Identifikasi klaim yang ditugaskan & batasan ruangnya │
+└────────────────────────────┬────────────────────────────┘
+                             ▼
+┌─────────────────────────────────────────────────────────┐
+│ Tahap 2: Tulis Kalimat Ilmiah yang Lugas & Mandiri      │
+│ • Rumuskan kalimat topik & argumen berpola CER          │
+│ • Pastikan pernyataan tegas, diskret, & terverifikasi   │
+│ • JANGAN sisipkan nomor sitasi ([1], [[1]])             │
+└────────────────────────────┬────────────────────────────┘
+                             ▼
+┌─────────────────────────────────────────────────────────┐
+│ Tahap 3: Transisi Antar-Paragraf & Penautan Relatif     │
+│ • Hubungkan paragraf dengan jembatan logika yang runtut │
+│ • Tambahkan tautan relatif Markdown ke seksi lain       │
+└────────────────────────────┬────────────────────────────┘
+                             ▼
+┌─────────────────────────────────────────────────────────┐
+│ Tahap 4: Audit Mutu Penulisan & Anti-Slop               │
+│ • Pindai & bersihkan kata klise AI yang dilarang        │
+│ • Terapkan batas tanda baca (em dash ≤ 2 per paper)     │
+│ • Periksa variasi ritme panjang kalimat (burstiness)    │
+└────────────────────────────┬────────────────────────────┘
+                             ▼
+┌─────────────────────────────────────────────────────────┐
+│ Tahap 5: Terbitkan Berkas Tunggal & Tunggu Tinjauan     │
+│ • Simpan berkas ke path markdown modular yang sesuai    │
+│ • Verifikasi jumlah kata terhadap target outline        │
+│ • Tunggu inspeksi pengguna sebelum ke seksi berikutnya  │
+└─────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## 3. Sentence-Level Claim Crafting (Strictly No Citation Numbering)
+## 3. Perumusan Klaim Tingkat Kalimat (Tegas Tanpa Penomoran Sitasi)
 
-A critical principle of the research writing pipeline is separating **prose drafting** (Step 1) from **citation search and mapping** (Step 2), **reference compilation** (Step 3), and **citation numbering** (Step 4).
+Prinsip fundamental dalam alur kepenulisan riset ini adalah memisahkan secara tegas antara **penulisan draf prosa** (Langkah 1), **pencarian & pemetaan sitasi** (Langkah 2), **kompilasi daftar pustaka** (Langkah 3), dan **penomoran sitasi dalam teks** (Langkah 4).
 
-### Why Citation Numbering is Forbidden in Step 1
-- **Unstable Numbering**: If numbers like `[1]`, `[2]`, `[3]` are assigned during initial drafting, adding, removing, or reordering a sentence immediately corrupts the numerical sequence across the entire paper.
-- **False Precision**: Generating artificial citation numbers or speculative reference anchors creates phantom citations.
+### Mengapa Penomoran Sitasi Dilarang pada Langkah 1
+- **Ketidakstabilan Urutan Nomor (*Unstable Numbering*)**: Jika nomor seperti `[1]`, `[2]`, `[3]` ditetapkan selama penyusunan draf awal, penambahan, penghapusan, atau penataan ulang satu kalimat saja akan langsung merusak urutan numerik di seluruh naskah paper.
+- **Presisi Semu (*False Precision*)**: Menghasilkan nomor sitasi buatan atau penanda rujukan spekulatif berisiko menciptakan sitasi fiktif (*phantom citations*).
 
-### How to Formulate Claims in Step 1
-1. **Discrete Assertions**: Ensure each sentence that makes an empirical or theoretical claim is written as a clear, self-contained proposition.
-   * *Example*: *"Multi-task learning frameworks have demonstrated capability in predicting demographic attributes simultaneously, yet they frequently underperform on fine-grained intersectional cohorts."*
-2. **Readiness for Step 2 (`references.txt`)**: Because each claim is clearly bounded within its sentence, it can be seamlessly extracted in Step 2 to locate and verify literature sources:
+### Cara Merumuskan Klaim pada Langkah 1
+1. **Pernyataan Diskret (*Discrete Assertions*)**: Pastikan setiap kalimat yang membawa klaim empiris atau teoretis dirumuskan sebagai proposisi mandiri yang jelas dan utuh.
+   * *Contoh*: *"Kerangka kerja pembelajaran multitugas telah menunjukkan kemampuan dalam memprediksi atribut demografis secara simultan, namun kinerjanya kerap menurun pada kohort interseksional yang granular."*
+2. **Kesiapan untuk Langkah 2 (`references.txt`)**: Karena setiap klaim terbatasi dengan rapi di dalam batas kalimatnya, klaim tersebut dapat diekstraksi tanpa hambatan pada Langkah 2 untuk dicari dan diverifikasi sumber literatur pendukungnya:
    ```text
    paper/01_introduction.md: paragraf 2:
-   - "Multi-task learning frameworks have demonstrated capability...":
+   - "Kerangka kerja pembelajaran multitugas telah menunjukkan kemampuan...":
      - paper/references/2023_Facial_attribute_classification.bib
    ```
-3. **Handling Missing Sources**: If a specific claim in the outline requires literature that is not yet identified, insert a descriptive gap marker rather than a number: `[GAP: source needed for transformer attention on facial patches]`.
+3. **Penanganan Sumber yang Belum Tersedia**: Jika klaim tertentu pada outline membutuhkan literatur yang belum diidentifikasi, cantumkan penanda celah deskriptif alih-alih nomor angka: `[GAP: butuh sumber untuk atensi transformer pada patch wajah]`.
 
 ---
 
-## 4. Acronym & Abbreviation Registry Protocol (`acronyms.txt`)
+## 4. Protokol Registri Akronim & Singkatan (`acronyms.txt`)
 
-In modular academic manuscripts, maintaining abbreviation consistency across dozens of discrete files is essential. Without a centralized registry, authors frequently either re-expand the same acronym repeatedly across multiple sections or introduce unexpanded abbreviations without prior definition.
+Pada naskah akademik berskala modular, menjaga konsistensi penggunaan singkatan di puluhan berkas terpisah adalah hal yang krusial. Tanpa adanya registri terpusat, penulis sering kali mengekspansi ulang akronim yang sama berulang kali di berbagai bab, atau sebaliknya memunculkan singkatan baru tanpa definisi awal.
 
-### The Two Core Invariants
-1. **First-Mention Full Form**: The first time an acronym appears anywhere in the paper (whether in the abstract, introduction, or methodology), write its complete formal term followed by the acronym in parentheses:
-   * *Example*: `Vision Transformer (ViT)`, `Support Vector Machine (SVM)`, `Multi-Head Self-Attention (MHSA)`.
-2. **Subsequent Acronym-Only**: In all subsequent sentences and throughout all subsequent modular files, use **strictly the acronym**:
-   * *Example*: `ViT`, `SVM`, `MHSA`.
-   * **Never repeat the full form** once the acronym has been registered.
+### Dua Invarian Utama
+1. **Bentuk Lengkap pada Kemunculan Pertama**: Pertama kali suatu akronim muncul di bagian mana pun dalam paper (baik di abstrak, pendahuluan, maupun metodologi), tuliskan nama formal lengkapnya diikuti singkatan di dalam tanda kurung:
+   * *Contoh*: `Vision Transformer (ViT)`, `Support Vector Machine (SVM)`, `Multi-Head Self-Attention (MHSA)`.
+2. **Hanya Singkatan pada Kemunculan Berikutnya**: Pada seluruh kalimat berikutnya dan di seluruh berkas modular lanjutan, gunakan **hanya bentuk singkatannya secara konsisten**:
+   * *Contoh*: `ViT`, `SVM`, `MHSA`.
+   * **Jangan pernah mengulang bentuk panjangnya** setelah akronim tersebut resmi tercatat di registri.
 
-### Format of `paper/acronyms.txt`
-Maintain a clean, formatted table tracking every introduced abbreviation:
+### Format Berkas `paper/acronyms.txt`
+Pelihara berkas tabel yang terstruktur rapi untuk melacak setiap singkatan yang diperkenalkan:
 
 ```text
 ====================================================================================================
-ACRONYM & ABBREVIATION REGISTRY
-Guideline: First-Mention Full Form & Subsequent Acronym Only
-File Location: paper/acronyms.txt
+REGISTRI AKRONIM & SINGKATAN TEKNIS
+Panduan: Bentuk Lengkap pada Kemunculan Pertama & Hanya Akronim pada Kemunculan Berikutnya
+Lokasi Berkas: paper/acronyms.txt
 ====================================================================================================
 
-Instructions:
-1. Terms already recorded in this registry MUST NOT have their full expansion repeated in subsequent
-   markdown draft files (use only the acronym).
-2. When introducing a new technical term with an official abbreviation for the first time in a draft,
-   write its full form with the abbreviation in parentheses, then immediately register it below.
+Petunjuk:
+1. Istilah yang telah tercatat dalam registri ini TIDAK BOLEH diekspansi ulang bentuk lengkapnya pada
+   berkas draf markdown berikutnya (gunakan hanya bentuk singkatannya).
+2. Ketika memperkenalkan istilah teknis baru dengan singkatan resmi untuk pertama kalinya dalam draf,
+   tuliskan bentuk lengkapnya diikuti singkatan dalam kurung, lalu segera catat di bawah ini.
 
 ----------------------------------------------------------------------------------------------------
-NO  | ACRONYM / ABBREVIATION | FULL FORM                        | FIRST INTRODUCTION LOCATION
+NO  | AKRONIM / SINGKATAN    | BENTUK LENGKAP                   | LOKASI KEMUNCULAN PERTAMA
 ----+------------------------+----------------------------------+-----------------------------------
 1   | ViT                    | Vision Transformer               | paper/00_abstract.md (Abstract)
 2   | RF                     | Random Forest                    | paper/00_abstract.md (Abstract)
@@ -136,24 +136,24 @@ NO  | ACRONYM / ABBREVIATION | FULL FORM                        | FIRST INTRODUC
 ====================================================================================================
 ```
 
-### Lifecycle Integration in Single-Section Drafting
-- **Before Writing**: The agent inspects `paper/acronyms.txt` (if existing) to learn which terms are already registered.
-- **While Writing**: The agent uses acronym-only for registered terms. If an unregistered technical term appears, the agent writes `Full Form (ACRONYM)`.
-- **After Writing**: The agent automatically updates or creates `paper/acronyms.txt` with newly introduced terms and their specific paragraph location.
+### Integrasi Siklus Hidup dalam Penulisan Seksi Tunggal
+- **Sebelum Menulis**: Agen memeriksa `paper/acronyms.txt` (jika ada) untuk memastikan istilah apa saja yang sudah terdaftar.
+- **Saat Menulis**: Agen menggunakan bentuk singkatan saja untuk istilah yang sudah terdaftar. Apabila muncul istilah teknis baru yang belum terdaftar, agen menuliskan `Bentuk Lengkap (SINGKATAN)`.
+- **Setelah Menulis**: Agen memperbarui atau membuat berkas `paper/acronyms.txt` dengan mencatat istilah baru beserta lokasi paragraf spesifiknya.
 
 ---
 
-## 5. Word Count Tracking & Adherence
+## 5. Pemantauan & Kepatuhan Alokasi Jumlah Kata
 
-Every section file drafted must monitor its word count against the budget defined in the paragraph blueprint:
+Setiap berkas seksi yang ditulis harus memantau akumulasi jumlah katanya terhadap alokasi anggaran yang ditetapkan dalam cetak biru outline:
 
-| Section | Typical Target % of Total | Example Budget (6,000-word Paper) |
+| Seksi | Persentase Tipikal Target | Contoh Alokasi (Paper 6.000 Kata) |
 |:---|:---:|:---:|
-| **01_introduction.md** | 12% – 16% | 750 – 950 words |
-| **02_related-works.md** | 12% – 18% | 700 – 1,000 words |
-| **03_materials-and-methods (all parts)** | 25% – 32% | 1,500 – 1,900 words |
-| **04_results-and-discussion (all parts)** | 30% – 38% | 1,800 – 2,300 words |
-| **05_conclusion.md** | 5% – 8% | 300 – 500 words |
+| **01_introduction.md** | 12% – 16% | 750 – 950 kata |
+| **02_related-works.md** | 12% – 18% | 700 – 1.000 kata |
+| **03_materials-and-methods (seluruh bagian)** | 25% – 32% | 1.500 – 1.900 kata |
+| **04_results-and-discussion (seluruh bagian)** | 30% – 38% | 1.800 – 2.300 kata |
+| **05_conclusion.md** | 5% – 8% | 300 – 500 kata |
 
-- **Tolerance**: Maintain word count within $\pm 10\%$ of the paragraph outline budget.
-- If a section expands beyond tolerance, eliminate redundant modifiers and trim throat-clearing phrasing rather than cutting essential technical details.
+- **Batas Toleransi**: Pertahankan jumlah kata aktual dalam rentang $\pm 10\%$ dari target anggaran outline paragraf.
+- Apabila suatu seksi melebihi batas toleransi, pangkas kata keterangan yang redundan dan eliminasi frasa basa-basi daripada membuang rincian teknis penting.

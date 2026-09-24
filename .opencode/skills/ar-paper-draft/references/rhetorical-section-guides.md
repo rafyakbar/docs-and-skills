@@ -1,114 +1,114 @@
-# Rhetorical Section Guides for Academic Paper Drafting
+# Panduan Retorika Seksi untuk Penulisan Draf Paper Akademik
 
-This reference provides rhetorical blueprints, functional moves, and prose conventions for drafting the major sections of an academic manuscript based on a paragraph-level outline.
+Dokumen referensi ini menyediakan cetak biru retorika, tahapan fungsional (*functional moves*), serta konvensi penulisan prosa akademik untuk menyusun bab-bab utama naskah ilmiah berdasarkan outline tingkat paragraf.
 
 ---
 
-## 1. Introduction Section (Swales CARS Model)
+## 1. Seksi Pendahuluan (Model CARS Swales / Create A Research Space)
 
-The Introduction must persuade the scholarly reader that the research domain is significant, an important gap or conflict exists, and the current study resolves that gap. Follow Swales' **Create A Research Space (CARS)** model across three rhetorical moves:
+Seksi Pendahuluan harus mampu meyakinkan pembaca akademik bahwa domain riset yang diangkat sangat krusial, terdapat celah (*gap*) atau pertentangan nyata yang belum terselesaikan, dan penelitian ini hadir untuk menjembatani celah tersebut. Terapkan model **Create A Research Space (CARS)** dari John Swales melalui tiga tahapan retorika (*rhetorical moves*):
 
 ```
 ┌───────────────────────────────────────────────────────────┐
-│ Move 1: Establish the Territory                           │
-│ • State domain importance & real-world/scientific stakes │
-│ • Review foundational literature & broad practices       │
+│ Move 1: Membangun Teritori Riset (Establish Territory)    │
+│ • Nyatakan urgensi domain & signifikansi ilmiah/praktis   │
+│ • Tinjau literatur fundamental & praktik umum yang ada    │
 └─────────────────────────────┬─────────────────────────────┘
                               ▼
 ┌───────────────────────────────────────────────────────────┐
-│ Move 2: Establish the Niche (The Pivot)                  │
-│ • Identify specific empirical/theoretical/method gap     │
-│ • Frame limitations of prior approaches or conflicts     │
+│ Move 2: Menetapkan Celah Riset (Establish Niche / Pivot)  │
+│ • Identifikasi celah empiris/teoretis/metodologis spesifik│
+│ • Paparkan batasan pendekatan terdahulu atau konflik data │
 └─────────────────────────────┬─────────────────────────────┘
                               ▼
 ┌───────────────────────────────────────────────────────────┐
-│ Move 3: Occupy the Niche                                  │
-│ • State proposed approach, framework, or thesis          │
-│ • Enumerate explicit, non-overlapping contributions      │
-│ • Outline the organizational roadmap of the manuscript    │
+│ Move 3: Mengisi Celah Riset (Occupy Niche)                │
+│ • Nyatakan pendekatan, kerangka kerja, atau tesis usulan  │
+│ • Rincikan kontribusi ilmiah yang eksplisit & tak tumpang │
+│ • Sajikan peta jalan organisasional naskah (roadmap)      │
 └───────────────────────────────────────────────────────────┘
 ```
 
-### Move 1: Establishing the Territory
-- **Centrality Claim**: Open by defining why the research problem is vital to the target scientific community.
-- **Background Synthesis**: Weave foundational literature thematically. Do not write a generic textbook summary; focus strictly on the evolution leading to the research problem.
-- **Verifiable Factual Claims**: Formulate each factual statement regarding prior paradigms or domain importance as a discrete assertion ready for sentence-level citation mapping in Step 2. Strictly omit numeric citation markers at this stage.
+### Move 1: Membangun Teritori Riset (Establishing the Territory)
+- **Klaim Sentralitas (*Centrality Claim*)**: Buka bab dengan mendefinisikan mengapa permasalahan riset ini berkedudukan krusial bagi komunitas ilmiah sasaran.
+- **Sintesis Latar Belakang (*Background Synthesis*)**: Rajut literatur fundamental secara tematik. Jangan menyajikan ringkasan umum layaknya buku teks dasar; fokuskan pembahasan semata-mata pada evolusi ilmiah yang mengarah langsung ke inti persoalan.
+- **Klaim Faktual yang Dapat Diverifikasi (*Verifiable Factual Claims*)**: Rumuskan setiap pernyataan faktual mengenai paradigma terdahulu atau signifikansi domain sebagai proposisi mandiri yang siap dipetakan dalam kurasi sitasi Langkah 2. Dilarang keras menyisipkan penanda sitasi numerik pada tahap ini.
 
-### Move 2: Establishing the Niche (The Critical Pivot)
-- **Sharp Gap Formulation**: Explicitly articulate what prior work has failed to resolve, overlooked, or left contested.
-- **Avoid Universal Negatives**: Avoid unverifiable blanket statements such as *"No study has ever examined X"*. Instead, use scoped, defensible formulations: *"Existing literature has predominantly focused on single-domain representations, leaving the joint interaction of X and Y comparatively underexplored."*
-- **Problem Statement**: Directly link the technical or empirical limitation of prior methods to real-world consequences or theoretical bottlenecks.
+### Move 2: Menetapkan Celah Riset (Establishing the Niche — Titik Balik Kritis)
+- **Perumusan Celah yang Tajam (*Sharp Gap Formulation*)**: Paparkan secara gamblang apa yang gagal diselesaikan, diabaikan, atau masih diperdebatkan oleh penelitian sebelumnya.
+- **Hindari Klaim Negatif Mutlak (*Avoid Universal Negatives*)**: Hindari klaim mutlak yang tak terverifikasi seperti *"Belum pernah ada studi yang meneliti X"*. Gunakan perumusan terukur dan dapat dipertanggungjawabkan: *"Literatur yang ada saat ini mayoritas berfokus pada representasi domain tunggal, sehingga interaksi bersama antara X dan Y relatif belum banyak dieksplorasi."*
+- **Pernyataan Masalah (*Problem Statement*)**: Hubungkan keterbatasan teknis atau kelemahan empiris metode terdahulu secara langsung dengan konsekuensi praktis atau hambatan teoretis nyata di dunia nyata.
 
-### Move 3: Occupying the Niche
-- **Purpose Statement**: Explicitly announce the proposed solution: *"To bridge these identified gaps, this paper proposes [Framework/Method/Hypothesis]..."*
-- **Core Scientific Contributions**: Present a clear, itemized list of novel contributions (typically 3–4 items):
-  1. Methodological/Architectural contribution (the model, algorithm, or experimental intervention).
-  2. Empirical/Benchmarking contribution (comparative experiments, dataset curation, or ablations).
-  3. Analytical/Diagnostic contribution (subgroup disparities, error analysis, or theoretical proofs).
-- **Roadmap Paragraph**: Provide a concise structural guide mapping out the rest of the manuscript, using markdown links to corresponding section files:
-  * Example: *"The remainder of this article is organized as follows: Section [II](02_related-works.md) reviews relevant literature. Section [III](03_materials-and-methods_0-overview.md) details the proposed methodology. Section [IV](04_results-and-discussion_a-global-performance.md) presents empirical evaluations. Finally, Section [V](05_conclusion.md) concludes the study."*
-
----
-
-## 2. Related Work / Literature Review Section
-
-Related Work is a critical synthesis of the intellectual conversation, not an annotated bibliography in prose.
-
-### Thematic Clustering Protocol
-- **Organize by Concept, Not Author**: Group prior literature into thematic categories, methodological paradigms, or historical evolutions rather than chronological lists of individual papers (*"Smith et al. did X. Then Jones did Y."*).
-- **Synthesizing Sentence Pattern**:
-  * Weak (Author-list): *"Author A used CNNs for classification. Then Author B used ResNet. Subsequently, Author C used ViTs."*
-  * Strong (Thematic synthesis): *"Early architectural paradigms predominantly relied on localized feature extraction via convolutional backbones, whereas recent formulations leverage multi-head self-attention to capture long-range spatial correlations."*
-- **Comparative Differentiator**: Conclude each thematic subsection by explicitly contrasting the surveyed approaches against the approach taken in this paper.
+### Move 3: Mengisi Celah Riset (Occupying the Niche)
+- **Pernyataan Tujuan (*Purpose Statement*)**: Umumkan solusi atau kerangka usulan secara tegas: *"Guna menjembatani celah riset yang telah diidentifikasi tersebut, artikel ini mengusulkan [Kerangka Kerja/Metode/Hipotesis]..."*
+- **Daftar Kontribusi Ilmiah Inti (*Core Scientific Contributions*)**: Sajikan daftar poin kontribusi orisinal yang terperinci dan tidak tumpang tindih (biasanya 3–4 poin):
+  1. Kontribusi Metodologis/Arsitektural (model, algoritma, atau intervensi eksperimental baru).
+  2. Kontribusi Empiris/Tolok Ukur (eksperimen komparatif, kurasi dataset, atau studi ablasi).
+  3. Kontribusi Analitis/Diagnostik (disparitas subkelompok, analisis kesalahan, atau pembuktian teoretis).
+- **Paragraf Peta Jalan Naskah (*Roadmap Paragraph*)**: Sediakan panduan struktural ringkas yang memetakan bab-bab selanjutnya menggunakan tautan Markdown relatif:
+  * Contoh: *"Sistematika penulisan artikel ini disusun sebagai berikut: Seksi [II](02_related-works.md) meninjau literatur terkait. Seksi [III](03_materials-and-methods_0-overview.md) merinci metodologi yang diusulkan. Seksi [IV](04_results-and-discussion_a-global-performance.md) menyajikan evaluasi empiris. Terakhir, Seksi [V](05_conclusion.md) menyimpulkan keseluruhan studi."*
 
 ---
 
-## 3. Materials and Methods / Methodology Section
+## 2. Seksi Kajian Terkait / Tinjauan Pustaka (Related Work)
 
-The methodology must provide exhaustive procedural transparency, enabling an independent researcher to replicate the study.
+Seksi Kajian Terkait merupakan sintesis kritis terhadap dialektika intelektual di bidang terkait, bukan sekadar anotasi bibliografi yang dinarasikan.
 
-### Modular Sub-Section Organization
-In complex studies, divide the methodology into distinct, focused markdown files:
-- `03_materials-and-methods_0-overview.md`: End-to-end system architecture, pipeline schematic, and high-level workflow.
-- `03_materials-and-methods_a-dataset.md`: Cohort characteristics, data distribution, preprocessing, augmentation, and split protocols.
-- `03_materials-and-methods_b-[primary-technique].md`: Mathematical formulation, loss functions, and architectural layers.
-- `03_materials-and-methods_c-[secondary-models].md`: Baselines, comparative models, and algorithmic variants.
-- `03_materials-and-methods_g-pipeline.md`: Training protocol, optimization hyperparameters, convergence criteria.
-- `03_materials-and-methods_h-evaluation-metrics.md`: Formal definitions of performance metrics, statistical validation schemes, and leakage prevention guardrails.
-
-### Methodological Drafting Rules
-1. **Mathematical Rigor**: Every symbol in equations must be defined immediately before or after the equation. State variable dimensions and indices explicitly.
-2. **Data Leakage Safeguards**: Document split boundaries clearly. State explicitly how transformations, normalizations, and hyperparameter selections were learned strictly on training partitions.
-3. **Hyperparameter Transparency**: Report all relevant parameters (learning rates, batch sizes, epochs, regularization coefficients, random seeds).
+### Protokol Pengelompokan Tematik (Thematic Clustering Protocol)
+- **Organisasikan Berdasarkan Konsep, Bukan Penulis**: Kelompokkan literatur terdahulu ke dalam kategori tematik, paradigma metodologis, atau trajektori evolusi, bukan daftar kronologis paper individual (*"Peneliti A melakukan X. Lalu Peneliti B melakukan Y."*).
+- **Pola Kalimat Sintesis Ilmiah**:
+  * Lemah (Daftar Penulis): *"Peneliti A menggunakan CNN untuk klasifikasi. Kemudian Peneliti B menggunakan ResNet. Selanjutnya Peneliti C memakai ViT."*
+  * Kuat (Sintesis Tematik): *"Paradigma arsitektur awal mayoritas bertumpu pada ekstraksi fitur terlokalisasi melalui jaringan konvolusional, sedangkan formulasi mutakhir memanfaatkan mekanisme atensi mandiri multitranslasi untuk menangkap korelasi spasial jarak jauh."*
+- **Pembeda Komparatif (*Comparative Differentiator*)**: Akhiri setiap subbagian tematik dengan membandingkan secara eksplisit keunggulan serta perbedaan mendasar pendekatan yang diusulkan dalam penelitian ini terhadap metode-metode yang disurvei.
 
 ---
 
-## 4. Results and Discussion Section
+## 3. Seksi Materi dan Metode / Metodologi (Materials and Methods)
 
-Depending on the chosen structural model, Results and Discussion may be integrated (Pattern 1A, common in Engineering/CS) or separated (Pattern 1B, common in Natural Sciences).
+Metodologi riset wajib memberikan transparansi prosedural yang lengkap, sehingga memungkinkan peneliti independen mereplikasi studi secara presisi.
 
-### The Claim-Evidence-Reasoning (CER) Pattern
-Every results paragraph must follow the CER sequence:
-1. **Claim (Topic Assertion)**: State the primary empirical finding directly: *"The proposed tri-domain configuration achieved the highest overall macro-F1 score across all tested backbones."*
-2. **Evidence (Quantitative Grounding)**: Cite exact numerical figures from the corresponding table or figure: *"As shown in Table II, our model recorded an F1 score of 94.2%, representing an absolute improvement of 3.8% over the baseline (Table II, row 4)."*
-3. **Reasoning (Analytical Interpretation)**: Explain *why* the data looks this way: *"This performance advantage is attributable to the complementary nature of affective and geometric representations, which prevents decision boundary collapse under heavy illumination variance."*
-4. **Qualification / Caveat**: Note any boundary conditions or subgroups where the advantage diminishes.
+### Organisasi Subseksi Modular
+Pada studi berskala kompleks, pisahkan metodologi ke dalam berkas Markdown tersendiri:
+- `03_materials-and-methods_0-overview.md`: Arsitektur sistem menyeluruh, bagan alur (*pipeline*), dan ringkasan tingkat tinggi.
+- `03_materials-and-methods_a-dataset.md`: Karakteristik kohort, distribusi data, pra-pemrosesan, augmentasi, dan protokol pembagian (*data split*).
+- `03_materials-and-methods_b-[teknik-utama].md`: Formulasi matematis, fungsi kerugian (*loss functions*), dan lapisan arsitektur.
+- `03_materials-and-methods_c-[model-pembanding].md`: Baseline pembanding, model komparatif, dan varian algoritmik.
+- `03_materials-and-methods_g-pipeline.md`: Protokol pelatihan model, hiperparameter optimasi, kriteria konvergensi.
+- `03_materials-and-methods_h-evaluation-metrics.md`: Definisi formal metrik performa, skema validasi statistik, dan mekanisme proteksi kebocoran data.
 
-### Structured Subsections for Results
-- **Global Benchmark Performance**: Broad comparative evaluation against established baselines.
-- **Ablation Studies**: Systematic isolation of individual modules, loss components, or feature subsets to prove their incremental necessity.
-- **Subgroup & Intersectional Analysis**: Performance breakdown across demographic, environmental, or operational subsets to reveal disparities or consistency.
-- **Error & Failure Case Analysis**: Qualitative or quantitative inspection of false positives, misclassifications, or edge-case breakdowns.
-- **Comparison with Prior Art**: Direct juxtaposition of quantitative findings against recently published benchmarks in the literature.
+### Aturan Penulisan Metodologis
+1. **Ketelitian Matematis**: Setiap simbol dalam persamaan matematika wajib didefinisikan langsung sebelum atau sesudah persamaan tersebut. Nyatakan dimensi variabel dan indeks matriks secara eksplisit.
+2. **Proteksi Kebocoran Data (*Data Leakage Safeguards*)**: Dokumentasikan batas pemisahan data dengan tegas. Nyatakan secara eksplisit bahwa seluruh standardisasi, normalisasi, dan penalaan parameter dipelajari secara ketat hanya dari partisi data latih (*training split*).
+3. **Transparansi Hiperparameter**: Laporkan seluruh nilai parameter penting secara lengkap (*learning rate*, *batch size*, *epoch*, koefisien regularisasi, *random seed*).
 
 ---
 
-## 5. Conclusion Section
+## 4. Seksi Hasil dan Pembahasan (Results and Discussion)
 
-The Conclusion provides closure by synthesizing scientific contributions, explicitly bounding findings, and setting future trajectories.
+Tergantung model struktur naskah yang dipilih, Hasil dan Pembahasan dapat digabungkan (Pola 1A, lazim di bidang Ilmu Komputer & Rekayasa) atau dipisahkan (Pola 1B, lazim di Ilmu Pengetahuan Alam).
 
-### The 4 Pillars of a Scholarly Conclusion
-1. **Restatement of Objectives & Core Achievement**: Summarize the initial research problem and concisely state how the proposed work resolved it without repeating the abstract word-for-word.
-2. **Synthesis of Principal Findings**: Reiterate key quantitative highlights and theoretical insights established in the discussion.
-3. **Explicit Methodological Limitations**: Acknowledge valid constraints of the study (e.g., dataset scale, demographic coverage, computational overhead, assumption boundaries). Acknowledging limitations demonstrates scholarly maturity and preempts reviewer critique.
-4. **Actionable Future Research Directions**: Propose 2–3 concrete, technically grounded next steps (e.g., *"Extending the latent fusion mechanism to continuous video streams"* rather than vague platitudes like *"More research is needed"*).
+### Kerangka Kerja Klaim-Bukti-Penalaran (Claim-Evidence-Reasoning / CER)
+Setiap paragraf pembahasan hasil eksperimen wajib mengikuti urutan CER:
+1. **Klaim (*Claim* — Pernyataan Temuan Pokok)**: Nyatakan temuan empiris utama secara langsung: *"Konfigurasi tri-domain yang diusulkan menghasilkan skor makro-F1 tertinggi di seluruh model tulang punggung yang diuji."*
+2. **Bukti (*Evidence* — Landasan Kuantitatif)**: Rujuk data numerik presisi dari tabel atau grafik yang relevan: *"Sebagaimana diperlihatkan pada Tabel II, model kami mencatat skor F1 sebesar 94,2%, yang mencerminkan peningkatan absolut sebesar 3,8% dibandingkan model baseline (Tabel II, baris 4)."*
+3. **Penalaran (*Reasoning* — Interpretasi Mekanisme Ilmiah)**: Jelaskan *faktor penyebab* fenomena tersebut terjadi: *"Keunggulan performa ini terjadi karena sifat komplementer antara representasi afektif dan geometris, yang mencegah keruntuhan batas keputusan di bawah variasi intensitas pencahayaan ekstrem."*
+4. **Kualifikasi / Catatan Pengecualian (*Qualification / Caveat*)**: Catat kondisi batas atau subkelompok data tertentu di mana keunggulan model berkurang atau mengalami anomali.
+
+### Pembagian Subseksi Terstruktur untuk Hasil
+- **Performa Tolok Ukur Global (*Global Benchmark Performance*)**: Evaluasi komparatif menyeluruh terhadap metode-metode baseline terkemuka.
+- **Studi Ablasi (*Ablation Studies*)**: Pengujian isolasi sistematis terhadap masing-masing modul, komponen *loss*, atau subset fitur untuk membuktikan kontribusi inkrementalnya.
+- **Analisis Subkelompok & Interseksional (*Subgroup Analysis*)**: Pembongkaran performa model pada subset demografis, lingkungan, atau operasional guna mendeteksi disparitas atau konsistensi sistem.
+- **Analisis Pola Kesalahan & Kasus Kegagalan (*Error Pattern Assessment*)**: Pemeriksaan kualitatif atau kuantitatif terhadap prediksi positif palsu, misklasifikasi, atau kerentanan pada kasus batas (*edge cases*).
+- **Perbandingan dengan Literatur Terpublikasi (*Comparison with Prior Art*)**: Penjajaran langsung metrik temuan penelitian ini dengan tolok ukur hasil studi terkini di literatur.
+
+---
+
+## 5. Seksi Kesimpulan (Conclusion)
+
+Seksi Kesimpulan memberikan penutup ilmiah dengan menyintesis kontribusi penelitian, membatasi temuan secara objektif, dan menetapkan trajektori riset lanjutan.
+
+### 4 Pilar Kesimpulan Akademik
+1. **Pernyataan Ulang Tujuan & Pencapaian Inti**: Rangkum permasalahan riset awal dan nyatakan secara ringkas bagaimana penelitian ini menyelesaikannya tanpa mengulang teks abstrak kata demi kata.
+2. **Sintesis Temuan Utama**: Tegaskan kembali sorotan kuantitatif terpenting serta wawasan teoretis baru yang telah dibuktikan pada bagian pembahasan.
+3. **Batasan Metodologis Eksplisit**: Paparkan secara jujur keterbatasan studi (misal: skala dataset, representasi demografis, beban komputasi, atau asumsi penyederhanaan). Mengakui batasan penelitian mencerminkan integritas ilmiah dan mengantisipasi kritik penelaah jurnal.
+4. **Arah Penelitian Masa Depan yang Konkret**: Usulkan 2–3 langkah tindak lanjut yang berlandasan teknis kuat (misalnya: *"Mengembangkan mekanisme fusi laten untuk aliran video berkelanjutan"* alih-alih kalimat klise hampa seperti *"Penelitian lebih lanjut masih diperlukan"*).

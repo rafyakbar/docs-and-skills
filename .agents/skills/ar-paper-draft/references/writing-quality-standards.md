@@ -1,146 +1,146 @@
-# Academic Writing Quality Standards & Anti-Slop Guidelines
+# Standar Mutu Penulisan Akademik & Panduan Anti-Slop
 
-This reference defines the stylistic, lexical, and rhetorical standards required during academic paper drafting. It enforces formal scholarly prose, eliminates common AI-generated stylistic clichés, controls punctuation density, and maintains discipline-appropriate register.
+Dokumen referensi ini menetapkan standar stilistika, leksikal, dan retorika yang wajib dipatuhi selama penyusunan draf naskah paper akademik. Panduan ini bertujuan menegakkan prosa ilmiah formal, menyingkirkan klise stilistika khas teks buatan kecerdasan buatan (AI), mengontrol densitas tanda baca, serta mempertahankan laras bahasa (*register*) yang sesuai dengan disiplin ilmu.
 
 ---
 
-## 1. Flagged Vocabulary & Academic Alternatives
+## 1. Kosakata yang Ditandai & Alternatif Akademis
 
-The following terms appear disproportionately in machine-generated text or informal writing. They must be avoided or replaced with precise academic equivalents, unless used as standard, literal terminology in a specific discipline (e.g., "landscape" in physical geography, "robust" in robust statistics).
+Istilah-istilah berikut ini muncul secara tidak proporsional dalam teks yang dihasilkan mesin (AI) atau tulisan bergaya informal. Kata-kata ini wajib dihindari atau diganti dengan padanan akademik yang presisi, kecuali apabila digunakan sebagai istilah teknis harfiah yang baku dalam disiplin ilmu tertentu (misalnya, *"landscape"* dalam geografi fisik, *"robust"* dalam statistik inferensial kokoh).
 
-| Flagged Term | Why Flagged | Recommended Academic Alternatives |
+| Istilah yang Ditandai | Alasan Ditandai | Rekomendasi Alternatif Akademis |
 |:---|:---|:---|
-| `delve` / `delving` | Overused generic metaphor | investigate, examine, explore, analyze, inspect |
-| `tapestry` | Vague poetic cliché | interplay, configuration, system, network, structure |
-| `landscape` | Metaphorical vagueness | domain, field, literature, current state, sector |
-| `pivotal` / `crucial` | Inflated rhetorical emphasis | essential, critical, fundamental, primary, key |
-| `foster` | Imprecise action verb | promote, enhance, facilitate, cultivate, support |
-| `showcase` | Promotional/marketing tone | demonstrate, illustrate, present, exhibit, reveal |
-| `testament` | Cliché assertion | evidence, demonstration, confirmation, indication |
-| `navigate` | Metaphorical vagueness | address, manage, resolve, handle, negotiate |
-| `leverage` | Corporate buzzword | utilize, employ, apply, harness, exploit |
-| `realm` | Archaic or poetic | domain, sphere, discipline, context, area |
-| `embark` | Melodramatic verb | initiate, undertake, commence, begin |
-| `underscore` | Overused emphasis verb | emphasize, highlight, accentuate, stress |
-| `multifaceted` | Vague complexity claim | complex, heterogeneous, varied, multidimensional |
-| `nuanced` | Often vacuous filler | fine-grained, qualified, subtle, differentiated |
-| `comprehensive` | Overclaimed scope | extensive, thorough, detailed, systematic |
-| `robust` | Vague quality claim (non-stats) | reliable, resilient, sound, consistent, validated |
-| `intricate` | Impressionistic descriptor | elaborate, detailed, complex, structured |
-| `cornerstone` | Cliché metaphor | foundation, primary basis, fundamental pillar |
-| `paradigm` | Overused outside epistemology | framework, model, conceptual approach |
-| `synergy` | Corporate buzzword | interaction, joint effect, complementary dynamic |
-| `holistic` | Vague without operationalization | integrated, comprehensive, system-wide |
-| `streamline` | Corporate register | simplify, optimize, refine, standardize |
-| `cutting-edge` | Marketing superlative | novel, recent, state-of-the-art, advanced |
-| `groundbreaking` | Unsubstantiated superlative | pioneering, foundational, original, innovative |
-| `plethora` | Informal/pompous | substantial number, wide array, numerous, multitude |
+| `delve` / `delving` | Metafora umum yang digunakan secara berlebihan | menyelidiki (*investigate*), menelaah (*examine*), mengeksplorasi (*explore*), menganalisis (*analyze*), menginspeksi (*inspect*) |
+| `tapestry` | Klise puitis yang bermakna samar | interaksi (*interplay*), konfigurasi (*configuration*), sistem (*system*), jaringan (*network*), struktur (*structure*) |
+| `landscape` | Metafora yang tidak spesifik | ranah (*domain*), bidang (*field*), literatur (*literature*), kondisi terkini (*current state*), sektor (*sector*) |
+| `pivotal` / `crucial` | Penekanan retorika yang berlebihan (*hyperbolic*) | esensial (*essential*), kritis (*critical*), fundamental (*fundamental*), utama (*primary*), kunci (*key*) |
+| `foster` | Kata kerja tindakan yang kurang presisi | mendorong (*promote*), meningkatkan (*enhance*), memfasilitasi (*facilitate*), menumbuhkan (*cultivate*), mendukung (*support*) |
+| `showcase` | Bernada promosi atau pemasaran (*marketing tone*) | mendemonstrasikan (*demonstrate*), mengilustrasikan (*illustrate*), menyajikan (*present*), memperlihatkan (*exhibit*), mengungkap (*reveal*) |
+| `testament` | Pernyataan klise emosional | bukti (*evidence*), pembuktian (*demonstration*), konfirmasi (*confirmation*), indikasi (*indication*) |
+| `navigate` | Metafora navigasi yang kabur | menangani (*address*), mengelola (*manage*), menyelesaikan (*resolve*), memitigasi (*handle*), menyelaraskan (*negotiate*) |
+| `leverage` | Istilah korporat (*corporate buzzword*) | memanfaatkan (*utilize*), menggunakan (*employ*), menerapkan (*apply*), mengeksploitasi fitur (*exploit*) |
+| `realm` | Terlalu puitis atau arkais | ranah (*domain*), cakupan (*sphere*), disiplin (*discipline*), konteks (*context*), lingkup (*area*) |
+| `embark` | Kata kerja melodramatis | menginisiasi (*initiate*), menjalankan (*undertake*), memulai (*commence* / *begin*) |
+| `underscore` | Penekanan berulang yang klise | menekankan (*emphasize*), menggarisbawahi (*highlight*), mempertegas (*accentuate* / *stress*) |
+| `multifaceted` | Klaim kompleksitas yang kabur | kompleks (*complex*), heterogen (*heterogeneous*), beragam (*varied*), multidimensi (*multidimensional*) |
+| `nuanced` | Sering menjadi frasa pengisi kosong | terperinci (*fine-grained*), bersyarat (*qualified*), subtil (*subtle*), terdeferensiasi (*differentiated*) |
+| `comprehensive` | Klaim cakupan yang sering berlebihan (*overclaim*) | ekstensif (*extensive*), mendalam (*thorough*), terperinci (*detailed*), sistematis (*systematic*) |
+| `robust` | Klaim kualitas samar (di luar statistik formal) | andal (*reliable*), tangguh (*resilient*), sahih (*sound*), konsisten (*consistent*), tervalidasi (*validated*) |
+| `intricate` | Deskriptor impresionistik | elaboratif (*elaborate*), terperinci (*detailed*), kompleks (*complex*), terstruktur (*structured*) |
+| `cornerstone` | Metafora klise | landasan (*foundation*), basis primer (*primary basis*), pilar fundamental (*fundamental pillar*) |
+| `paradigm` | Berlebihan digunakan di luar filsafat sains | kerangka kerja (*framework*), model (*model*), pendekatan konseptual (*conceptual approach*) |
+| `synergy` | Istilah korporat/manajemen | interaksi (*interaction*), efek gabungan (*joint effect*), dinamika komplementer (*complementary dynamic*) |
+| `holistic` | Samar tanpa operasionalisasi konkret | terintegrasi (*integrated*), komprehensif (*comprehensive*), menyeluruh tingkat sistem (*system-wide*) |
+| `streamline` | Laras bahasa korporat | menyederhanakan (*simplify*), mengoptimalkan (*optimize*), menyempurnakan (*refine*), menstandardisasi (*standardize*) |
+| `cutting-edge` | Superlatif bernada pemasaran | mutakhir (*state-of-the-art*), baru (*novel*), terbaru (*recent*), tingkat lanjut (*advanced*) |
+| `groundbreaking` | Superlatif tanpa pembuktian substansial | pelopor (*pioneering*), fundamental (*foundational*), orisinal (*original*), inovatif (*innovative*) |
+| `plethora` | Informal dan terkesan menggurui | jumlah substansial (*substantial number*), susunan luas (*wide array*), banyak (*numerous*), kemajemukan (*multitude*) |
 
 ---
 
-## 2. Throat-Clearing & Redundant Meta-Discourse
+## 2. Basa-Basi Pembuka & Meta-Diskursus Redundan (Throat-Clearing)
 
-Delete introductory filler phrases that delay the argument. Start directly with the subject and scientific claim.
+Hapus frasa pembuka hampa yang menunda penyampaian argumen pokok. Mulailah kalimat secara langsung dengan subjek dan klaim ilmiahnya.
 
-| Filler / Throat-Clearing Phrase | Recommended Action |
+| Frasa Pengisi / Basa-Basi Pembuka | Tindakan Rekomendasi |
 |:---|:---|
-| *"In the realm of..."* | Delete. Begin directly with the research subject. |
-| *"It is important to note that..."* | Delete. State the observation directly. |
-| *"It is worth mentioning that..."* | Delete. Present the fact or evidence immediately. |
-| *"In today's rapidly evolving world..."* | Delete. Avoid temporal generalities and clichés. |
-| *"This serves as a testament to..."* | Replace with *"This demonstrates..."* or present direct metrics. |
-| *"It goes without saying that..."* | Delete. If self-evident, omit; otherwise, substantiate. |
-| *"In order to..."* | Simplify to *"To..."*. |
-| *"As a matter of fact..."* | Delete. State the empirical finding directly. |
-| *"When it comes to..."* | Replace with direct subject framing (*"Regarding X, ..."* or *"In X, ..."*). |
-| *"With that being said..."* | Delete or replace with formal transitional adverbs (*"However,"*, *"Nevertheless,"*). |
-| *"This section will discuss..."* | Rephrase to direct action (*"Section III details..."*) or dive directly into the analysis. |
-| *"We now turn our attention to..."* | Delete. Use substantive topic sentences to transition. |
+| *"Dalam ranah..."* (*"In the realm of..."*) | Hapus. Mulai langsung dengan subjek riset spesifik. |
+| *"Penting untuk dicatat bahwa..."* (*"It is important to note that..."*) | Hapus. Nyatakan hasil observasi secara langsung. |
+| *"Perlu disebutkan bahwa..."* (*"It is worth mentioning that..."*) | Hapus. Sajikan fakta atau bukti empiris dengan segera. |
+| *"Di era perkembangan yang serba cepat saat ini..."* | Hapus. Hindari generalisasi waktu dan ungkapan klise. |
+| *"Hal ini menjadi bukti nyata atas..."* | Ganti dengan *"Hal ini mendemonstrasikan..."* atau sajikan angka metriknya. |
+| *"Tak perlu dikatakan lagi bahwa..."* | Hapus. Jika sudah jelas dengan sendirinya, hilangkan; jika belum, buktikan. |
+| *"Dalam rangka untuk..."* | Sederhanakan menjadi *"Untuk..."* atau *"Guna..."*. |
+| *"Faktanya adalah..."* | Hapus. Paparkan temuan empiris secara langsung. |
+| *"Ketika berbicara tentang..."* | Ganti dengan perumusan subjek langsung (*"Mengenai X, ..."* atau *"Pada X, ..."*). |
+| *"Meskipun demikian..."* (sebagai pengisi tanpa kaitan) | Hapus atau ganti dengan konjungsi transisi formal (*"Namun demikian,"*, *"Meskipun demikian,"*). |
+| *"Bab ini akan membahas tentang..."* | Ubah menjadi tindakan aktif (*"Seksi III merinci..."*) atau langsung masuk ke analisis. |
+| *"Sekarang mari kita alihkan perhatian ke..."* | Hapus. Gunakan kalimat topik substantif sebagai transisi logika. |
 
 ---
 
-## 3. Punctuation & Syntactic Guardrails
+## 3. Batasan Tanda Baca & Sintaksis
 
-### Em Dash (—) Control
-- **Upper Limit**: Maximum 1 to 2 em dashes per entire paper section; ideally zero.
-- **Rationale**: Overuse of em dashes creates fragmented, conversational prose.
-- **Remedy**: Use paired commas for light appositives, parentheses for parenthetical clarifications, or separate into distinct declarative sentences.
+### Pengendalian Tanda Pisah Em Dash (—)
+- **Batas Maksimal**: Maksimal 1 hingga 2 tanda pisah em dash per seluruh naskah bab paper; idealnya nol.
+- **Rasional Ilmiah**: Penggunaan em dash yang berlebihan menciptakan gaya penulisan yang terfragmentasi, santai, dan menyerupai obrolan lisan.
+- **Solusi Pengganti**: Gunakan sepasang tanda koma untuk keterangan aposisi ringan, tanda kurung untuk klarifikasi tambahan, atau pisahkan menjadi kalimat deklaratif mandiri.
 
-### Semicolon Control
-- **Upper Limit**: Maximum 2 semicolons per 1,000 words.
-- **Rationale**: Chained independent clauses often conceal run-on thoughts.
-- **Remedy**: Divide complex compound sentences with a full stop (period) and use logical transitional adverbs (*"Consequently,"*, *"Conversely,"*, *"Furthermore,"*).
+### Pengendalian Titik Koma (;)
+- **Batas Maksimal**: Maksimal 2 titik koma per 1.000 kata.
+- **Rasional Ilmiah**: Menggabungkan beberapa klausa independen dengan titik koma kerap menyembunyikan alur pemikiran yang terlalu panjang (*run-on sentences*).
+- **Solusi Pengganti**: Pisahkan kalimat majemuk yang padat dengan tanda titik (.) dan manfaatkan kata penghubung transisi logika formal (*"Akibatnya,"*, *"Sebaliknya,"*, *"Lebih lanjut,"*).
 
-### Colon-List Restrictions
-- Do not chain successive paragraphs that begin with a colon followed by bullet points.
-- Integrate enumerated points directly into narrative prose unless displaying formal axioms, mathematical hypotheses, or explicit contribution summaries.
+### Pembatasan Daftar Berkolon (Titik Dua)
+- Hindari menyusun paragraf-paragraf berturut-turut yang selalu diawali tanda titik dua (:) lalu diikuti daftar poin berbutir (*bullet points*).
+- Integrasikan poin-poin penjelasan secara langsung ke dalam prosa naratif, kecuali saat menyajikan aksioma formal, hipotesis matematis, atau daftar kontribusi utama paper.
 
-### Structural Symmetry & The "Rule of Three"
-- Avoid forcing arguments into artificial triads (e.g., always demanding exactly three reasons or three challenges).
-- Present the exact number of points supported by empirical evidence (whether two, four, or five).
-
----
-
-## 4. Sentence Burstiness & Rhythm Variation
-
-Academic prose must possess rhythmic dynamism through varied sentence lengths. Monotonous sentence structures tire readers and obscure key claims.
-
-### Burstiness Rules
-1. **Consecutive Length Constraint**: Never allow 4 or more consecutive sentences to have approximately equal lengths (e.g., all 20–25 words).
-2. **Impact Pacing**: Place short, declarative sentences (8–14 words) at positions of highest cognitive importance:
-   - Introducing the core problem or research gap.
-   - Stating the primary empirical finding.
-   - Summarizing the actionable takeaway of a subsection.
-3. **Elaboration Pacing**: Use complex compound sentences (25–38 words) for technical mechanisms, procedural descriptions, and multidimensional theoretical qualifications.
-
-### Burstiness Profiles by Section
-- **Introduction**: High variance. Open with sharp, impactful sentences; develop background with compound sentences; conclude moves with distinct, crisp contribution statements.
-- **Related Work**: Moderate variance. Synthesize themes in structured compound sentences; punctuate comparisons with concise summary sentences.
-- **Methods**: Low to moderate variance. Uniform, procedural clarity is acceptable, but avoid hypnotic passive repetition.
-- **Results & Discussion**: Highest variance. Lead with crisp metric announcements, follow with detailed comparative elaboration, and finish with concise analytical insights.
-- **Conclusion**: Moderate variance. Deliver unambiguous summary judgments alternating with prospective implications.
+### Simetri Struktural & "Aturan Tiga" (*Rule of Three*)
+- Hindari memaksakan argumen ke dalam triad buatan secara artifisial (misalnya selalu memaksakan harus ada tepat tiga alasan atau tiga tantangan).
+- Sajikan jumlah poin yang murni didukung oleh bukti empiris nyata (baik berjumlah dua, empat, maupun lima poin).
 
 ---
 
-## 5. Hedging Language vs. Evidentiary Strength
+## 4. Variasi Ritme & Dinamika Panjang Kalimat (Sentence Burstiness)
 
-Scientific integrity requires calibrating verbal strength to the certainty of the empirical evidence.
+Prosa akademik wajib memiliki dinamika ritmis melalui variasi panjang kalimat. Struktur kalimat yang seragam dan monoton akan melelahkan pembaca serta mengaburkan hierarki klaim penting.
+
+### Aturan Dinamika (*Burstiness*)
+1. **Batasan Kalimat Seragam Berurutan**: Dilarang keras menyusun 4 kalimat berturut-turut atau lebih yang memiliki panjang kira-kira sama (misalnya semuanya berbobot 20–25 kata).
+2. **Irama Penekanan Kunci (*Impact Pacing*)**: Tempatkan kalimat pendek yang deklaratif dan lugas (8–14 kata) pada posisi bernilai kognitif tertinggi:
+   - Memperkenalkan masalah inti atau celah penelitian.
+   - Menyatakan temuan empiris utama.
+   - Menyimpulkan intisari penting dari suatu subbagian.
+3. **Irama Elaborasi (*Elaboration Pacing*)**: Gunakan kalimat majemuk bertingkat yang kompleks (25–38 kata) untuk menguraikan mekanisme teknis, penjelasan prosedural, dan kualifikasi teoretis multidimensi.
+
+### Profil Dinamika per Seksi
+- **Pendahuluan**: Variasi tinggi. Buka dengan kalimat lugas yang memikat; kembangkan konteks dengan kalimat majemuk; akhiri tahapan dengan pernyataan kontribusi yang tegas dan terpisah.
+- **Kajian Terkait**: Variasi moderat. Sintesiskan tema-tema dalam kalimat bertingkat terstruktur; tandai perbandingan dengan kalimat ringkasan yang padat.
+- **Metode**: Variasi rendah hingga moderat. Kejelasan prosedural yang seragam dapat diterima, namun hindari repetisi kalimat pasif yang monoton.
+- **Hasil dan Pembahasan**: Variasi tertinggi. Awali dengan pengumuman metrik yang tegas, lanjutkan dengan elaborasi komparatif mendalam, dan tutup dengan wawasan analitis yang ringkas.
+- **Kesimpulan**: Variasi moderat. Sajikan kesimpulan yang tidak ambigu bergantian dengan implikasi prospektif ke depan.
+
+---
+
+## 5. Bahasa Pembatas Derajat Kepastian (Hedging) vs Kekuatan Bukti
+
+Integritas akademik menuntut kalibrasi kekuatan pernyataan verbal agar selaras secara proporsional dengan derajat kepastian bukti empiris.
 
 ```
-[Definitive Facts / Direct Observations]  ←  "demonstrates", "establishes", "confirms", "indicates"
-[Correlations / Model Estimates]          ←  "suggests", "corresponds to", "is consistent with"
-[Extrapolations / Hypothesized Trends]    ←  "may indicate", "potentially reflects", "could imply"
+[Fakta Definitif / Observasi Langsung]   ←  "membuktikan", "menetapkan", "mengonfirmasi", "menunjukkan"
+[Korelasi / Estimasi Model]             ←  "menyarankan", "berkorelasi dengan", "konsisten dengan"
+[Ekstrapolasi / Tren Hipotetis]         ←  "dapat mengindikasikan", "berpotensi mencerminkan", "diduga"
 ```
 
-### When to Hedge
-- Interpreting unexpected findings or observational correlations.
-- Explaining underlying causal mechanisms that have not been experimentally isolated.
-- Generalizing findings beyond the specific benchmark, cohort, or dataset evaluated.
+### Kapan Harus Menggunakan Hedging
+- Menginterpretasikan temuan anomali atau korelasi observasional yang tak terduga.
+- Menjelaskan mekanisme kausalitas mendasar yang belum diisolasi secara eksperimental.
+- Menggeneralisasi temuan di luar tolok ukur, kohort, atau dataset spesifik yang dievaluasi.
 
-### When NOT to Hedge
-- Describing verified experimental configurations or methodology:
-  * Incorrect: *"We attempted to employ a five-fold cross-validation scheme."*
-  * Correct: *"A five-fold cross-validation scheme was employed."*
-- Reporting empirical measurements:
-  * Incorrect: *"The model seemed to reach an accuracy of 92.4%."*
-  * Correct: *"The model achieved an accuracy of 92.4%."*
-- Established mathematical identities or universal domain physical laws.
+### Kapan TIDAK Boleh Menggunakan Hedging
+- Menjelaskan konfigurasi eksperimen atau protokol metodologis yang telah terverifikasi:
+  * Keliru: *"Kami berusaha untuk menerapkan skema validasi silang lima-lipat."*
+  * Tepat: *"Skema validasi silang lima-lipat diterapkan dalam eksperimen ini."*
+- Melaporkan hasil pengukuran empiris riil:
+  * Keliru: *"Model tersebut tampaknya berhasil mencapai akurasi 92,4%."*
+  * Tepat: *"Model tersebut mencapai akurasi sebesar 92,4%."*
+- Menjelaskan identitas matematis baku atau hukum fisika universal domain terkait.
 
 ---
 
-## 6. Disciplinary Register Profiles
+## 6. Profil Laras Bahasa Disiplin Ilmu (Disciplinary Registers)
 
-| Discipline | Voice & Person | Dominant Register Notes |
+| Disiplin Ilmu | Sudut Pandang & Persona | Catatan Karakteristik Laras Bahasa |
 |:---|:---|:---|
-| **Computer Science & AI / Engineering** | Third person; first person plural (*"we propose"*) common for contributions. | Problem-solution oriented, specification-precise, algorithmic clarity, computational complexity notation ($O(n)$), quantitative benchmark rigor. |
-| **Natural & Physical Sciences** | Impersonal third person; passive voice common for experimental execution. | Method-focused, strict unit notation (SI), exact experimental conditions, error boundaries ($\pm \text{SD}$), reproducibility. |
-| **Social Sciences** | Active voice; reflective first person acceptable where researcher stance matters. | Theory-grounded, operationalized constructs, participant-sensitive, statistical reporting standards ($F, t, p, \eta^2$). |
-| **Medicine & Clinical Health** | Formal third person; passive for interventions, active for observed outcomes. | Strict evidence-hierarchy awareness, clinical endpoints, confidence intervals (95% CI), patient cohort descriptions. |
+| **Ilmu Komputer, AI, & Rekayasa** | Sudut pandang orang ketiga; jamak orang pertama (*"kami mengusulkan"*) lazim untuk kontribusi. | Berorientasi solusi masalah (*problem-solution*), spesifikasi presisi, kejelasan algoritmik, notasi kompleksitas komputasi ($O(n)$), ketelitian tolok ukur kuantitatif. |
+| **Ilmu Pengetahuan Alam & Fisika** | Sudut pandang orang ketiga impersonal; kalimat pasif lazim untuk pelaksanaan eksperimen. | Berfokus pada metode, notasi satuan ketat (standar SI), kondisi eksperimen presisi, batas kesalahan batas ($\pm \text{SD}$), replikabilitas tinggi. |
+| **Ilmu Sosial** | Kalimat aktif; orang pertama reflektif dapat diterima ketika posisi peneliti relevan. | Berlandaskan teori kuat, konstruksi konsep teroperasionalisasi, peka partisipan, standar pelaporan statistik formal ($F, t, p, \eta^2$). |
+| **Kedokteran & Kesehatan Klinis** | Sudut pandang orang ketiga formal; kalimat pasif untuk intervensi, kalimat aktif untuk luaran observasi. | Kesadaran hierarki bukti ketat (*evidence hierarchy*), titik akhir klinis (*clinical endpoints*), interval kepercayaan (95% CI), deskripsi kohort pasien yang ketat. |
 
 ---
 
-## 7. Acronym Standardization & First-Mention Invariant
+## 7. Standardisasi Akronim & Invarian Kemunculan Pertama
 
-- **First Appearance**: Every technical acronym or abbreviation must be written with its complete formal name followed by the acronym in parentheses: e.g., `Principal Component Analysis (PCA)`.
-- **Subsequent Appearances**: Use strictly the acronym (`PCA`) throughout all remaining sections. Never re-expand the full name.
-- **Cross-Section Consistency**: Always cross-reference `paper/acronyms.txt` before and after drafting to maintain global synchronization across modular Markdown files.
+- **Kemunculan Pertama**: Setiap akronim atau singkatan teknis wajib dituliskan dengan nama formal lengkapnya diikuti singkatan di dalam tanda kurung: contohnya `Principal Component Analysis (PCA)`.
+- **Kemunculan Berikutnya**: Gunakan hanya bentuk singkatannya (`PCA`) di seluruh sisa naskah bab berikutnya. Jangan pernah mengekspansi ulang nama lengkapnya.
+- **Konsistensi Lintas Bab**: Selalu rujuk dan mutakhirkan `paper/acronyms.txt` sebelum dan sesudah menyusun draf seksi untuk mempertahankan sinkronisasi global di seluruh berkas Markdown modular.
