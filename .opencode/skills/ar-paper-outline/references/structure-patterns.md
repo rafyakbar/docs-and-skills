@@ -1,201 +1,201 @@
-# Academic Paper Structure Patterns — 6 Canonical Models
+# Pola Struktur Paper Akademik — 6 Model Kanonikal
 
-This guide details the structural architectures, section organizations, paragraph progression models, and word allocation budgets across the 6 canonical academic paper types.
+Panduan ini memerinci arsitektur struktural, organisasi bab, model progresi paragraf, dan alokasi anggaran kata di seluruh 6 model paper akademik kanonikal.
 
 ---
 
-## The Paragraph-by-Paragraph Architectural Principle
+## Prinsip Arsitektural Paragraf demi Paragraf
 
-Regardless of which model is selected, outlines generated under this skill **MUST NOT** stop at high-level chapter titles or superficial sub-headings. Every section must be broken down into **discrete paragraph units** following the standard blueprint:
+Model apa pun yang dipilih, outline yang disusun menggunakan skill ini **TIDAK BOLEH** berhenti pada judul bab tingkat tinggi atau sub-judul yang dangkal. Setiap bab wajib dipecah menjadi **unit paragraf diskret** yang mengikuti cetak biru standar:
 
 ```
-### Paragraph X: [Descriptive Sub-Theme / Function]
-- Target Word Count: [100–160 words]
-- Objective: [1 sentence defining the rhetorical or scientific function]
-- Narrative Points: [1. Topic Sentence | 2. Elaboration/Evidence | 3. Context/Boundary]
-- Assigned Evidence & Citations: [Explicit literature, dataset, or equation anchors]
-- Transition Sentence: [Concluding sentence bridging to the next paragraph]
+### Paragraf X: [Sub-Tema Deskriptif / Fungsi]
+- Target Jumlah Kata: [100–160 kata]
+- Tujuan: [1 kalimat yang mendefinisikan fungsi retoris atau ilmiah]
+- Poin-Poin Naratif: [1. Kalimat Topik | 2. Elaborasi/Bukti | 3. Konteks/Batasan]
+- Penugasan Bukti & Sitasi: [Jangkar literatur, dataset, atau persamaan eksplisit]
+- Kalimat Transisi: [Kalimat penutup yang menjembatani ke paragraf berikutnya]
 ```
 
 ---
 
-## Pattern 1: IMRaD (Empirical Research)
+## Pola 1: IMRaD (Penelitian Empiris)
 
-**Best for**: Empirical research based on quantitative experiments, qualitative fieldwork, or mixed-methods data.  
-**Standard Disciplines**: Computer Science, Engineering, Medicine, Psychology, Social Sciences, Natural Sciences.  
-**Typical Length**: 5,000 – 8,000 words.
+**Paling Cocok Untuk**: Penelitian empiris berbasis eksperimen kuantitatif, kerja lapangan kualitatif, atau data metode campuran (*mixed-methods*).  
+**Disiplin Ilmu Standar**: Ilmu Komputer, Teknik/Rekayasa, Kedokteran, Psikologi, Ilmu Sosial, Sains Alam.  
+**Panjang Tipikal**: 5.000 – 8.000 kata.
 
-IMRaD papers exist in two primary architectural variants depending on the target venue:
+Paper IMRaD memiliki dua varian arsitektur utama tergantung pada venue target yang dituju:
 
-### Pattern 1A: Integrated IMRaD (Results and Discussion Combined)
-*Standard in: Computer Science, Machine Learning, Electrical Engineering, IEEE, ACM, and Applied Engineering.*  
-*(See `references/sample-paragraph-outline.md` for a full, self-contained exemplar of Pattern 1A).*
+### Pola 1A: IMRaD Terintegrasi (Hasil dan Pembahasan Digabung)
+*Standar di: Ilmu Komputer, Machine Learning, Teknik Elektro, IEEE, ACM, dan Rekayasa Terapan.*  
+*(Lihat `references/sample-paragraph-outline.md` untuk contoh lengkap mandiri dari Pola 1A).*
 
-#### Section Architecture & Paragraph Budget (6,000-word example)
-| Section | % of Total | Target Words | Paragraph Count | Paragraph Progression |
+#### Arsitektur Bab & Anggaran Paragraf (Contoh 6.000 kata)
+| Bab / Bagian | % dari Total | Target Kata | Jumlah Paragraf | Progresi Paragraf |
 |---|:---:|:---:|:---:|---|
-| Front Matter & Abstract | — | 200 words | 1 (Unified) | Context → Objective → Method → Results → Conclusion |
-| **Section I: Introduction** | 15% | ~900 words | 6–7 paragraphs | P1: Urgency & Real-world Context<br>P2: Problem Statement & Sensory/Domain Blind Spots<br>P3: Technological Advances & Foundational Paradigms<br>P4: Critical Literature Gaps<br>P5: Proposed Framework Overview<br>P6: Enumerated Scientific Contributions<br>P7: Article Organization Roadmap |
-| **Section II: Related Works** | 15% | ~900 words | 5–6 paragraphs | P1–P4: Thematic syntheses of prior approaches (max 3 cites/sentence)<br>P5: Critical comparative synthesis of limitations<br>P6: Research positioning & differentiation statement |
-| **Section III: Materials and Methods** | 25% | ~1,500 words | 10–12 paragraphs | **Overview**: Full-width pipeline architecture (Figure 1)<br>**III.A Dataset**: P1 Context, P2 Partitioning, P3 Preprocessing<br>**III.B Feature Extraction**: P4–P6 Backbone architecture & equations<br>**III.C Optimization Pipeline**: P7–P9 Algorithm search space & fold isolation<br>**III.D Evaluation Protocol**: P10–P11 Metrics & statistical testing |
-| **Section IV: Results and Discussion** | 40% | ~2,400 words | 12–15 paragraphs | **IV.A Global Benchmark**: P1–P3 Primary performance & comparative baseline analysis (Table III)<br>**IV.B Feature Ablation**: P4–P6 Component-wise contribution (Figure 2)<br>**IV.C Subgroup & Error Analysis**: P7–P9 Class-level stability & error patterns<br>**IV.D Computational Complexity**: P10–P11 Runtime & memory profiling<br>**IV.E Discussion**: P12–P14 Triangulation with prior literature, theoretical implications, and boundary constraints |
-| **Section V: Conclusion** | 5% | ~300 words | 3 paragraphs | P1: Synthesis of primary findings answering RQs<br>P2: Honest disclosure of technical/practical limitations<br>P3: Actionable roadmap for future research |
+| Bagian Depan & Abstrak | — | 200 kata | 1 (Terpadu) | Konteks → Tujuan → Metode → Hasil → Kesimpulan |
+| **Bagian I: Pendahuluan** | 15% | ~900 kata | 6–7 paragraf | P1: Urgensi & Konteks Nyata<br>P2: Rumusan Masalah & Titik Buta Sensorik/Domain<br>P3: Kemajuan Teknologi & Paradigma Fondasional<br>P4: Kesenjangan Kritis Literatur<br>P5: Gambaran Umum Kerangka yang Diusulkan<br>P6: Poin-Poin Kontribusi Ilmiah Terinci<br>P7: Peta Jalan Organisasi Artikel |
+| **Bagian II: Kajian Pustaka Terkait** | 15% | ~900 kata | 5–6 paragraf | P1–P4: Sintesis tematik pendekatan terdahulu (maks 3 sitasi/kalimat)<br>P5: Sintesis komparatif kritis mengenai keterbatasan metode yang ada<br>P6: Pernyataan pemosisian riset & diferensiasi kebaruan |
+| **Bagian III: Materi dan Metode** | 25% | ~1.500 kata | 10–12 paragraf | **Gambaran Umum**: Diagram arsitektur pipeline lebar penuh (Gambar 1)<br>**III.A Dataset**: P1 Konteks, P2 Partisi Data, P3 Prapemrosesan<br>**III.B Ekstraksi Fitur**: P4–P6 Arsitektur backbone & formulasi persamaan<br>**III.C Pipeline Optimasi**: P7–P9 Ruang pencarian algoritma & isolasi lipatan (*fold*)<br>**III.D Protokol Evaluasi**: P10–P11 Metrik & pengujian statistik |
+| **Bagian IV: Hasil dan Pembahasan** | 40% | ~2.400 kata | 12–15 paragraf | **IV.A Tolok Ukur Global**: P1–P3 Kinerja utama & analisis pembanding baseline (Tabel III)<br>**IV.B Ablasi Fitur**: P4–P6 Kontribusi per komponen (Gambar 2)<br>**IV.C Analisis Subkelompok & Galat**: P7–P9 Stabilitas tingkat kelas & pola galat<br>**IV.D Kompleksitas Komputasi**: P10–P11 Pemprofilan waktu eksekusi & memori<br>**IV.E Pembahasan**: P12–P14 Triangulasi dengan literatur terdahulu, implikasi teoretis, dan batasan cakupan |
+| **Bagian V: Kesimpulan** | 5% | ~300 kata | 3 paragraf | P1: Sintesis temuan utama yang menjawab RQs<br>P2: Pengungkapan jujur keterbatasan teknis/praktis<br>P3: Peta jalan tindak lanjut untuk riset masa depan |
 
 ---
 
-### Pattern 1B: Classical Split IMRaD (Results and Discussion Separated)
-*Standard in: Clinical Medicine, Biomedical Sciences, Experimental Psychology, Pure Social Sciences.*
+### Pola 1B: IMRaD Pemisahan Klasik (Hasil dan Pembahasan Dipisah)
+*Standar di: Kedokteran Klinis, Ilmu Biomedis, Psikologi Eksperimental, Ilmu Sosial Murni.*
 
-#### Section Architecture & Paragraph Budget (6,000-word example)
-| Section | % of Total | Target Words | Paragraph Count | Paragraph Progression |
+#### Arsitektur Bab & Anggaran Paragraf (Contoh 6.000 kata)
+| Bab / Bagian | % dari Total | Target Kata | Jumlah Paragraf | Progresi Paragraf |
 |---|:---:|:---:|:---:|---|
-| Front Matter & Abstract | — | 250 words | 1 (Structured) | Objective → Methods → Results → Conclusion |
-| **1. Introduction** | 15% | ~900 words | 5–6 paragraphs | Broad problem context → Specific clinical/empirical tension → Unresolved knowledge deficit → Study objective & hypotheses |
-| **2. Literature Review / Theoretical Framework** | 20% | ~1,200 words | 7–8 paragraphs | Theoretical constructs → Empirical findings across themes → Inconsistencies/controversies in prior data → Hypothesis justification |
-| **3. Methodology** | 15% | ~900 words | 6–8 paragraphs | Participants/Sample criteria → Operationalization of measures → Experimental procedure & ethics → Statistical analysis strategy |
-| **4. Results** | 20% | ~1,200 words | 7–9 paragraphs | *Purely factual reporting without interpretation*:<br>Descriptive statistics (Table 1) → Primary hypothesis testing H1 (Table 2) → Secondary hypothesis testing H2 → Subgroup/sensitivity analyses |
-| **5. Discussion** | 25% | ~1,500 words | 8–10 paragraphs | Summary of core findings → Interpretation & comparison with past studies → Theoretical mechanisms explaining results → Clinical/practical implications → Methodological limitations |
-| **6. Conclusion** | 5% | ~300 words | 2–3 paragraphs | Final synthesis → Definitive takeaway message |
+| Bagian Depan & Abstrak | — | 250 kata | 1 (Terstruktur) | Tujuan → Metode → Hasil → Kesimpulan |
+| **1. Pendahuluan** | 15% | ~900 kata | 5–6 paragraf | Konteks masalah luas → Ketegangan klinis/empiris spesifik → Defisit pengetahuan yang belum terpecahkan → Tujuan studi & hipotesis |
+| **2. Tinjauan Pustaka / Kerangka Teoretis** | 20% | ~1.200 kata | 7–8 paragraf | Konstruk teoretis → Temuan empiris lintas tema → Inkonsistensi/kontroversi data terdahulu → Justifikasi hipotesis |
+| **3. Metodologi** | 15% | ~900 kata | 6–8 paragraf | Partisipan/Kriteria sampel → Operasionalisasi pengukuran → Prosedur eksperimen & etika → Strategi analisis statistik |
+| **4. Hasil** | 20% | ~1.200 kata | 7–9 paragraf | *Pelaporan murni faktual tanpa interpretasi*:<br>Statistik deskriptif (Tabel 1) → Pengujian hipotesis primer H1 (Tabel 2) → Pengujian hipotesis sekunder H2 → Analisis subkelompok/sensitivitas |
+| **5. Pembahasan** | 25% | ~1.500 kata | 8–10 paragraf | Rangkuman temuan inti → Interpretasi & perbandingan dengan studi terdahulu → Mekanisme teoretis penjelas hasil → Implikasi klinis/praktis → Keterbatasan metodologis |
+| **6. Kesimpulan** | 5% | ~300 kata | 2–3 paragraf | Sintesis akhir → Pesan utama yang definitif |
 
 ---
 
-## Pattern 2: Thematic Literature Review
+## Pola 2: Thematic Literature Review (Tinjauan Pustaka Tematik)
 
-**Best for**: Systematic reviews, meta-analyses (PRISMA), and state-of-the-art scoping reviews.  
-**Standard Disciplines**: All academic fields.  
-**Typical Length**: 6,000 – 10,000 words.
+**Paling Cocok Untuk**: Tinjauan sistematis (*systematic review*), meta-analisis (PRISMA), dan tinjauan cakupan mutakhir (*scoping review*).  
+**Disiplin Ilmu Standar**: Semua bidang akademik.  
+**Panjang Tipikal**: 6.000 – 10.000 kata.
 
-### Paragraph Progression Architecture
-- **Section 1: Introduction & Motivation (3–4 paragraphs, ~800 words)**
-  - P1: Evolution and contemporary significance of the field.
-  - P2: Boundaries, scope, and specific review questions (RQs).
-  - P3: Justification of this review compared to prior surveys.
-  - P4: Overview of review structure.
-- **Section 2: Review Methodology & Search Strategy (3–4 paragraphs, ~800 words)**
-  - P1: Database selection, search string syntax, and temporal boundaries.
-  - P2: Inclusion and exclusion criteria (PRISMA Flowchart / Figure 1).
-  - P3: Screening protocol, inter-rater reliability, and risk-of-bias assessment.
-  - P4: Bibliometric profile of the finalized corpus (Table 1).
-- **Sections 3–5: Thematic Clusters (4–6 paragraphs per theme, ~3,600 words)**
-  - *Theme A*: Foundational paradigms, taxonomies, and core constructs.
-  - *Theme B*: Methodological implementations and empirical patterns.
-  - *Theme C*: Drivers, moderating factors, and observed outcomes.
-  - *Internal paragraph flow*: Synthesis of consensus → Divergent evidence → Underlying methodological drivers.
-- **Section 6: Critical Synthesis & Research Gaps (4–5 paragraphs, ~1,200 words)**
-  - P1: Theoretical blind spots across literature clusters.
-  - P2: Methodological deficits and sampling biases in existing studies.
-  - P3: Contradictory evidence and empirical tensions.
-  - P4: Summary matrix of identified research gaps (Table 2).
-- **Section 7: Integrative Framework & Future Agenda (3–4 paragraphs, ~1,000 words)**
-  - P1: Presentation of the proposed integrative conceptual model (Figure 2).
-  - P2: Specific, high-priority research questions for future investigation.
-  - P3: Methodological recommendations for subsequent empirical work.
-- **Section 8: Conclusion (2 paragraphs, ~400 words)**
-  - P1: Synthesis of primary contributions.
-  - P2: Concluding remarks on the future trajectory of the domain.
-
----
-
-## Pattern 3: Theoretical Analysis
-
-**Best for**: Developing new conceptual frameworks, mathematical formulations, or critical theoretical paradigm critiques.  
-**Standard Disciplines**: Philosophy, Economics, Sociology, Critical Theory, Pure Mathematics, Theoretical CS.  
-**Typical Length**: 6,000 – 9,000 words.
-
-### Paragraph Progression Architecture
-- **Section 1: Introduction & The Theoretical Paradox (3–4 paragraphs, ~900 words)**
-  - P1: Real-world anomaly or conceptual puzzle that existing theory cannot resolve.
-  - P2: Shortcomings and breakdown points of prevailing theoretical paradigms.
-  - P3: The proposed theoretical contribution, core thesis, and analytical boundary.
-- **Section 2: Theoretical Foundations & Critical Review (5–6 paragraphs, ~1,500 words)**
-  - Historical lineage of the concept → Dominant formulations → Critique of hidden assumptions and internal logical tensions.
-- **Section 3: Formulation of the Novel Theoretical Model (8–10 paragraphs, ~2,500 words)**
-  - P1–P2: Axiomatic foundations, primitive definitions, and ontology.
-  - P3–P5: Mathematical derivations, propositions, or formal logic chains (Eq. 1..N).
-  - P6–P8: Interactions between constructs and causal mechanisms.
-  - P9–P10: Formal boundary conditions and scope limitations.
-- **Section 4: Conceptual Application / Thought Experiment (5–6 paragraphs, ~1,600 words)**
-  - Testing the proposed model against known paradoxes, edge cases, or historical anomalies (Table 1 comparing legacy vs. new model).
-- **Section 5: Epistemological Implications & Discussion (4–5 paragraphs, ~1,100 words)**
-  - Broader epistemological consequences → Re-interpretation of existing empirical findings → Methodological implications for testing the model.
-- **Section 6: Conclusion (2 paragraphs, ~400 words)**
-  - Final synthesis and prospective theoretical extensions.
+### Arsitektur Progresi Paragraf
+- **Bagian 1: Pendahuluan & Motivasi (3–4 paragraf, ~800 kata)**
+  - P1: Evolusi dan signifikansi kontemporer dari bidang kajian.
+  - P2: Batasan cakupan, ruang lingkup, dan pertanyaan tinjauan spesifik (*review questions* / RQs).
+  - P3: Justifikasi perlunya tinjauan ini dibandingkan survei terdahulu.
+  - P4: Gambaran umum struktur tinjauan.
+- **Bagian 2: Metodologi Tinjauan & Strategi Penelusuran (3–4 paragraf, ~800 kata)**
+  - P1: Pemilihan basis data, sintaks string penelusuran, dan batasan rentang waktu.
+  - P2: Kriteria inklusi dan eksklusi (Diagram Alir PRISMA / Gambar 1).
+  - P3: Protokol penyaringan (*screening*), reliabilitas antarraya (*inter-rater reliability*), dan penilaian risiko bias.
+  - P4: Profil bibliometrik dari korpus artikel final (Tabel 1).
+- **Bagian 3–5: Kluster Tematik (4–6 paragraf per tema, ~3.600 kata)**
+  - *Tema A*: Paradigma fondasional, taksonomi, dan konstruk inti.
+  - *Tema B*: Implementasi metodologis dan pola temuan empiris.
+  - *Tema C*: Faktor pendorong, variabel pemoderasi, dan luaran yang teramati.
+  - *Alur internal paragraf*: Sintesis konsensus → Bukti divergen/kontradiktif → Pendorong metodologis yang mendasarinya.
+- **Bagian 6: Sintesis Kritis & Kesenjangan Riset (4–5 paragraf, ~1.200 kata)**
+  - P1: Titik buta teoretis di berbagai kluster literatur.
+  - P2: Defisit metodologis dan bias penarikan sampel dalam studi-studi terdahulu.
+  - P3: Bukti yang saling bertentangan dan ketegangan empiris.
+  - P4: Matriks ringkasan kesenjangan riset yang teridentifikasi (Tabel 2).
+- **Bagian 7: Kerangka Integratif & Agenda Masa Depan (3–4 paragraf, ~1.000 kata)**
+  - P1: Penyajian model konseptual integratif yang diusulkan (Gambar 2).
+  - P2: Pertanyaan penelitian spesifik dan berprioritas tinggi untuk investigasi masa depan.
+  - P3: Rekomendasi metodologis untuk karya empiris berikutnya.
+- **Bagian 8: Kesimpulan (2 paragraf, ~400 kata)**
+  - P1: Sintesis kontribusi utama tinjauan.
+  - P2: Catatan penutup mengenai arah dan trajektori domain penelitian di masa mendatang.
 
 ---
 
-## Pattern 4: Case Study
+## Pola 3: Theoretical Analysis (Analisis Teoretis)
 
-**Best for**: Single-case or multiple-case in-depth organizational, technological, or policy investigations.  
-**Standard Disciplines**: Management, Information Systems, Public Administration, Education, Sociology.  
-**Typical Length**: 6,000 – 8,000 words.
+**Paling Cocok Untuk**: Pengembangan kerangka konseptual baru, perumusan formulasi matematis, atau kritik terhadap paradigma teoretis yang ada.  
+**Disiplin Ilmu Standar**: Filsafat, Ilmu Ekonomi, Sosiologi, Teori Kritis, Matematika Murni, Ilmu Komputer Teoretis.  
+**Panjang Tipikal**: 6.000 – 9.000 kata.
 
-### Paragraph Progression Architecture
-- **Section 1: Introduction & Case Phenomenon (3–4 paragraphs, ~800 words)**
-  - Empirical phenomenon in context → Practical stakes → Research questions and rationale for selecting qualitative case methodology.
-- **Section 2: Theoretical Grounding (3–4 paragraphs, ~1,000 words)**
-  - Sensitizing theoretical concepts or analytical framework guiding field observation.
-- **Section 3: Research Methodology & Case Context (4–6 paragraphs, ~1,200 words)**
-  - P1: Rationale for case selection (revelatory, extreme, or representative case criteria).
-  - P2: Institutional background and operational setting of the case organization.
-  - P3: Triangulated data collection (interviews, field observation, archival documents).
-  - P4–P5: Coding procedure, construct validity, and analytical within-case / cross-case strategy.
-- **Section 4: Case Findings & Narrative Analysis (8–12 paragraphs, ~2,200 words)**
-  - Chronological or thematic narrative progression: Baseline conditions → Critical incident / Intervention → Organizational response → Emergent dynamics and outcomes.
-- **Section 5: Discussion & Emergent Grounded Framework (5–6 paragraphs, ~1,400 words)**
-  - Inductive framework developed from case observations (Figure 1) → Comparison with prevailing literature → Transferability and analytical generalization boundaries.
-- **Section 6: Practical Implications & Conclusion (2–3 paragraphs, ~400 words)**
-  - Actionable managerial/policy lessons → Methodological limitations → Concluding remarks.
-
----
-
-## Pattern 5: Policy Brief
-
-**Best for**: Evidence-based briefs translating complex empirical research into actionable policy recommendations for decision-makers.  
-**Standard Disciplines**: Public Policy, Public Health, Environmental Governance, Economics.  
-**Typical Length**: 3,000 – 5,000 words.
-
-### Paragraph Progression Architecture
-- **Executive Summary (2 paragraphs, ~250 words)**
-  - P1: The core policy dilemma, urgency, and primary finding.
-  - P2: The definitive policy recommendation and projected impact.
-- **Section 1: Policy Context & Root Causes (3–4 paragraphs, ~800 words)**
-  - Socio-economic or institutional problem context → Root structural drivers → Immediate risks to affected stakeholder populations.
-- **Section 2: Critique of Existing Policy Measures (3–4 paragraphs, ~800 words)**
-  - Analysis of current regulatory/legislative efforts → Identified systemic deficiencies, budget inefficiencies, or unintended perverse incentives.
-- **Section 3: Empirical Evidence & Impact Analysis (4–5 paragraphs, ~1,200 words)**
-  - Quantitative research findings, cost-benefit calculations, and demographic impact distribution (Table 1 & Figure 1).
-- **Section 4: Policy Options & Comparative Evaluation (3–4 paragraphs, ~1,000 words)**
-  - Option A vs. Option B vs. Status Quo evaluated against feasibility, cost, equity, and political viability (Evaluation Matrix Table 2).
-- **Section 5: Actionable Recommendations & Implementation Roadmap (3 paragraphs, ~600 words)**
-  - P1: Recommended policy package and rationale.
-  - P2: Phased implementation timeline and lead agency responsibilities.
-  - P3: Key performance indicators (KPIs) and accountability monitoring.
+### Arsitektur Progresi Paragraf
+- **Bagian 1: Pendahuluan & Paradoks Teoretis (3–4 paragraf, ~900 kata)**
+  - P1: Anomali dunia nyata atau teka-teki konseptual yang gagal dipecahkan oleh teori yang ada.
+  - P2: Kelemahan dan titik kegagalan paradigma teoretis dominan saat ini.
+  - P3: Kontribusi teoretis yang diusulkan, tesis inti, dan batas analitis.
+- **Bagian 2: Fondasi Teoretis & Tinjauan Kritis (5–6 paragraf, ~1.500 kata)**
+  - Asal-usul historis konsep → Formulasi dominan → Kritik terhadap asumsi tersembunyi dan ketegangan logika internal.
+- **Bagian 3: Perumusan Model Teoretis Baru (8–10 paragraf, ~2.500 kata)**
+  - P1–P2: Landasan aksiomatis, definisi primitif, dan ontologi.
+  - P3–P5: Derivasi matematis, proposisi, atau rantai logika formal (Persamaan 1..N).
+  - P6–P8: Interaksi antarkonstruk dan mekanisme kausalitas.
+  - P9–P10: Batasan kondisi formal dan limitasi ruang lingkup.
+- **Bagian 4: Penerapan Konseptual / Eksperimen Pikiran (5–6 paragraf, ~1.600 kata)**
+  - Pengujian model yang diusulkan terhadap paradoks yang diketahui, kasus ekstrem (*edge cases*), atau anomali historis (Tabel 1 membandingkan model konvensional vs. model baru).
+- **Bagian 5: Implikasi Epistemologis & Pembahasan (4–5 paragraf, ~1.100 kata)**
+  - Konsekuensi epistemologis yang lebih luas → Interpretasi ulang temuan empiris yang ada → Implikasi metodologis untuk menguji model secara empiris.
+- **Bagian 6: Kesimpulan (2 paragraf, ~400 kata)**
+  - Sintesis akhir dan prospek perluasan teoretis lanjutan.
 
 ---
 
-## Pattern 6: Conference Paper
+## Pola 4: Case Study (Studi Kasus)
 
-**Best for**: Fast-track, space-constrained papers (typically 4–8 pages / 3,000–4,500 words).  
-**Standard Disciplines**: Computer Science, AI/ML, Electrical Engineering, Human-Computer Interaction.  
-**Typical Length**: 3,000 – 4,500 words.
+**Paling Cocok Untuk**: Investigasi mendalam studi kasus tunggal atau jamak (*multiple-case*) dalam domain organisasi, teknologi, atau kebijakan.  
+**Disiplin Ilmu Standar**: Manajemen, Sistem Informasi, Administrasi Publik, Ilmu Pendidikan, Sosiologi.  
+**Panjang Tipikal**: 6.000 – 8.000 kata.
 
-### Paragraph Progression Architecture
-- **Section 1: Introduction (3–4 paragraphs, ~600 words)**
-  - P1: Motivation and core technical problem.
-  - P2: Limitations of existing baseline approaches.
-  - P3: Proposed technical contribution and methodology overview.
-  - P4: Bulleted list of primary contributions (typically 3 points).
-- **Section 2: Related Work (2–3 paragraphs, ~500 words)**
-  - P1: Evolution of related baseline algorithms.
-  - P2: Specific distinction of this work from closest competing methods.
-- **Section 3: Proposed Methodology (4–6 paragraphs, ~1,200 words)**
-  - P1: System pipeline overview (Figure 1).
-  - P2–P4: Algorithmic details, mathematical formulations (Eq. 1..N), and novel loss functions / mechanisms.
-- **Section 4: Experimental Evaluation (6–8 paragraphs, ~1,600 words)**
-  - P1: Datasets, baseline models, and evaluation metrics.
-  - P2–P3: Quantitative benchmark results vs. baselines (Table 1 & Figure 2).
-  - P4–P5: Component ablation studies validating architectural decisions.
-  - P6: Qualitative examples or failure case analysis.
-- **Section 5: Conclusion & Limitations (1–2 paragraphs, ~300 words)**
-  - P1: Summary of results.
-  - P2: Primary limitation and future research direction.
+### Arsitektur Progresi Paragraf
+- **Bagian 1: Pendahuluan & Fenomena Kasus (3–4 paragraf, ~800 kata)**
+  - Fenomena empiris dalam konteksnya → Relevansi praktis → Pertanyaan penelitian dan rasional pemilihan metodologi studi kasus kualitatif.
+- **Bagian 2: Landasan Teoretis (3–4 paragraf, ~1.000 kata)**
+  - Konsep teoretis pemandu (*sensitizing concepts*) atau kerangka analitis yang memandu observasi lapangan.
+- **Bagian 3: Metodologi Penelitian & Konteks Kasus (4–6 paragraf, ~1.200 kata)**
+  - P1: Rasional pemilihan kasus (kriteria kasus luar biasa, ekstrem, atau representatif).
+  - P2: Latar belakang institusional dan kondisi operasional organisasi kasus.
+  - P3: Triangulasi pengumpulan data (wawancara mendalam, observasi lapangan, dokumen arsip).
+  - P4–P5: Prosedur pengodean (*coding*), validitas konstruk, dan strategi analitis intrasubjek (*within-case*) / antarkasus (*cross-case*).
+- **Bagian 4: Temuan Kasus & Analisis Naratif (8–12 paragraf, ~2.200 kata)**
+  - Progresi naratif kronologis atau tematik: Kondisi dasar (*baseline*) → Insiden kritis / Intervensi → Respons organisasional → Dinamika dan dampak yang muncul.
+- **Bagian 5: Pembahasan & Kerangka Konseptual yang Muncul (5–6 paragraf, ~1.400 kata)**
+  - Kerangka induktif yang dibangun dari observasi kasus (Gambar 1) → Perbandingan dengan literatur terdahulu → Batasan keteralihan (*transferability*) dan generalisasi analitis.
+- **Bagian 6: Implikasi Praktis & Kesimpulan (2–3 paragraf, ~400 kata)**
+  - Pelajaran manajerial/kebijakan yang dapat ditindaklanjuti → Keterbatasan metodologis → Catatan penutup.
+
+---
+
+## Pola 5: Policy Brief (Ringkasan Kebijakan)
+
+**Paling Cocok Untuk**: Dokumen ringkasan berbasis bukti yang menerjemahkan riset empiris kompleks menjadi rekomendasi kebijakan yang dapat ditindaklanjuti bagi pembuat keputusan.  
+**Disiplin Ilmu Standar**: Kebijakan Publik, Kesehatan Masyarakat, Tata Kelola Lingkungan, Ilmu Ekonomi Terapan.  
+**Panjang Tipikal**: 3.000 – 5.000 kata.
+
+### Arsitektur Progresi Paragraf
+- **Ringkasan Eksekutif (2 paragraf, ~250 kata)**
+  - P1: Dilema kebijakan inti, urgensi masalah, dan temuan utama.
+  - P2: Rekomendasi kebijakan definitif dan proyeksi dampaknya.
+- **Bagian 1: Konteks Kebijakan & Akar Masalah (3–4 paragraf, ~800 kata)**
+  - Konteks masalah sosial-ekonomi atau kelembagaan → Pendorong struktural mendasar → Risiko langsung bagi populasi pemangku kepentingan terdampak.
+- **Bagian 2: Evaluasi Kritis terhadap Kebijakan yang Ada (3–4 paragraf, ~800 kata)**
+  - Analisis terhadap upaya regulasi/legislasi saat ini → Ketiadaan efisiensi anggaran, kelemahan sistemik yang teridentifikasi, atau insentif keliru yang tidak diharapkan.
+- **Bagian 3: Bukti Empiris & Analisis Dampak (4–5 paragraf, ~1.200 kata)**
+  - Temuan riset kuantitatif, kalkulasi analisis biaya-manfaat (*cost-benefit*), dan distribusi dampak demografis (Tabel 1 & Gambar 1).
+- **Bagian 4: Opsi Kebijakan & Evaluasi Komparatif (3–4 paragraf, ~1.000 kata)**
+  - Evaluasi Opsi A vs. Opsi B vs. Status Quo terhadap kelayakan, biaya, keadilan (*equity*), dan viabilitas politis (Matriks Evaluasi Tabel 2).
+- **Bagian 5: Rekomendasi yang Dapat Ditindaklanjuti & Peta Jalan Implementasi (3 paragraf, ~600 kata)**
+  - P1: Paket kebijakan yang direkomendasikan beserta rasional logisnya.
+  - P2: Linimasa implementasi bertahap dan pembagian tanggung jawab instansi pelaksana.
+  - P3: Indikator kinerja utama (*Key Performance Indicators* / KPI) dan pemantauan akuntabilitas.
+
+---
+
+## Pola 6: Conference Paper (Makalah Konferensi)
+
+**Paling Cocok Untuk**: Paper jalur cepat (*fast-track*) dengan batasan ruang ketat (biasanya 4–8 halaman / 3.000–4.500 kata).  
+**Disiplin Ilmu Standar**: Ilmu Komputer, AI/ML, Teknik Elektro, Interaksi Manusia-Komputer (HCI).  
+**Panjang Tipikal**: 3.000 – 4.500 kata.
+
+### Arsitektur Progresi Paragraf
+- **Bagian 1: Pendahuluan (3–4 paragraf, ~600 kata)**
+  - P1: Motivasi penelitian dan masalah teknis inti.
+  - P2: Keterbatasan pendekatan tolok ukur (*baseline*) yang ada.
+  - P3: Kontribusi teknis yang diusulkan dan gambaran umum metodologi.
+  - P4: Daftar butir kontribusi utama (biasanya 3 poin utama).
+- **Bagian 2: Kajian Pustaka Terkait (2–3 paragraf, ~500 kata)**
+  - P1: Evolusi algoritma baseline terkait.
+  - P2: Diferensiasi spesifik karya ini dibandingkan metode kompetitor terdekat.
+- **Bagian 3: Metodologi yang Diusulkan (4–6 paragraf, ~1.200 kata)**
+  - P1: Gambaran umum diagram alur sistem (*system pipeline*) (Gambar 1).
+  - P2–P4: Rincian algoritmik, formulasi matematis (Persamaan 1..N), serta fungsi kerugian (*loss function*) atau mekanisme baru.
+- **Bagian 4: Evaluasi Eksperimental (6–8 paragraf, ~1.600 kata)**
+  - P1: Dataset, model pembanding baseline, dan metrik evaluasi.
+  - P2–P3: Hasil tolok ukur kuantitatif vs. baseline (Tabel 1 & Gambar 2).
+  - P4–P5: Studi ablasi komponen yang memvalidasi keputusan arsitektur.
+  - P6: Contoh kualitatif atau analisis kasus kegagalan (*failure cases*).
+- **Bagian 5: Kesimpulan & Keterbatasan (1–2 paragraf, ~300 kata)**
+  - P1: Rangkuman ringkas hasil penelitian.
+  - P2: Keterbatasan utama dan arah penelitian lanjutan di masa mendatang.

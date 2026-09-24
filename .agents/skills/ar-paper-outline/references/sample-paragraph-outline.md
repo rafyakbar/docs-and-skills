@@ -1,224 +1,224 @@
-# Illustrative Reference Exemplar: Paragraph-by-Paragraph Academic Paper Blueprint
+# Eksemplar Referensi Ilustratif: Cetak Biru Paper Akademik Paragraf demi Paragraf
 
 > [!NOTE]
-> ### PURELY AN ILLUSTRATIVE EXAMPLE — DO NOT REUSE VERBATIM
-> This document is **strictly a demonstrative sample** intended solely to showcase the expected formatting standard, paragraph-by-paragraph granularity, narrative progression, and evidence mapping.
+> ### MURNI CONTOH ILUSTRATIF — JANGAN DIGUNAKAN ULANG SECARA VERBATIM
+> Dokumen ini **murni merupakan contoh percontohan demonstratif** yang ditujukan semata-mata untuk menunjukkan standar format yang diharapkan, tingkat rincian paragraf demi paragraf, progresi naratif, dan pemetaan bukti.
 > 
-> - **All content below—including the research topic, vision transformer algorithms, dataset names, equations, numerical findings, and literature citations—is entirely an illustrative mock scenario.**
-> - **Do NOT copy, assume, or apply this specific topic, domain, or venue to user requests.**
-> - For every actual outlining task, the AI must generate a completely original, custom blueprint derived from the user's real research focus, empirical data, target publication requirements, and confirmed structural model following the intake consultation.
+> - **Seluruh konten di bawah ini—termasuk topik penelitian, algoritma vision transformer, nama dataset, persamaan, temuan numerik, dan sitasi literatur—sepenuhnya merupakan skenario tiruan (*mock scenario*) ilustratif.**
+> - **JANGAN menyalin, mengasumsikan, atau menerapkan topik, domain, atau venue spesifik ini pada permintaan pengguna.**
+> - Untuk setiap tugas penyusunan outline riil, AI wajib menghasilkan cetak biru yang sepenuhnya orisinal dan disesuaikan berdasarkan fokus riset riil pengguna, data empiris, persyaratan publikasi target, dan model struktural yang dikonfirmasi setelah konsultasi intake.
 
 ---
 
-## 0. User Intake Protocol & Mock Scenario Setup
+## 0. Protokol Intake Pengguna & Penyiapan Skenario Tiruan (Mock Scenario Setup)
 
 > [!IMPORTANT]
-> **MANDATORY USER INTAKE RULE:**
-> Before constructing an outline, the AI **MUST NOT** unilaterally assume or enforce a specific venue (such as IEEE Access, Elsevier, Nature, etc.). The AI must consult and confirm the following parameters with the user first:
+> **ATURAN INTAKE PENGGUNA WAJIB:**
+> Sebelum menyusun outline, AI **TIDAK BOLEH** secara sepihak berasumsi atau memaksakan venue tertentu (seperti IEEE Access, Elsevier, Nature, dll.). AI wajib berkonsultasi dan mengonfirmasi parameter-parameter berikut dengan pengguna terlebih dahulu:
 > 
-> 1. **Target Publication / Venue**: Is it aimed at a reputable international journal (e.g., IEEE Transactions, Elsevier Pattern Recognition, Nature Communications, ACM Computing Surveys), a national peer-reviewed journal, conference proceedings, or a thesis/dissertation?
-> 2. **Citation Style & Format**: What citation style is prescribed by the author guidelines (IEEE numerical, APA 7, Harvard, ACM, Vancouver, Chicago)?
-> 3. **Manuscript Language & Terminology Policy**: Formal English, or bilingual with standardized English technical terms?
-> 4. **Structural Model**: Does the study follow IMRaD (empirical research), Thematic Literature Review, Theoretical Analysis, Case Study, or Policy Brief?
-> 5. **Target Word Count**: What is the target word count range (e.g., 6,000–8,000 words)?
+> 1. **Target Publikasi / Venue**: Apakah ditujukan untuk jurnal internasional bereputasi (misal, IEEE Transactions, Elsevier Pattern Recognition, Nature Communications, ACM Computing Surveys), jurnal nasional terakreditasi, prosiding konferensi, atau bab tesis/disertasi?
+> 2. **Gaya & Format Sitasi**: Format sitasi apa yang diwajibkan oleh panduan penulis (IEEE numerik, APA 7, Harvard, ACM, Vancouver, Chicago)?
+> 3. **Bahasa Naskah & Kebijakan Terminologi**: Bahasa Inggris formal, atau naskah dengan istilah teknis standar bahasa Inggris?
+> 4. **Model Struktural**: Apakah penelitian mengikuti IMRaD (penelitian empiris), Thematic Literature Review, Theoretical Analysis, Case Study, atau Policy Brief?
+> 5. **Target Jumlah Kata**: Berapa rentang target jumlah kata total (misalnya, 6.000–8.000 kata)?
 >
-> *(The following section illustrates a mock blueprint produced **AFTER** a hypothetical user confirmed that their target is a reputable Q1 international journal in the Multimedia / Machine Learning domain, written in formal English, using IEEE citation format, and following the empirical IMRaD model).*
+> *(Bagian berikut mengilustrasikan cetak biru tiruan yang dihasilkan **SETELAH** pengguna hipotetis mengonfirmasi bahwa target mereka adalah jurnal internasional Q1 bereputasi di bidang Multimedia / Machine Learning, ditulis dalam bahasa Inggris formal, menggunakan format sitasi IEEE, dan mengikuti model IMRaD empiris).*
 
-### Illustrative Mock Configuration (Hypothetical User Selection)
-- **Target Venue**: [Mock User Selection: Reputable International Journal in Multimedia / AI, e.g., IEEE / ACM / Elsevier]
-- **Manuscript Language**: [Mock User Selection: Formal English with standard technical terminology]
-- **Citation Format**: [Mock User Selection: IEEE numerical format with contextual inline author-year references during drafting]
-- **Demonstration Topic**: Multi-Domain Latent Representation Fusion using Vision Transformers and Classical Machine Learning Optimization for Robust Acoustic-Visual Scene Classification
-
----
-
-## Demonstrative Global Writing Rules & Claim Boundaries
-
-### A. Allowed Claims & Core Focus (Illustrative Mock Rules)
-1. **Primary Focus**: Systematic empirical evaluation of offline latent feature fusion from three complementary audio-visual domains (acoustic spectrogram ViT, visual scene ViT, and spatial motion ViT) using frozen pretrained Vision Transformers combined with an optimized classical machine learning pipeline (GridSearchCV with 5-Fold Stratified Cross-Validation).
-2. **Tri-Domain Fusion Superiority**: Tri-domain fusion (2,304 dimensions) achieves the highest performance across **3 out of 4 evaluated classifiers** (Support Vector Machine / SVM, Logistic Regression / LR, and Gaussian Naive Bayes / GNB), with the peak model **Tri-Domain SVM** achieving an accuracy of **94.20%** and Macro F1-Score of **94.15%** on the benchmark dataset ($N = 2,400$ test instances).
-3. **Information Leakage Prevention**: Preprocessing scalers (StandardScaler) and dimensionality reduction (PCA) are fitted strictly within training folds during cross-validation, and final evaluation is executed on an isolated held-out test cohort.
-4. **Subgroup Performance Stability**: Granular per-class evaluation across all 6 environmental scene classes maintains an F1-score above 91.50%, demonstrating cross-domain stability.
-
-### B. Negative Constraints & Disallowed Claims (Illustrative Mock Rules)
-1. **No Absolute "Zero Leakage" Claims**: Formulate as "methodologically designed to prevent information leakage" rather than claiming mathematical zero-leakage infallibility.
-2. **No Unqualified "Significantly"**: The term "significantly" may only be used when backed by formal statistical hypothesis testing ($p < 0.05$). Use "substantially", "notably", or "achieved higher performance" for descriptive observations.
-3. **Avoid Unchecked SOTA Superlatives**: Use "achieving the highest observed performance among evaluated configurations on the benchmark dataset" rather than claiming absolute universal SOTA.
-4. **No Universal Dominance Claims**: Acknowledge factually that tri-domain fusion excels on 3 of 4 classifiers, whereas Random Forest peaks on a dual-domain configuration (87.30%).
-5. **No Em-Dashes (—)**: Use commas (,), parentheses ( ), or standard hyphens (-).
-6. **Citation Density Limit**: Maximum 3 citations per sentence to maintain readability and avoid citation dumping.
-
-### C. Master Element Sequence & Layout Specifications (Illustrative Mock Registry)
-- **Equations (1)–(8)**: Chronologically numbered in order of narrative appearance.
-- **Figure 1**: End-to-end framework architecture diagram (LaTeX Full-Width: `\begin{figure*} ... \end{figure*}`).
-- **Figure 2**: Subgroup F1-Score radar chart across classifiers (Single-column).
-- **Table I**: Dataset distribution and sensory attribute summary (Single-column).
-- **Table II**: Hyperparameter search space for classical classifiers (Single-column).
-- **Table III**: Global performance and feature ablation benchmark (LaTeX Full-Width: `\begin{table*} ... \end{table*}`).
-- **Table IV**: Confusion matrix and per-class error distribution (Single-column).
+### Konfigurasi Tiruan Ilustratif (Pilihan Hipotetis Pengguna)
+- **Target Venue**: [Pilihan Tiruan Pengguna: Jurnal Internasional Bereputasi di bidang Multimedia / AI, misal, IEEE / ACM / Elsevier]
+- **Bahasa Naskah**: [Pilihan Tiruan Pengguna: Bahasa Inggris formal dengan terminologi teknis standar]
+- **Format Sitasi**: [Pilihan Tiruan Pengguna: Format numerik IEEE dengan referensi kontekstual penulis-tahun dalam teks selama penulisan draf]
+- **Topik Demonstrasi**: Multi-Domain Latent Representation Fusion using Vision Transformers and Classical Machine Learning Optimization for Robust Acoustic-Visual Scene Classification
 
 ---
 
-## Demonstrative Front Matter
+## Aturan Penulisan Global & Batasan Klaim Demonstratif
 
-### Paper Title
+### A. Klaim yang Diizinkan & Fokus Inti (Aturan Tiruan Ilustratif)
+1. **Fokus Utama**: Evaluasi empiris sistematis terhadap fusi fitur laten luring (*offline latent feature fusion*) dari tiga domain audio-visual komplementer (spektrogram akustik ViT, pemandangan visual ViT, dan dinamika gerak spasial ViT) menggunakan Vision Transformer beku prapelatihan (*frozen pretrained ViT*) yang dipadukan dengan alur kerja pembelajaran mesin klasik teroptimasi (GridSearchCV dengan Stratified Cross-Validation 5-Lipatan).
+2. **Keunggulan Fusi Tiga-Domain**: Fusi tiga-domain (2.304 dimensi) mencapai performa tertinggi pada **3 dari 4 pengklasifikasi yang dievaluasi** (Support Vector Machine / SVM, Logistic Regression / LR, dan Gaussian Naive Bayes / GNB), dengan model puncak **SVM Tiga-Domain** meraih akurasi **94,20%** dan Macro F1-Score **94,15%** pada dataset tolok ukur ($N = 2.400$ instans uji).
+3. **Pencegahan Kebocoran Informasi (Information Leakage Prevention)**: Penskalaan prapemrosesan (StandardScaler) dan reduksi dimensi (PCA) disesuaikan (*fitted*) secara ketat hanya di dalam lipatan pelatihan (*training folds*) selama validasi silang, dan evaluasi akhir dijalankan pada kohort uji terisolasi (*held-out test cohort*).
+4. **Stabilitas Performa Subkelompok**: Evaluasi per kelas yang terperinci di seluruh 6 kelas pemandangan lingkungan mempertahankan skor F1 di atas 91,50%, yang membuktikan stabilitas lintas-domain.
+
+### B. Batasan Negatif & Klaim yang Dilarang (Aturan Tiruan Ilustratif)
+1. **Tidak Ada Klaim Mutlak "Nol Kebocoran"**: Diformulasikan sebagai "dirancang secara metodologis untuk mencegah kebocoran informasi", alih-alih mengklaim infalibilitas matematis tanpa kebocoran sama sekali.
+2. **Larangan Kata "Secara Signifikan" Tanpa Kualifikasi**: Kata "secara signifikan" (*significantly*) hanya boleh digunakan apabila didukung oleh pengujian hipotesis statistik formal ($p < 0,05$). Gunakan kata "secara substansial", "secara nyata", atau "mencapai performa lebih tinggi" untuk observasi deskriptif.
+3. **Hindari Superlatif SOTA Tanpa Batasan**: Gunakan formulasi "mencapai performa teramati tertinggi di antara konfigurasi yang dievaluasi pada dataset tolok ukur", alih-alih mengklaim SOTA universal mutlak.
+4. **Tidak Mengklaim Keunggulan Universal**: Mengakui secara faktual bahwa fusi tiga-domain unggul pada 3 dari 4 pengklasifikasi, sedangkan Random Forest mencapai puncaknya pada konfigurasi dua-domain (87,30%).
+5. **Hindari Em-Dash (—)**: Gunakan koma (,), tanda kurung ( ), atau tanda hubung standar (-).
+6. **Batas Densitas Sitasi**: Maksimal 3 sitasi per kalimat untuk menjaga keterbacaan naskah dan mencegah penumpukan sitasi (*citation dumping*).
+
+### C. Urutan Elemen Master & Spesifikasi Tata Letak (Registri Tiruan Ilustratif)
+- **Persamaan (1)–(8)**: Diberi nomor secara kronologis sesuai urutan kemunculan dalam narasi teks.
+- **Gambar 1**: Diagram arsitektur kerangka kerja menyeluruh (*end-to-end framework*) (Lebar Penuh LaTeX: `\begin{figure*} ... \end{figure*}`).
+- **Gambar 2**: Diagram radar F1-Score subkelompok lintas pengklasifikasi (Satu kolom).
+- **Tabel I**: Distribusi dataset dan ringkasan atribut sensorik (Satu kolom).
+- **Tabel II**: Ruang pencarian hiperparameter untuk pengklasifikasi klasik (Satu kolom).
+- **Tabel III**: Tolok ukur performa global dan studi ablasi fitur (Lebar Penuh LaTeX: `\begin{table*} ... \end{table*}`).
+- **Tabel IV**: Matriks konfusi dan distribusi galat per kelas (Satu kolom).
+
+---
+
+## Halaman Depan Demonstratif
+
+### Judul Paper
 **Multi-Domain Latent Representation Fusion with Pretrained Vision Transformers for Robust Acoustic-Visual Scene Classification**
 
-### Abstract Blueprint
-*Target: 180–220 words, single unified paragraph following 5 rhetorical movements:*
-- **Movement 1 (Context & Challenge)**: Automated environmental scene recognition in multimodal IoT sensing systems faces acoustic noise interference, visual occlusion, and unimodal representational deficits.
-- **Movement 2 (Objective)**: This study proposes a multi-domain latent representation fusion framework integrating offline feature embeddings from three frozen pretrained Vision Transformer (ViT) backbones with an optimized classical machine learning pipeline.
-- **Movement 3 (Methodology)**: Latent representations capturing acoustic spectrograms, visual scenes, and spatial motion dynamics are extracted offline and concatenated into a unified latent space. Downstream classification and hyperparameter tuning are conducted across four algorithms (SVM, Logistic Regression, Random Forest, Gaussian Naive Bayes) using 5-Fold Stratified Cross-Validation with strict train-fold data isolation.
-- **Movement 4 (Key Results)**: The tri-domain Support Vector Machine (SVM) achieves the highest performance among compared configurations, yielding an accuracy of 94.20% and Macro F1-score of 94.15%, maintaining per-class F1-scores above 91.50% across all evaluated scene categories.
-- **Movement 5 (Conclusion & Contribution)**: The findings demonstrate that cross-domain transformer representation fusion substantially enhances classification robustness, providing a modular and computationally efficient architecture for multimodal sensory intelligence.
+### Cetak Biru Abstrak
+*Target: 180–220 kata, satu paragraf terpadu mengikuti 5 pergerakan retoris:*
+- **Pergerakan 1 (Konteks & Tantangan)**: Pengenalan pemandangan lingkungan otomatis pada sistem penginderaan IoT multimodal menghadapi interferensi derau akustik, oklusi visual, dan defisit representasi unimodal.
+- **Pergerakan 2 (Tujuan)**: Penelitian ini mengusulkan kerangka kerja fusi representasi laten multi-domain yang mengintegrasikan sematan fitur luring dari tiga arsitektur tulang punggung (*backbone*) Vision Transformer (ViT) beku prapelatihan dengan alur kerja pembelajaran mesin klasik teroptimasi.
+- **Pergerakan 3 (Metodologi)**: Representasi laten yang menangkap spektrogram akustik, pemandangan visual, dan dinamika gerak spasial diekstraksi secara luring dan digabungkan (*concatenated*) ke dalam ruang laten terpadu. Klasifikasi hilir dan penyetelan hiperparameter dijalankan pada empat algoritma (SVM, Logistic Regression, Random Forest, Gaussian Naive Bayes) menggunakan Stratified Cross-Validation 5-Lipatan dengan isolasi ketat data lipatan pelatihan.
+- **Pergerakan 4 (Hasil Kunci)**: Model Support Vector Machine (SVM) tiga-domain mencapai performa tertinggi di antara konfigurasi yang dibandingkan, menghasilkan akurasi 94,20% dan Macro F1-score 94,15%, serta mempertahankan skor F1 per kelas di atas 91,50% pada seluruh kategori pemandangan yang dievaluasi.
+- **Pergerakan 5 (Kesimpulan & Kontribusi)**: Temuan ini membuktikan bahwa fusi representasi transformer lintas-domain secara substansial meningkatkan ketahanan klasifikasi, menyediakan arsitektur yang modular dan efisien secara komputasi untuk kecerdasan sensorik multimodal.
 
-### Keywords
+### Kata Kunci
 Acoustic-visual scene classification; Vision Transformer; multimodal feature fusion; algorithmic robustness; Support Vector Machine; cross-validation.
 
 ---
 
-## Demonstrative Section I: INTRODUCTION
+## Bagian I Demonstratif: PENDAHULUAN (INTRODUCTION)
 
-### Narrative Progression Map
+### Peta Progresi Naratif
 ```
-[Paragraph 1: Ubiquity & Practical Vulnerabilities of Multimodal Sensing]
+[Paragraf 1: Keberadaan Luas & Kerentanan Praktis Penginderaan Multimodal]
                                │
                                ▼
-[Paragraph 2: Representational Blind Spots of Unimodal Systems]
+[Paragraf 2: Titik Buta Representasional pada Sistem Unimodal]
                                │
                                ▼
-[Paragraph 3: Vision Transformer Advancements & Self-Attention Paradigms]
+[Paragraf 3: Kemajuan Vision Transformer & Paradigma Self-Attention]
                                │
                                ▼
-[Paragraph 4: Critical Research Gaps in Contemporary Literature]
+[Paragraf 4: Kesenjangan Riset Kritis dalam Literatur Kontemporer]
                                │
                                ▼
-[Paragraph 5: Proposed Architectural Solution: Tri-Domain ViT Fusion]
+[Paragraf 5: Solusi Arsitektural yang Diusulkan: Fusi ViT Tiga-Domain]
                                │
                                ▼
-[Paragraph 6: Four Primary Scientific Contributions]
+[Paragraf 6: Empat Kontribusi Ilmiah Utama]
                                │
                                ▼
-[Paragraph 7: Structural Organization of the Paper]
+[Paragraf 7: Struktur Organisasi Artikel]
 ```
 
-### Paragraph 1: Ubiquity and Practical Challenges in Environmental Sensing
-- **Target Word Count**: 120–150 words.
-- **Objective**: Establish the critical role of acoustic-visual scene recognition in modern intelligent systems and highlight performance degradation caused by real-world environmental noise.
-- **Narrative Points**:
-  1. Automated environmental scene classification forms the perceptual backbone of autonomous robotics, smart surveillance, and ecological monitoring.
-  2. Real-world deployments confront acoustic reverberation, visual occlusions, and sensor noise that degrade classification fidelity.
-  3. Conventional embedded architectures experience severe accuracy drops when operational conditions deviate from idealized training distributions.
-- **Assigned Evidence & Citations**: Comprehensive benchmark surveys on multimodal environmental monitoring (Smith et al., 2023; Zhao & Vance, 2024).
-- **Transition Sentence**: While multimodal integration is recognized as essential, engineering architectures that synergistically harmonize disparate sensory streams under environmental variability remains an open challenge.
+### Paragraf 1: Keberadaan Luas dan Tantangan Praktis dalam Penginderaan Lingkungan
+- **Target Jumlah Kata**: 120–150 kata.
+- **Tujuan (Objective)**: Menetapkan peran penting klasifikasi pemandangan akustik-visual dalam sistem cerdas modern serta menyoroti degradasi performa akibat derau lingkungan dunia nyata.
+- **Poin-Poin Naratif**:
+  1. Klasifikasi pemandangan lingkungan otomatis merupakan tulang punggung perseptual dari robotika otonom, pengawasan cerdas, dan pemantauan ekologis.
+  2. Penerapan di dunia nyata menghadapi dengung akustik (*reverberation*), oklusi visual, dan derau sensor yang menurunkan ketepatan klasifikasi.
+  3. Arsitektur tersemat konvensional mengalami penurunan akurasi drastis ketika kondisi operasional menyimpang dari distribusi data pelatihan yang ideal.
+- **Penugasan Bukti & Sitasi**: Survei tolok ukur komprehensif tentang pemantauan lingkungan multimodal (Smith et al., 2023; Zhao & Vance, 2024).
+- **Kalimat Transisi**: Meskipun integrasi multimodal diakui sangat penting, merancang arsitektur yang mampu menyelaraskan aliran sensorik yang heterogen secara sinergis di bawah variabilitas lingkungan tetap menjadi tantangan terbuka.
 
-### Paragraph 2: Limitations of Isolated Sensory Modalities
-- **Target Word Count**: 110–140 words.
-- **Objective**: Explain why relying on isolated sensory modalities (audio-only or vision-only) causes catastrophic blind spots.
-- **Narrative Points**:
-  1. Traditional approaches process audio spectrograms or visual frames in isolation or rely on naive late-stage decision voting.
-  2. Unimodal models fail to resolve sensory ambiguities, such as distinguishing an urban park from a suburban forest where visual cues overlap but acoustic soundscapes diverge substantially.
-  3. Failure to capture cross-modal correlation leaves systems vulnerable to misclassification whenever a single sensor stream degrades.
-- **Assigned Evidence & Citations**: Comparative studies on unimodal failure modes (Kwon et al., 2023; Martinez & Thorne, 2024).
-- **Transition Sentence**: Overcoming these unimodal blind spots requires representational spaces capable of modeling subtle cross-modal interactions without inflating computational complexity.
+### Paragraf 2: Keterbatasan Modalitas Sensorik Terisolasi
+- **Target Jumlah Kata**: 110–140 kata.
+- **Tujuan (Objective)**: Menjelaskan mengapa ketergantungan pada modalitas sensorik terisolasi (hanya audio atau hanya visual) memicu titik buta (*blind spots*) yang fatal.
+- **Poin-Poin Naratif**:
+  1. Pendekatan tradisional memproses spektrogram audio atau bingkai visual secara terisolasi atau mengandalkan pemungutan suara keputusan tahap akhir (*late decision voting*) yang naif.
+  2. Model unimodal gagal mengurai ambiguitas sensorik, seperti membedakan taman kota dari hutan pinggiran kota di mana fitur visual tumpang tindih namun lanskap akustiknya sangat berbeda.
+  3. Kegagalan menangkap korelasi lintas-modal membuat sistem rentan mengalami salah klasifikasi setiap kali salah satu aliran sensor terdegradasi.
+- **Penugasan Bukti & Sitasi**: Studi komparatif mengenai pola kegagalan unimodal (Kwon et al., 2023; Martinez & Thorne, 2024).
+- **Kalimat Transisi**: Mengatasi titik buta unimodal ini menuntut ruang representasi yang mampu memodelkan interaksi lintas-modalitas secara halus tanpa memicu lonjakan kompleksitas komputasi.
 
-### Paragraph 3: Vision Transformer Paradigms in Multimodal Representations
-- **Target Word Count**: 140–180 words.
-- **Objective**: Discuss the transition from localized CNNs to Vision Transformers (ViTs) and global self-attention mechanisms in processing sensory data.
-- **Narrative Points**:
-  1. Classical convolutional extractors rely on localized receptive fields, necessitating deep hierarchical stacking to capture global spatial context.
-  2. Vision Transformers utilize Multi-Head Self-Attention (MHSA) to model direct pairwise interactions between all image patches or time-frequency bins across the entire receptive field.
-  3. Pretrained ViT backbones demonstrate strong transferability across diverse visual and spectrogram domains without requiring fundamental structural modifications.
-- **Assigned Evidence & Citations**: Foundational ViT and attention papers applied to sensory domains (Dosovitskiy et al., 2021; Radford et al., 2023; Patel et al., 2024). Maximum 3 citations.
-- **Transition Sentence**: Despite these representational advances, the interaction dynamics of multi-domain transformer latent embeddings when combined with downstream classification pipelines remain underexplored.
+### Paragraf 3: Paradigma Vision Transformer dalam Representasi Multimodal
+- **Target Jumlah Kata**: 140–180 kata.
+- **Tujuan (Objective)**: Membahas transisi dari CNN berbidang reseptif lokal ke Vision Transformer (ViT) dan mekanisme self-attention global dalam pemrosesan data sensorik.
+- **Poin-Poin Naratif**:
+  1. Ekstraktor konvolusional klasik bergantung pada bidang reseptif lokal, yang membutuhkan penumpukan hierarkis dalam untuk menangkap konteks spasial global.
+  2. Vision Transformer memanfaatkan Multi-Head Self-Attention (MHSA) untuk memodelkan interaksi berpasangan langsung antar seluruh patch citra atau bin frekuensi-waktu di seluruh bidang reseptif.
+  3. Arsitektur backbone ViT prapelatihan menunjukkan daya transferabilitas yang kuat lintas domain visual dan spektrogram tanpa memerlukan modifikasi struktural mendasar.
+- **Penugasan Bukti & Sitasi**: Makalah fondasional ViT dan mekanisme atensi yang diterapkan pada domain sensorik (Dosovitskiy et al., 2021; Radford et al., 2023; Patel et al., 2024). Maksimal 3 sitasi.
+- **Kalimat Transisi**: Terlepas dari kemajuan representasional ini, dinamika interaksi sematan laten transformer multi-domain ketika dipadukan dengan alur klasifikasi hilir masih belum banyak dieksplorasi.
 
-### Paragraph 4: Critical Research Gaps
-- **Target Word Count**: 120–150 words.
-- **Objective**: Formulate the three primary research gaps motivating this investigation.
-- **Narrative Points**:
-  1. *Gap 1 (Representation Isolation)*: Existing literature rarely integrates acoustic spectrograms, static scenes, and spatial motion into a unified latent feature space.
-  2. *Gap 2 (Decision Boundary Dynamics)*: Prior research predominantly focuses on end-to-end fine-tuning, leaving the decision boundary behavior of classical classifiers on transformer latent spaces unexamined.
-  3. *Gap 3 (Preprocessing Leakage & Subgroup Rigor)*: Few studies isolate data preprocessing strictly within cross-validation folds while systematically evaluating granular subgroup stability across heterogeneous scene categories.
-- **Assigned Evidence & Citations**: Survey of unresolved deficits in multimodal classification (Chen & Al-Mansoor, 2024).
-- **Transition Sentence**: To address these specific gaps, this investigation introduces a multi-domain ViT feature fusion framework paired with a rigorously optimized downstream classifier pipeline.
+### Paragraf 4: Kesenjangan Riset Kritis
+- **Target Jumlah Kata**: 120–150 kata.
+- **Tujuan (Objective)**: Merumuskan tiga kesenjangan riset utama yang memotivasi penyelidikan ini.
+- **Poin-Poin Naratif**:
+  1. *Kesenjangan 1 (Isolasi Representasi)*: Literatur yang ada jarang mengintegrasikan spektrogram akustik, pemandangan visual statis, dan gerak spasial ke dalam ruang fitur laten terpadu.
+  2. *Kesenjangan 2 (Dinamika Batas Keputusan)*: Riset terdahulu sebagian besar berfokus pada penyesuaian halus menyeluruh (*end-to-end fine-tuning*), sehingga perilaku batas keputusan pengklasifikasi klasik pada ruang laten transformer belum teruji secara sistematis.
+  3. *Kesenjangan 3 (Kebocoran Prapemrosesan & Ketelitian Subkelompok)*: Sangat sedikit studi yang mengisolasi prapemrosesan data secara ketat di dalam lipatan validasi silang seraya mengevaluasi stabilitas subkelompok terperinci pada kategori pemandangan heterogen.
+- **Penugasan Bukti & Sitasi**: Survei defisit yang belum terselesaikan dalam klasifikasi multimodal (Chen & Al-Mansoor, 2024).
+- **Kalimat Transisi**: Guna mengatasi kesenjangan spesifik tersebut, penelitian ini memperkenalkan kerangka fusi fitur ViT multi-domain yang dipadukan dengan alur pengklasifikasi hilir yang dioptimasi secara ketat.
 
-### Paragraph 5: Proposed Architectural Framework
-- **Target Word Count**: 150–190 words.
-- **Objective**: Present the proposed multi-domain ViT fusion and classical classifier optimization solution conceptually and systematically.
-- **Narrative Points**:
-  1. We propose an offline latent feature extraction framework leveraging three frozen pretrained ViT backbones: ViT-Spectrogram, ViT-Scene, and ViT-Motion.
-  2. Extracted latent embeddings are unified via direct concatenation ($\mathbf{z}_{\text{tri}} = \mathbf{f}_{\text{audio}} \oplus \mathbf{f}_{\text{visual}} \oplus \mathbf{f}_{\text{motion}}$), forming a compact 2,304-dimensional representation.
-  3. The fused embeddings are evaluated across four classical classifiers (SVM, Logistic Regression, Random Forest, Gaussian Naive Bayes) optimized via GridSearchCV.
-  4. Preprocessing scaling and dimensionality reduction are encapsulated strictly within training folds to eliminate information leakage.
-- **Mandatory Visual Citation**: Cite Figure 1 (End-to-End System Pipeline Diagram).
-- **Transition Sentence**: This systematic framework delivers verifiable empirical improvements and methodological rigor across all evaluation dimensions.
+### Paragraf 5: Kerangka Arsitektur yang Diusulkan
+- **Target Jumlah Kata**: 150–190 kata.
+- **Tujuan (Objective)**: Menyajikan solusi fusi ViT multi-domain dan optimasi pengklasifikasi klasik yang diusulkan secara konseptual dan sistematis.
+- **Poin-Poin Naratif**:
+  1. Kami mengusulkan kerangka ekstraksi fitur laten luring yang memanfaatkan tiga backbone ViT beku prapelatihan: ViT-Spectrogram, ViT-Scene, dan ViT-Motion.
+  2. Sematan laten yang diekstraksi disatukan melalui penggabungan langsung ($\mathbf{z}_{\text{tri}} = \mathbf{f}_{\text{audio}} \oplus \mathbf{f}_{\text{visual}} \oplus \mathbf{f}_{\text{motion}}$), membentuk representasi ringkas berdimensi 2.304.
+  3. Sematan terpadu tersebut dievaluasi pada empat pengklasifikasi klasik (SVM, Logistic Regression, Random Forest, Gaussian Naive Bayes) yang dioptimasi melalui GridSearchCV.
+  4. Penskalaan prapemrosesan dan reduksi dimensi diisolasi secara ketat di dalam lipatan pelatihan guna mengeliminasi kebocoran informasi.
+- **Sitasi Visual Wajib**: Rujuk Gambar 1 (Diagram Alur Kerja Sistem Menyeluruh).
+- **Kalimat Transisi**: Kerangka kerja sistematis ini menghasilkan peningkatan empiris yang terverifikasi dan ketelitian metodologis pada seluruh dimensi evaluasi.
 
-### Paragraph 6: Primary Research Contributions
-- **Target Word Count**: 130–160 words.
-- **Objective**: Enumerate the four principal scientific and empirical contributions of the study.
-- **Narrative Points (Bulleted Contributions)**:
-  1. **A Modular Multi-Domain ViT Feature Fusion Framework** uniting acoustic time-frequency, static visual, and temporal motion representations into a cohesive latent space.
-  2. **An Empirical Comparative Benchmark Across Classifier Paradigms** evaluating decision boundary dynamics and hyperparameter sensitivity across linear, probabilistic, ensemble, and kernel-based models.
-  3. **Competitive Performance Demonstration** establishing that tri-domain SVM fusion achieves 94.20% accuracy, outperforming all single-domain and dual-domain ablation baselines on the benchmark.
-  4. **Rigorous Leakage-Free Validation & Subgroup Analysis** verifying consistent F1-scores above 91.50% across all scene classes under strict out-of-fold preprocessing.
-- **Transition Sentence**: The remainder of this article provides complete transparency regarding the dataset, methodology, experimental findings, and theoretical implications.
+### Paragraf 6: Kontribusi Riset Utama
+- **Target Jumlah Kata**: 130–160 kata.
+- **Tujuan (Objective)**: Memerinci empat kontribusi ilmiah dan empiris utama dari penelitian ini.
+- **Poin-Poin Naratif (Daftar Kontribusi Terinci)**:
+  1. **Kerangka Kerja Fusi Fitur ViT Multi-Domain Modular** yang menyatukan representasi frekuensi-waktu akustik, visual statis, dan gerak temporal ke dalam ruang laten yang kohesif.
+  2. **Tolok Ukur Komparatif Empiris Lintas Paradigma Pengklasifikasi** yang mengevaluasi dinamika batas keputusan dan sensitivitas hiperparameter pada model linier, probabilistik, ensemble, dan berbasis kernel.
+  3. **Demonstrasi Performa Kompetitif** yang membuktikan bahwa fusi SVM tiga-domain meraih akurasi 94,20%, mengungguli seluruh tolok ukur ablasi domain-tunggal dan domain-ganda pada dataset rujukan.
+  4. **Validasi Bebas Kebocoran yang Ketat & Analisis Subkelompok** yang memverifikasi konsistensi skor F1 di atas 91,50% di seluruh kelas pemandangan di bawah prapemrosesan out-of-fold yang ketat.
+- **Kalimat Transisi**: Bagian selanjutnya dari artikel ini menyajikan transparansi penuh mengenai dataset, metodologi, temuan eksperimental, dan implikasi teoretis.
 
-### Paragraph 7: Article Structure Overview
-- **Target Word Count**: 60–80 words.
-- **Objective**: Provide a clear organizational roadmap for the reader.
-- **Narrative Points**:
-  - Section II synthesizes relevant literature and contextualizes research positioning.
-  - Section III outlines the dataset, feature extraction pipeline, optimization algorithms, and evaluation metrics.
-  - Section IV presents empirical results, ablation studies, error distributions, and discussion.
-  - Section V concludes the article with key takeaways, practical constraints, and future directions.
-
----
-
-## Demonstrative Section II: RELATED WORKS (Illustrative Sample)
-
-*(Every paragraph in Section II targets 100–120 words with a focused thematic objective, comparative synthesis across cited papers, and a logical closing transition).*
-- **Paragraph 1**: *Multimodal Environmental Sensing & Classical Descriptors* (Reviewing handcrafted acoustic/visual descriptors and deep learning transitions).
-- **Paragraph 2**: *Vision Transformers for Spectrogram and Visual Representations* (Structural characteristics of MHSA on sensor inputs).
-- **Paragraph 3**: *Feature Fusion Strategies: Early, Late, and Intermediate* (Comparing representation merger trade-offs).
-- **Paragraph 4**: *Downstream Classifiers on Deep Embeddings* (Decision boundary behaviors of kernel vs. linear models on high-dimensional latent vectors).
-- **Paragraph 5**: *Research Positioning* (Original synthesis defining the novelty of this work without introducing new citations).
+### Paragraf 7: Gambaran Umum Struktur Artikel
+- **Target Jumlah Kata**: 60–80 kata.
+- **Tujuan (Objective)**: Menyediakan peta jalan organisasi artikel yang jelas bagi pembaca.
+- **Poin-Poin Naratif**:
+  - Bagian II menyintesis literatur yang relevan dan mengontekstualisasikan pemosisian riset.
+  - Bagian III memaparkan dataset, alur kerja ekstraksi fitur, algoritma optimasi, dan metrik evaluasi.
+  - Bagian IV menyajikan hasil empiris, studi ablasi, distribusi galat, dan pembahasan mendalam.
+  - Bagian V menyimpulkan artikel dengan poin-poin utama, kendala praktis, dan arah riset di masa mendatang.
 
 ---
 
-## Demonstrative Section III: MATERIALS AND METHODS (Illustrative Sample)
+## Bagian II Demonstratif: KAJIAN PUSTAKA TERKAIT (RELATED WORKS) (Contoh Ilustratif)
 
-### Overview
-- **Target Word Count**: 150–200 words.
-- **Objective**: Describe the overall processing pipeline illustrated in Figure 1.
-- **Visual Citation**: Figure 1 (LaTeX Full-Width: `\begin{figure*} ... \end{figure*}`).
-- **Planned Mathematical Formulations**:
-  - Eq. (1): ViT Patch Partitioning and Linear Projection.
-  - Eq. (2): Multi-Head Self-Attention (MHSA) formulation.
-  - Eq. (3): Tri-Domain Feature Concatenation $\mathbf{z}_{\text{tri}} = \mathbf{f}_{\text{audio}} \oplus \mathbf{f}_{\text{visual}} \oplus \mathbf{f}_{\text{motion}}$.
-  - Eq. (4): Polynomial Kernel SVM Formulation $\mathcal{K}(\mathbf{x}_i, \mathbf{x}_j) = (\gamma \langle \mathbf{x}_i, \mathbf{x}_j \rangle + r)^d$.
-  - Eq. (5)–(8): One-vs-Rest Evaluation Metrics (Accuracy, Precision, Recall, Macro F1-Score).
-
-### Sub-Section & Paragraph Breakdown:
-- **III.A Dataset and Partitioning Protocol** (Paragraphs 1–3: Dataset composition, 80/20 train/test split, noise augmentation).
-- **III.B Multi-Domain Feature Extraction via Frozen ViTs** (Paragraphs 4–6: Backbone specifications, [CLS] token pooling, computational isolation).
-- **III.C Downstream Classifier Pipeline & Hyperparameter Tuning** (Paragraphs 7–9: Scaler-PCA pipelines, GridSearchCV search space, strict fold isolation).
-- **III.D Evaluation Metrics and Experimental Environment** (Paragraphs 10–11: Metric definitions, hardware configuration, statistical testing).
+*(Setiap paragraf di Bagian II menargetkan 100–120 kata dengan tujuan tematik yang terfokus, sintesis komparatif lintas makalah yang dirujuk, dan transisi penutup yang logis).*
+- **Paragraf 1**: *Penginderaan Lingkungan Multimodal & Deskriptor Klasik* (Mengulas deskriptor akustik/visual buatan tangan (*handcrafted*) dan transisinya ke deep learning).
+- **Paragraf 2**: *Vision Transformer untuk Representasi Spektrogram dan Visual* (Karakteristik struktural MHSA pada masukan sensor).
+- **Paragraf 3**: *Strategi Fusi Fitur: Awal, Akhir, dan Menengah* (Membandingkan trade-off penggabungan representasi).
+- **Paragraf 4**: *Pengklasifikasi Hilir pada Sematan Deep Learning* (Perilaku batas keputusan model kernel vs. linier pada vektor laten berdimensi tinggi).
+- **Paragraf 5**: *Pemosisian Riset* (Sintesis orisinal yang mendefinisikan kebaruan penelitian ini tanpa memperkenalkan sitasi baru).
 
 ---
 
-## Demonstrative Section IV: RESULTS AND DISCUSSION (Illustrative Sample)
+## Bagian III Demonstratif: MATERI DAN METODE (MATERIALS AND METHODS) (Contoh Ilustratif)
 
-### Sub-Sections & Visual Anchors:
-- **IV.A Global Performance Benchmark** (Table III: Overall accuracy, macro precision, recall, F1 across all 4 classifiers).
-- **IV.B Feature Domain Ablation Study** (Figure 2: Empirical contribution of single-domain, dual-domain, and tri-domain configurations).
-- **IV.C Intersectional Subgroup & Error Analysis** (Table IV & Figure 3: Class-level stability and misclassification patterns).
-- **IV.D Computational Complexity and Inference Latency** (Table V: Feature extraction runtime and classifier latency benchmarks).
-- **IV.E Discussion & Theoretical Implications** (Synthesizing findings with prior literature, explaining kernel behaviors, and stating limitations).
+### Gambaran Umum
+- **Target Jumlah Kata**: 150–200 kata.
+- **Tujuan (Objective)**: Menjelaskan alur pemrosesan keseluruhan yang diilustrasikan pada Gambar 1.
+- **Sitasi Visual**: Gambar 1 (Lebar Penuh LaTeX: `\begin{figure*} ... \end{figure*}`).
+- **Rencana Formulasi Matematika**:
+  - Persamaan (1): Partisi Patch ViT dan Proyeksi Linier.
+  - Persamaan (2): Formulasi Multi-Head Self-Attention (MHSA).
+  - Persamaan (3): Penggabungan Fitur Tiga-Domain $\mathbf{z}_{\text{tri}} = \mathbf{f}_{\text{audio}} \oplus \mathbf{f}_{\text{visual}} \oplus \mathbf{f}_{\text{motion}}$.
+  - Persamaan (4): Formulasi Kernel Polinomial SVM $\mathcal{K}(\mathbf{x}_i, \mathbf{x}_j) = (\gamma \langle \mathbf{x}_i, \mathbf{x}_j \rangle + r)^d$.
+  - Persamaan (5)–(8): Metrik Evaluasi One-vs-Rest (Akurasi, Presisi, Perolehan/Recall, Macro F1-Score).
+
+### Pembagian Sub-Bab & Paragraf:
+- **III.A Dataset dan Protokol Partisi Data** (Paragraf 1–3: Komposisi dataset, pemisahan latih/uji 80/20, augmentasi derau).
+- **III.B Ekstraksi Fitur Multi-Domain melalui ViT Beku** (Paragraf 4–6: Spesifikasi backbone, pooling token [CLS], isolasi komputasi).
+- **III.C Pipeline Pengklasifikasi Hilir & Penyetelan Hiperparameter** (Paragraf 7–9: Pipeline Scaler-PCA, ruang pencarian GridSearchCV, isolasi lipatan ketat).
+- **III.D Metrik Evaluasi dan Lingkungan Eksperimen** (Paragraf 10–11: Definisi metrik, konfigurasi perangkat keras, pengujian signifikansi statistik).
 
 ---
 
-## Demonstrative Section V: CONCLUSION (Illustrative Sample)
+## Bagian IV Demonstratif: HASIL DAN PEMBAHASAN (RESULTS AND DISCUSSION) (Contoh Ilustratif)
 
-- **Paragraph 1: Summary of Key Findings** (100–120 words: Synthesis of answers to research questions and primary empirical metrics).
-- **Paragraph 2: Limitations & Practical Constraints** (80–100 words: Honest discussion regarding sensor resolution, acoustic reverberation, and memory requirements).
-- **Paragraph 3: Future Directions** (70–90 words: Prospective research paths, online adaptive learning, and self-supervised multimodal pretraining).
+### Sub-Bab & Jangkar Visual:
+- **IV.A Tolok Ukur Performa Global** (Tabel III: Akurasi keseluruhan, presisi makro, recall, F1 pada seluruh 4 pengklasifikasi).
+- **IV.B Studi Ablasi Domain Fitur** (Gambar 2: Kontribusi empiris konfigurasi domain-tunggal, domain-ganda, dan tiga-domain).
+- **IV.C Analisis Interseksional Subkelompok & Galat** (Tabel IV & Gambar 3: Stabilitas tingkat kelas dan pola salah klasifikasi).
+- **IV.D Kompleksitas Komputasi dan Latensi Inferensi** (Tabel V: Tolok ukur waktu eksekusi ekstraksi fitur dan latensi pengklasifikasi).
+- **IV.E Pembahasan & Implikasi Teoretis** (Menyintesis temuan dengan literatur terdahulu, menjelaskan perilaku kernel, dan memaparkan keterbatasan).
+
+---
+
+## Bagian V Demonstratif: KESIMPULAN (CONCLUSION) (Contoh Ilustratif)
+
+- **Paragraf 1: Ringkasan Temuan Kunci** (100–120 kata: Sintesis jawaban atas pertanyaan penelitian dan metrik empiris utama).
+- **Paragraf 2: Keterbatasan & Kendala Praktis** (80–100 kata: Pembahasan jujur mengenai resolusi sensor, dengung akustik, dan kebutuhan memori).
+- **Paragraf 3: Arah Riset Masa Depan** (70–90 kata: Jalur penelitian prospektif, pembelajaran adaptif daring, dan prapelatihan multimodal swaselia/*self-supervised*).

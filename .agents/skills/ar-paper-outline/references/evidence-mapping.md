@@ -1,82 +1,82 @@
-# Evidence Mapping & CER Framework Guide
+# Panduan Pemetaan Bukti & Kerangka CER (Claim-Evidence-Reasoning)
 
-In academic writing, an outline is not merely a list of headings—it is an **argumentative and empirical blueprint**. This guide explains how to integrate Claim-Evidence-Reasoning (CER) and gap tracking into outlines.
+Dalam kepenulisan akademik, outline bukan sekadar daftar judul sub-bab—melainkan sebuah **cetak biru argumentatif dan empiris**. Panduan ini menjelaskan cara mengintegrasikan kerangka Klaim-Bukti-Penalaran (*Claim-Evidence-Reasoning* / CER) dan pelacakan kesenjangan data (*gap tracking*) ke dalam penyusunan outline.
 
 ---
 
-## 1. The Claim-Evidence-Reasoning (CER) Pattern
+## 1. Pola Klaim-Bukti-Penalaran (CER Pattern)
 
-For each substantive section of the outline, specify the argument chain:
+Untuk setiap bab atau sub-bab substantif dalam outline, tentukan rantai argumen secara eksplisit:
 
 ```
 ┌──────────────────────────────────────────────────────────┐
-│ CLAIM: What asserting statement is made in this section? │
+│ KLAIM: Pernyataan asersi apa yang diajukan pada bab ini? │
 └────────────────────────────┬─────────────────────────────┘
                              │
                              ▼
 ┌──────────────────────────────────────────────────────────┐
-│ EVIDENCE: What empirical data, statistics, or citations   │
-│           directly support this claim?                   │
+│ BUKTI: Data empiris, statistik, atau sitasi apa yang     │
+│        secara langsung mendukung klaim tersebut?         │
 └────────────────────────────┬─────────────────────────────┘
                              │
                              ▼
 ┌──────────────────────────────────────────────────────────┐
-│ REASONING: How does the evidence logically demonstrate   │
-│            the claim and connect to the broader thesis?  │
+│ PENALARAN: Bagaimana bukti tersebut membuktikan klaim    │
+│            secara logis dan menghubungkannya ke tesis?   │
 └──────────────────────────────────────────────────────────┘
 ```
 
-### Example CER Breakdown in Outline Format
+### Contoh Penguraian CER dalam Format Outline
 
 ```markdown
-#### 5.2 Findings for RQ1: AI Assistance Effect on Writing Latency
-- **Target Budget**: 400 words (6.6% of paper)
-- **Objective**: Report quantitative differences in task completion time between control and treatment groups.
-- **CER Argument Map**:
-  - **Claim**: Participants using AI assistants completed manuscript drafting 34% faster than the manual control group.
-  - **Evidence**: ANOVA test results on experiment cohort ($F(1, 142) = 18.42, p < 0.001$, Cohen's $d = 0.72$), summarized in Table 2.
-  - **Reasoning**: The automated retrieval and citation indexing modules significantly reduced cognitive overhead during initial literature synthesis.
-- **Assigned Sources/Data**: Experiment Trial Dataset B, Table 2.
-- **Visuals**: Table 2 (Completion time by task type).
+#### 5.2 Temuan untuk RQ1: Pengaruh Bantuan AI terhadap Latensi Penulisan
+- **Alokasi Target Kata**: 400 kata (6,6% dari total paper)
+- **Tujuan (Objective)**: Melaporkan perbedaan kuantitatif waktu penyelesaian tugas antara kelompok kontrol dan perlakuan.
+- **Peta Argumen CER**:
+  - **Klaim (Claim)**: Partisipan yang menggunakan asisten AI menyelesaikan penyusunan draf naskah 34% lebih cepat dibandingkan kelompok kontrol manual.
+  - **Bukti (Evidence)**: Hasil uji ANOVA pada kohort eksperimen ($F(1, 142) = 18,42, p < 0,001$, Cohen's $d = 0,72$), yang dirangkum pada Tabel 2.
+  - **Penalaran (Reasoning)**: Modul temu-kembali otomatis dan pengindeksan sitasi secara substansial mengurangi beban kognitif (*cognitive overhead*) selama tahap awal sintesis literatur.
+- **Sumber/Data yang Ditugaskan**: Dataset Uji Coba Eksperimen B, Tabel 2.
+- **Elemen Visual**: Tabel 2 (Waktu penyelesaian berdasarkan jenis tugas).
 ```
 
 ---
 
-## 2. Managing Material Gaps (`[MATERIAL GAP]`)
+## 2. Mengelola Kesenjangan Materi (`[MATERIAL GAP]`)
 
-Before drafting begins, an outline must make missing evidence transparent. This prevents author halucinations, unsupported assertions, or phantom literature citations.
+Sebelum penulisan draf naskah dimulai, outline wajib mengungkap secara transparan bukti-bukti yang belum tersedia. Langkah ini mencegah halusinasi penulis, asersi tanpa landasan data, atau kemunculan sitasi literatur fiktif (*phantom citations*).
 
-### Tagging Protocol
+### Protokol Penandaan (Tagging Protocol)
 
-When a section requires a claim that currently lacks sufficient supporting data or verified literature, annotate it explicitly with:
+Ketika sebuah bagian memerlukan klaim yang saat ini masih kekurangan data pendukung atau literatur terverifikasi, berikan anotasi secara eksplisit menggunakan:
 
 ```markdown
-[MATERIAL GAP: <description of required data/source>]
+[MATERIAL GAP: <deskripsi data/sumber yang diperlukan>]
 ```
 
-### Severity Levels of Gaps
+### Tingkat Keparahan Kesenjangan (Severity Levels)
 
-1. **Empirical Data Gap**:
-   - `[MATERIAL GAP: Requires ANOVA post-hoc test results from survey cohort]`
-   - *Action*: Flagged for data team / researcher to compute before drafting Section 5.3.
-2. **Literature Support Gap**:
-   - `[MATERIAL GAP: Need 2024-2026 citations on cross-disciplinary AI adoption in HEI]`
-   - *Action*: Flagged for targeted literature search before drafting Section 3.2.
-3. **Methodological Justification Gap**:
-   - `[MATERIAL GAP: Justify why convenience sampling does not compromise internal validity]`
-   - *Action*: Flagged for author to draft specific defense in Section 4.2.
+1. **Kesenjangan Data Empiris (Empirical Data Gap)**:
+   - `[MATERIAL GAP: Memerlukan hasil uji post-hoc ANOVA dari kohort survei]`
+   - *Tindakan*: Ditandai agar tim data / peneliti menghitung analisis statistik ini sebelum penulisan Bagian 5.3 dimulai.
+2. **Kesenjangan Dukungan Literatur (Literature Support Gap)**:
+   - `[MATERIAL GAP: Memerlukan sitasi terkini 2024–2026 mengenai adopsi AI lintas disiplin di perguruan tinggi]`
+   - *Tindakan*: Ditandai untuk penelusuran literatur terarah sebelum penulisan Bagian 3.2 dimulai.
+3. **Kesenjangan Justifikasi Metodologis (Methodological Justification Gap)**:
+   - `[MATERIAL GAP: Berikan justifikasi mengapa convenience sampling tidak mengorbankan validitas internal]`
+   - *Tindakan*: Ditandai agar penulis menyusun argumen pembelaan khusus pada Bagian 4.2.
 
 ---
 
-## 3. Evidence Matrix Format
+## 3. Format Matriks Bukti (Evidence Matrix Format)
 
-For papers handling extensive literature bases, generate an **Evidence-to-Section Matrix** at the end of the outline:
+Untuk paper yang menangani basis literatur ekstensif, susunlah **Matriks Bukti-ke-Bab (Evidence-to-Section Matrix)** di akhir dokumen outline:
 
-| Section | Core Claim | Primary Citation / Data Source | Status |
+| Bab / Bagian | Klaim Utama | Sitasi Primer / Sumber Data | Status |
 |---|---|---|:---:|
-| 2.2 Problem Statement | AI integration creates new epistemic validation risks | Smith & Lee (2025); Nature (2026) | Verified |
-| 3.1 Theoretical Model | Cognitive load theory explains drafting acceleration | Sweller (2011); Paas et al. (2024) | Verified |
-| 4.3 Instruments | SUS survey demonstrates high interface usability | Usability trial scores ($n=85$) | Verified |
-| 5.4 Long-term Retention | Long-term knowledge retention remains unaffected | `[MATERIAL GAP: Delayed post-test data pending]` | **GAP** |
+| 2.2 Rumusan Masalah | Integrasi AI memicu risiko validasi epistemik baru | Smith & Lee (2025); Nature (2026) | Terverifikasi |
+| 3.1 Model Teoretis | Teori beban kognitif menjelaskan akselerasi penulisan draf | Sweller (2011); Paas et al. (2024) | Terverifikasi |
+| 4.3 Instrumen | Survei SUS menunjukkan tingkat kegunaan antarmuka yang tinggi | Skor uji coba kegunaan (*usability*) ($n=85$) | Terverifikasi |
+| 5.4 Retensi Jangka Panjang | Retensi pengetahuan jangka panjang tetap tidak terpengaruh | `[MATERIAL GAP: Menunggu data delayed post-test]` | **KESENJANGAN (GAP)** |
 
-This guarantees that when full drafting begins, every section has verified grounding.
+Matriks ini memberikan garansi bahwa saat penulisan draf lengkap dimulai, setiap bab telah memiliki pijakan bukti yang sahih dan teruji.

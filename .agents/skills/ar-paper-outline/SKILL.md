@@ -1,127 +1,127 @@
 ---
 name: ar-paper-outline
-description: "Activate when the user asks to generate, design, or refine a detailed academic paper outline, create an evidence map, or plan the structure of a research paper or journal manuscript down to the paragraph level. Covers comprehensive paragraph-by-paragraph blueprints (paragraph objective, narrative points, target word count, evidence/citation assignment, and transition sentences), global writing rules, claim boundaries (allowed claims and negative constraints), mathematical equation planning, and master visual/table layout specifications across canonical academic models (IMRaD, Thematic Literature Review, Theoretical Analysis, Case Study, Policy Brief, Conference Paper). Trigger keywords: paper outline, buat outline paper, outline naskah, rancang struktur paper, kerangka paper, outline per paragraf, evidence map, academic outline, paper blueprint. Do NOT activate for full-text drafting, peer-review simulation, citation formatting, or non-academic general writing."
+description: "Aktifkan ketika pengguna meminta untuk membuat, merancang, atau menyempurnakan outline naskah paper akademik yang mendalam, menyusun peta bukti (evidence map), atau merencanakan struktur artikel penelitian atau manuskrip jurnal hingga tingkat paragraf. Mencakup cetak biru komprehensif per paragraf (tujuan paragraf, poin naratif, target jumlah kata, penugasan bukti/sitasi, dan kalimat transisi), aturan penulisan global, batasan klaim (klaim yang diizinkan dan batasan negatif), perencanaan persamaan matematika, serta spesifikasi tata letak master visual/tabel pada seluruh model akademik kanonikal (IMRaD, Thematic Literature Review, Theoretical Analysis, Case Study, Policy Brief, Conference Paper). Kata kunci pemicu: paper outline, buat outline paper, outline naskah, rancang struktur paper, kerangka paper, outline per paragraf, evidence map, academic outline, paper blueprint. JANGAN aktifkan untuk penulisan draf naskah lengkap (gunakan ar-paper-draft), simulasi peer-review, pemformatan sitasi, atau penulisan umum non-akademik."
 license: MIT
 metadata:
   author: Rafy
 ---
 
-# Academic Paper Outline Generation (Paragraph-Level Blueprint)
+# Pembuatan Outline Paper Akademik (Cetak Biru Tingkat Paragraf)
 
-## Overview
+## Gambaran Umum (Overview)
 
-This skill generates granular, publication-ready academic paper blueprints. Rather than stopping at superficial section headings, it constructs a **paragraph-by-paragraph architecture**: establishing the exact rhetorical purpose, narrative progression, assigned evidence anchors, numerical word targets, and transition sentences for every individual paragraph. It also codifies global claim boundaries (allowed vs. disallowed claims) and master layout sequences for equations, figures, and tables prior to full manuscript drafting.
+Skill ini menghasilkan cetak biru (*blueprint*) naskah akademik berbutir halus (*granular*) dan siap publikasi. Alih-alih berhenti pada judul sub-bab yang dangkal, skill ini membangun **arsitektur paragraf demi paragraf**: menetapkan tujuan retoris yang presisi, progresi naratif, jangkar bukti yang ditugaskan, target jumlah kata numerik, dan kalimat transisi untuk setiap paragraf individual. Skill ini juga mengodifikasikan batasan klaim global (*allowed vs. disallowed claims*) serta urutan tata letak master (*master layout sequence*) untuk persamaan matematika, gambar, dan tabel sebelum penulisan draf naskah lengkap dimulai.
 
-## When to Activate
+## Kapan Mengaktifkan Skill Ini
 
-- User requests a detailed outline, blueprint, or architectural plan for an academic paper, journal manuscript, thesis chapter, or conference paper.
-- User requests an outline with paragraph-level detail, narrative flow, or evidence mapping.
-- User invokes trigger terms: `paper outline`, `buat outline paper`, `outline naskah`, `rancang struktur paper`, `kerangka paper`, `outline per paragraf`, `evidence map`, `academic outline`, `paper blueprint`.
-- User provides a research question, empirical results, or literature base and needs a rigorous section-and-paragraph structure before drafting.
+- Pengguna meminta outline terperinci, cetak biru (*blueprint*), atau rencana arsitektural untuk paper akademik, manuskrip jurnal, bab tesis/disertasi, atau makalah konferensi.
+- Pengguna meminta outline dengan detail tingkat paragraf, alur naratif, atau pemetaan bukti (*evidence mapping*).
+- Pengguna menyebutkan kata kunci pemicu: `paper outline`, `buat outline paper`, `outline naskah`, `rancang struktur paper`, `kerangka paper`, `outline per paragraf`, `evidence map`, `academic outline`, `paper blueprint`.
+- Pengguna menyediakan pertanyaan penelitian (*research questions*), hasil empiris, atau basis literatur dan memerlukan struktur bab dan paragraf yang ketat sebelum penulisan draf.
 
-## When NOT to Activate
+## Kapan TIDAK Mengaktifkan Skill Ini
 
-- Full-text prose drafting or writing final sections (use paper drafting skills instead).
-- Peer review simulation, reviewer scoring, or editorial decisions (use reviewer skills).
-- Open-ended general brainstorming without structural deliverables.
-- Non-academic writing (blogs, general essays, marketing copy).
-- Code crawlers, data extraction scripts, or software development tasks.
+- Penulisan prosa naskah lengkap atau menulis bab akhir (gunakan skill penulisan draf seperti `ar-paper-draft`).
+- Simulasi peer review, penilaian reviewer, atau keputusan editorial (gunakan skill reviewer seperti `ar-paper-reviewer`).
+- Curah gagasan (*brainstorming*) terbuka tanpa luaran struktural yang konkret.
+- Penulisan non-akademik (artikel blog, esai umum, materi pemasaran).
+- Pembuatan perayap kode (*code crawler*), skrip ekstraksi data, atau tugas pengembangan perangkat lunak.
 
-## Scope
+## Ruang Lingkup (Scope)
 
-- **In scope:** 4 blueprint layers (Meta-configuration, Global Claim Boundaries & Writing Rules, Paragraph-by-Paragraph Specifications, Evidence & Gap Mapping), 6 structural models, visual/table layout planning, mathematical notation planning.
-- **Out of scope:** Full prose writing, live external API queries, LaTeX compilation, journal submission execution.
+- **Dalam Lingkup:** 4 lapisan cetak biru (Meta-konfigurasi, Batasan Klaim Global & Aturan Penulisan, Spesifikasi Paragraf demi Paragraf, Pemetaan Bukti & Kesenjangan Bukti), 6 model struktural kanonikal, perencanaan tata letak visual/tabel, perencanaan notasi matematika.
+- **Luar Lingkup:** Penulisan prosa naskah lengkap, kueri API eksternal langsung, kompilasi LaTeX, eksekusi submisi jurnal.
 
 ---
 
-## Mandatory Step 0: User Intake & Clarification
+## Langkah Wajib 0: Klarifikasi & Intake Pengguna
 
 > [!IMPORTANT]
-> **Do NOT assume or fix a specific target venue or journal (such as IEEE Access, Elsevier, etc.) without consulting the user.**
-> If the user has not explicitly specified publication details at the outset, the AI **must confirm or ask** the following parameters before constructing the outline:
-> 1. **Target Publication / Venue**: Is it aimed at a reputable international journal (IEEE, Elsevier, Springer, Nature, ACM), a national journal, conference proceedings, or a thesis/dissertation chapter?
-> 2. **Citation Style & Format**: What citation style is required by author guidelines (IEEE numerical, APA 7 author-date, Harvard, ACM, Vancouver, Chicago)?
-> 3. **Manuscript Language & Terminology Policy**: Formal English, or other language with standardized English technical terms?
-> 4. **Structural Model & Target Word Count**: Which model fits best (IMRaD, Thematic Literature Review, Theoretical Analysis, Case Study, Policy Brief, Conference Paper), and what is the target word count (e.g., 5,000–8,000 words)?
-> 5. **Core Focus & Available Materials**: What are the primary Research Questions (RQs) / Hypotheses, and what empirical findings or literature sources are available?
+> **JANGAN berasumsi atau menetapkan venue atau target jurnal tertentu (seperti IEEE Access, Elsevier, dll.) tanpa berkonsultasi dengan pengguna.**
+> Jika pengguna belum secara eksplisit menentukan detail publikasi di awal, AI **wajib mengonfirmasi atau menanyakan** parameter berikut sebelum menyusun outline:
+> 1. **Target Publikasi / Venue**: Apakah ditujukan untuk jurnal internasional bereputasi (IEEE, Elsevier, Springer, Nature, ACM), jurnal nasional terakreditasi, prosiding konferensi, atau bab tesis/disertasi?
+> 2. **Gaya & Format Sitasi**: Gaya sitasi apa yang diwajibkan oleh panduan penulis (*author guidelines*) (IEEE numerik, APA 7 nama-tahun, Harvard, ACM, Vancouver, Chicago)?
+> 3. **Bahasa Naskah & Kebijakan Terminologi**: Bahasa Inggris formal, atau bahasa lain dengan istilah teknis standar?
+> 4. **Model Struktural & Target Jumlah Kata**: Model mana yang paling sesuai (IMRaD, Thematic Literature Review, Theoretical Analysis, Case Study, Policy Brief, Conference Paper), dan berapa target jumlah kata total (misalnya, 5.000–8.000 kata)?
+> 5. **Fokus Utama & Materi yang Tersedia**: Apa Pertanyaan Penelitian (*Research Questions* / RQs) atau Hipotesis utama, dan temuan empiris atau sumber literatur apa saja yang telah tersedia?
 
 ---
 
-## The 4 Blueprint Layers
+## 4 Lapisan Cetak Biru (The 4 Blueprint Layers)
 
-Every detailed outline must establish four operational layers:
+Setiap outline mendalam wajib menetapkan empat lapisan operasional:
 
-### Layer 1: Front Matter & Meta-Configuration
-- **Target Publication & Venue**: Established from user intake.
-- **Manuscript Language & Register**: Formal academic tone and standard terminology policies.
-- **Citation Format**: IEEE, APA 7, Harvard, ACM, etc., based on user confirmation.
-- **Title & Authors**: Working title and author affiliations.
-- **Structured Abstract Blueprint**: 150–250 words following 5 rhetorical movements: *Context/Background → Problem/Objective → Proposed Method → Key Empirical Results → Conclusion/Implications*.
-- **Keywords**: 5–7 indexed terms.
+### Lapisan 1: Halaman Depan & Meta-Konfigurasi
+- **Target Publikasi & Venue**: Ditetapkan berdasarkan hasil intake pengguna.
+- **Bahasa & Register Naskah**: Nada akademik formal dan kebijakan standardisasi istilah teknis.
+- **Format Sitasi**: IEEE, APA 7, Harvard, ACM, dll., sesuai konfirmasi pengguna.
+- **Judul & Penulis**: Judul kerja (*working title*) dan afiliasi penulis.
+- **Cetak Biru Abstrak Terstruktur**: 150–250 kata mengikuti 5 pergerakan retoris: *Konteks/Latar Belakang → Masalah/Tujuan → Metode yang Diusulkan → Temuan Empiris Utama → Kesimpulan/Implikasi*.
+- **Kata Kunci (*Keywords*)**: 5–7 istilah terindeks.
 
-### Layer 2: Global Writing Rules & Claim Boundaries
-1. **Allowed Claims & Core Focus**: Precise, factual statements defining the primary empirical findings, quantitative metrics, and architectural contributions permitted to be claimed.
-2. **Negative Constraints & Disallowed Claims**: Strict boundaries specifying what the manuscript must **NOT** claim (e.g., no unsubstantiated claims of universal superiority, no absolute zero-bias assertions, no unproven causal claims, no claims outside evaluated datasets).
-3. **Master Element Sequence**: Chronological registry of all Equations (Eq. 1..N), Figures (Fig. 1..N), and Tables (Table I..N) with LaTeX layout specifications (e.g., full-width span `\begin{table*} ... \end{table*}` vs. single-column).
-4. **Stylistic & Lexical Constraints**:
-   - Forbid empty superlatives ("revolutionary", "game-changing", "state-of-the-art" unless benchmarked against baselines).
-   - Forbid using "significantly" unless accompanied by formal statistical hypothesis testing ($p < 0.05$).
-   - Citation density limits: maximum 3 citations per sentence to prevent citation dumping.
-   - Standardize technical acronyms: write in full with abbreviation on first mention.
+### Lapisan 2: Aturan Penulisan Global & Batasan Klaim
+1. **Klaim yang Diizinkan & Fokus Inti (*Allowed Claims & Core Focus*)**: Pernyataan faktual yang presisi mendefinisikan temuan empiris utama, metrik kuantitatif, dan kontribusi arsitektural yang diizinkan untuk diklaim.
+2. **Batasan Negatif & Klaim yang Dilarang (*Negative Constraints & Disallowed Claims*)**: Batasan ketat yang merinci apa yang **TIDAK** boleh diklaim oleh naskah (misalnya, tidak membuat klaim keunggulan universal tanpa bukti, tidak menyatakan klaim absolut nol-bias, tidak membuat klaim kausalitas yang belum terbukti, tidak mengklaim di luar dataset yang dievaluasi).
+3. **Urutan Elemen Master (*Master Element Sequence*)**: Registri kronologis seluruh Persamaan (Eq. 1..N), Gambar (Fig. 1..N), dan Tabel (Table I..N) disertai spesifikasi tata letak LaTeX (misalnya, bentang lebar penuh dua kolom `\begin{table*} ... \end{table*}` vs. satu kolom).
+4. **Batasan Stilistika & Leksikal**:
+   - Larangan superlatif kosong ("revolutionary", "game-changing", "state-of-the-art" kecuali telah diuji secara terukur terhadap metode pembanding/baseline).
+   - Larangan penggunaan kata "significantly" / "secara signifikan" kecuali disertai uji hipotesis statistik formal ($p < 0.05$).
+   - Batas densitas sitasi: maksimal 3 sitasi per kalimat untuk mencegah penumpukan sitasi (*citation dumping*).
+   - Standardisasi akronim teknis: tulis kepanjangan lengkap disertai singkatan pada penyebutan pertama.
 
-### Layer 3: Paragraph-by-Paragraph Blueprint
-For **every individual paragraph** across all sections, provide a dedicated blueprint:
+### Lapisan 3: Cetak Biru Paragraf demi Paragraf
+Untuk **setiap paragraf individual** di seluruh bab naskah, sediakan cetak biru khusus:
 
 ```markdown
-### Paragraph X: [Descriptive Sub-Theme / Function]
-- **Target Word Count**: [e.g., 110–150 words]
-- **Objective**: 1 clear sentence defining the rhetorical or scientific function of this paragraph.
-- **Narrative Points**:
-  1. [Topic sentence / Core assertion]
-  2. [Technical or empirical elaboration, mechanism, or comparative evidence]
-  3. [Supporting context, boundary constraint, or secondary finding]
-- **Assigned Evidence & Citations**: Explicit literature references (Author, Year / Title), experimental tables, or equation numbers grounding this paragraph.
-- **Transition / Bridge Sentence**: Draft of the concluding sentence logically connecting to the subsequent paragraph.
+### Paragraf X: [Sub-Tema Deskriptif / Fungsi]
+- **Target Jumlah Kata**: [misal, 110–150 kata]
+- **Tujuan (Objective)**: 1 kalimat lugas yang mendefinisikan fungsi retoris atau ilmiah dari paragraf ini.
+- **Poin-Poin Naratif**:
+  1. [Kalimat topik / Pernyataan inti]
+  2. [Elaborasi teknis atau empiris, mekanisme, atau bukti komparatif]
+  3. [Konteks pendukung, batasan kendala, atau temuan sekunder]
+- **Penugasan Bukti & Sitasi**: Referensi literatur eksplisit (Penulis, Tahun / Judul), tabel eksperimen, atau nomor persamaan yang mendasari paragraf ini.
+- **Kalimat Transisi / Jembatan**: Draf kalimat penutup yang menghubungkan secara logis ke paragraf berikutnya.
 ```
 
-### Layer 4: Visuals, Equations, and Gap Management
-- **Equations Plan**: Sequentially numbered mathematical formulations with rigorous variable definitions.
-- **Visuals & Tables Plan**: Title, caption, column schema, and explicit referencing paragraph.
-- **Material Gap Tagging**: Sections lacking empirical proof or literature must be explicitly tagged: `[MATERIAL GAP: description of required data/citation]`. Never fabricate citations or conceal empirical deficits.
+### Lapisan 4: Elemen Visual, Persamaan, dan Manajemen Kesenjangan Bukti
+- **Rencana Persamaan**: Formulasi matematis bernomor urut kronologis dengan definisi variabel yang ketat.
+- **Rencana Visual & Tabel**: Judul, takarir (*caption*), skema kolom, dan paragraf perujuk eksplisit.
+- **Penandaan Kesenjangan Bukti (*Material Gap Tagging*)**: Bagian yang belum memiliki bukti empiris atau literatur pendukung wajib ditandai secara eksplisit: `[MATERIAL GAP: deskripsi data/sitasi yang dibutuhkan]`. Jangan pernah mengarang sitasi fiktif atau menyembunyikan defisit data empiris.
 
 ---
 
-## Canonical Structural Models
+## Model Struktur Kanonikal
 
-Select the architecture fitting the research design:
-1. **IMRaD (Pattern 1A: Integrated Results & Discussion / Pattern 1B: Classical Split)**: Standard for empirical research across engineering, CS, natural, and social sciences.
-2. **Thematic Literature Review**: For systematic reviews, meta-syntheses, and scoping studies.
-3. **Theoretical Analysis**: For mathematical proofs, conceptual derivations, and theoretical critique.
-4. **Case Study**: For single/multi-case organizational or qualitative investigations.
-5. **Policy Brief**: For evidence-based recommendations directed at decision-makers.
-6. **Conference Paper**: For compact, space-constrained papers (4–8 pages).
+Pilih arsitektur yang sesuai dengan desain penelitian:
+1. **IMRaD (Pola 1A: Hasil dan Pembahasan Terintegrasi / Pola 1B: Pemisahan Klasik)**: Standar untuk penelitian empiris di bidang teknik/rekayasa, ilmu komputer, sains alam, dan ilmu sosial.
+2. **Thematic Literature Review**: Untuk tinjauan sistematis, meta-sintesis, dan tinjauan cakupan (*scoping review*).
+3. **Theoretical Analysis**: Untuk pembuktian matematis, derivasi konseptual, dan kritik teoretis.
+4. **Case Study**: Untuk investigasi organisasi atau kualitatif studi kasus tunggal/multikasus.
+5. **Policy Brief**: Untuk rekomendasi berbasis bukti yang ditujukan kepada para pengambil keputusan.
+6. **Conference Paper**: Untuk makalah ringkas dengan keterbatasan ruang halaman (4–8 halaman).
 
-*See `references/structure-patterns.md` for complete section breakdowns and word allocation tables.*
-
----
-
-## Example Blueprint & Reference Files
-
-Consult the following reference files for complete implementations and templates:
-
-- **[`references/sample-paragraph-outline.md`](references/sample-paragraph-outline.md)**: An illustrative mock exemplar demonstrating the entire blueprint lifecycle from user intake, claim boundaries, and master element layout down to **paragraph-by-paragraph (Paragraph 1..N)** blueprints across Section I through Section V. Note: This is purely a demonstrative reference and must not be copied verbatim.
-- **[`references/structure-patterns.md`](references/structure-patterns.md)**: Specifications and word count distribution percentages for all 6 canonical structural models.
-- **[`references/evidence-mapping.md`](references/evidence-mapping.md)**: Claim-Evidence-Reasoning (CER) guidelines and `[MATERIAL GAP]` tracking protocols.
+*Lihat `references/structure-patterns.md` untuk perincian bab lengkap dan tabel alokasi kata.*
 
 ---
 
-## Do and Don't
+## Contoh Cetak Biru & Berkas Referensi
 
-| Do | Don't |
+Rujuk berkas-berkas referensi berikut untuk implementasi lengkap dan templat:
+
+- **[`references/sample-paragraph-outline.md`](references/sample-paragraph-outline.md)**: Contoh ilustratif peniruan (*mock exemplar*) yang mendemonstrasikan siklus hidup cetak biru secara utuh, mulai dari intake pengguna, batasan klaim, tata letak elemen master, hingga cetak biru **paragraf demi paragraf (Paragraf 1..N)** dari Bagian I hingga Bagian V. Catatan: Ini murni referensi percontohan dan tidak boleh disalin mentah-mentah (*verbatim*).
+- **[`references/structure-patterns.md`](references/structure-patterns.md)**: Spesifikasi dan persentase distribusi jumlah kata untuk seluruh 6 model struktur kanonikal.
+- **[`references/evidence-mapping.md`](references/evidence-mapping.md)**: Panduan kerangka *Claim-Evidence-Reasoning* (CER) dan protokol pelacakan `[MATERIAL GAP]`.
+
+---
+
+## Hal yang Harus dan Jangan Dilakukan (Do and Don't)
+
+| Hal yang Harus Dilakukan (Do) | Hal yang Jangan Dilakukan (Don't) |
 |---|---|
-| Ask the user for target venue, citation style, and language before outlining | Assume or force a specific venue (e.g., IEEE Access) without asking |
-| Decompose every section down to granular paragraph blueprints (word count, objective, narrative points, transition) | Stop at chapter/sub-heading summaries without paragraph-level specifications |
-| Define explicit Allowed Claims and Negative Constraints before drafting | Allow ungrounded claims, exaggerations, or speculation into the outline |
-| Draft a clear transition sentence for every paragraph | Present isolated bullet points without cohesive narrative progression |
-| Plan the chronological sequence of Tables, Figures, and Equations centrally | Insert tables and figures haphazardly without layout planning |
-| Tag missing empirical data or citations with `[MATERIAL GAP]` | Fabricate citations, invent results, or gloss over missing evidence |
+| Tanyakan kepada pengguna target venue, gaya sitasi, dan bahasa sebelum menyusun outline | Mengasumsikan atau memaksakan venue tertentu (misalnya, IEEE Access) tanpa konfirmasi pengguna |
+| Dekomposisikan setiap bab hingga ke cetak biru paragraf yang granular (jumlah kata, tujuan, poin naratif, transisi) | Berhenti pada ringkasan bab/sub-judul tanpa spesifikasi tingkat paragraf |
+| Definisikan Klaim yang Diizinkan (*Allowed Claims*) dan Batasan Negatif (*Negative Constraints*) secara eksplisit sebelum penyusunan draf | Membiarkan klaim tanpa bukti, hiperbola, atau spekulasi masuk ke dalam outline |
+| Susun kalimat transisi yang jelas dan mengalir untuk setiap paragraf | Menyajikan poin-poin terisolasi tanpa progresi naratif yang kohesif |
+| Rencanakan urutan kronologis Tabel, Gambar, dan Persamaan secara terpusat sejak awal | Menyisipkan tabel dan gambar secara acak tanpa perencanaan tata letak |
+| Tandai data empiris atau sitasi yang belum tersedia dengan label `[MATERIAL GAP]` | Mengarang sitasi fiktif, mereka-reka hasil penelitian, atau menutupi kekurangan bukti |
