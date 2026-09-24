@@ -65,10 +65,10 @@ flowchart TD
 | **4** | [**`ar-paper-reference-compiler`**](file:///D:/Code/docs-and-skills/skills/ar-paper-reference-compiler/SKILL.md) | `references.txt` & `references/*.bib` | `paper/06_references.md` | Kompilasi daftar pustaka akhir ber-anchor interaktif |
 | **5** | [**`ar-paper-citation-numbering`**](file:///D:/Code/docs-and-skills/skills/ar-paper-citation-numbering/SKILL.md) | Draf bab, `references.txt`, `06_references.md` | Draf bab ber-sitasi `[[N]](06_references.md#refN)` | Injeksi nomor sitasi braket teks presisi tanda baca |
 | **6** | [**`ar-paper-abstract`**](file:///D:/Code/docs-and-skills/skills/ar-paper-abstract/SKILL.md) | Draf bab lengkap `01` s/d `05` | `00_abstract.md` & `acronyms.txt` | Abstrak 5 komponen, registrasi akronim, kata kunci |
-| **7** | [**`ar-paper-reviewer`**](file:///D:/Code/docs-and-skills/skills/ar-paper-reviewer/SKILL.md) | Naskah lengkap `paper/*.md` | `07_editorial_decision.md` | Simulasi mock peer review 5 panelis (Schema 13) |
-| **8** | [**`ar-paper-revision-coach`**](file:///D:/Code/docs-and-skills/skills/ar-paper-revision-coach/SKILL.md) | Komentar review mentah / Keputusan editor | `08_revision_roadmap.md` & rangka rebuttal | Parsing ulasan, commitment ledger, talking points |
-| **9** | [**`ar-paper-revision`**](file:///D:/Code/docs-and-skills/skills/ar-paper-revision/SKILL.md) | Draf bab, roadmap, `revision_patch.json` | Naskah terevisi presisi blok & `<draft>.apply-report.json` | Eksekusi patch diff fail-closed (Spec #390) |
-| **10** | [**`ar-paper-rebuttal-audit`**](file:///D:/Code/docs-and-skills/skills/ar-paper-rebuttal-audit/SKILL.md) | Komentar review & draf surat tanggapan | `11_rebuttal_audit_report.md` | Audit QA zero-orphan, diplomasi nada AVEC, bukti lokator |
+| **7** | [**`ar-paper-reviewer`**](file:///D:/Code/docs-and-skills/skills/ar-paper-reviewer/SKILL.md) | Naskah `paper/*.md` / Roadmap & Respons | `paper_reviews/round-1/` & `round-2/` | Panel mock review 5 peran & verifikasi re-review |
+| **8** | [**`ar-paper-revision-coach`**](file:///D:/Code/docs-and-skills/skills/ar-paper-revision-coach/SKILL.md) | Komentar review mentah / Keputusan editor | `paper_reviews/round-1/08_revision_roadmap.md` | Parsing ulasan, commitment ledger, talking points |
+| **9** | [**`ar-paper-revision`**](file:///D:/Code/docs-and-skills/skills/ar-paper-revision/SKILL.md) | Draf bab, roadmap, `revision_patch.json` | Naskah terevisi presisi blok & apply-report | Eksekusi patch diff fail-closed (Spec #390) |
+| **10** | [**`ar-paper-rebuttal-audit`**](file:///D:/Code/docs-and-skills/skills/ar-paper-rebuttal-audit/SKILL.md) | Komentar review & `09_response_letter.md` | `paper_reviews/round-2/10_rebuttal_audit_report.md` | Audit QA zero-orphan, diplomasi AVEC, bukti lokator |
 | **11** | [**`ar-paper-latex-converter`**](file:///D:/Code/docs-and-skills/skills/ar-paper-latex-converter/SKILL.md) | Folder naskah final `paper/` & aset gambar | Paket LaTeX `paper_latex/` (`access.tex` / `main.tex`) | Konversi ke LaTeX modular siap submit (IEEE/ACM/Springer) |
 
 ---
@@ -143,17 +143,13 @@ flowchart TD
 
 ---
 
-### Langkah 7: Simulasi Mock Peer Review (`ar-paper-reviewer`)
-- **Fungsi**: Melakukan audit independen ketat sebelum naskah diajukan ke pembimbing atau portal jurnal.
+### Langkah 7: Simulasi Mock Peer Review & Re-Review (`ar-paper-reviewer`)
+- **Fungsi**: Melakukan audit independen ketat sebelum naskah diajukan ke pembimbing atau portal jurnal, mendukung ulasan awal (Round 1) maupun verifikasi perbaikan (Round 2+ Re-Review).
 - **Aktivitas Utama**:
-  - Mensimulasikan panel 5 penilai independen berdasarkan Kontrak Sprint Schema 13:
-    1. *Editor-in-Chief (EIC)*: Kelayakan ruang lingkup dan dampak.
-    2. *Methodology Reviewer*: Integritas data, kebocoran data (*data leakage*), validasi silang, dan *p-hacking*.
-    3. *Domain Expert*: Kebaruan (*novelty*) terhadap SOTA dan ketepatan terminologi domain.
-    4. *Cross-Perspective Analyst*: Keseimbangan sudut pandang dan perbandingan komparatif.
-    5. *Devil's Advocate*: Penantang adversarial tanpa kompromi (mencari kelemahan fatal tersembunyi).
-  - Menghasilkan Surat Keputusan Editorial formal (`07_editorial_decision.md`) dengan status *Accept, Minor Revision, Major Revision,* atau *Reject*.
-- **Kriteria Lolos (Gate Check)**: Penulis memegang daftar rekomendasi perbaikan terstruktur sebelum bimbingan dosen atau pengiriman naskah.
+  - **Review Awal (Desk Screening)**: Editor-in-Chief memeriksa *venue fit*, format dasar, dan screening cacat fatal pada `00_desk_screening.md` (*Desk Pass* vs *Desk Reject*).
+  - **Putaran 1 (Initial Review)**: Mensimulasikan panel 5 penilai independen berdasarkan Kontrak Sprint Schema 13 (EIC, Methodology, Domain, Cross-Perspective, Devil's Advocate) ke dalam folder `paper_reviews/round-1/`.
+  - **Putaran 2 (Re-Review Verification)**: Memverifikasi pemenuhan komitmen roadmap putaran sebelumnya terhadap naskah baru dan surat tanggapan, menghasilkan `11_re_review_verification.md` dan keputusan putaran kedua di `paper_reviews/round-2/`.
+- **Kriteria Lolos (Gate Check)**: Naskah mengantongi Surat Keputusan Editorial formal `07_editorial_decision.md` dengan status **`ACCEPT`** (atau roadmap perbaikan terstruktur).
 
 ---
 
@@ -216,10 +212,10 @@ flowchart TD
 | 4 | `ar-paper-reference-compiler` | `paper/references.txt`, `paper/references/*.bib` | `paper/06_references.md` |
 | 5 | `ar-paper-citation-numbering` | `paper/*.md`, `references.txt`, `06_references.md` | Injeksi `[[N]](...)` ke dalam `paper/*.md` |
 | 6 | `ar-paper-abstract` | `paper/*.md` (bab 01–05 lengkap) | `paper/00_abstract.md`, `paper/acronyms.txt` |
-| 7 | `ar-paper-reviewer` | Seluruh `paper/*.md` | `paper/07_editorial_decision.md` |
-| 8 | `ar-paper-revision-coach` | `07_editorial_decision.md` / email review | `paper/08_revision_roadmap.md`, `response_skeleton.md` |
+| 7 | `ar-paper-reviewer` | Seluruh `paper/*.md` (R1) / Naskah baru + Respons (R2) | `paper_reviews/round-1/` & `paper_reviews/round-2/` |
+| 8 | `ar-paper-revision-coach` | `07_editorial_decision.md` / email review | `paper_reviews/round-1/08_revision_roadmap.md`, `response_skeleton.md` |
 | 9 | `ar-paper-revision` | `paper/*.md`, `revision_patch.json` | `paper/*.md` (revised), `apply-report.json` |
-| 10 | `ar-paper-rebuttal-audit` | Reviewer comments & draf response letter | `paper/11_rebuttal_audit_report.md` |
+| 10 | `ar-paper-rebuttal-audit` | Reviewer comments & `09_response_letter.md` | `paper_reviews/round-2/10_rebuttal_audit_report.md` |
 | 11 | `ar-paper-latex-converter` | `paper/*.md`, `paper/images/`, `references/` | `paper_latex/access.tex`, `paper_latex/sections/*.tex` |
 
 ---

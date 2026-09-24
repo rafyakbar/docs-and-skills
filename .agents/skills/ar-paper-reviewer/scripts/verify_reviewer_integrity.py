@@ -79,7 +79,16 @@ class ReviewerIntegrityAuditor:
 
         texts = []
         for f in files_to_read:
-            if f.name.startswith("07_") or f.name.startswith("08_"):
+            if (
+                f.name.startswith("00_desk")
+                or f.name.startswith("07_")
+                or f.name.startswith("08_")
+                or f.name.startswith("09_")
+                or f.name.startswith("10_")
+                or f.name.startswith("11_")
+                or f.name.startswith("12_")
+                or f.name == "REVIEW_LOG.md"
+            ):
                 continue
             try:
                 texts.append(f.read_text(encoding="utf-8"))
