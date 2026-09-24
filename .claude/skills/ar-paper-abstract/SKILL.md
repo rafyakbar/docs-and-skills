@@ -1,98 +1,98 @@
 ---
 name: ar-paper-abstract
-description: "Activate when the user asks to write, generate, refine, or translate an academic paper abstract, keywords, or title/front matter (typically for 00_abstract.md). Covers the 5-component rhetorical model (Context/Problem, Purpose, Methodology, Quantitative Findings, Implications), first-mention acronym introduction and registration into paper/acronyms.txt, keyword curation (5-7 terms), author metadata formatting (ORCID, affiliations, corresponding author), and bilingual abstract generation. Trigger keywords: write abstract, buat abstrak, paper abstract, abstract and keywords, saripati, generate abstract, draft abstract, 00_abstract.md. Do NOT activate for full-text manuscript drafting (use ar-paper-draft), outline planning (use ar-paper-outline), citation curation, or peer review."
+description: "Aktifkan ketika pengguna meminta untuk menulis, membuat, menyempurnakan, atau menerjemahkan abstrak paper akademik, kata kunci (keywords), atau judul/halaman depan (front matter, umumnya untuk 00_abstract.md). Mencakup model retorika 5 komponen (Konteks/Masalah, Tujuan, Metodologi, Temuan Kuantitatif Utama, Implikasi/Signifikansi), pengenalan akronim pada kemunculan pertama dan registrasi ke paper/acronyms.txt, kurasi 5–7 kata kunci, pemformatan metadata penulis (ORCID, afiliasi, corresponding author), serta pembuatan abstrak dwibahasa (bilingual). Kata kunci pemicu: write abstract, buat abstrak, paper abstract, abstract and keywords, saripati, generate abstract, draft abstract, 00_abstract.md. JANGAN aktifkan untuk penulisan draf naskah lengkap (gunakan ar-paper-draft), perancangan outline (gunakan ar-paper-outline), kurasi sitasi (gunakan ar-paper-sentence-citation), atau peer review (gunakan ar-paper-reviewer)."
 license: MIT
 metadata:
   author: Rafy
 ---
 
-# Academic Paper Abstract & Front Matter Generation
+# Penyusunan Abstrak & Halaman Depan Naskah Akademik (Academic Paper Abstract & Front Matter Generation)
 
-## Overview
+## Gambaran Umum (Overview)
 
-This skill generates publication-grade academic abstracts, keywords, and master front matter (typically formatted as `00_abstract.md`). It implements a rigorous **5-component rhetorical framework** (Context & Problem $\rightarrow$ Purpose & Proposed Solution $\rightarrow$ Methodology $\rightarrow$ Key Quantitative Findings $\rightarrow$ Conclusion & Impact), enforces strict **first-mention acronym registration** into `paper/acronyms.txt`, curates 5–7 search-optimized keywords, and structures complete author metadata with active ORCID hyperlinks.
+Skill ini menghasilkan abstrak akademik berstandar publikasi jurnal internasional, kurasi kata kunci, serta dokumen halaman depan master (*master front matter*, umumnya diformat sebagai `00_abstract.md`). Skill ini menerapkan **kerangka retorika 5 komponen** yang ketat (Konteks & Masalah $\rightarrow$ Tujuan & Solusi yang Diusulkan $\rightarrow$ Metodologi $\rightarrow$ Temuan Empiris Kuantitatif Utama $\rightarrow$ Kesimpulan & Dampak Ilmiah), menegakkan **registrasi akronim kemunculan pertama** ke dalam `paper/acronyms.txt`, mengurasi 5–7 kata kunci yang dioptimalkan untuk indeks pencarian, serta menyusun metadata penulis secara lengkap dengan tautan hiperlink ORCID aktif.
 
-## When to Activate
+## Kapan Mengaktifkan Skill Ini (When to Activate)
 
-- User asks to write, draft, generate, or refine an academic paper abstract, keywords, or front matter.
-- User requests creation or updates to `00_abstract.md`.
-- User invokes trigger phrases: `write abstract`, `buat abstrak`, `paper abstract`, `abstract and keywords`, `saripati`, `generate abstract`, `draft abstract`, `00_abstract.md`.
-- User provides experimental findings or full manuscript drafts and asks to synthesize an abstract.
-- User requests a bilingual abstract (e.g., English + Indonesian or other languages).
+- Pengguna meminta untuk menulis, menyusun draf, menghasilkan, atau menyempurnakan abstrak paper ilmiah, kata kunci, atau *front matter*.
+- Pengguna meminta pembuatan atau pembaruan berkas `00_abstract.md`.
+- Pengguna menggunakan frasa pemicu: `write abstract`, `buat abstrak`, `paper abstract`, `abstract and keywords`, `saripati`, `generate abstract`, `draft abstract`, `00_abstract.md`.
+- Pengguna menyediakan temuan eksperimen atau draf naskah lengkap dan meminta untuk menyintesiskan abstrak.
+- Pengguna meminta abstrak dwibahasa (*bilingual abstract*, misalnya Bahasa Indonesia + Bahasa Inggris).
 
-## When NOT to Activate
+## Kapan TIDAK Mengaktifkan Skill Ini (When NOT to Activate)
 
-- Drafting full manuscript body sections like Introduction, Methods, or Discussion (use `ar-paper-draft`).
-- Generating paper outlines or paragraph blueprints from scratch (use `ar-paper-outline`).
-- Searching, scraping, or curating citations and BibTeX entries (use citation curation skills / Step 2).
-- Compiling reference lists or assigning in-text citation numbering (use Step 3 & 4 skills).
-- Peer-review simulation or reviewer critique scoring.
-- Non-academic summaries or general blog executive summaries.
+- Menulis bagian isi utama naskah (*body sections*) seperti Pendahuluan, Metodologi, atau Pembahasan (gunakan `ar-paper-draft`).
+- Merancang kerangka naskah (*paper outline*) atau cetak biru paragraf (*paragraph blueprint*) dari awal (gunakan `ar-paper-outline`).
+- Mencari, menelusuri, atau mengurasi sitasi dan entri BibTeX per kalimat klaim (gunakan `ar-paper-sentence-citation` / Step 2).
+- Mengompilasi naskah daftar pustaka akhir atau menyuntikkan penomoran sitasi ke dalam teks naskah (gunakan `ar-paper-reference-compiler` / Step 3 dan `ar-paper-citation-numbering` / Step 4).
+- Simulasi *peer review* atau penilaian kritik reviewer (gunakan `ar-paper-reviewer`).
+- Ringkasan non-akademik atau ringkasan eksekutif untuk artikel blog umum.
 
-## Scope
+## Ruang Lingkup (Scope)
 
-- **In scope:** Drafting dense, publication-ready abstracts (150–250 words), 5-component rhetorical structure, exact quantitative metric extraction, first-mention acronym expansion and synchronization with `paper/acronyms.txt`, 5–7 keyword curation, author metadata formatting with ORCID links, and bilingual abstract pairs.
-- **Out of scope:** Inserting bibliographic citations into the abstract (strictly prohibited in scholarly abstracts), fabricating unverified experimental numbers, or generating body sections.
-
----
-
-## Mandatory Step 0: Input Verification & Context Calibration
-
-Before generating the abstract, verify or elicit the following parameters:
-
-1. **Source Material Availability**: Identify the underlying paper materials (e.g., draft files `01_introduction.md` through `05_conclusion.md`, or outline blueprint and empirical results table). Extract the exact core achievement and best-performing quantitative metrics.
-2. **Target Word Budget & Format**: Check target journal guidelines (standard unstructured dense paragraph of 150–250 words, structured abstract with labeled subheadings, or extended conference abstract).
-3. **Language Policy**: Determine whether the abstract is monolingual (e.g., English) or bilingual (e.g., Indonesian + English).
-4. **Author & Affiliation Metadata**: Confirm author names, academic titles, ORCID identifiers, department/faculty affiliations, and corresponding author email address.
+- **Dalam Lingkup:** Penulisan abstrak padat siap publikasi (150–250 kata), struktur retorika 5 komponen, ekstraksi metrik numerik kuantitatif presisi, ekspansi akronim kemunculan pertama dan sinkronisasinya dengan `paper/acronyms.txt`, kurasi 5–7 kata kunci berfaset, pemformatan metadata penulis berhiperlink ORCID aktif, serta penyusunan pasangan abstrak dwibahasa.
+- **Luar Lingkup:** Menyisipkan sitasi bibliografi ke dalam abstrak (dilarang keras dalam konvensi abstrak ilmiah), mengarang metrik eksperimen yang tidak terverifikasi, atau menulis bab isi naskah.
 
 ---
 
-## The 5-Component Rhetorical Architecture
+## Langkah Wajib 0: Verifikasi Input & Kalibrasi Konteks
 
-Every abstract must synthesize the research across five sequential rhetorical movements into a single cohesive paragraph:
+Sebelum menyusun abstrak, lakukan verifikasi atau klarifikasi terhadap parameter-parameter berikut:
+
+1. **Ketersediaan Materi Sumber**: Identifikasi berkas materi dasar naskah (misalnya draf bab `01_introduction.md` hingga `05_conclusion.md`, atau cetak biru outline dan tabel hasil empiris). Ekstraksi kontribusi inti dan metrik kuantitatif terbaik secara presisi.
+2. **Batasan Kata & Format Target**: Periksa pedoman jurnal sasaran (paragraf tunggal padat tanpa subjudul berukuran 150–250 kata, abstrak terstruktur dengan label subjudul, atau abstrak konferensi yang diperluas/*extended abstract*).
+3. **Kebijakan Bahasa**: Tentukan apakah abstrak disusun dalam format ekabahasa (misalnya Bahasa Inggris atau Bahasa Indonesia saja) atau dwibahasa (misalnya Bahasa Indonesia + Bahasa Inggris).
+4. **Metadata Penulis & Afiliasi**: Konfirmasikan nama lengkap penulis, gelar akademik, pengenal unik ORCID, afiliasi departemen/fakultas/institusi, dan alamat email penulis korespondensi (*corresponding author*).
+
+---
+
+## Arsitektur Retorika 5 Komponen (The 5-Component Rhetorical Architecture)
+
+Setiap naskah abstrak wajib menyintesiskan penelitian melalui lima gerakan retorika berurutan ke dalam satu paragraf yang kohesif:
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│ 1. Context & Problem (1–2 sentences)                        │
-│ State the technical domain and the specific bottleneck      │
+│ 1. Konteks & Masalah Penelitian (1–2 kalimat)               │
+│ Nyatakan domain teknis dan hambatan/bottleneck spesifik     │
 └──────────────────────────────┬──────────────────────────────┘
                                ▼
 ┌─────────────────────────────────────────────────────────────┐
-│ 2. Purpose & Proposed Solution (1–2 sentences)              │
-│ Announce the proposed model, framework, or thesis           │
+│ 2. Tujuan & Solusi yang Diusulkan (1–2 kalimat)             │
+│ Umumkan model, kerangka kerja, atau tesis yang diajukan     │
 └──────────────────────────────┬──────────────────────────────┘
                                ▼
 ┌─────────────────────────────────────────────────────────────┐
-│ 3. Methodology & Experimental Setup (1–2 sentences)         │
-│ State data cohorts, validation schemes, and classifier types│
+│ 3. Metodologi & Pengaturan Eksperimen (1–2 kalimat)         │
+│ Sebutkan kohort data, skema validasi, & pengklasifikasi     │
 └──────────────────────────────┬──────────────────────────────┘
                                ▼
 ┌─────────────────────────────────────────────────────────────┐
-│ 4. Key Empirical Findings (2–3 sentences)                   │
-│ Report exact numerical metrics (Accuracy, F1, p-values)     │
+│ 4. Temuan Empiris Kuantitatif Utama (2–3 kalimat)           │
+│ Laporkan metrik numerik presisi (Akurasi, F1, nilai-p)      │
 └──────────────────────────────┬──────────────────────────────┘
                                ▼
 ┌─────────────────────────────────────────────────────────────┐
-│ 5. Conclusion & Significance (1 sentence)                   │
-│ Deliver the core takeaway and broader scientific impact     │
+│ 5. Kesimpulan & Signifikansi Ilmiah (1 kalimat)             │
+│ Sampaikan intisari utama dan dampak keilmuan yang lebih luas│
 └─────────────────────────────────────────────────────────────┘
 ```
 
-### Critical Rhetorical Rules:
-- **No Citations**: Never include literature citation brackets (`[1]`, `[2]`, or author-year tags).
-- **Exact Numerical Evidence**: Include concrete quantitative metrics for the proposed approach and primary baseline. Never use vague generalities like *"achieved promising results"*.
-- **Tense Discipline**: Use present tense for domain background and broad truths; use past tense for study-specific actions and observed metrics; use present tense for the concluding significance.
+### Aturan Retorika Kritis:
+- **Tanpa Sitasi**: Jangan pernah menyertakan braket sitasi literatur (`[1]`, `[2]`, atau format penulis-tahun).
+- **Bukti Numerik Presisi**: Cantumkan metrik kuantitatif konkret untuk metode yang diajukan beserta *baseline* pembanding utama. Hindari pernyataan kualitatif samar seperti *"mencapai hasil yang menjanjikan"*.
+- **Disiplin Kala Waktu (Tense)**: Gunakan *present tense* untuk latar belakang domain dan kebenaran umum; gunakan *past tense* untuk tindakan spesifik penelitian dan metrik yang diamati; gunakan *present tense* untuk kesimpulan signifikansi akhir.
 
 ---
 
-## Acronym Protocol in the Abstract (`paper/acronyms.txt`)
+## Protokol Akronim dalam Abstrak (`paper/acronyms.txt`)
 
-Because `00_abstract.md` is often read independently and precedes the body sections:
+Mengingat `00_abstract.md` sering dibaca secara terpisah dan posisinya mendahului bab isi naskah:
 
-1. **First-Mention Full Form**: Every technical term with an official acronym introduced in the abstract **must be written in full form followed by the abbreviation in parentheses**:
-   * *Example*: `Vision Transformer (ViT)`, `Support Vector Machine (SVM)`, `Grid Search Cross-Validation (GridSearchCV)`.
-2. **Subsequent Mentions in Abstract**: If repeated within the abstract, use only the acronym.
-3. **Immediate Registration in `paper/acronyms.txt`**: All abbreviations introduced in `00_abstract.md` must be logged at the top of the central registry `paper/acronyms.txt` with their first appearance marked as `paper/00_abstract.md (Abstract)`:
+1. **Bentuk Lengkap pada Kemunculan Pertama (First-Mention Full Form)**: Setiap istilah teknis yang memiliki akronim resmi yang diperkenalkan dalam abstrak **wajib ditulis dalam bentuk lengkap diikuti singkatan dalam tanda kurung**:
+   * *Contoh*: `Vision Transformer (ViT)`, `Support Vector Machine (SVM)`, `Grid Search Cross-Validation (GridSearchCV)`.
+2. **Penyebutan Berikutnya dalam Abstrak**: Jika istilah diulang kembali dalam paragraf abstrak, gunakan hanya bentuk singkatannya.
+3. **Pencatatan Segera ke `paper/acronyms.txt`**: Seluruh singkatan yang pertama kali diperkenalkan dalam `00_abstract.md` wajib dicatat pada bagian teratas registri sentral `paper/acronyms.txt` dengan lokasi pengenalan pertama ditandai sebagai `paper/00_abstract.md (Abstract)`:
 
 ```text
 NO  | ACRONYM / ABBREVIATION | FULL FORM                        | FIRST INTRODUCTION LOCATION
@@ -103,66 +103,66 @@ NO  | ACRONYM / ABBREVIATION | FULL FORM                        | FIRST INTRODUC
 ```
 
 > [!NOTE]
-> Once registered here, all downstream drafting skills (`ar-paper-draft`) must use **only the acronym** in body sections without re-expanding the term.
+> Setelah terdaftar di sini, seluruh skill penulisan bab turunan (`ar-paper-draft`) wajib menggunakan **hanya bentuk singkatan (akronim)** pada bab isi tanpa perlu menguraikan kepanjangannya kembali.
 
 ---
 
-## Keyword Curation Heuristics
+## Heuristik Kurasi Kata Kunci (Keyword Curation Heuristics)
 
-1. **Count**: Exactly **5 to 7 keywords**, separated by commas.
-2. **Title Complementarity**: Do not simply repeat title terms. If the title contains *"Multi-Domain Vision Transformer Fusion"*, select keywords that capture secondary dimensions (e.g., *Algorithmic fairness*, *Intersectional demographic recognition*, *Latent representation learning*).
-3. **Facet Coverage**: Ensure terms represent problem domain, methodological mechanism, computational architecture, and evaluation focus.
+1. **Jumlah**: Tepat **5 hingga 7 kata kunci**, dipisahkan dengan tanda koma.
+2. **Komplementaritas Judul (Title Complementarity)**: Jangan sekadar menduplikasi kata-kata pada judul naskah. Jika judul sudah memuat *"Multi-Domain Vision Transformer Fusion"*, pilihlah kata kunci yang merepresentasikan dimensi sekunder (misalnya *Algorithmic fairness*, *Intersectional demographic recognition*, *Latent representation learning*).
+3. **Cakupan Faset (Facet Coverage)**: Pastikan kumpulan kata kunci mencakup domain masalah, mekanisme metodologi, arsitektur komputasi, dan fokus evaluasi.
 
 ---
 
-## Author Metadata & Master File Layout
+## Metadata Penulis & Tata Letak Berkas Master (Author Metadata & Master File Layout)
 
-Emit the final output to `paper/00_abstract.md` using this standard layout:
+Keluarkan berkas hasil akhir ke `paper/00_abstract.md` menggunakan tata letak standar berikut:
 
 ```markdown
-# [Full Manuscript Title]
+# [Judul Lengkap Naskah / Full Manuscript Title]
 
 ## Authors & Affiliation
 
-1. **[Author 1 Name, Degree]** ([ORCID: 0000-000X-XXXX-XXXX](https://orcid.org/0000-000X-XXXX-XXXX))  
-   Department of Informatics, Faculty of Informatics, Universitas Negeri Surabaya, Surabaya 60231, Indonesia  
-   Corresponding Author Email: `author1@unesa.ac.id`
+1. **[Nama Penulis 1, Gelar]** ([ORCID: 0000-000X-XXXX-XXXX](https://orcid.org/0000-000X-XXXX-XXXX))  
+   Departemen Informatika, Fakultas Teknik, Universitas Negeri Surabaya, Surabaya 60231, Indonesia  
+   Email Penulis Korespondensi: `penulis1@unesa.ac.id`
 
-2. **[Author 2 Name, Degree]** ([ORCID: 0009-000X-XXXX-XXXX](https://orcid.org/0009-000X-XXXX-XXXX))  
-   Department of Informatics, Faculty of Informatics, Universitas Negeri Surabaya, Surabaya 60231, Indonesia
+2. **[Nama Penulis 2, Gelar]** ([ORCID: 0009-000X-XXXX-XXXX](https://orcid.org/0009-000X-XXXX-XXXX))  
+   Departemen Informatika, Fakultas Teknik, Universitas Negeri Surabaya, Surabaya 60231, Indonesia
 
 ---
 
 ## Abstract
 
-[Dense 5-component abstract paragraph, 150–250 words, exact metrics, first-mention acronyms]
+[Paragraf abstrak padat 5 komponen, 150–250 kata, metrik numerik presisi, ekspansi akronim kemunculan pertama]
 
 ---
 
 ## Keywords
 
-Keyword 1, Keyword 2, Keyword 3, Keyword 4, Keyword 5.
+Kata Kunci 1, Kata Kunci 2, Kata Kunci 3, Kata Kunci 4, Kata Kunci 5.
 ```
 
 ---
 
-## Do and Don't Guidelines
+## Panduan Do dan Don't (Do and Don't Guidelines)
 
-| Do | Don't |
+| Do (Lakukan) | Don't (Hindari) |
 |:---|:---|
-| Report exact numerical metrics (Accuracy, F1, p-values) | Use vague qualitative claims (*"achieved great accuracy"*) |
-| Expand every acronym on first mention: `Full Form (ACRONYM)` | Use naked acronyms without definition in the abstract |
-| Log all abstract acronyms to `paper/acronyms.txt` | Forget to register abstract acronyms in the central file |
-| Provide 5–7 keywords complementary to the paper title | Duplicate title terms word-for-word in keywords |
-| Keep word count strictly within venue limits (150–250 words) | Write bloated multi-page abstracts or under 100 words |
-| Format ORCID links as active Markdown hyperlinks | Omit ORCID identifiers or affiliation details |
-| Strictly exclude bibliographic citations from the abstract | Insert bracketed citation numbers (`[1]`, `[2]`) in abstract |
+| Laporkan metrik numerik presisi (Akurasi, F1, nilai-p) | Menggunakan klaim kualitatif yang samar (*"mencapai akurasi tinggi"*) |
+| Uraikan kepanjangan akronim pada kemunculan pertama: `Bentuk Lengkap (AKRONIM)` | Menggunakan akronim gundul tanpa definisi di dalam abstrak |
+| Catat seluruh akronim abstrak ke dalam `paper/acronyms.txt` | Lupa mendaftarkan akronim abstrak ke berkas registri sentral |
+| Sediakan 5–7 kata kunci yang melengkapi judul naskah | Menduplikasi istilah judul kata-per-kata pada kata kunci |
+| Jaga jumlah kata strictly dalam batasan publikasi (150–250 kata) | Menulis abstrak bertele-tele multi-halaman atau di bawah 100 kata |
+| Format tautan ORCID sebagai tautan hiperlink Markdown aktif | Mengabaikan pengenal ORCID atau rincian afiliasi institusi |
+| Larang secara mutlak sitasi bibliografi di dalam abstrak | Menyisipkan nomor braket sitasi (`[1]`, `[2]`) di dalam naskah abstrak |
 
 ---
 
-## References
+## Referensi (References)
 
-For detailed guidelines, consultation patterns, and exemplars, refer to:
-- `references/abstract-rhetoric-patterns.md`: Detailed 5-component framework, tense usage, and abstract formatting types.
-- `references/acronym-and-keyword-standards.md`: Acronym registry invariants, 5-tier keyword taxonomy, and metadata formatting.
-- `references/sample-abstract-file.md`: Illustrative reference exemplar of a complete `00_abstract.md` document.
+Untuk panduan mendalam, pola konsultasi, dan contoh berkas terperinci, rujuk berkas-berkas berikut:
+- `references/abstract-rhetoric-patterns.md`: Rincian kerangka kerja 5 komponen, konvensi kala waktu (*tenses*), dan jenis format abstrak.
+- `references/acronym-and-keyword-standards.md`: Invarian registri akronim, taksonomi kata kunci 5-tier, dan pemformatan metadata penulis.
+- `references/sample-abstract-file.md`: Berkas teladan rujukan ilustratif untuk struktur lengkap dokumen `00_abstract.md`.

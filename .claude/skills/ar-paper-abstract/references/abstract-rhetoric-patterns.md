@@ -1,96 +1,105 @@
-# Abstract Rhetoric Patterns & Writing Standards
+# Pola Retorika Abstrak & Standar Penulisan Akademik (Abstract Rhetoric Patterns & Writing Standards)
 
-This reference defines the structural, rhetorical, grammatical, and stylistic standards for composing publication-grade academic abstracts.
+Berkas rujukan ini menetapkan standar struktural, retorika, tata bahasa, dan gaya penulisan untuk menyusun abstrak akademik berstandar publikasi jurnal internasional bereputasi.
 
 ---
 
-## 1. The 5-Component Rhetorical Framework
+## 1. Kerangka Kerja Retorika 5 Komponen (The 5-Component Rhetorical Framework)
 
-An academic abstract is a self-contained, highly condensed representation of the entire research paper. It must enable readers and reviewers to assess the relevance, methodological rigor, and scientific contribution of the study within 150–250 words. Every abstract should follow five sequential rhetorical movements:
+Abstrak akademik adalah representasi mandiri (*self-contained*) dan sangat padat yang merangkum keseluruhan naskah penelitian. Abstrak harus memungkinkan pembaca dan reviewer untuk menilai relevansi, ketelitian metodologi, dan kontribusi ilmiah penelitian dalam rentang 150–250 kata. Setiap abstrak harus mengikuti lima gerakan retorika berurutan:
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│ 1. Context & Research Problem (1–2 sentences)               │
-│ • State domain stakes, real-world relevance, & bottleneck   │
+│ 1. Konteks & Masalah Penelitian (1–2 kalimat)               │
+│ • Nyatakan urgensi domain, relevansi praktis, & hambatan    │
 └──────────────────────────────┬──────────────────────────────┘
                                ▼
 ┌─────────────────────────────────────────────────────────────┐
-│ 2. Purpose & Proposed Solution (1–2 sentences)              │
-│ • Announce the proposed model, framework, or thesis         │
+│ 2. Tujuan & Solusi yang Diusulkan (1–2 kalimat)             │
+│ • Umumkan model, kerangka kerja, atau tesis yang diajukan   │
 └──────────────────────────────┬──────────────────────────────┘
                                ▼
 ┌─────────────────────────────────────────────────────────────┐
-│ 3. Methodology & Experimental Setup (1–2 sentences)         │
-│ • State dataset, validation protocol, classifiers/baselines │
+│ 3. Metodologi & Pengaturan Eksperimen (1–2 kalimat)         │
+│ • Sebutkan dataset, protokol validasi, pengklasifikasi/dasar│
 └──────────────────────────────┬──────────────────────────────┘
                                ▼
 ┌─────────────────────────────────────────────────────────────┐
-│ 4. Key Empirical Findings (2–3 sentences)                   │
-│ • Report exact quantitative metrics, comparisons, & margins │
+│ 4. Temuan Empiris Kuantitatif Utama (2–3 kalimat)           │
+│ • Laporkan metrik numerik presisi, komparasi, & margin nilai│
 └──────────────────────────────┬──────────────────────────────┘
                                ▼
 ┌─────────────────────────────────────────────────────────────┐
-│ 5. Conclusion & Significance (1 sentence)                   │
-│ • State fundamental takeaway, impact, or broader relevance  │
+│ 5. Kesimpulan & Signifikansi Ilmiah (1 kalimat)             │
+│ • Sampaikan intisari utama, dampak luas, & relevansi ilmiah │
 └─────────────────────────────────────────────────────────────┘
 ```
 
-### Component Details & Sentence Patterns
+### Rincian Komponen & Pola Kalimat
 
-#### 1. Context & Research Problem (1–2 sentences)
-- **Objective**: Establish the problem domain and articulate the technical or conceptual bottleneck that prior methods fail to resolve.
-- **Formulation**:
-  * *"Simultaneous demographic attribute classification from facial imagery faces significant challenges from subtle expression variations, biological aging, phenotypic overlap, and single-domain representation limitations."*
-  * *"While vision transformers excel at global feature extraction, their application to multi-attribute classification is hindered by domain-specific feature entanglement."*
-- **What to Avoid**: Generic platitudes (*"Deep learning has become very popular"*), historical recaps, or starting with abrupt phrases like *"This paper discusses..."*.
+#### 1. Konteks & Masalah Penelitian (Context & Research Problem, 1–2 kalimat)
+- **Tujuan (Objective)**: Membangun domain masalah dan mengartikulasikan hambatan teknis atau konseptual spesifik yang belum mampu diatasi oleh metode-metode terdahulu.
+- **Rumusan Kalimat (Formulation)**:
+  * *"Simultaneous demographic attribute classification from facial imagery faces significant challenges from subtle expression variations, biological aging, phenotypic overlap, and single-domain representation limitations."*  
+    *(Klasifikasi atribut demografis simultan dari citra wajah menghadapi tantangan berat akibat variasi ekspresi mikro, penuaan biologis, tumpang tindih fenotipik, serta keterbatasan inheren representasi domain tunggal.)*
+  * *"While vision transformers excel at global feature extraction, their application to multi-attribute classification is hindered by domain-specific feature entanglement."*  
+    *(Meskipun Vision Transformer unggul dalam ekstraksi fitur global, penerapannya pada klasifikasi multi-atribut terhambat oleh keterikatan fitur spesifik domain.)*
+- **Hal yang Harus Dihindari (What to Avoid)**: Pernyataan klise umum (*"Deep learning telah menjadi sangat populer"*), pengantar historis yang bertele-tele, atau memulai naskah secara canggung seperti *"Paper ini membahas..."*.
 
-#### 2. Purpose & Proposed Solution (1–2 sentences)
-- **Objective**: Introduce the primary scientific contribution, proposed architecture, framework, or hypothesis.
-- **Formulation**:
-  * *"This study proposes a multi-domain latent feature fusion framework that integrates task-specific visual representations extracted from frozen Vision Transformer (ViT) backbones..."*
-  * *"To resolve this bottleneck, this paper introduces an automated pipeline combining..."*
-- **What to Avoid**: Vague exploratory statements (*"We aimed to see if..."*). Use assertive, active verbs (*"proposes"*, *"develops"*, *"introduces"*, *"evaluates"*).
+#### 2. Tujuan & Solusi yang Diusulkan (Purpose & Proposed Solution, 1–2 kalimat)
+- **Tujuan (Objective)**: Memperkenalkan kontribusi ilmiah utama, arsitektur yang diajukan, kerangka kerja, atau hipotesis penelitian.
+- **Rumusan Kalimat (Formulation)**:
+  * *"This study proposes a multi-domain latent feature fusion framework that integrates task-specific visual representations extracted from frozen Vision Transformer (ViT) backbones..."*  
+    *(Penelitian ini mengusulkan kerangka kerja fusi fitur laten multi-domain yang mengintegrasikan representasi visual spesifik tugas dari backbone Vision Transformer (ViT) yang dibekukan...)*
+  * *"To resolve this bottleneck, this paper introduces an automated pipeline combining..."*  
+    *(Untuk mengatasi hambatan tersebut, makalah ini memperkenalkan pipeline terotomatisasi yang menggabungkan...)*
+- **Hal yang Harus Dihindari (What to Avoid)**: Pernyataan eksploratif yang lemah atau ragu (*"Kami bermaksud melihat apakah..."*). Gunakan kata kerja aktif yang tegas (*"proposes"*, *"develops"*, *"introduces"*, *"evaluates"*).
 
-#### 3. Methodology & Experimental Setup (1–2 sentences)
-- **Objective**: Summarize the data source, experimental conditions, validation methodology, and baseline configurations.
-- **Formulation**:
-  * *"Latent features are extracted offline from pre-trained backbones and evaluated across seven feature configurations using 5-Fold Stratified Cross-Validation on four classifiers: Random Forest (RF), Gaussian Naive Bayes (GNB), Logistic Regression (LR), and Support Vector Machine (SVM) optimized via Grid Search Cross-Validation (GridSearchCV)."*
-- **What to Avoid**: Omitting cross-validation protocols or failing to name the primary baseline models.
+#### 3. Metodologi & Pengaturan Eksperimen (Methodology & Experimental Setup, 1–2 kalimat)
+- **Tujuan (Objective)**: Merangkum sumber data, kondisi eksperimen, metodologi validasi, dan konfigurasi *baseline* pembanding.
+- **Rumusan Kalimat (Formulation)**:
+  * *"Latent features are extracted offline from pre-trained backbones and evaluated across seven feature configurations using 5-Fold Stratified Cross-Validation on four classifiers: Random Forest (RF), Gaussian Naive Bayes (GNB), Logistic Regression (LR), and Support Vector Machine (SVM) optimized via Grid Search Cross-Validation (GridSearchCV)."*  
+    *(Vektor fitur laten diekstraksi secara luring dari backbone pra-latih dan dievaluasi pada tujuh konfigurasi fitur menggunakan 5-Fold Stratified Cross-Validation terhadap empat model pengklasifikasi: Random Forest (RF), Gaussian Naive Bayes (GNB), Logistic Regression (LR), dan Support Vector Machine (SVM) yang dioptimalkan melalui Grid Search Cross-Validation (GridSearchCV).)*
+- **Hal yang Harus Dihindari (What to Avoid)**: Mengabaikan protokol validasi silang (*cross-validation*) atau tidak menyebutkan model pembanding (*baseline*) utama secara eksplisit.
 
-#### 4. Key Empirical Findings (2–3 sentences)
-- **Objective**: Present the most compelling quantitative results. An abstract without exact numbers lacks evidentiary authority.
-- **Formulation**:
-  * *"Experimental evaluations demonstrate that tri-domain fusion achieves superior performance across three of the four evaluated classifiers, with the SVM configuration yielding the highest performance: 93.70% accuracy, 93.72% precision, 93.70% recall, and 93.69% macro F1-score on independent test data."*
-  * *"Subgroup diagnostics reveal consistent performance gains, with intersectional F1-scores spanning 91.74% to 96.14%."*
-- **What to Avoid**: Vague qualitative summaries (*"The proposed model achieved very good results and beat other methods"*). Always report concrete percentages, metrics, or statistical significance ($p < 0.05$).
+#### 4. Temuan Empiris Kuantitatif Utama (Key Empirical Findings, 2–3 kalimat)
+- **Tujuan (Objective)**: Menyajikan hasil kuantitatif paling unggul dan meyakinkan. Abstrak tanpa angka numerik pasti kehilangan bobot pembuktian ilmiah (*evidentiary authority*).
+- **Rumusan Kalimat (Formulation)**:
+  * *"Experimental evaluations demonstrate that tri-domain fusion achieves superior performance across three of the four evaluated classifiers, with the SVM configuration yielding the highest performance: 93.70% accuracy, 93.72% precision, 93.70% recall, and 93.69% macro F1-score on independent test data."*  
+    *(Evaluasi eksperimental menunjukkan bahwa fusi tri-domain mencapai kinerja superior pada tiga dari empat pengklasifikasi yang diuji, dengan konfigurasi SVM menghasilkan performa tertinggi: akurasi 93,70%, presisi 93,72%, recall 93,70%, dan skor makro F1 93,69% pada data uji independen.)*
+  * *"Subgroup diagnostics reveal consistent performance gains, with intersectional F1-scores spanning 91.74% to 96.14%."*  
+    *(Diagnostik subkelompok menunjukkan peningkatan performa yang konsisten, dengan skor F1 interseksional berkisar antara 91,74% hingga 96,14%.)*
+- **Hal yang Harus Dihindari (What to Avoid)**: Ringkasan kualitatif yang mengambang (*"Model yang diajukan mencapai hasil yang sangat baik dan mengalahkan metode lain"*). Selalu laporkan persentase konkret, metrik baku, atau signifikansi statistik ($p < 0.05$).
 
-#### 5. Conclusion & Significance (1 sentence)
-- **Objective**: Deliver the takeaway insight, theoretical implication, or practical utility of the findings.
-- **Formulation**:
-  * *"...demonstrating the efficacy of multi-domain latent representations in mitigating intersectional demographic performance disparities."*
-  * *"These findings provide a lightweight, reproducible foundation for fair biometric verification in production systems."*
-- **What to Avoid**: Unsubstantiated future promises (*"This will solve all demographic bias in AI"*).
+#### 5. Kesimpulan & Signifikansi Ilmiah (Conclusion & Significance, 1 kalimat)
+- **Tujuan (Objective)**: Menyampaikan intisari utama, implikasi teoretis, atau kegunaan praktis dari temuan penelitian.
+- **Rumusan Kalimat (Formulation)**:
+  * *"...demonstrating the efficacy of multi-domain latent representations in mitigating intersectional demographic performance disparities."*  
+    *(...membuktikan efektivitas representasi laten multi-domain dalam memitigasi disparitas performa demografis interseksional.)*
+  * *"These findings provide a lightweight, reproducible foundation for fair biometric verification in production systems."*  
+    *(Temuan ini menyediakan fondasi yang ringan dan dapat direproduksi untuk verifikasi biometrik berkeadilan pada sistem produksi.)*
+- **Hal yang Harus Dihindari (What to Avoid)**: Janji masa depan yang berlebihan dan tidak berdasar (*"Penelitian ini akan melenyapkan seluruh bias demografis dalam AI"*).
 
 ---
 
-## 2. Abstract Types & Structural Formats
+## 2. Jenis Abstrak & Format Struktural (Abstract Types & Structural Formats)
 
-| Format | Structure | Typical Venue Norms |
+| Format | Struktur | Norma Tempat Publikasi Tipikal |
 |:---|:---|:---|
-| **Unstructured Dense Paragraph** (Most Common) | A single cohesive paragraph of 150–250 words integrating all 5 rhetorical components without subheadings. | IEEE transactions, ACM journals, Elsevier engineering, Springer CS journals. |
-| **Structured Abstract** | Explicit bold section labels: **Background**, **Methods**, **Results**, **Conclusions**. | Medical, clinical, and select health informatics journals (e.g., Lancet, JAMA, BMJ). |
-| **Extended Abstract** | Multi-paragraph summary (500–1,000 words) with mini-sections, preliminary tables, or bulleted contributions. | Major technical conference workshops and symposium submissions. |
+| **Paragraf Padat Tidak Terstruktur** (*Unstructured Dense Paragraph*, Paling Umum) | Paragraf tunggal kohesif berukuran 150–250 kata yang mengintegrasikan seluruh 5 komponen retorika tanpa subjudul. | Transaksi IEEE, jurnal ACM, jurnal rekayasa Elsevier, jurnal ilmu komputer Springer. |
+| **Abstrak Terstruktur** (*Structured Abstract*) | Memiliki label subjudul tebal eksplisit: **Background**, **Methods**, **Results**, **Conclusions** (atau **Latar Belakang**, **Metode**, **Hasil**, **Kesimpulan**). | Jurnal medis, klinis, dan informatika kesehatan tertentu (misalnya Lancet, JAMA, BMJ). |
+| **Abstrak Diperluas** (*Extended Abstract*) | Ringkasan multi-paragraf (500–1.000 kata) yang memuat sub-bagian mini, tabel awal, atau daftar poin kontribusi. | Workshop konferensi teknis bergengsi dan pengajuan simposium ilmiah. |
 
 ---
 
-## 3. Grammatical & Tense Conventions
+## 3. Konvensi Tata Bahasa & Kala Waktu (Grammatical & Tense Conventions)
 
-- **Past Tense**: Use simple past tense for actions carried out specifically in this study:
+- **Kala Lampau (Past Tense)**: Gunakan bentuk lampau (*simple past tense*) untuk tindakan dan prosedur yang dilakukan secara spesifik dalam penelitian ini:
   * *"Features were extracted offline..."*
   * *"The model achieved an accuracy of 93.70%..."*
   * *"We evaluated four downstream classifiers..."*
-- **Present Tense**: Use present tense for general scientific truths, existing system descriptions, or ongoing findings:
+- **Kala Kini (Present Tense)**: Gunakan bentuk kini (*simple present tense*) untuk kebenaran ilmiah umum, deskripsi sistem/arsitektur yang diusulkan, atau signifikansi temuan yang berlaku universal:
   * *"Automated demographic recognition faces significant variance..."*
   * *"The framework integrates three complementary representations..."*
   * *"These results demonstrate that..."*
-- **Strict Prohibition of Citations**: Never place bracketed references (`[1]`, `[2]`, or author-year citations) in the abstract. An abstract must remain fully self-contained across bibliographic indexing databases.
+- **Larangan Mutlak Sitasi (Strict Prohibition of Citations)**: Jangan pernah menyertakan rujukan berkurung siku (`[1]`, `[2]`, atau sitasi penulis-tahun) di dalam abstrak. Abstrak harus mampu berdiri sendiri secara utuh (*fully self-contained*) saat diindeks secara terpisah pada pangkalan data bibliografi global (Scopus, IEEE Xplore, Web of Science, PubMed).
